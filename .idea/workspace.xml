@@ -2,14 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bae407d-1439-4ad1-9d29-f7cb303a969a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../akku-master/.idea/code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bootstrap/.idea/bootstrap.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brandtexmaker/.idea/brandtexmaker.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../buildentory_symfony/.idea/buildentory_symfony.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cars_match/.idea/cars_match.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ctn_invoice_generator/.idea/invoice.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../finish/.idea/finish.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first_laravel/.idea/first_laravel.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_11_11_2020__12_44.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../my_first_symfony_full/.idea/my_first_symfony_full.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_zend/.idea/new_zend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stock_analysis/.idea/arp1_project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../symfony_new_blog/.idea/symfony_new_blog.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../xdebug_test/.idea/xdebug_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/add_claim_mls.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/add_claim_mls.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/ajax/call_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/ajax/call_report.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/builder_office_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builder_office_add.php" afterDir="false" />
@@ -183,6 +197,7 @@
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="ProjectId" id="1k8vPEGzQG01yTczfGm2glFAh8Z" />
@@ -195,7 +210,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -222,7 +239,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605095007971</updated>
       <workItem from="1605095009820" duration="1141000" />
-      <workItem from="1605100705748" duration="112000" />
+      <workItem from="1605100705748" duration="1684000" />
     </task>
     <servers />
   </component>
