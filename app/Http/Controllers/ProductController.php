@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -188,10 +189,12 @@ class ProductController extends Controller
         ]);
     }
 
-    public function product_details(Product $id) {
-        //dd($id);
+    public function product_details(Product $id, Request $request) {
+
+
         return view('product.frontend_product_details', [
-            'product' => $id
+            'product' => $id,
+            //'cart_lists' => $cart_lists
         ]);
     }
 }

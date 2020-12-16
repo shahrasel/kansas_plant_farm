@@ -118,23 +118,30 @@
                                         <p class="pro-desc">
                                             {{ $product->plant_description }}
                                         </p>
-                                        <div class="quantity-cart-box d-flex align-items-center">
-                                            <h6 class="option-title">qty:</h6>
-                                            <div class="quantity">
-                                                <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1"></div>
+                                        <form id="cartform">
+                                            @csrf
+                                            <div class="quantity-cart-box d-flex align-items-center">
+                                                <h6 class="option-title">qty:</h6>
+                                                <div class="quantity">
+                                                    <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity"></div>
+                                                </div>
+                                                <div class="action_link">
+<!--                                                    <a class="btn btn-cart2" href="#" type="button">Add to cart</a>-->
+                                                    <button class="btn btn-cart2">Add to cart</button>
+                                                </div>
                                             </div>
-                                            <div class="action_link">
-                                                <a class="btn btn-cart2" href="#">Add to cart</a>
+                                            <div class="pro-size">
+                                                <h6 class="option-title">size :</h6>
+                                                <select class="nice-select" onchange="change_price()" id="size_select_box" name="size">
+                                                    <option value="44">44"</option>
+                                                    <option value="55">55gal</option>
+                                                    <option value="66">flat of 66</option>
+                                                </select>
                                             </div>
-                                        </div>
-                                        <div class="pro-size">
-                                            <h6 class="option-title">size :</h6>
-                                            <select class="nice-select" onchange="change_price()" id="size_select_box">
-                                                <option value="44">44"</option>
-                                                <option value="55">55gal</option>
-                                                <option value="66">flat of 66</option>
-                                            </select>
-                                        </div>
+                                            <input type="hidden" name="addtocart" value="1">
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                            <input type="hidden" name="unit_price" id="unit_price" value="{{ $product->retail_sale_price_a }}">
+                                        </form>
                                         <div class="useful-links">
                                             {{--<a href="#" data-toggle="tooltip" title="Compare"><i
                                                     class="pe-7s-refresh-2"></i>compare</a>--}}
@@ -567,4 +574,37 @@
         </section>
         <!-- related products area end -->
     </main>
+@endsection
+@section('javascript')
+    <script>
+        jQuery( document ).ready( function( $ ) {
+            jQuery("select#size_select_box").change(function() {
+                if(jQuery("select#size_select_box").val() == '44') {
+                    jQuery("#unit_price").val("{{ $product->retail_sale_price_a }}");
+                }
+                else if(jQuery("select#size_select_box").val() == '55') {
+                    jQuery("#unit_price").val("{{ $product->retail_sale_price_b }}");
+                }
+                else if(jQuery("select#size_select_box").val() == '66') {
+                    jQuery("#unit_price").val("{{ $product->retail_sale_price_c }}");
+                }
+            });
+
+            $( '#cartform' ).on( 'submit', function(e) {
+                e.preventDefault();
+                var form = $("#cartform");
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url('add-to-cart') }}",
+                    data: form.serialize(),
+                }).done(function( msg ) {
+                    if(msg == 'Product is added to the cart successfully!') {
+                        //alert(msg);
+                        location.reload();
+                    }
+                });
+
+            });
+        });
+    </script>
 @endsection

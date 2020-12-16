@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\cart;
 use Illuminate\Support\ServiceProvider;
+use League\Flysystem\Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
@@ -23,6 +25,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /*$cart = new cart();
+        $cart_lists = $cart->getAllCartData();
+
+
+        view()->share('global_cart_lists', $cart_lists);*/
+
+        /*$cart = new cart();
+        $cart_lists = $cart->getCartData();*/
     }
 }

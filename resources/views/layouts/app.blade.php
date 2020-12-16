@@ -34,6 +34,10 @@
 
 </head>
 <body>
+@inject('cart', 'App\Models\cart')
+@php
+    $cartlists = $cart->getCartData();
+@endphp
 <!-- Start Header Area -->
 <header class="header-area header-wide">
     <!-- main header start -->
@@ -237,9 +241,9 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="minicart-btn">
+                                        <a href="#" class="minicart-btn" data-turbolinks="false">
                                             <i class="pe-7s-shopbag"></i>
-                                            <div class="notification">2</div>
+                                            <div class="notification">{{ $cartlists->count() }}</div>
                                         </a>
                                     </li>
                                 </ul>
@@ -689,6 +693,9 @@
 </div>
 <!-- Quick view modal end -->
 
+
+
+{{--{{ dd($cart->getCartData()) }}--}}
 <!-- offcanvas mini cart start -->
 <div class="offcanvas-minicart-wrapper">
     <div class="minicart-inner">
@@ -697,71 +704,71 @@
             <div class="minicart-close">
                 <i class="pe-7s-close"></i>
             </div>
-            <div class="minicart-content-box">
-                <div class="minicart-item-wrapper">
-                    <ul>
-                        <li class="minicart-item">
-                            <div class="minicart-thumb">
-                                <a href="product-details.html">
-                                    <img src="{{ asset('img/cart/cart-1.jpg') }}" alt="product">
-                                </a>
-                            </div>
-                            <div class="minicart-content">
-                                <h3 class="product-name">
-                                    <a href="product-details.html">Dozen White Botanical Linen Dinner Napkins</a>
-                                </h3>
-                                <p>
-                                    <span class="cart-quantity">1 <strong>&times;</strong></span>
-                                    <span class="cart-price">$100.00</span>
-                                </p>
-                            </div>
-                            <button class="minicart-remove"><i class="pe-7s-close"></i></button>
-                        </li>
-                        <li class="minicart-item">
-                            <div class="minicart-thumb">
-                                <a href="product-details.html">
-                                    <img src="{{ asset('img/cart/cart-2.jpg') }}" alt="product">
-                                </a>
-                            </div>
-                            <div class="minicart-content">
-                                <h3 class="product-name">
-                                    <a href="product-details.html">Dozen White Botanical Linen Dinner Napkins</a>
-                                </h3>
-                                <p>
-                                    <span class="cart-quantity">1 <strong>&times;</strong></span>
-                                    <span class="cart-price">$80.00</span>
-                                </p>
-                            </div>
-                            <button class="minicart-remove"><i class="pe-7s-close"></i></button>
-                        </li>
-                    </ul>
-                </div>
+            <div class="minicart-content-box" id="cart_div">
+                @if(!$cartlists->isEmpty())
+                    <div class="minicart-item-wrapper">
+                        <ul>
+                            @php
+                                $i=0;
+                            @endphp
+                            @forelse($cartlists as $cartdata)
+                                <li class="minicart-item">
+                                    <div class="minicart-thumb">
+                                        <a href="product-details.html">
+                                            <img src="{{ asset('plants_images/5.jpg') }}" alt="product">
+                                        </a>
+                                    </div>
+                                    <div class="minicart-content">
+                                        <h3 class="product-name">
+                                            <a href="product-details/{{ $cartdata->product->id }}">{{ $cartdata->product->common_name }}</a>
+                                        </h3>
+                                        <p>
+                                            <span class="cart-quantity">{{ $cartdata->quantity }} <strong>&times;</strong></span>
+                                            <span class="cart-price">${{ $cartdata->unit_price }}</span>
+                                        </p>
+                                    </div>
+                                    <button class="minicart-remove" onclick="deleteCartItem({{ $cartdata->id }})"><i class="pe-7s-close"></i></button>
+                                </li>
+                                @php
+                                    $i += $cartdata->quantity*$cartdata->unit_price;
+                                @endphp
+                            @empty
+                                <p>No product is added to the cart!</p>
+                            @endforelse
+                        </ul>
+                    </div>
 
-                <div class="minicart-pricing-box">
-                    <ul>
-                        <li>
-                            <span>sub-total</span>
-                            <span><strong>$300.00</strong></span>
-                        </li>
-                        <li>
-                            <span>Eco Tax (-2.00)</span>
-                            <span><strong>$10.00</strong></span>
-                        </li>
-                        <li>
-                            <span>VAT (20%)</span>
-                            <span><strong>$60.00</strong></span>
-                        </li>
-                        <li class="total">
-                            <span>total</span>
-                            <span><strong>$370.00</strong></span>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="minicart-pricing-box">
+                        <ul>
+                            <li>
+                                <span>sub-total</span>
+                                <span><strong>${{ number_format($i, 2, '.', ',') }}</strong></span>
+                            </li>
+    <!--                        <li>
+                                <span>Eco Tax (-2.00)</span>
+                                <span><strong>$10.00</strong></span>
+                            </li>-->
+                            <li>
+                                <span>VAT (10%)</span>
+                                <span><strong>${{ number_format(10/100*$i, 2, '.', ',') }}</strong></span>
+                            </li>
+                            @php
+                                $i += 10/100*$i;
+                            @endphp
 
+                            <li class="total">
+                                <span>total</span>
+                                <span><strong>${{ number_format($i, 2, '.', ',') }}</strong></span>
+                            </li>
+                        </ul>
+                    </div>
                 <div class="minicart-button">
-                    <a href="cart.html"><i class="fa fa-shopping-cart"></i> View Cart</a>
-                    <a href="cart.html"><i class="fa fa-share"></i> Checkout</a>
+                    <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> View Cart</a>
+                    <a href="{{ url('/checkout') }}"><i class="fa fa-share"></i> Checkout</a>
                 </div>
+                @else
+                    <p>No product is added to the cart!</p>
+                @endif
             </div>
         </div>
     </div>
@@ -798,9 +805,9 @@
 <!-- contact form dynamic js -->
 <script src="{{ asset('js/plugins/ajax-mail.js')  }}"></script>
 <!-- google map api -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfmCVTjRI007pC1Yk2o2d_EhgkjTsFVN8"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfmCVTjRI007pC1Yk2o2d_EhgkjTsFVN8"></script>-->
 <!-- google map active js -->
-<script src="{{ asset('js/plugins/google-map.js')  }}"></script>
+<!--<script src="{{ asset('js/plugins/google-map.js')  }}"></script>-->
 <!-- Main JS -->
 <script src="{{ asset('js/main.js')  }}"></script>
 <script>
@@ -827,6 +834,12 @@
             hideAllPrice();
             jQuery("#flat66_size_price").css('display','block');
         }
+    }
+
+    function deleteCartItem(id) {
+        $.ajax({url: "../delete-cart-item?id="+id, success: function(result){
+                $("#cart_div").html(result);
+        }});
     }
 </script>
 @yield('javascript');
