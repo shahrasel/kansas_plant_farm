@@ -73,14 +73,8 @@ class CartController extends Controller
             if(!empty($arr)) {
                 for($i=0;$i<count($arr);$i++) {
                     if(!empty($arr[$i])) {
-                        /*$cart = new Cart();
-                        $cart->id = $arr[$i];
-                        $cart->quantity = $request->get('quantity_' . $arr[$i]);
-                        $cart->update();*/
                         $cart = Cart::find($arr[$i]);
-
                         $cart->quantity = $request->get('quantity_' . $arr[$i]);
-
                         $cart->save();
                     }
                 }

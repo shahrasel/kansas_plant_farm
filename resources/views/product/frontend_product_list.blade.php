@@ -23,36 +23,38 @@
 
         <!-- page main wrapper start -->
         <div class="shop-main-wrapper section-padding">
-            <div class="container">
+            <div class="container" id="parent_container">
                 <div class="row">
                     <!-- sidebar area start -->
-                    <div class="col-lg-3 order-2 order-lg-1">
-                        <aside class="sidebar-wrapper">
-                            <!-- single sidebar start -->
-                            <div class="sidebar-single">
-                                <h5 class="sidebar-title open">categories<i></i></h5>
-                                <div class="sidebar-body">
-                                    <ul class="shop-categories">
-                                        <li><a href="{{ url("/products") }}">All <span>({{ $total_product_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=perennial") }}">Perennial <span>({{ $perennial_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=shrub") }}">Shrub <span>({{ $shrub_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=vine") }}">Vine <span>({{ $vine_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=grass_bamboo") }}">Grass/Bamboo <span>({{ $grass_bamboo_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=hardy_tropical") }}">Hardy Tropical <span>({{ $hardy_tropical_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=water_plant") }}">Water Plant <span>({{ $water_plant_cat_count }})</span></a></li>
 
-                                        <li><a href="{{ url("/products?category=annual") }}">Annual <span>({{ $annual_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=house_deck_plant") }}">House/Deck Plant <span>({{ $house_deck_plant_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=cactus_succulent") }}">Cactus/Succulent <span>({{ $cactus_succulent_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=small_tree") }}">Small Tree <span>({{ $small_tree_cat_count }})</span></a></li>
-                                        <li><a href="{{ url("/products?category=large_tree") }}">Large Tree <span>({{ $large_tree_cat_count }})</span></a></li>
-                                    </ul>
+                    @if(checkDevice() != 'phone')
+                        <div class="col-lg-3 order-2 order-lg-1">
+                            <aside class="sidebar-wrapper">
+                                <!-- single sidebar start -->
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title open">categories<i></i></h5>
+                                    <div class="sidebar-body">
+                                        <ul class="shop-categories">
+                                            <li><a href="{{ url("/products") }}">All <span>({{ $total_product_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=perennial") }}">Perennial <span>({{ $perennial_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=shrub") }}">Shrub <span>({{ $shrub_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=vine") }}">Vine <span>({{ $vine_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=grass_bamboo") }}">Grass/Bamboo <span>({{ $grass_bamboo_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=hardy_tropical") }}">Hardy Tropical <span>({{ $hardy_tropical_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=water_plant") }}">Water Plant <span>({{ $water_plant_cat_count }})</span></a></li>
+
+                                            <li><a href="{{ url("/products?category=annual") }}">Annual <span>({{ $annual_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=house_deck_plant") }}">House/Deck Plant <span>({{ $house_deck_plant_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=cactus_succulent") }}">Cactus/Succulent <span>({{ $cactus_succulent_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=small_tree") }}">Small Tree <span>({{ $small_tree_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products?category=large_tree") }}">Large Tree <span>({{ $large_tree_cat_count }})</span></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- single sidebar end -->
+                                <!-- single sidebar end -->
 
-                            <!-- single sidebar start -->
-<!--                            <div class="sidebar-single">
+                                <!-- single sidebar start -->
+                            <!--                            <div class="sidebar-single">
                                 <h5 class="sidebar-title">price</h5>
                                 <div class="sidebar-body">
                                     <div class="price-range-wrap">
@@ -60,19 +62,19 @@
                                         <div class="range-slider">
                                             <form action="" class="d-flex align-items-center justify-content-between" method="post">
                                                 @csrf
-                                                <div class="price-input">
-                                                    <label for="amount">Price: </label>
-                                                    <input type="text" id="amount" name="amount">
-                                                </div>
-                                                <button class="filter-btn" type="submit">filter</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                <div class="price-input">
+                                    <label for="amount">Price: </label>
+                                    <input type="text" id="amount" name="amount">
                                 </div>
-                            </div>-->
-                            <!-- single sidebar end -->
+                                <button class="filter-btn" type="submit">filter</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+                                <!-- single sidebar end -->
 
-                            <!-- single sidebar start -->
+                                <!-- single sidebar start -->
                             {{--<div class="sidebar-single">
                                 <h5 class="sidebar-title">Brand</h5>
                                 <div class="sidebar-body">
@@ -112,7 +114,7 @@
                             </div>--}}
                             <!-- single sidebar end -->
 
-                            <!-- single sidebar start -->
+                                <!-- single sidebar start -->
                             {{--<div class="sidebar-single">
                                 <h5 class="sidebar-title">color</h5>
                                 <div class="sidebar-body">
@@ -152,35 +154,36 @@
                             </div>--}}
                             <!-- single sidebar end -->
 
-                            <!-- single sidebar start -->
-                            <div class="sidebar-single">
-                                <h5 class="sidebar-title">size<i></i></h5>
-                                <div class="sidebar-body" style="display: none">
-                                    <ul class="checkbox-container categories-list">
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck111">
-                                                <label class="custom-control-label" for="customCheck111">44"</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck222">
-                                                <label class="custom-control-label" for="customCheck222">55gal</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck333">
-                                                <label class="custom-control-label" for="customCheck333">flat of 66</label>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <!-- single sidebar start -->
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title">size<i></i></h5>
+                                    <div class="sidebar-body" style="display: none">
+                                        <ul class="checkbox-container categories-list">
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck111">
+                                                    <label class="custom-control-label" for="customCheck111">44"</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck222">
+                                                    <label class="custom-control-label" for="customCheck222">55gal</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck333">
+                                                    <label class="custom-control-label" for="customCheck333">flat of 66</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- single sidebar end -->
-                        </aside>
-                    </div>
+                                <!-- single sidebar end -->
+                            </aside>
+                        </div>
+                    @endif
                     <!-- sidebar area end -->
 
                     <!-- shop main wrapper start -->
@@ -289,8 +292,17 @@
                                                     <a href="product-details.html">Perfect Diamond Jewelry</a>
                                                 </h6>--}}
                                                 <div class="price-box">
-                                                    <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
-                                                    <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                    @if (Auth::check())
+                                                        @if(Auth()->user()->usertype=='buyer')
+                                                            <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
+                                                            <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                        @else
+                                                            <span class="price-regular">${{ $product->contractor_price_a }}</span>
+                                                        @endif
+                                                    @else
+                                                        <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
+                                                        <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                    @endif
                                                 </div>
 
                                                 <div class="manufacturer-name" style="margin-top: 20px;line-height: 30px;">
@@ -353,8 +365,17 @@
                                                 <a href="product-details/{{ $product->id }}">{{ $product->common_name }} <br/> <i>{{ $product->botanical_name }}</i></a>
                                             </h5>
                                             <div class="price-box">
-                                                <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
-                                                <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                @if (Auth::check())
+                                                    @if(Auth()->user()->usertype=='buyer')
+                                                        <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
+                                                        <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                    @else
+                                                        <span class="price-regular">${{ $product->contractor_price_a }}</span>
+                                                    @endif
+                                                @else
+                                                    <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
+                                                    <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                @endif
                                             </div>
                                             <div class="manufacturer-name" style="margin-top: 20px;">
                                                 @if($product->perennial == 'YES')
@@ -428,13 +449,190 @@
         <!-- page main wrapper end -->
     </main>
 
+    @if(checkDevice() == 'phone')
+        <div id="filter_div" class="col-lg-3 order-2 order-lg-1" style="position: absolute !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;background-color: rgba(0, 0, 0, 0.90);z-index: 1000;padding-top: 0px;padding-bottom: 20px;display: none;overflow: auto;">
+            <div class="minicart-close" style="width: 50px;
+height: 50px;
+text-align: center;
+background-color: #7fbc03;
+color: #fff;
+font-size: 50px;
+cursor: pointer;
+top: 0px;
+right: 0px;
+position: absolute;">
+                <a onclick="showFilterDiv()"><i class="pe-7s-close" style="display:block"></i></a>
+            </div>
+            <aside class="sidebar-wrapper">
+                <!-- single sidebar start -->
+                <div class="sidebar-single" style="padding-top: 20px;">
+                    <h5 class="sidebar-title open">categories<i></i></h5>
+                    <div class="sidebar-body">
+                        <ul class="shop-categories">
+                            <li><a href="{{ url("/products") }}">All <span>({{ $total_product_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=perennial") }}">Perennial <span>({{ $perennial_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=shrub") }}">Shrub <span>({{ $shrub_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=vine") }}">Vine <span>({{ $vine_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=grass_bamboo") }}">Grass/Bamboo <span>({{ $grass_bamboo_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=hardy_tropical") }}">Hardy Tropical <span>({{ $hardy_tropical_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=water_plant") }}">Water Plant <span>({{ $water_plant_cat_count }})</span></a></li>
 
+                            <li><a href="{{ url("/products?category=annual") }}">Annual <span>({{ $annual_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=house_deck_plant") }}">House/Deck Plant <span>({{ $house_deck_plant_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=cactus_succulent") }}">Cactus/Succulent <span>({{ $cactus_succulent_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=small_tree") }}">Small Tree <span>({{ $small_tree_cat_count }})</span></a></li>
+                            <li><a href="{{ url("/products?category=large_tree") }}">Large Tree <span>({{ $large_tree_cat_count }})</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- single sidebar end -->
+
+                <!-- single sidebar start -->
+            <!--                            <div class="sidebar-single">
+                                <h5 class="sidebar-title">price</h5>
+                                <div class="sidebar-body">
+                                    <div class="price-range-wrap">
+                                        <div class="price-range" data-min="1" data-max="1000"></div>
+                                        <div class="range-slider">
+                                            <form action="" class="d-flex align-items-center justify-content-between" method="post">
+                                                @csrf
+                <div class="price-input">
+                    <label for="amount">Price: </label>
+                    <input type="text" id="amount" name="amount">
+                </div>
+                <button class="filter-btn" type="submit">filter</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>-->
+                <!-- single sidebar end -->
+
+                <!-- single sidebar start -->
+            {{--<div class="sidebar-single">
+                <h5 class="sidebar-title">Brand</h5>
+                <div class="sidebar-body">
+                    <ul class="checkbox-container categories-list">
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                <label class="custom-control-label" for="customCheck2">Studio (3)</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                <label class="custom-control-label" for="customCheck3">Hastech (4)</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                <label class="custom-control-label" for="customCheck4">Quickiin (15)</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Graphic corner (10)</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                <label class="custom-control-label" for="customCheck5">devItems (12)</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>--}}
+            <!-- single sidebar end -->
+
+                <!-- single sidebar start -->
+            {{--<div class="sidebar-single">
+                <h5 class="sidebar-title">color</h5>
+                <div class="sidebar-body">
+                    <ul class="checkbox-container categories-list">
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck12">
+                                <label class="custom-control-label" for="customCheck12">black (20)</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck13">
+                                <label class="custom-control-label" for="customCheck13">red (6)</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck14">
+                                <label class="custom-control-label" for="customCheck14">blue (8)</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck11">
+                                <label class="custom-control-label" for="customCheck11">green (5)</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck15">
+                                <label class="custom-control-label" for="customCheck15">pink (4)</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>--}}
+            <!-- single sidebar end -->
+
+                <!-- single sidebar start -->
+                <div class="sidebar-single" style="padding-bottom: 90px;">
+                    <h5 class="sidebar-title">size<i></i></h5>
+                    <div class="sidebar-body" style="display: none">
+                        <ul class="checkbox-container categories-list">
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck111">
+                                    <label class="custom-control-label" for="customCheck111">44"</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck222">
+                                    <label class="custom-control-label" for="customCheck222">55gal</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck333">
+                                    <label class="custom-control-label" for="customCheck333">flat of 66</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- single sidebar end -->
+            </aside>
+        </div>
+    @endif
 @endsection
 
 @section('javascript')
     <script>
         jQuery(document).ready(function($){
             //you can now use $ as your jQuery object.
+            $('html, body').css({
+                overflow: 'auto',
+                height: 'auto'
+            });
+
             jQuery(".sidebar-title").click(function() {
                 jQuery(this).toggleClass('open');
                 jQuery(this).parent().addClass('active').find('.sidebar-body').slideToggle('fast');

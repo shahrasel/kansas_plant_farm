@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use http\Client\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -50,7 +52,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,10 +67,41 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        /*return User::create([
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ]);*/
+        $user = new User();
+        $user->firstname = $data['firstname'];
+        $user->lastname = $data['lastname'];
+        $user->password = Hash::make($data['password']);
+        $user->email = $data['email'];
+        $user->usertype = 'buyer';
+        $user->save();
+
+        //return redirect()->route('login');
+        //return redirect($this->redirectPath())->with('message', 'Your message');
+        //return route('login');
+        //Auth::login($user);
+        return route('checkout');
+
     }
+
+    /*public function register(Request $request) {
+        dd($request->all());
+        $user = new User();
+        $user->firstname = $request->get('firstname');
+        $user->lastname = $request->get('lastname');
+        $user->password = Hash::make($request->get('password'));
+        $user->email = $request->get('email');
+        $user->save();
+
+        //return redirect()->route('login');
+        //return redirect($this->redirectPath())->with('message', 'Your message');
+        //return route('login');
+        //Auth::login($user);
+        return route('login');
+    }*/
 }

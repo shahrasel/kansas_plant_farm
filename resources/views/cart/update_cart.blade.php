@@ -44,11 +44,11 @@
                                             <span><strong>$10.00</strong></span>
                                         </li>-->
                 <li>
-                    <span>VAT (10%)</span>
-                    <span><strong>${{ number_format(10/100*$i, 2, '.', ',') }}</strong></span>
+                    <span>Sales Tax (8.25%)</span>
+                    <span><strong>${{ number_format(8.25/100*$i, 2, '.', ',') }}</strong></span>
                 </li>
                 @php
-                    $i += 10/100*$i;
+                    $i += 8.25/100*$i;
                 @endphp
 
                 <li class="total">

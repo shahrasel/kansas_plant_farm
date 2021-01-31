@@ -56,18 +56,49 @@
                                     <div class="product-details-des">
                                         <h3 class="product-name">{{ $product->common_name }} <br/> <i>{{ $product->botanical_name }}</i></h3>
 
-                                        <div class="price-box" id="44_size_price">
-                                            <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
-                                            <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
-                                        </div>
-                                        <div class="price-box" id="55gal_size_price" style="display: none">
-                                            <span class="price-regular">${{ $product->retail_sale_price_b }}</span>
-                                            <span class="price-old"><del>${{ $product->retail_list_price_b }}</del></span>
-                                        </div>
-                                        <div class="price-box" id="flat66_size_price" style="display: none">
-                                            <span class="price-regular">${{ $product->retail_sale_price_c }}</span>
-                                            <span class="price-old"><del>${{ $product->retail_list_price_c }}</del></span>
-                                        </div>
+                                        @if (Auth::check())
+                                            @if(Auth()->user()->usertype=='buyer')
+                                                <div class="price-box" id="44_size_price">
+                                                    <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
+                                                    <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                </div>
+                                                <div class="price-box" id="55gal_size_price" style="display: none">
+                                                    <span class="price-regular">${{ $product->retail_sale_price_b }}</span>
+                                                    <span class="price-old"><del>${{ $product->retail_list_price_b }}</del></span>
+                                                </div>
+                                                <div class="price-box" id="flat66_size_price" style="display: none">
+                                                    <span class="price-regular">${{ $product->retail_sale_price_c }}</span>
+                                                    <span class="price-old"><del>${{ $product->retail_list_price_c }}</del></span>
+                                                </div>
+                                            @else
+                                                <div class="price-box" id="44_size_price">
+                                                    <span class="price-regular">${{ $product->contractor_price_a }}</span>
+                                                </div>
+                                                <div class="price-box" id="55gal_size_price" style="display: none">
+                                                    <span class="price-regular">${{ $product->contractor_price_b }}</span>
+                                                </div>
+                                                <div class="price-box" id="flat66_size_price" style="display: none">
+                                                    <span class="price-regular">${{ $product->contractor_price_c }}</span>
+                                                </div>
+                                            @endif
+                                        @else
+                                            <div class="price-box" id="44_size_price">
+                                                <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
+                                                <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                            </div>
+                                            <div class="price-box" id="55gal_size_price" style="display: none">
+                                                <span class="price-regular">${{ $product->retail_sale_price_b }}</span>
+                                                <span class="price-old"><del>${{ $product->retail_list_price_b }}</del></span>
+                                            </div>
+                                            <div class="price-box" id="flat66_size_price" style="display: none">
+                                                <span class="price-regular">${{ $product->retail_sale_price_c }}</span>
+                                                <span class="price-old"><del>${{ $product->retail_list_price_c }}</del></span>
+                                            </div>
+                                        @endif
+
+
+
+
                                         {{--<h5 class="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
                                         <div class="product-countdown" data-countdown="2019/12/20"></div>--}}
                                         <div class="manufacturer-name">
@@ -140,14 +171,48 @@
                                             </div>
                                             <input type="hidden" name="addtocart" value="1">
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <input type="hidden" name="unit_price" id="unit_price" value="{{ $product->retail_sale_price_a }}">
+
+                                            @if (Auth::check())
+                                                @if(Auth()->user()->usertype=='buyer')
+                                                    <input type="hidden" name="unit_price" id="unit_price" value="{{ $product->retail_sale_price_a }}">
+                                                @else
+                                                    <input type="hidden" name="unit_price" id="unit_price" value="{{ $product->contractor_price_a }}">
+                                                @endif
+                                            @else
+                                                <input type="hidden" name="unit_price" id="unit_price" value="{{ $product->retail_sale_price_a }}">
+                                            @endif
+
+
                                         </form>
-                                        <div class="useful-links">
-                                            {{--<a href="#" data-toggle="tooltip" title="Compare"><i
-                                                    class="pe-7s-refresh-2"></i>compare</a>--}}
-                                            <a href="#" data-toggle="tooltip" title="Wishlist"><i
-                                                    class="pe-7s-like"></i>wishlist</a>
-                                        </div>
+
+
+                                        @auth
+                                            @inject('wishlist', 'App\Models\Wishlist')
+
+                                            <form id="wishlist_form" method="post">
+                                                @csrf
+                                                <div class="useful-links">
+                                                    {{--<a href="#" data-toggle="tooltip" title="Compare"><i
+                                                        class="pe-7s-refresh-2"></i>compare</a>--}}
+                                                    <a onclick="wishlist_form_submit()" data-toggle="tooltip" title="Wishlist" style="cursor: pointer;text-transform: none">
+
+                                                            @if($wishlist->checkUsersWishlist($product) == 1)
+                                                            <i id="like_active" class="pe-7s-like like_active"></i><span id="wish_text">Added to wishlist</span></a>
+                                                            @else
+                                                        <i id="like_active" class="pe-7s-like"></i><span id="wish_text">Add to wishlist</span></a>
+                                                            @endif
+                                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                </div>
+                                            </form>
+                                        @endauth
+                                        @guest
+                                            <div class="useful-links">
+                                                <a href="{{ url('/login') }}" data-toggle="tooltip" title="Wishlist" style="cursor: pointer">
+                                                    <i id="like_active" class="pe-7s-like"></i>Add to wishlist
+                                                </a>
+                                            </div>
+                                        @endguest
                                         <div class="like-icon">
                                             <a class="facebook" href="#"><i class="fa fa-facebook"></i>like</a>
                                             <a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
@@ -579,15 +644,42 @@
     <script>
         jQuery( document ).ready( function( $ ) {
             jQuery("select#size_select_box").change(function() {
-                if(jQuery("select#size_select_box").val() == '44') {
-                    jQuery("#unit_price").val("{{ $product->retail_sale_price_a }}");
-                }
-                else if(jQuery("select#size_select_box").val() == '55') {
-                    jQuery("#unit_price").val("{{ $product->retail_sale_price_b }}");
-                }
-                else if(jQuery("select#size_select_box").val() == '66') {
-                    jQuery("#unit_price").val("{{ $product->retail_sale_price_c }}");
-                }
+                @if (Auth::check())
+                    @if(Auth()->user()->usertype=='buyer')
+                        if(jQuery("select#size_select_box").val() == '44') {
+                            jQuery("#unit_price").val("{{ $product->retail_sale_price_a }}");
+                        }
+                        else if(jQuery("select#size_select_box").val() == '55') {
+                            jQuery("#unit_price").val("{{ $product->retail_sale_price_b }}");
+                        }
+                        else if(jQuery("select#size_select_box").val() == '66') {
+                            jQuery("#unit_price").val("{{ $product->retail_sale_price_c }}");
+                        }
+                    @else
+                        if(jQuery("select#size_select_box").val() == '44') {
+                            jQuery("#unit_price").val("{{ $product->contractor_price_a }}");
+                        }
+                        else if(jQuery("select#size_select_box").val() == '55') {
+                            jQuery("#unit_price").val("{{ $product->contractor_price_b }}");
+                        }
+                        else if(jQuery("select#size_select_box").val() == '66') {
+                            jQuery("#unit_price").val("{{ $product->contractor_price_c }}");
+                        }
+                    @endif
+                @else
+                    if(jQuery("select#size_select_box").val() == '44') {
+                        jQuery("#unit_price").val("{{ $product->retail_sale_price_a }}");
+                    }
+                    else if(jQuery("select#size_select_box").val() == '55') {
+                        jQuery("#unit_price").val("{{ $product->retail_sale_price_b }}");
+                    }
+                    else if(jQuery("select#size_select_box").val() == '66') {
+                        jQuery("#unit_price").val("{{ $product->retail_sale_price_c }}");
+                    }
+                @endif
+
+
+
             });
 
             $( '#cartform' ).on( 'submit', function(e) {

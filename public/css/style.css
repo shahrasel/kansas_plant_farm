@@ -1264,6 +1264,19 @@ textarea:focus {
   color: #7fbc03;
 }
 
+.header-configure-area ul li.user-hover .dropdown-list li button {
+    color: #7fbc03;
+    font-size: 13px;
+    line-height: 1;
+    display: block;
+    padding: 8px 0;
+    text-transform: capitalize;
+}
+
+.header-configure-area ul li.user-hover .dropdown-list li button:hover {
+    color: #7fbc03;
+}
+
 .header-configure-area ul li.user-hover:hover .dropdown-list {
   opacity: 1;
   visibility: visible;
@@ -6373,6 +6386,38 @@ blockquote {
   width: 25px;
 }
 
+
+
+
+.myaccount-tab-menu button {
+    border: 1px solid #efefef;
+    border-bottom: none;
+    color: #7fbc03;
+    font-weight: 400;
+    font-size: 15px;
+    display: block;
+    padding: 10px 15px;
+    text-transform: capitalize;
+    width: 100%;
+    text-align: left;
+}
+
+.myaccount-tab-menu button:last-child {
+    border-bottom: 1px solid #efefef;
+}
+
+.myaccount-tab-menu button:hover, .myaccount-tab-menu button.active {
+    background-color: #7fbc03;
+    border-color: #7fbc03;
+    color: #fff;
+}
+
+.myaccount-tab-menu button i.fa {
+    font-size: 14px;
+    text-align: center;
+    width: 25px;
+}
+
 @media only screen and (max-width: 767.98px) {
   #myaccountContent {
     margin-top: 30px;
@@ -6806,6 +6851,14 @@ blockquote {
     font-style: normal;
     font-size: 1.625em;
     color: #7FBC03;
+}
+
+.like_active {
+    padding: 5px !important;
+    margin-right: 5px !important;
+    border-radius: 50% !important;
+    background-color: #7fbc03 !important;
+    color: #fff !important;
 }
 
 /*----- footer area end -----*/

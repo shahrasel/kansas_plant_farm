@@ -69,11 +69,11 @@
                                     <td>${{ number_format($i, 2, '.', ',') }}</td>
                                 </tr>
                                 <tr>
-                                    <td>VAT (10%)</td>
-                                    <td>${{ number_format(10/100*$i, 2, '.', ',') }}</td>
+                                    <td>Sales Tax (8.25%)</td>
+                                    <td>${{ number_format(8.25/100*$i, 2, '.', ',') }}</td>
                                 </tr>
                                 @php
-                                    $i += 10/100*$i;
+                                    $i += 8.25/100*$i;
                                 @endphp
                                 <tr class="total">
                                     <td>Total</td>

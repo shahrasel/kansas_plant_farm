@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Corano - Jewellery Shop eCommerce Bootstrap 4 Template</title>
+    <title>Kansas  - Lorem ipsum dolor</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,9 +32,11 @@
     <!-- main style css -->
     <link rel="stylesheet" href="{{asset('css/style.css?v=').time()}}">
 
+    @yield('custom_styles')
+
 </head>
 <body>
-@inject('cart', 'App\Models\cart')
+@inject('cart', 'App\Models\Cart')
 @php
     $cartlists = $cart->getCartData();
 @endphp
@@ -162,8 +164,8 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="shop.html">shop <i class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown">
+                                        <li><a href="{{ url('/products') }}">shop</a>
+<!--                                            <ul class="dropdown">
                                                 <li><a href="#">shop grid layout <i class="fa fa-angle-right"></i></a>
                                                     <ul class="dropdown">
                                                         <li><a href="shop.html">shop grid left sidebar</a></li>
@@ -187,7 +189,7 @@
                                                         <li><a href="product-details-group.html">product details group</a></li>
                                                     </ul>
                                                 </li>
-                                            </ul>
+                                            </ul>-->
                                         </li>
                                         <li><a href="blog-left-sidebar.html">Blog <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown">
@@ -229,9 +231,22 @@
                                             <i class="pe-7s-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
-                                            <li><a href="login-register.html">login</a></li>
-                                            <li><a href="login-register.html">register</a></li>
-                                            <li><a href="my-account.html">my account</a></li>
+                                            @auth
+                                                <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                                <li><a href="{{ route('orders') }}">Orders</a></li>
+                                                <li><a href="{{ route('my-profile') }}">My Profile</a></li>
+                                                <form action="{{ url('/logout') }}" method="post">
+                                                    @csrf
+                                                    <li>
+                                                    <button type="submit">Logout</button>
+                                                    </li>
+                                                </form>
+                                            @endauth
+                                            @guest
+                                                    <li><a href="{{ route('login') }}">login</a></li>
+                                                    <li><a href="{{ route('register') }}">register</a></li>
+                                            @endguest
+
                                         </ul>
                                     </li>
                                     <li>
@@ -274,9 +289,9 @@
                         </div>
                         <div class="mobile-menu-toggler">
                             <div class="mini-cart-wrap">
-                                <a href="cart.html">
+                                <a href="{{ url('/cart') }}">
                                     <i class="pe-7s-shopbag"></i>
-                                    <div class="notification">0</div>
+                                    <div class="notification">{{ $cartlists->count() }}</div>
                                 </a>
                             </div>
                             <button class="mobile-menu-btn">
@@ -371,8 +386,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children "><a href="#">shop</a>
-                                <ul class="dropdown">
+                            <li class="menu-item-has-children "><a href="{{ url('/products') }}">shop</a>
+<!--                                <ul class="dropdown">
                                     <li class="menu-item-has-children"><a href="#">shop grid layout</a>
                                         <ul class="dropdown">
                                             <li><a href="shop.html">shop grid left sidebar</a></li>
@@ -396,7 +411,7 @@
                                             <li><a href="product-details-group.html">product details group</a></li>
                                         </ul>
                                     </li>
-                                </ul>
+                                </ul>-->
                             </li>
                             <li class="menu-item-has-children "><a href="#">Blog</a>
                                 <ul class="dropdown">
@@ -440,10 +455,30 @@
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                    <a class="dropdown-item" href="my-account.html">my account</a>
+<!--                                    <a class="dropdown-item" href="my-account.html">my account</a>
                                     <a class="dropdown-item" href="login-register.html"> login</a>
-                                    <a class="dropdown-item" href="login-register.html">register</a>
+                                    <a class="dropdown-item" href="login-register.html">register</a>-->
+
+                                    @auth
+                                        <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                                        <a class="dropdown-item" href="{{ route('orders') }}">Orders</a>
+                                        <a class="dropdown-item" href="{{ route('my-profile') }}">My Profile</a>
+                                        <form action="{{ url('/logout') }}" method="post">
+                                            @csrf
+
+                                            <button type="submit">Logout</button>
+
+                                        </form>
+                                    @endauth
+                                    @guest
+                                        <a class="dropdown-item" href="{{ route('login') }}">login</a>
+                                        <a class="dropdown-item" href="{{ route('register') }}">register</a>
+                                    @endguest
+
                                 </div>
+
+
+
                             </div>
                         </li>
                     </ul>
@@ -478,7 +513,9 @@
 </header>
 <!-- end Header Area -->
 
-@yield('content');
+{{--{{ checkDevice() }}--}}
+
+@yield('content')
 
 
 
@@ -749,11 +786,11 @@
                                 <span><strong>$10.00</strong></span>
                             </li>-->
                             <li>
-                                <span>VAT (10%)</span>
-                                <span><strong>${{ number_format(10/100*$i, 2, '.', ',') }}</strong></span>
+                                <span>Sales Tax (8.25%)</span>
+                                <span><strong>${{ number_format(8.25/100*$i, 2, '.', ',') }}</strong></span>
                             </li>
                             @php
-                                $i += 10/100*$i;
+                                $i += 8.25/100*$i;
                             @endphp
 
                             <li class="total">
@@ -774,6 +811,17 @@
     </div>
 </div>
 <!-- offcanvas mini cart end -->
+@if(checkDevice() == 'phone')
+    @if(Request::path() == 'products')
+        <div id="calltextdiv" style="position: fixed; width: 101%; height: 50px; color: rgb(255, 255, 255); bottom: 0px; text-align: center; background-color: #7FBC03;display:block;z-index:100000000">
+            <div style="background-position:right center; background-repeat:no-repeat;width:100%;float:left;height:49px;line-height:50px;background-position:98%;font-size:20px;border-right:1px solid #fff">
+                <a style="color:#FFF" onclick="showFilterDiv()" id="filteranchor">Filter</a>
+            </div>
+        </div>
+    @endif
+@endif
+
+
 
 <!-- JS
 ============================================ -->
@@ -811,6 +859,25 @@
 <!-- Main JS -->
 <script src="{{ asset('js/main.js')  }}"></script>
 <script>
+    function showFilterDiv() {
+        jQuery("#filter_div").slideToggle("slow","swing", function(){
+            if(jQuery("#filter_div").css('display') == 'none') {
+                $('html, body').css({
+                    overflow: 'auto',
+                    height: 'auto'
+                });
+                $("#filteranchor").html("Filter");
+            }
+            else {
+                $('html, body').css({
+                    overflow: 'hidden',
+                    height: '100%'
+                });
+                $("#filteranchor").html("Close Filter");
+            }
+        });
+    }
+
     function sortFormSubmit() {
         jQuery("#sort_form").submit();
     }
@@ -841,9 +908,27 @@
                 $("#cart_div").html(result);
         }});
     }
+
+    function wishlist_form_submit() {
+        $.ajax({
+            url: "{{ url('/add-to-wishlist') }}",
+            type: "POST",
+            data: $("#wishlist_form").serialize(),
+            success: function(msg) {
+                if(msg == 'Added to the wishlist successfully!') {
+                    $("#like_active").addClass('like_active');
+                    $("#wish_text").html('Added to wishlist');
+                }
+                else if(msg == 'Removed from the wishlist successfully!') {
+                    $("#like_active").removeClass('like_active');
+                    $("#wish_text").html('Add to wishlist');
+                }
+            }
+        });
+    }
 </script>
 @yield('javascript');
-<script src="http://unpkg.com/turbolinks"></script>
+<!--<script src="http://unpkg.com/turbolinks" data-turbolinks-suppress-warning></script>-->
 </body>
 
 </html>
