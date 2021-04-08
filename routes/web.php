@@ -55,10 +55,19 @@ Route::post('/user-update', [\App\Http\Controllers\UserController::class, 'updat
 /*Route::post('/add-to-wishlist/{user_id}/{product_id}', [App\Http\Controllers\WishlistController::class, 'store'])->name('add-to-wishlist')->middleware('auth');*/
 Route::post('/add-to-wishlist', [App\Http\Controllers\WishlistController::class, 'store'])->name('add-to-wishlist')->middleware('auth');
 
+############################ PAYPAL ############################
+Route::post('/payment-confirmation', [\App\Http\Controllers\OrderController::class, 'paymentConfirmation'])->name('payment-confirmation');
+############################ PAYPAL ############################
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+############################ FILE EXPORT / IMPORT ############################
+Route::get('file-import-export', [\App\Http\Controllers\ProductController::class, 'fileImportExport']);
+Route::post('file-import', [\App\Http\Controllers\ProductController::class, 'fileImport'])->name('file-import');
+Route::get('file-export', [\App\Http\Controllers\ProductController::class, 'fileExport'])->name('file-export');
+############################ FILE EXPORT / IMPORT ############################
 
 
+############################ ADMIN PANEL ############################
 Route::get('/admin', [\App\Http\Controllers\UserController::class, 'adminLogin'])->name('admin-login-form');
 Route::post('/admin', [\App\Http\Controllers\UserController::class, 'adminLogin'])->name('admin-login-form-post');
 Route::post('/admin/logout', [\App\Http\Controllers\UserController::class, 'adminLogout'])->name('adminLogout');
@@ -67,8 +76,22 @@ Route::get('/admin/dashboard', [\App\Http\Controllers\UserController::class, 'ad
 Route::get('/admin/my-profile', [\App\Http\Controllers\UserController::class, 'adminMyProfile'])->name('admin-my-profile');
 Route::post('/admin/my-profile', [\App\Http\Controllers\UserController::class, 'adminMyProfile'])->name('admin-my-profile-update');
 
+Route::get('/admin/products', [\App\Http\Controllers\ProductController::class, 'adminProducts'])->name('admin-products');
+Route::get('/admin/edit-product-image/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImage'])->name('admin-products-image');
+Route::get('/admin/add-product', [\App\Http\Controllers\ProductController::class, 'adminAddProducts'])->name('add-product');
+
 Route::get('/admin/contractors', [\App\Http\Controllers\UserController::class, 'adminContractors'])->name('admin-contractors');
 Route::get('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor');
 Route::post('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor-post');
 
 Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'adminCustomers'])->name('admin-customers');
+
+Route::get('/admin/orders', [\App\Http\Controllers\OrderController::class, 'adminOrders'])->name('admin-orders');
+Route::any('/admin/orderdetails/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderDetails'])->name('admin-order-details');
+
+############################ ADMIN PANEL ############################
+
+
+
+
+

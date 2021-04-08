@@ -8,6 +8,7 @@
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @yield('custom_meta')
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
@@ -751,7 +752,7 @@
                             @forelse($cartlists as $cartdata)
                                 <li class="minicart-item">
                                     <div class="minicart-thumb">
-                                        <a href="product-details.html">
+                                        <a href="product-details/{{ $cartdata->product->id }}">
                                             <img src="{{ asset('plants_images/5.jpg') }}" alt="product">
                                         </a>
                                     </div>

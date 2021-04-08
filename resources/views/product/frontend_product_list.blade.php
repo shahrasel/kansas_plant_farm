@@ -29,25 +29,391 @@
 
                     @if(checkDevice() != 'phone')
                         <div class="col-lg-3 order-2 order-lg-1">
+                            <form action="" method="get">
+                                @csrf
                             <aside class="sidebar-wrapper">
                                 <!-- single sidebar start -->
                                 <div class="sidebar-single">
-                                    <h5 class="sidebar-title open">categories<i></i></h5>
+                                    <h5 class="sidebar-title open">SORT<i></i></h5>
                                     <div class="sidebar-body">
                                         <ul class="shop-categories">
-                                            <li><a href="{{ url("/products") }}">All <span>({{ $total_product_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=perennial") }}">Perennial <span>({{ $perennial_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=shrub") }}">Shrub <span>({{ $shrub_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=vine") }}">Vine <span>({{ $vine_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=grass_bamboo") }}">Grass/Bamboo <span>({{ $grass_bamboo_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=hardy_tropical") }}">Hardy Tropical <span>({{ $hardy_tropical_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=water_plant") }}">Water Plant <span>({{ $water_plant_cat_count }})</span></a></li>
+                                            <li><a href="{{ url("/products") }}">ALL PLANTS FOR SALE</a></li>
+                                            <li><a href="{{ url("/products?category=perennial") }}">BEST SELLERS</a></li>
+                                            <li><a href="{{ url("/products?category=shrub") }}">NEW FOR THIS YEAR</a></li>
+                                            <li><a href="{{ url("/products?category=vine") }}">ALL PLANTS IN LIBRARY</a></li>
+                                            <li><a href="{{ url("/products?category=grass_bamboo") }}">RETIRED PLANTS</a></li>
+                                            <li><a href="{{ url("/products?category=hardy_tropical") }}">OTHER PRODUCTS</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                                            <li><a href="{{ url("/products?category=annual") }}">Annual <span>({{ $annual_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=house_deck_plant") }}">House/Deck Plant <span>({{ $house_deck_plant_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=cactus_succulent") }}">Cactus/Succulent <span>({{ $cactus_succulent_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=small_tree") }}">Small Tree <span>({{ $small_tree_cat_count }})</span></a></li>
-                                            <li><a href="{{ url("/products?category=large_tree") }}">Large Tree <span>({{ $large_tree_cat_count }})</span></a></li>
+                                {{--{{ dd(old('PLANTTYPE[]')) }}--}}
+
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title">PLANT TYPE<i></i></h5>
+                                    <div class="sidebar-body" style="display: none">
+                                        <ul class="checkbox-container categories-list">
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckPerennial" name="PLANTTYPE[]" value="perennial" {{ (is_array(old('PLANTTYPE[]')) && in_array('perennial', old('PLANTTYPE[]'))) ? ' checked' : '' }} >
+                                                    <label class="custom-control-label" for="customCheckPerennial" style="text-transform: uppercase">Perennial</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckShrub" name="PLANTTYPE[]" value="shrub">
+                                                    <label class="custom-control-label" for="customCheckShrub" style="text-transform: uppercase">Shrub</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckVine" name="PLANTTYPE[]" value="vine">
+                                                    <label class="custom-control-label" for="customCheckVine" style="text-transform: uppercase">Vine</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckgrassBamboo" name="PLANTTYPE[]" value="grass_bamboo">
+                                                    <label class="custom-control-label" for="customCheckgrassBamboo" style="text-transform: uppercase">Grass Bamboo</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckHardyTropical" name="PLANTTYPE[]" value="hardy_tropical">
+                                                    <label class="custom-control-label" for="customCheckHardyTropical" style="text-transform: uppercase">Hardy Tropical</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckWaterPlant" name="PLANTTYPE[]" value="water_plant">
+                                                    <label class="custom-control-label" for="customCheckWaterPlant" style="text-transform: uppercase">Water Plant</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckAnnual" name="PLANTTYPE[]" value="annual">
+                                                    <label class="custom-control-label" for="customCheckAnnual" style="text-transform: uppercase">Annual</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckHouseDeckPlant" name="PLANTTYPE[]" value="house_deck_plant">
+                                                    <label class="custom-control-label" for="customCheckHouseDeckPlant" style="text-transform: uppercase">House Deck Plant</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckCactusSucculent" name="PLANTTYPE[]" value="cactus_succulent">
+                                                    <label class="custom-control-label" for="customCheckCactusSucculent" style="text-transform: uppercase">Cactus Succulent</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckSmallTree" name="PLANTTYPE[]" value="small_tree">
+                                                    <label class="custom-control-label" for="customCheckSmallTree" style="text-transform: uppercase">Small Tree</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckLargeTree" name="PLANTTYPE[]" value="large_tree">
+                                                    <label class="custom-control-label" for="customCheckLargeTree" style="text-transform: uppercase">Large Tree</label>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title">GARDEN CATEGORIES<i></i></h5>
+                                    <div class="sidebar-body" style="display: none">
+                                        <ul class="checkbox-container categories-list">
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckSUSTAINABLEGARDEN"  name="GARDENCATEGORIES[]" value="sustainable_garden">
+                                                    <label class="custom-control-label" for="customCheckSUSTAINABLEGARDEN">SUSTAINABLE GARDEN</label>
+                                                </div>
+                                            </li>
+                                            <li>
+
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckNATIVEPLANTGARDEN" name="GARDENCATEGORIES[]" value="native_plant_garden">
+                                                    <label class="custom-control-label" for="customCheckNATIVEPLANTGARDEN">NATIVE PLANT GARDEN</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckBIRDWILDLIFEGARDEN" name="GARDENCATEGORIES[]" value="bird_wildlife_garden">
+                                                    <label class="custom-control-label" for="customCheckBIRDWILDLIFEGARDEN">BIRD & WILDLIFE GARDEN</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckBUTTERFLYBEEGARDEN" name="GARDENCATEGORIES[]" value="butterfly_bee_garden">
+                                                    <label class="custom-control-label" for="customCheckBUTTERFLYBEEGARDEN">BUTTERFLY & BEE GARDEN</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckLUSHTROPICALGARDEN" name="GARDENCATEGORIES[]" value="lush_tropical_garden">
+                                                    <label class="custom-control-label" for="customCheckLUSHTROPICALGARDEN">LUSH TROPICAL GARDEN</label>
+                                                </div>
+                                            </li>
+                                            <li>
+
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckDRYSHADEGARDEN" name="GARDENCATEGORIES[]" value="dry_shade_garden">
+                                                    <label class="custom-control-label" for="customCheckDRYSHADEGARDEN">DRY SHADE GARDEN</label>
+                                                </div>
+                                            </li>
+                                            <li>
+
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckEDIBLEMEDICINALGARDEN" name="GARDENCATEGORIES[]" value="edible_medicinal_garden">
+                                                    <label class="custom-control-label" for="customCheckEDIBLEMEDICINALGARDEN">EDIBLE & MEDICINAL GARDEN</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckRAINGARDEN" name="GARDENCATEGORIES[]" value="rain_garden">
+                                                    <label class="custom-control-label" for="customCheckRAINGARDEN">RAIN GARDEN</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckCOLORADORUSTICGARDEN" name="GARDENCATEGORIES[]" value="colorado_rustic_garden">
+                                                    <label class="custom-control-label" for="customCheckCOLORADORUSTICGARDEN">COLORADO & RUSTIC GARDEN</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckDESERTCACTUSROCKGARDEN" name="GARDENCATEGORIES[]" value="desert_cactus_rock_garden">
+                                                    <label class="custom-control-label" for="customCheckDESERTCACTUSROCKGARDEN">DESERT, CACTUS,& ROCK GARDEN</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title">CULTURAL CONDITIONS<i></i></h5>
+                                    <div class="sidebar-body" style="display: none">
+                                        <ul class="checkbox-container categories-list">
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccMINZONE" name="CULTURALCONDITIONS[]" value="min_zone">
+                                                    <label class="custom-control-label" for="ccMINZONE">MIN ZONE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccMAXZONE" name="CULTURALCONDITIONS[]" value="max_zone">
+                                                    <label class="custom-control-label" for="ccMAXZONE">MAX ZONE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccSUNLIGHT" name="CULTURALCONDITIONS[]" value="sunlight">
+                                                    <label class="custom-control-label" for="ccSUNLIGHT">SUNLIGHT</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccWATERRAINFALL" name="CULTURALCONDITIONS[]" value="water_rainfall">
+                                                    <label class="custom-control-label" for="ccWATERRAINFALL">WATER/RAINFALL</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccSOILQUALITY" name="CULTURALCONDITIONS[]" value="soil_quality">
+                                                    <label class="custom-control-label" for="ccSOILQUALITY">SOIL QUALITY</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title">FLOWERS AND FOLIAGE<i></i></h5>
+                                    <div class="sidebar-body" style="display: none">
+                                        <ul class="checkbox-container categories-list">
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccBLOOMSEASON" name="FLOWERSFOLIAGE[]" value="bloom_season">
+                                                    <label class="custom-control-label" for="ccBLOOMSEASON">BLOOM SEASON</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccFLOWERCOLOR" name="FLOWERSFOLIAGE[]" value="flower_color">
+                                                    <label class="custom-control-label" for="ccFLOWERCOLOR">FLOWER COLOR</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccBERRYFRUITCOLOR" name="FLOWERSFOLIAGE[]" value="berry_fruit_color">
+                                                    <label class="custom-control-label" for="ccBERRYFRUITCOLOR">BERRY / FRUIT COLOR</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccSPRINGFOLIAGECOLOR" name="FLOWERSFOLIAGE[]" value="spring_foliage_color">
+                                                    <label class="custom-control-label" for="ccSPRINGFOLIAGECOLOR">SPRING FOLIAGE COLOR</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccSUMMERFOLIAGECOLOR" name="FLOWERSFOLIAGE[]" value="summer_foliage_color">
+                                                    <label class="custom-control-label" for="ccSUMMERFOLIAGECOLOR">SUMMER FOLIAGE COLOR</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccFALLFOLIAGECOLOR" name="FLOWERSFOLIAGE[]" value="fall_foliage_color">
+                                                    <label class="custom-control-label" for="ccFALLFOLIAGECOLOR">FALL FOLIAGE COLOR</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccEVERGREENFOLIAGE" name="FLOWERSFOLIAGE[]" value="has_evergreen_foliage">
+                                                    <label class="custom-control-label" for="ccEVERGREENFOLIAGE">EVERGREEN FOLIAGE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccWINTERINTEREST" name="FLOWERSFOLIAGE[]" value="has_winter_interest">
+                                                    <label class="custom-control-label" for="ccWINTERINTEREST">WINTER INTEREST</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccSCENTEDFLOWERS" name="FLOWERSFOLIAGE[]" value="scented_flowers">
+                                                    <label class="custom-control-label" for="ccSCENTEDFLOWERS">SCENTED FLOWERS</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title">PLANT TOLERANCES<i></i></h5>
+                                    <div class="sidebar-body" style="display: none">
+                                        <ul class="checkbox-container categories-list">
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccDROUGHTTOLERANCE" name="PLANTTOLERANCES[]" value="drought_tolerance">
+                                                    <label class="custom-control-label" for="ccDROUGHTTOLERANCE">DROUGHT TOLERANCE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccWETFEETTOLERANCE" name="PLANTTOLERANCES[]" value="wet_feet_tolerance">
+                                                    <label class="custom-control-label" for="ccWETFEETTOLERANCE">WET-FEET TOLERANCE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccHUMIDITYTOLERANCE" name="PLANTTOLERANCES[]" value="humidity_tolerance">
+                                                    <label class="custom-control-label" for="ccHUMIDITYTOLERANCE">HUMIDITY TOLERANCE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccWINDTOLERANCE" name="PLANTTOLERANCES[]" value="wind_tolerence">
+                                                    <label class="custom-control-label" for="ccWINDTOLERANCE">WIND TOLERANCE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccPOORSOILTOLERANCE" name="PLANTTOLERANCES[]" value="poor_soil_tolerance">
+                                                    <label class="custom-control-label" for="ccPOORSOILTOLERANCE">POOR SOIL TOLERANCE </label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title">GROWTH AND MAINTENANCE<i></i></h5>
+                                    <div class="sidebar-body" style="display: none">
+                                        <ul class="checkbox-container categories-list">
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccHEIGHT" name="GROWTHMAINTENANCE[]" value="height">
+                                                    <label class="custom-control-label" for="ccHEIGHT">HEIGHT</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccWIDTH" name="GROWTHMAINTENANCE[]" value="width">
+                                                    <label class="custom-control-label" for="ccWIDTH">WIDTH</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccGROWTHRATE" name="GROWTHMAINTENANCE[]" value="growth_rate">
+                                                    <label class="custom-control-label" for="ccGROWTHRATE">GROWTH RATE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccSERVICELIFE" name="GROWTHMAINTENANCE[]" value="service_life">
+                                                    <label class="custom-control-label" for="ccSERVICELIFE">SERVICE LIFE</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccMAINTENANCENEEDS" name="GROWTHMAINTENANCE[]" value="maintenance_requirements">
+                                                    <label class="custom-control-label" for="ccMAINTENANCENEEDS">MAINTENANCE NEEDS</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccSPREADINGPOTENTIAL" name="GROWTHMAINTENANCE[]" value="spreading_potential">
+                                                    <label class="custom-control-label" for="ccSPREADINGPOTENTIAL">SPREADING POTENTIAL</label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ccYEARLYTRIMMINGTIPS" name="GROWTHMAINTENANCE[]" value="yearly_trimming_tips">
+                                                    <label class="custom-control-label" for="ccYEARLYTRIMMINGTIPS">YEARLY TRIMMING TIPS</label>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -155,7 +521,7 @@
                             <!-- single sidebar end -->
 
                                 <!-- single sidebar start -->
-                                <div class="sidebar-single">
+<!--                                <div class="sidebar-single">
                                     <h5 class="sidebar-title">size<i></i></h5>
                                     <div class="sidebar-body" style="display: none">
                                         <ul class="checkbox-container categories-list">
@@ -179,10 +545,16 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- single sidebar end -->
+                                <div class="sidebar-single">
+                                    <input type="submit" name="Submit" value="FILTER" class="btn btn-sqr">
+                                </div>
                             </aside>
+
+                            </form>
                         </div>
+
                     @endif
                     <!-- sidebar area end -->
 
@@ -413,7 +785,7 @@
                                                 @endif
                                             </div>
                                             <p style="padding-top:15px;">
-                                                {{ $product->plant_description }}
+                                                {{ $product->description }}
                                             </p>
                                         </div>
                                     </div>
@@ -472,7 +844,7 @@ position: absolute;">
                 <div class="sidebar-single" style="padding-top: 20px;">
                     <h5 class="sidebar-title open">categories<i></i></h5>
                     <div class="sidebar-body">
-                        <ul class="shop-categories">
+<!--                        <ul class="shop-categories">
                             <li><a href="{{ url("/products") }}">All <span>({{ $total_product_count }})</span></a></li>
                             <li><a href="{{ url("/products?category=perennial") }}">Perennial <span>({{ $perennial_cat_count }})</span></a></li>
                             <li><a href="{{ url("/products?category=shrub") }}">Shrub <span>({{ $shrub_cat_count }})</span></a></li>
@@ -486,6 +858,14 @@ position: absolute;">
                             <li><a href="{{ url("/products?category=cactus_succulent") }}">Cactus/Succulent <span>({{ $cactus_succulent_cat_count }})</span></a></li>
                             <li><a href="{{ url("/products?category=small_tree") }}">Small Tree <span>({{ $small_tree_cat_count }})</span></a></li>
                             <li><a href="{{ url("/products?category=large_tree") }}">Large Tree <span>({{ $large_tree_cat_count }})</span></a></li>
+                        </ul>-->
+                        <ul class="checkbox-container categories-list">
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck_perennial" value="perennial">
+                                    <label class="custom-control-label" for="customCheck_perennial">perennial</label>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

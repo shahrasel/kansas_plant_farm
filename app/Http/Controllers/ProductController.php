@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ProductsExport;
+use App\Imports\ProductsImport;
 use App\Models\cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Excel;
 
 class ProductController extends Controller
 {
     public function products(Request $request) {
 
         //dd($request->all());
-
-
-
-        $perennial_cat_count = DB::table('products')
+        /*$perennial_cat_count = DB::table('products')
             ->where('perennial', 'YES')
             ->where('status', 'ACTIVE')
             ->count();
@@ -68,48 +68,38 @@ class ProductController extends Controller
         $large_tree_cat_count = DB::table('products')
             ->where('large_tree', 'YES')
             ->where('status', 'ACTIVE')
-            ->count();
+            ->count();*/
 
-
-        //$product_lists = Product:: paginate(50);
         $where_query= array();
-        $where_query['status'] = 'ACTIVE';
-
-        if(!empty($request->get('category'))) {
-            if($request->get('category') == 'perennial') {
-                $where_query['perennial'] = 'YES';
-            }
-            else if($request->get('category') == 'shrub') {
-                $where_query['shrub'] = 'YES';
-            }
-            else if($request->get('category') == 'vine') {
-                $where_query['vine'] = 'YES';
-            }
-            else if($request->get('category') == 'grass_bamboo') {
-                $where_query['grass_bamboo'] = 'YES';
-            }
-            else if($request->get('category') == 'hardy_tropical') {
-                $where_query['hardy_tropical'] = 'YES';
-            }
-            else if($request->get('category') == 'water_plant') {
-                $where_query['water_plant'] = 'YES';
-            }
-            else if($request->get('category') == 'annual') {
-                $where_query['annual'] = 'YES';
-            }
-            else if($request->get('category') == 'house_deck_plant') {
-                $where_query['house_deck_plant'] = 'YES';
-            }
-            else if($request->get('category') == 'cactus_succulent') {
-                $where_query['cactus_succulent'] = 'YES';
-            }
-            else if($request->get('category') == 'small_tree') {
-                $where_query['small_tree'] = 'YES';
-            }
-            else if($request->get('category') == 'large_tree') {
-                $where_query['large_tree'] = 'YES';
+        if($request->has('PLANTTYPE')) {
+            foreach ($request->get('PLANTTYPE') as $plantype) {
+                $where_query[$plantype] = 'YES';
             }
         }
+
+        if($request->has('GARDENCATEGORIES')) {
+            foreach ($request->get('GARDENCATEGORIES') as $plantype) {
+                $where_query[$plantype] = 'YES';
+            }
+        }
+
+        /*if($request->has('CULTURALCONDITIONS')) {
+            foreach ($request->get('CULTURALCONDITIONS') as $plantype) {
+                $where_query[$plantype] = 'YES';
+            }
+        }
+
+        if($request->has('FLOWERSFOLIAGE')) {
+            foreach ($request->get('FLOWERSFOLIAGE') as $plantype) {
+                $where_query[$plantype] = 'YES';
+            }
+        }*/
+
+        //$product_lists = Product:: paginate(50);
+
+        $where_query['status'] = 'ACTIVE';
+
+
 
         if(!empty($request->get('amount'))) {
             $amount_arr = explode(' - ', $request->get('amount'));
@@ -171,11 +161,47 @@ class ProductController extends Controller
             ->where('status','ACTIVE')
             ->count();
 
+        /*if(!empty($request->get('category'))) {
+            if($request->get('category') == 'perennial') {
+                $where_query['perennial'] = 'YES';
+            }
+            else if($request->get('category') == 'shrub') {
+                $where_query['shrub'] = 'YES';
+            }
+            else if($request->get('category') == 'vine') {
+                $where_query['vine'] = 'YES';
+            }
+            else if($request->get('category') == 'grass_bamboo') {
+                $where_query['grass_bamboo'] = 'YES';
+            }
+            else if($request->get('category') == 'hardy_tropical') {
+                $where_query['hardy_tropical'] = 'YES';
+            }
+            else if($request->get('category') == 'water_plant') {
+                $where_query['water_plant'] = 'YES';
+            }
+            else if($request->get('category') == 'annual') {
+                $where_query['annual'] = 'YES';
+            }
+            else if($request->get('category') == 'house_deck_plant') {
+                $where_query['house_deck_plant'] = 'YES';
+            }
+            else if($request->get('category') == 'cactus_succulent') {
+                $where_query['cactus_succulent'] = 'YES';
+            }
+            else if($request->get('category') == 'small_tree') {
+                $where_query['small_tree'] = 'YES';
+            }
+            else if($request->get('category') == 'large_tree') {
+                $where_query['large_tree'] = 'YES';
+            }
+        }*/
+
         return view('product.frontend_product_list', [
             'products' => $final_array,
             'product_paginate' => $product_lists,
             'total_product_count' => $total_product_count,
-            'perennial_cat_count' => $perennial_cat_count,
+            /*'perennial_cat_count' => $perennial_cat_count,
             'shrub_cat_count' => $shrub_cat_count,
             'vine_cat_count' => $vine_cat_count,
             'grass_bamboo_cat_count' => $grass_bamboo_cat_count,
@@ -185,7 +211,7 @@ class ProductController extends Controller
             'house_deck_plant_cat_count' => $house_deck_plant_cat_count,
             'cactus_succulent_cat_count' => $cactus_succulent_cat_count,
             'small_tree_cat_count' => $small_tree_cat_count,
-            'large_tree_cat_count' => $large_tree_cat_count
+            'large_tree_cat_count' => $large_tree_cat_count*/
         ]);
     }
 
@@ -196,5 +222,49 @@ class ProductController extends Controller
             'product' => $id,
             //'cart_lists' => $cart_lists
         ]);
+    }
+
+    public function adminProducts() {
+        $where_query= array();
+
+        $product_lists = DB::table('products')
+            ->where($where_query)
+            ->orderBy('id', 'asc')->get();
+
+        return view('admin.product.allProducts', [
+            'product_lists' => $product_lists
+        ]);
+    }
+
+    public function adminProductsImage($id) {
+        $product_image_lists = DB::table('products')
+            ->where($where_query)
+            ->orderBy('id', 'asc')->get();
+
+        return view('admin.product.allProducts', [
+            'product_lists' => $product_lists
+        ]);
+    }
+
+    public function fileImportExport()
+    {
+        return view('file-import');
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function fileImport(Request $request)
+    {
+        \Maatwebsite\Excel\Facades\Excel::import(new ProductsImport, $request->file('file')->store('temp'));
+        return back();
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function fileExport()
+    {
+        return \Maatwebsite\Excel\Facades\Excel::download(new ProductsExport, 'products_'.date('m-d-Y').'.csv');
     }
 }

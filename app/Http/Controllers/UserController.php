@@ -118,7 +118,21 @@ class UserController extends Controller
     }
 
     public function adminDashboard(Request $request) {
-        return view('admin.user.dashboard');
+        $where_query= array();
+        $where_query['status'] = 'Payment Completed';
+
+        $new_order_lists = DB::table('orders')
+            ->where('status', 'Payment Completed')
+            ->orderBy('id', 'desc')->get();
+
+        $completed_order_lists = DB::table('orders')
+            ->where('status', 'Delivered')
+            ->orderBy('id', 'desc')->get();
+
+        return view('admin.user.dashboard', [
+            'new_order_lists' => $new_order_lists,
+            'completed_order_lists' => $completed_order_lists
+        ]);
     }
 
     public function adminContractors() {

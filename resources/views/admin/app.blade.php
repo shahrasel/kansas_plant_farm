@@ -906,7 +906,7 @@
                     <span>Dashboard</span>
                 </li>
                 <li class="selected">
-                    <a href="{{ url('/admin') }}">
+                    <a href="{{ url('/admin/dashboard') }}">
                         <div class="icon-w">
                             <div class="os-icon os-icon-layout"></div>
                         </div>
@@ -924,7 +924,7 @@
                 </li>
 
                 <li class="selected">
-                    <a href="{{ url('/admin') }}">
+                    <a href="{{ url('/admin/orders') }}">
                         <div class="icon-w">
                             <div class="os-icon os-icon-layout"></div>
                         </div>
@@ -933,7 +933,7 @@
                 </li>
 
                 <li class="has-sub-menu">
-                    <a href="index.html">
+                    <a href="{{ url('/admin/products') }}">
                         <div class="icon-w">
                             <div class="os-icon os-icon-layout"></div>
                         </div>
@@ -948,10 +948,10 @@
                         <div class="sub-menu-i">
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="index.html">All Products</a>
+                                    <a href="{{ url('/admin/products') }}">All Products</a>
                                 </li>
                                 <li>
-                                    <a href="index.html">Add Product</a>
+                                    <a href="{{ url('/admin/add-product') }}">Add Product</a>
                                 </li>
                             </ul>
                         </div>

@@ -19,537 +19,100 @@
       <change afterPath="$PROJECT_DIR$/../ctn_invoice_generator/.idea/invoice.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../finish/.idea/finish.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../first_laravel/.idea/first_laravel.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kansas_plant_farm 2.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kansas_plant_farm.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Wishlist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Rules/CurrentPasswordVerification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_175140_create_orders_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_235612_create_wishlists_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/daterangepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/daterangepicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/daterangepicker.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/drp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/example/amd/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/example/amd/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/example/amd/require.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/example/browserify/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/example/browserify/bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/example/browserify/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/example/browserify/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/package.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/website/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/website/website.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/bootstrap-daterangepicker/website/website.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net-buttons-bs/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net-buttons-bs/License.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net-buttons-bs/Readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net-buttons-bs/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net-buttons-bs/css/buttons.bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net-buttons-bs/js/buttons.bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net/License.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net/Readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net/js/jquery.dataTables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/datatables.net/js/jquery.dataTables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/basic.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/dropzone-amd-module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/dropzone.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/dropzone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/min/basic.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/min/dropzone-amd-module.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/min/dropzone.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/min/dropzone.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/dropzone/dist/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/fullcalendar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/fullcalendar.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/fullcalendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/fullcalendar.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/fullcalendar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/fullcalendar.print.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/fullcalendar.print.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/gcal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/gcal.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale-all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/af.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ar-dz.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ar-kw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ar-ly.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ar-ma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ar-sa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ar-tn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/be.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/bs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/de-at.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/de-ch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/en-au.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/en-ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/en-gb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/en-ie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/en-nz.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/es-do.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/es-us.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/fr-ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/fr-ch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/is.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ka.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/kk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/lb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/mk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ms-my.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/nl-be.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/nn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/pt-br.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/sr-cyrl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/sr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/zh-hk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/fullcalendar/dist/locale/zh-tw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/cp.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/css/perfect-scrollbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/css/perfect-scrollbar.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/js/perfect-scrollbar.jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/js/perfect-scrollbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/js/perfect-scrollbar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/css/main.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/css/mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/css/themes.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/css/variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/adaptor/global.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/adaptor/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/lib/class.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/lib/dom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/lib/event-manager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/lib/guid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/lib/helper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/default-setting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/destroy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/handler/click-rail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/handler/drag-scrollbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/handler/keyboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/handler/mouse-wheel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/handler/native-scroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/handler/selection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/handler/touch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/initialize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/instances.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/update-geometry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/update-scroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/perfect-scrollbar/src/js/plugin/update.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/.bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/CONTRIBUTING.markdown" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/ISSUE_TEMPLATE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/README.markdown" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/component.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick.jquery.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/config.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/fonts/slick.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/fonts/slick.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/fonts/slick.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/fonts/slick.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/slick-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/slick-theme.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/slick-theme.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/slick.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/slick.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/slick.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/slick.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/slick-carousel/slick/slick.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/avatar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/avatar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/avatar3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/avatar4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/avatar5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/avatar6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/avatar7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bg-pattern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bg-pattern2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bigicon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bigicon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bigicon3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bigicon4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bigicon5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bigicon6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/bigicon7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/card1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/card2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/card3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/card4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/chart-donut.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/company1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/company2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/company3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/company4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/company5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/company6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/company7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/cta-pattern-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/email-header-img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ae.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/af.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ai.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/al.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/am.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/an.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ao.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/aq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/as.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/at.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/au.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/au2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/aw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ax.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/az.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ba.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/be.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/br.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/by.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/bz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ca.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/co.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/cz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/de.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/dj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/dk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/dm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/do.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/dz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ec.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ee.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/eg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/eh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/er.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/es.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/et.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/fi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/fj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/fk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/fm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/fo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/fr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ga.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gaza.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/gy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/hk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/hn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ht.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/hu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/id.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/il.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/im.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/in.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/iq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ir.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/is.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/it.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/je.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/jm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/jo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/jp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ke.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/kg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/kh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ki.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/km.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/kn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/kp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/kr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ky.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/kz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/la.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/lb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/lc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/li.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/lk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/lr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ls.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/lt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/lu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/lv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ly.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/md.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/me.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ml.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ms.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/my.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/mz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/na.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ne.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ni.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/nl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/no.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/np.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/nr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/nu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/nz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/om.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ph.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ps.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/pw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/py.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/qa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/re.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/rs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ru.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/rw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/se.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/si.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/so.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/st.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/sz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/td.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/th.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/to.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/tz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ua.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ug.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/uk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/us.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/uy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/uz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/va.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/vc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/vi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/vn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/vu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/wf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ws.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/xk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/ye.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/za.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/zm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/flags-icons/zw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/img1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/logo-big.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/logo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/market-google-play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/market-ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/mastercard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/menu_bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/onboarding-gradient-hor-dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/onboarding-gradient-hor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/onboarding-gradient-ver-dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/onboarding-gradient-ver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/onboarding1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/path-profile.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/phone1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/plan1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/plan2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/plan3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/plan4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/portfolio9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/product_portfolio1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/profile_bg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/property1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/property2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/property3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/social-icons/facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/social-icons/instagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/social-icons/linkedin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/social-icons/twitter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/admin/img/visa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/admin/demo_customizer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/admin/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/app.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/addContractor.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/allContractors.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/allCustomers.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/dashboard.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/myProfile.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/dashboard.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/orders.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/.idea/html5_test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exports/ProductsExport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PayPalController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Imports/ProductsImport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Orderdetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/excel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/paypal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/CartFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_224205_create_orderdetails_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/allOrders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-1qn8d6R9BXI2oIgAanbcIXnUyGxhwJoD.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-2XgWPbdQxJZ0hG0Ey8D2k0W9tMiyYKU5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-30Wdm148750pSSj47B0tYa1C2VIr89hd.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3AYzKabOL54Z3xNNRTFeRAjZLr5j64Kl.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3lyCuvQRtOveiTNEMdrwON9ea5dKNsag.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-5NCfQvIoABFHjPlrZYevqa0h5tjxKClz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-6fR91ikH9x6meN76h1m1ZhXQZI8hhskZ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-6qRhBrwEztUK2KxymJ0sSlY1Vz8cAJ5B.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-7vMsUWpYNPDgDkUIHDgjmotPCcrnBvB9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-9OeJf6KgHYfVvsT9G8Xpt8aaPIAEt7Yr.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-AF7hNB8PVJqQThwVn2VbW2a9H6CsLkve.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-AHwpEZ7zYAdMOv43DLSoWWirP6QmROQx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BCaauZNXLV4Rj8Lc2DFs94Iqc1uqX80i.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-CRkPU0BE2LfmmUq2Mej6dQdh0uyu518p.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-DnzhDI2BTXv9UNzMHjRv0KKVN03SxejA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KEVjmLslnM8R0k9ZhbZXm32HyTKTW5Kz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-LcWwNhVVQyuAQN44W1XzzT4jVkVpBeNo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-N1YkZ5kjoXnSZzDHT7axmEnM9kUXQACH.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Nh1fJOPL5fTPg18wRiZLooqih94oyMbt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Ot05spUCtDpqJ3MSJwJeIxJpDGzPkt0B.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-QFcn9WAWozZgeZ9kQ5qX7N1o8qRCSgPZ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-RyQYpivgsx9Fjig7hnuQTl6i7Qz0eqfs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-S2VGvPW8r04grN17yF9vmjpjkcA0kIW4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-S5CxJBbuidPMAIcMeXFKOjkI3eQvwsgu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SGdNbCPMs8nss7FdTXdRWOSppWHzCNmR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SJBhbtxzuAohpMbPxvxTk6wLVXv6Wg0g.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SMgffXGWFB9oC9T9pYSlBpeZHqovWrhd.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-T01DffpJtejseFIa2EOrbHTcABbSdv5N.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-UVPdULZkHjjSEIH1XgAay2Jo0PXQWA2k.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-WJanYyECtakciwDzCzGjL302Q9ELyxJ8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Wp0dUOnFCgddPDOVzHpOeN2RCo8XYjKM.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-X74PXSva31HP9ebJpjMtZindDKOzwlYN.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-YBffP5QULpunKQcVJgnpabWbU23VqEqq.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Ya5yVysG9RoA7bvhTxxOryB8lyC2S8UA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ZFNnGWs4VeYQvYWdbQO8t6iFlgzVJqVt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Zp16erCTYpDj2Hwn7SjQ1jhngpF17ZVX.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-aotWkByCkclodlZuGEFB0p1G9D7ZOGEl.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-b9LZtTDTpzNh5Rzka1SW2K9HvAVUjkTW.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-hXLeOvM01CvIU9D6MGNJszXL5n5UxCe7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-jcp8HcZAQV5KBW7dm2q1oXaNWS9nDyTs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-kQAuGEg5Fep1CAW6vg63R955DRAIBI1z.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-kRKxaR6mYQLcJPg4ivD3G1mq8YT7GcjQ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-mTxSjyqxQPEUcOBFn0Ba5c2VGCVFOpYp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-p23YGfggwZlHI1lOJILs6cOm4NEbRkNJ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-pxYqHAl4Ydvf7n4OFSqsLMlEUSe343So.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-q00h0WJqp2dMoBZKgReanLlYJ2mGXCtl.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-qgFBjC5syNRwQnF82JsDnrWM05wUNDKz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-uHDBI7TmLpbPPlfZ2TkiYUSnqmg6dT8q.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vbLL8rKIq22vSXk0yIODNOTRIGbHQiLv.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-wYcT3aSiQMQpyyanXWQz2RqkXAZ9olnz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-wcZKaOyEnliyRDRiBJnZhLP3ugViZJKx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-xQcZXny3bANUKQmdYCdx6ShKVRyns7lo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-zDFu4jDP8zEhuwL7TN6f1BiTkzB9snIA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stubs/export.model.stub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stubs/export.plain.stub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stubs/export.query-model.stub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stubs/export.query.stub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stubs/import.collection.stub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stubs/import.model.stub" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../my_first_symfony_full/.idea/my_first_symfony_full.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../new_zend/.idea/new_zend.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../stock_analysis/.idea/arp1_project.iml" afterDir="false" />
@@ -591,26 +154,28 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/property_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/property_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agent_zips.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agent_zips.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/tours.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/tours.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_14_133349_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_14_133349_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_16_175140_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_175140_create_orders_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/update_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/update_cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/update_main_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/update_main_cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
@@ -642,6 +207,21 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/shahrasel/kansas_plant_farm" />
+      </set>
+    </option>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -758,6 +338,15 @@
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/srmklive/paypal" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
     </include_path>
   </component>
   <component name="ProjectId" id="1k8vPEGzQG01yTczfGm2glFAh8Z" />
@@ -772,7 +361,6 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -783,15 +371,16 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/product" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/order" />
       <recent name="$PROJECT_DIR$/resources/views/admin/user" />
       <recent name="$PROJECT_DIR$/public/img/admin" />
       <recent name="$PROJECT_DIR$/public/js/admin" />
-      <recent name="$PROJECT_DIR$/resources/admin/css" />
-      <recent name="$PROJECT_DIR$/resources/views/admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/js/admin" />
@@ -828,6 +417,17 @@
       <workItem from="1609756384901" duration="1280000" />
       <workItem from="1610643267595" duration="1553000" />
       <workItem from="1611676987580" duration="1804000" />
+      <workItem from="1612092456363" duration="30131000" />
+      <workItem from="1612386555815" duration="18919000" />
+      <workItem from="1612612889436" duration="2387000" />
+      <workItem from="1612616637313" duration="37597000" />
+      <workItem from="1617383084712" duration="2412000" />
+      <workItem from="1617461441922" duration="2338000" />
+      <workItem from="1617559450318" duration="1150000" />
+      <workItem from="1617613585517" duration="1044000" />
+      <workItem from="1617737010650" duration="1188000" />
+      <workItem from="1617803527189" duration="2077000" />
+      <workItem from="1617917094106" duration="1991000" />
     </task>
     <servers />
   </component>
@@ -847,5 +447,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
