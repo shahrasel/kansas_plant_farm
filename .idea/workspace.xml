@@ -17,6 +17,7 @@
       <change afterPath="$PROJECT_DIR$/../buildentory_symfony/.idea/buildentory_symfony.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../cars_match/.idea/cars_match.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ctn_invoice_generator/.idea/invoice.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dd.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../finish/.idea/finish.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../first_laravel/.idea/first_laravel.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/.idea/html5_test.iml" afterDir="false" />
@@ -43,80 +44,80 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exports/ProductsExport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PayPalController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Imports/ProductsImport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Orderdetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/excel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/paypal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/CartFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_224205_create_orderdetails_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/allOrders.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-1qn8d6R9BXI2oIgAanbcIXnUyGxhwJoD.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-2XgWPbdQxJZ0hG0Ey8D2k0W9tMiyYKU5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-30Wdm148750pSSj47B0tYa1C2VIr89hd.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3AYzKabOL54Z3xNNRTFeRAjZLr5j64Kl.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3lyCuvQRtOveiTNEMdrwON9ea5dKNsag.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-5NCfQvIoABFHjPlrZYevqa0h5tjxKClz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-6fR91ikH9x6meN76h1m1ZhXQZI8hhskZ.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-6qRhBrwEztUK2KxymJ0sSlY1Vz8cAJ5B.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-7vMsUWpYNPDgDkUIHDgjmotPCcrnBvB9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-9OeJf6KgHYfVvsT9G8Xpt8aaPIAEt7Yr.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-AF7hNB8PVJqQThwVn2VbW2a9H6CsLkve.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-AHwpEZ7zYAdMOv43DLSoWWirP6QmROQx.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BCaauZNXLV4Rj8Lc2DFs94Iqc1uqX80i.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-CRkPU0BE2LfmmUq2Mej6dQdh0uyu518p.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-DnzhDI2BTXv9UNzMHjRv0KKVN03SxejA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KEVjmLslnM8R0k9ZhbZXm32HyTKTW5Kz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-LcWwNhVVQyuAQN44W1XzzT4jVkVpBeNo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-N1YkZ5kjoXnSZzDHT7axmEnM9kUXQACH.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Nh1fJOPL5fTPg18wRiZLooqih94oyMbt.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Ot05spUCtDpqJ3MSJwJeIxJpDGzPkt0B.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-QFcn9WAWozZgeZ9kQ5qX7N1o8qRCSgPZ.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-RyQYpivgsx9Fjig7hnuQTl6i7Qz0eqfs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-S2VGvPW8r04grN17yF9vmjpjkcA0kIW4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-S5CxJBbuidPMAIcMeXFKOjkI3eQvwsgu.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SGdNbCPMs8nss7FdTXdRWOSppWHzCNmR.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SJBhbtxzuAohpMbPxvxTk6wLVXv6Wg0g.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SMgffXGWFB9oC9T9pYSlBpeZHqovWrhd.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-T01DffpJtejseFIa2EOrbHTcABbSdv5N.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-UVPdULZkHjjSEIH1XgAay2Jo0PXQWA2k.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-WJanYyECtakciwDzCzGjL302Q9ELyxJ8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Wp0dUOnFCgddPDOVzHpOeN2RCo8XYjKM.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-X74PXSva31HP9ebJpjMtZindDKOzwlYN.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-YBffP5QULpunKQcVJgnpabWbU23VqEqq.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Ya5yVysG9RoA7bvhTxxOryB8lyC2S8UA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ZFNnGWs4VeYQvYWdbQO8t6iFlgzVJqVt.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Zp16erCTYpDj2Hwn7SjQ1jhngpF17ZVX.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-aotWkByCkclodlZuGEFB0p1G9D7ZOGEl.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-b9LZtTDTpzNh5Rzka1SW2K9HvAVUjkTW.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-hXLeOvM01CvIU9D6MGNJszXL5n5UxCe7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-jcp8HcZAQV5KBW7dm2q1oXaNWS9nDyTs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-kQAuGEg5Fep1CAW6vg63R955DRAIBI1z.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-kRKxaR6mYQLcJPg4ivD3G1mq8YT7GcjQ.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-mTxSjyqxQPEUcOBFn0Ba5c2VGCVFOpYp.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-p23YGfggwZlHI1lOJILs6cOm4NEbRkNJ.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-pxYqHAl4Ydvf7n4OFSqsLMlEUSe343So.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-q00h0WJqp2dMoBZKgReanLlYJ2mGXCtl.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-qgFBjC5syNRwQnF82JsDnrWM05wUNDKz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-uHDBI7TmLpbPPlfZ2TkiYUSnqmg6dT8q.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vbLL8rKIq22vSXk0yIODNOTRIGbHQiLv.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-wYcT3aSiQMQpyyanXWQz2RqkXAZ9olnz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-wcZKaOyEnliyRDRiBJnZhLP3ugViZJKx.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-xQcZXny3bANUKQmdYCdx6ShKVRyns7lo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-zDFu4jDP8zEhuwL7TN6f1BiTkzB9snIA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/export.model.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/export.plain.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/export.query-model.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/export.query.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/import.collection.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/import.model.stub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kansas_plant_farm.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/image.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_11_182845_alter_table_products_change_column_type.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/admin/css/jqueryui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/6163/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/7263/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/6163/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/7263/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/css/basic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/css/basic.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/css/dropzone.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/css/dropzone.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/css/stylus/basic.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/css/stylus/dropzone.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/dropzone-amd-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/dropzone-amd-module.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/dropzone.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/dropzone.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/images/spritemap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/images/spritemap@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/jqueryui-1.10.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/wijets/wijets.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/productImage.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin_pagination.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-0TOkMQ2MGrXToFZor2tLPjIihY8EvY4V.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3aEw0aDrx03WT18JfpMeuKFfKml2jfha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-4HBNLat8WQKgLoWrBpp03wfLoyl4mHrh.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-4pUGqxljQq8lFlVG9WJ9J0BCJUJCs8bN.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-5LS4i4yyWIKW5aZAFuGglk0HOdDeX73n.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-5QcRovHlJK3mDDUK2yTGeJSugyOvrybx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-73QUyA9BmrNSlPBPDm5QUAJtRB0F8MZE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-9MwFJbmhLZLT0WlTk1qZCbnbDIjqNrSL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-AESirA6xQupdXCt8VxlH441J2j1dkD2I.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-FDjmOorNntfnE56nW8d9ibueGXfAnUCa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-J8Viv69Q8VPOIKK1yqdgtSZst8fVHfVU.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-JAVG0OrNApjOVHNzO5a0To2XAODwkslN.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-K9i10PqewSS5PHmwIyX8tkNFk6GbdkqI.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-OQGg96G1gMFrIVEvPkHN1TMcySCx2Tu1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-P08dHPCmsGpUkbLTavfwXiO2Yp1VsW9P.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-PrpnXm7KQtITfmHvcOlyMCIJc4fqfZtI.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Q5eMJK6EbCjmFe7f1horogXMBOneOzdW.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-QDgTCLxmUxSMB6tvWiyT95YF7qUWugHx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-UVPlwfJFkzN0R4Wtqo1tlEGbjMFCZp5D.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-UWelWnnhWQKRYxsxz32VS1duaJ8ATMaM.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-VF5voxQONYyl5gqg65KmEk7N2mNsUjbj.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-VN8OsZjXZR5mxgvXQG2bzLYIRFhhjXt0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-WbikVDvkZDK0IckfjIWA7qsD5aDXTbPr.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-YhIBQak2zlRziS3So4Inqmq4HdgOuX2z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-YwWpjYwBqwB3oiI0Td03v7YiwipYKlXa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-aO2fBNvfn5phMPbGqPOoChp5rN395hpy.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-dj34w6ZLbaLoBfRSi587MnXdidxKxWq0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-e1SaVjb9nfTOI9EJiemij2ybCF1S9faz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ffTJstxJZ9PMBcI2fVdfhA0QTkGMpoho.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-g0xtB9yQ4l4I3OcjTbVCVe9CpYLJ1shy.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-iHv3kc2ye2uUd4ssb3AqUmHGPFfFhhrP.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-khRGzdFg3wcJRKvbsPLbOo0ukHJ7ztGh.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-nbJFO3Bzj7uMMzyFO0DfxVy7gNbXcXIA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-nwaUB2a9W9QzI4MQth3HC9RpMdWluxKw.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-oa8zM1EazJAGtD0RwvzMmbPPQcTXVbnB.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-pxRyfZCx2PZso13APIv6HAJvlkcIacVa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-rENWrH657TO8KyzlBoaiCookpUmObpEk.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-svJCyz2EliF01Cf7GI6R4UyS2QUYeRBV.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-totakoziTAZwRupqY8n5ZaNYK50Lqpzx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-xN90NbwLsct98wwZhbyXrPy87c9BnuFj.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-y788pJzy72oKuuiir4shKg5QdWfvS4Gm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-y7dzv8ZrXXxoCQFGl1kL9pKtuwbP14UM.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../my_first_symfony_full/.idea/my_first_symfony_full.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../new_zend/.idea/new_zend.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../stock_analysis/.idea/arp1_project.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../symfony_new_blog/.idea/symfony_new_blog.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_vue/main.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../xdebug_test/.idea/xdebug_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/add_claim_mls.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/add_claim_mls.php" afterDir="false" />
@@ -157,25 +158,27 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ProductsExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ProductsExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/ProductsImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductsImport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_14_133349_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_14_133349_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_16_175140_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_175140_create_orders_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin/dropzone/dist/dropzone.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin/dropzone/dist/dropzone.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pagination.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
@@ -202,6 +205,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -347,6 +351,11 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
       <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
     </include_path>
   </component>
   <component name="ProjectId" id="1k8vPEGzQG01yTczfGm2glFAh8Z" />
@@ -360,6 +369,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
@@ -371,23 +381,23 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.webOptions" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/resources/views/admin/product" />
       <recent name="$PROJECT_DIR$/resources/views/admin/order" />
       <recent name="$PROJECT_DIR$/resources/views/admin/user" />
       <recent name="$PROJECT_DIR$/public/img/admin" />
-      <recent name="$PROJECT_DIR$/public/js/admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/css/admin/css" />
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/js/admin" />
       <recent name="$PROJECT_DIR$/public/css" />
-      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/resources/admin/css" />
-      <recent name="$PROJECT_DIR$/public/plants_images" />
     </key>
   </component>
   <component name="RunManager">
@@ -427,7 +437,20 @@
       <workItem from="1617613585517" duration="1044000" />
       <workItem from="1617737010650" duration="1188000" />
       <workItem from="1617803527189" duration="2077000" />
-      <workItem from="1617917094106" duration="1991000" />
+      <workItem from="1617917094106" duration="13300000" />
+      <workItem from="1617988852244" duration="16096000" />
+      <workItem from="1618069485214" duration="5724000" />
+      <workItem from="1618156313247" duration="346000" />
+      <workItem from="1618156735501" duration="18136000" />
+      <workItem from="1618243147297" duration="1128000" />
+      <workItem from="1618327815816" duration="12710000" />
+      <workItem from="1618422670397" duration="8659000" />
+      <workItem from="1618497859198" duration="2409000" />
+      <workItem from="1619031606694" duration="5659000" />
+      <workItem from="1619100910597" duration="915000" />
+      <workItem from="1619105523694" duration="1579000" />
+      <workItem from="1619209346292" duration="6542000" />
+      <workItem from="1619279085034" duration="10899000" />
     </task>
     <servers />
   </component>

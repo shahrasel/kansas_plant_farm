@@ -1,5 +1,37 @@
 @extends('layouts.app')
+@section('custom_styles');
+    <style>
+        #min_sel .nice-select{
+            width: 100% !important;
+        }
+        .sidebar-single .sidebar-title.second_sidebar::before {
+            width: 100%;
+            height: 1px;
+            left: 0;
+            bottom: 0;
+            content: " ";
+            position: absolute;
+            background-color: #0f0;
+            display: none;
+        }
 
+        .sidebar-single .sidebar-title.second_sidebar {
+            position: relative;
+            line-height: 1;
+            margin-top: -3px;
+            padding-bottom: 20px;
+            margin-bottom: 0px;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+        .custom-control.custom-checkbox.second_custom_control {
+            padding-left: 0px;
+        }
+        .custom-control.custom-checkbox.second_custom_control .categories-list li {
+            padding-left: 1.5rem;
+        }
+    </style>
+@endsection
 @section('content')
     <main>
         <!-- breadcrumb area start -->
@@ -32,7 +64,6 @@
                             <form action="" method="get">
                                 @csrf
                             <aside class="sidebar-wrapper">
-                                <!-- single sidebar start -->
                                 <div class="sidebar-single">
                                     <h5 class="sidebar-title open">SORT<i></i></h5>
                                     <div class="sidebar-body">
@@ -206,114 +237,316 @@
                                     </div>
                                 </div>
 
+
+                                <div class="sidebar-single">
+                                    <h5 class="sidebar-title">PLANT ZONE<i></i></h5>
+                                    <div class="sidebar-body" style="display: none;padding-bottom: 30px">
+
+                                            <div style="width: 48%;float: left" id="min_sel">
+                                                <select class="nice-select" name="min_zone">
+                                                    <option value="">-- Min Zone --</option>
+                                                    @foreach($zoneArray as $key=>$val)
+                                                        <option @if(app('request')->input('min_zone') == $key) selected @endif value="{{ $key }}">{{ $val }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div style="width: 48%;float: right" id="min_sel">
+                                                <select class="nice-select small_sel" name="max_zone">
+                                                    <option value="">-- Max Zone --</option>
+                                                    @foreach($zoneArray as $key=>$val)
+                                                        <option @if(app('request')->input('max_zone') == $key) selected @endif value="{{ $key }}">{{ $val }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                    </div>
+                                </div>
+
+
+
                                 <div class="sidebar-single">
                                     <h5 class="sidebar-title">CULTURAL CONDITIONS<i></i></h5>
                                     <div class="sidebar-body" style="display: none">
                                         <ul class="checkbox-container categories-list">
+                                            @if(count($sunlight_arr)>0)
                                             <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccMINZONE" name="CULTURALCONDITIONS[]" value="min_zone">
-                                                    <label class="custom-control-label" for="ccMINZONE">MIN ZONE</label>
+                                                <div class="custom-control custom-checkbox second_custom_control">
+                                                    <div class="sidebar-single">
+                                                        <p class="sidebar-title second_sidebar">SUNLIGHT<i></i></p>
+                                                        <div class="sidebar-body" style="display: none">
+                                                            <ul class="checkbox-container categories-list">
+                                                                @foreach($sunlight_arr as $sunlight_ar)
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" id="s{{ $sunlight_ar }}" name="sunlight[]" value="{{ $sunlight_ar }}">
+                                                                            <label class="custom-control-label" for="s{{ $sunlight_ar }}">{{ $sunlight_ar }}</label>
+                                                                        </div>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </li>
+                                            @endif
 
+                                            @if(count($water_rainfall_arr)>0)
                                             <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccMAXZONE" name="CULTURALCONDITIONS[]" value="max_zone">
-                                                    <label class="custom-control-label" for="ccMAXZONE">MAX ZONE</label>
+                                                <div class="custom-control custom-checkbox second_custom_control">
+                                                    <div class="sidebar-single">
+                                                        <p class="sidebar-title second_sidebar">WATER/RAINFALL<i></i></p>
+                                                        <div class="sidebar-body" style="display: none">
+                                                            <ul class="checkbox-container categories-list">
+                                                                @foreach($water_rainfall_arr as $water_rainfall_ar)
+                                                                <li>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox" class="custom-control-input" id="wr{{ $water_rainfall_ar }}" name="water_rainfall[]" value="{{ $water_rainfall_ar }}">
+                                                                        <label class="custom-control-label" for="wr{{ $water_rainfall_ar }}">{{ $water_rainfall_ar }}</label>
+                                                                    </div>
+                                                                </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </li>
+                                            @endif
 
+                                            @if(count($soil_quality_arr)>0)
                                             <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccSUNLIGHT" name="CULTURALCONDITIONS[]" value="sunlight">
-                                                    <label class="custom-control-label" for="ccSUNLIGHT">SUNLIGHT</label>
+                                                <div class="custom-control custom-checkbox second_custom_control">
+                                                    <div class="sidebar-single">
+                                                        <p class="sidebar-title second_sidebar">SOIL QUALITY<i></i></p>
+                                                        <div class="sidebar-body" style="display: none">
+                                                            <ul class="checkbox-container categories-list">
+                                                                @foreach($soil_quality_arr as $soil_quality_ar)
+                                                                <li>
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox" class="custom-control-input" id="sq{{ $soil_quality_ar }}" name="soil_quality[]" value="{{ $soil_quality_ar }}">
+                                                                        <label class="custom-control-label" for="sq{{ $soil_quality_ar }}">{{ $soil_quality_ar }}</label>
+                                                                    </div>
+                                                                </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccWATERRAINFALL" name="CULTURALCONDITIONS[]" value="water_rainfall">
-                                                    <label class="custom-control-label" for="ccWATERRAINFALL">WATER/RAINFALL</label>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccSOILQUALITY" name="CULTURALCONDITIONS[]" value="soil_quality">
-                                                    <label class="custom-control-label" for="ccSOILQUALITY">SOIL QUALITY</label>
-                                                </div>
-                                            </li>
                                         </ul>
                                     </div>
                                 </div>
+
 
                                 <div class="sidebar-single">
                                     <h5 class="sidebar-title">FLOWERS AND FOLIAGE<i></i></h5>
                                     <div class="sidebar-body" style="display: none">
                                         <ul class="checkbox-container categories-list">
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccBLOOMSEASON" name="FLOWERSFOLIAGE[]" value="bloom_season">
-                                                    <label class="custom-control-label" for="ccBLOOMSEASON">BLOOM SEASON</label>
-                                                </div>
-                                            </li>
+                                            @if(count($bloom_season_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">BLOOM SEASON<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($bloom_season_arr as $bloom_season_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="bs{{ $bloom_season_ar }}" name="bloom_season[]" value="{{ $bloom_season_ar }}">
+                                                                                <label class="custom-control-label" for="bs{{ $bloom_season_ar }}">{{ $bloom_season_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccFLOWERCOLOR" name="FLOWERSFOLIAGE[]" value="flower_color">
-                                                    <label class="custom-control-label" for="ccFLOWERCOLOR">FLOWER COLOR</label>
-                                                </div>
-                                            </li>
+                                            @if(count($flower_color_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">FLOWER COLOR<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($flower_color_arr as $flower_color_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="fc{{ $flower_color_ar }}" name="flower_color[]" value="{{ $flower_color_ar }}">
+                                                                                <label class="custom-control-label" for="fc{{ $flower_color_ar }}">{{ $flower_color_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccBERRYFRUITCOLOR" name="FLOWERSFOLIAGE[]" value="berry_fruit_color">
-                                                    <label class="custom-control-label" for="ccBERRYFRUITCOLOR">BERRY / FRUIT COLOR</label>
-                                                </div>
-                                            </li>
+                                            @if(count($berry_fruit_color_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">BERRY FRUIT COLOR<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($berry_fruit_color_arr as $berry_fruit_color_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="bfc{{ $berry_fruit_color_ar }}" name="berry_fruit_color[]" value="{{ $berry_fruit_color_ar }}">
+                                                                                <label class="custom-control-label" for="bfc{{ $berry_fruit_color_ar }}">{{ $berry_fruit_color_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccSPRINGFOLIAGECOLOR" name="FLOWERSFOLIAGE[]" value="spring_foliage_color">
-                                                    <label class="custom-control-label" for="ccSPRINGFOLIAGECOLOR">SPRING FOLIAGE COLOR</label>
-                                                </div>
-                                            </li>
+                                            @if(count($spring_foliage_color_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">SPRING FOLIAGE COLOR<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($spring_foliage_color_arr as $spring_foliage_color_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="sfc{{ $spring_foliage_color_ar }}" name="spring_foliage_color[]" value="{{ $spring_foliage_color_ar }}">
+                                                                                <label class="custom-control-label" for="sfc{{ $spring_foliage_color_ar }}">{{ $spring_foliage_color_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccSUMMERFOLIAGECOLOR" name="FLOWERSFOLIAGE[]" value="summer_foliage_color">
-                                                    <label class="custom-control-label" for="ccSUMMERFOLIAGECOLOR">SUMMER FOLIAGE COLOR</label>
-                                                </div>
-                                            </li>
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccFALLFOLIAGECOLOR" name="FLOWERSFOLIAGE[]" value="fall_foliage_color">
-                                                    <label class="custom-control-label" for="ccFALLFOLIAGECOLOR">FALL FOLIAGE COLOR</label>
-                                                </div>
-                                            </li>
+                                            @if(count($summer_foliage_color_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">SUMMER FOLIAGE COLOR<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($summer_foliage_color_arr as $summer_foliage_color_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="sufc{{ $summer_foliage_color_ar }}" name="summer_foliage_color[]" value="{{ $summer_foliage_color_ar }}">
+                                                                                <label class="custom-control-label" for="sufc{{ $summer_foliage_color_ar }}">{{ $summer_foliage_color_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccEVERGREENFOLIAGE" name="FLOWERSFOLIAGE[]" value="has_evergreen_foliage">
-                                                    <label class="custom-control-label" for="ccEVERGREENFOLIAGE">EVERGREEN FOLIAGE</label>
-                                                </div>
-                                            </li>
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccWINTERINTEREST" name="FLOWERSFOLIAGE[]" value="has_winter_interest">
-                                                    <label class="custom-control-label" for="ccWINTERINTEREST">WINTER INTEREST</label>
-                                                </div>
-                                            </li>
+                                            @if(count($fall_foliage_color_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">FALL FOLIAGE COLOR<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($fall_foliage_color_arr as $fall_foliage_color_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="bfca{{ $fall_foliage_color_ar }}" name="fall_foliage_color[]" value="{{ $fall_foliage_color_ar }}">
+                                                                                <label class="custom-control-label" for="bfca{{ $fall_foliage_color_ar }}">{{ $fall_foliage_color_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccSCENTEDFLOWERS" name="FLOWERSFOLIAGE[]" value="scented_flowers">
-                                                    <label class="custom-control-label" for="ccSCENTEDFLOWERS">SCENTED FLOWERS</label>
-                                                </div>
-                                            </li>
+
+                                            @if(count($has_evergreen_foliage_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">EVERGREEN FOLIAGE<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($has_evergreen_foliage_arr as $has_evergreen_foliage_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="ef{{ $has_evergreen_foliage_ar }}" name="has_evergreen_foliage[]" value="{{ $has_evergreen_foliage_ar }}">
+                                                                                <label class="custom-control-label" for="ef{{ $has_evergreen_foliage_ar }}">{{ $has_evergreen_foliage_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
+
+
+
+                                            @if(count($has_winter_interest_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">WINTER INTEREST<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($has_winter_interest_arr as $has_winter_interest_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="wi{{ $has_winter_interest_ar }}" name="has_winter_interest[]" value="{{ $has_winter_interest_ar }}">
+                                                                                <label class="custom-control-label" for="wi{{ $has_winter_interest_ar }}">{{ $has_winter_interest_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
+
+
+                                            @if(count($scented_flowers_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">SCENTED FLOWERS<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($scented_flowers_arr as $scented_flowers_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="sfa{{ $scented_flowers_ar }}" name="scented_flowers[]" value="{{ $scented_flowers_ar }}">
+                                                                                <label class="custom-control-label" for="sfa{{ $scented_flowers_ar }}">{{ $scented_flowers_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
+
                                         </ul>
                                     </div>
                                 </div>
@@ -323,100 +556,247 @@
                                     <h5 class="sidebar-title">PLANT TOLERANCES<i></i></h5>
                                     <div class="sidebar-body" style="display: none">
                                         <ul class="checkbox-container categories-list">
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccDROUGHTTOLERANCE" name="PLANTTOLERANCES[]" value="drought_tolerance">
-                                                    <label class="custom-control-label" for="ccDROUGHTTOLERANCE">DROUGHT TOLERANCE</label>
-                                                </div>
-                                            </li>
+                                            @if(count($drought_tolerance_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">DROUGHT TOLERANCE<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($drought_tolerance_arr as $drought_tolerance_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="dt{{ $drought_tolerance_ar }}" name="drought_tolerance[]" value="{{ $drought_tolerance_ar }}">
+                                                                                <label class="custom-control-label" for="dt{{ $drought_tolerance_ar }}">{{ $drought_tolerance_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccWETFEETTOLERANCE" name="PLANTTOLERANCES[]" value="wet_feet_tolerance">
-                                                    <label class="custom-control-label" for="ccWETFEETTOLERANCE">WET-FEET TOLERANCE</label>
-                                                </div>
-                                            </li>
+                                            @if(count($wet_feet_tolerance_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">WET FEET TOLERANCE<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($wet_feet_tolerance_arr as $wet_feet_tolerance_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="wft{{ $wet_feet_tolerance_ar }}" name="wet_feet_tolerance[]" value="{{ $wet_feet_tolerance_ar }}">
+                                                                                <label class="custom-control-label" for="wft{{ $wet_feet_tolerance_ar }}">{{ $wet_feet_tolerance_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccHUMIDITYTOLERANCE" name="PLANTTOLERANCES[]" value="humidity_tolerance">
-                                                    <label class="custom-control-label" for="ccHUMIDITYTOLERANCE">HUMIDITY TOLERANCE</label>
-                                                </div>
-                                            </li>
+                                            @if(count($humidity_tolerance_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">HUMIDITY TOLERANCE<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($humidity_tolerance_arr as $humidity_tolerance_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="ht{{ $humidity_tolerance_ar }}" name="humidity_tolerance[]" value="{{  $humidity_tolerance_ar }}">
+                                                                                <label class="custom-control-label" for="ht{{  $humidity_tolerance_ar }}">{{  $humidity_tolerance_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccWINDTOLERANCE" name="PLANTTOLERANCES[]" value="wind_tolerence">
-                                                    <label class="custom-control-label" for="ccWINDTOLERANCE">WIND TOLERANCE</label>
-                                                </div>
-                                            </li>
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccPOORSOILTOLERANCE" name="PLANTTOLERANCES[]" value="poor_soil_tolerance">
-                                                    <label class="custom-control-label" for="ccPOORSOILTOLERANCE">POOR SOIL TOLERANCE </label>
-                                                </div>
-                                            </li>
+                                            @if(count($wind_tolerence_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">WIND TOLERANCE<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($wind_tolerence_arr as $wind_tolerence_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="wt{{ $wind_tolerence_ar }}" name="wind_tolerence[]" value="{{  $wind_tolerence_ar }}">
+                                                                                <label class="custom-control-label" for="wt{{  $wind_tolerence_ar }}">{{  $wind_tolerence_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
+
+
+
+                                            @if(count($poor_soil_tolerance_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">POOR SOIL TOLERANCE<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($poor_soil_tolerance_arr as $poor_soil_tolerance_ar)
+                                                                        @if(!empty($poor_soil_tolerance_ar))
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="pst{{ $poor_soil_tolerance_ar }}" name="poor_soil_tolerance[]" value="{{  $poor_soil_tolerance_ar }}">
+                                                                                <label class="custom-control-label" for="pst{{  $poor_soil_tolerance_ar }}">{{  $poor_soil_tolerance_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
+
                                         </ul>
                                     </div>
                                 </div>
+
 
 
                                 <div class="sidebar-single">
                                     <h5 class="sidebar-title">GROWTH AND MAINTENANCE<i></i></h5>
                                     <div class="sidebar-body" style="display: none">
                                         <ul class="checkbox-container categories-list">
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccHEIGHT" name="GROWTHMAINTENANCE[]" value="height">
-                                                    <label class="custom-control-label" for="ccHEIGHT">HEIGHT</label>
-                                                </div>
-                                            </li>
+                                            @if(count($growth_rate_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">GROWTH RATE<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($growth_rate_arr as $growth_rate_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="gr{{ $growth_rate_ar }}" name="growth_rate[]" value="{{ $growth_rate_ar }}">
+                                                                                <label class="custom-control-label" for="gr{{ $growth_rate_ar }}">{{ $growth_rate_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccWIDTH" name="GROWTHMAINTENANCE[]" value="width">
-                                                    <label class="custom-control-label" for="ccWIDTH">WIDTH</label>
-                                                </div>
-                                            </li>
+                                            @if(count($service_life_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">SERVICE LIFE<i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($service_life_arr as $service_life_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="sl{{ $service_life_ar }}" name="service_life[]" value="{{ $service_life_ar }}">
+                                                                                <label class="custom-control-label" for="sl{{ $service_life_ar }}">{{ $service_life_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccGROWTHRATE" name="GROWTHMAINTENANCE[]" value="growth_rate">
-                                                    <label class="custom-control-label" for="ccGROWTHRATE">GROWTH RATE</label>
-                                                </div>
-                                            </li>
+                                            @if(count($maintenance_requirements_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">MAINTENANCE NEEDS <i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($maintenance_requirements_arr as $maintenance_requirements_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="mr{{ $maintenance_requirements_ar }}" name="maintenance_requirements[]" value="{{ $maintenance_requirements_ar }}">
+                                                                                <label class="custom-control-label" for="mr{{ $maintenance_requirements_ar }}">{{ $maintenance_requirements_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccSERVICELIFE" name="GROWTHMAINTENANCE[]" value="service_life">
-                                                    <label class="custom-control-label" for="ccSERVICELIFE">SERVICE LIFE</label>
-                                                </div>
-                                            </li>
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccMAINTENANCENEEDS" name="GROWTHMAINTENANCE[]" value="maintenance_requirements">
-                                                    <label class="custom-control-label" for="ccMAINTENANCENEEDS">MAINTENANCE NEEDS</label>
-                                                </div>
-                                            </li>
+                                            @if(count($spreading_potential_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">SPREADING POTENTIAL <i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($spreading_potential_arr as $spreading_potential_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="sp{{ $spreading_potential_ar }}" name="spreading_potential[]" value="{{ $spreading_potential_ar }}">
+                                                                                <label class="custom-control-label" for="sp{{ $spreading_potential_ar }}">{{ $spreading_potential_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccSPREADINGPOTENTIAL" name="GROWTHMAINTENANCE[]" value="spreading_potential">
-                                                    <label class="custom-control-label" for="ccSPREADINGPOTENTIAL">SPREADING POTENTIAL</label>
-                                                </div>
-                                            </li>
 
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="ccYEARLYTRIMMINGTIPS" name="GROWTHMAINTENANCE[]" value="yearly_trimming_tips">
-                                                    <label class="custom-control-label" for="ccYEARLYTRIMMINGTIPS">YEARLY TRIMMING TIPS</label>
-                                                </div>
-                                            </li>
+                                            @if(count($yearly_trimming_tips_arr)>0)
+                                                <li>
+                                                    <div class="custom-control custom-checkbox second_custom_control">
+                                                        <div class="sidebar-single">
+                                                            <p class="sidebar-title second_sidebar">YEARLY TRIMMING TIPS <i></i></p>
+                                                            <div class="sidebar-body" style="display: none">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    @foreach($yearly_trimming_tips_arr as $yearly_trimming_tips_ar)
+                                                                        <li>
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="ytt{{ $yearly_trimming_tips_ar }}" name="yearly_trimming_tips[]" value="{{ $yearly_trimming_tips_ar }}">
+                                                                                <label class="custom-control-label" for="ytt{{ $yearly_trimming_tips_ar }}">{{ $yearly_trimming_tips_ar }}</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endif
+
                                         </ul>
                                     </div>
                                 </div>
+
                                 <!-- single sidebar end -->
 
                                 <!-- single sidebar start -->
@@ -630,8 +1010,8 @@
                                     <div class="product-item">
                                             <figure class="product-thumb">
                                                 <a href="product-details/{{ $product->id }}">
-                                                    <img class="pri-img" src="{{ asset('plants_images/'.$product->image) }}" alt="product">
-                                                    <img class="sec-img" src="{{ asset('plants_images/'.$product->image) }}" alt="product">
+                                                    <img class="pri-img" src="{{ url('plants_images/'.$product->image) }}" alt="product">
+                                                    <img class="sec-img" src="{{ url('plants_images/'.$product->image) }}" alt="product">
                                                 </a>
                                                 <div class="product-badge">
                                                     <div class="product-label new">
@@ -844,7 +1224,7 @@ position: absolute;">
                 <div class="sidebar-single" style="padding-top: 20px;">
                     <h5 class="sidebar-title open">categories<i></i></h5>
                     <div class="sidebar-body">
-<!--                        <ul class="shop-categories">
+{{--                       <ul class="shop-categories">
                             <li><a href="{{ url("/products") }}">All <span>({{ $total_product_count }})</span></a></li>
                             <li><a href="{{ url("/products?category=perennial") }}">Perennial <span>({{ $perennial_cat_count }})</span></a></li>
                             <li><a href="{{ url("/products?category=shrub") }}">Shrub <span>({{ $shrub_cat_count }})</span></a></li>
@@ -858,7 +1238,7 @@ position: absolute;">
                             <li><a href="{{ url("/products?category=cactus_succulent") }}">Cactus/Succulent <span>({{ $cactus_succulent_cat_count }})</span></a></li>
                             <li><a href="{{ url("/products?category=small_tree") }}">Small Tree <span>({{ $small_tree_cat_count }})</span></a></li>
                             <li><a href="{{ url("/products?category=large_tree") }}">Large Tree <span>({{ $large_tree_cat_count }})</span></a></li>
-                        </ul>-->
+                        </ul> --}}
                         <ul class="checkbox-container categories-list">
                             <li>
                                 <div class="custom-control custom-checkbox">
@@ -1015,8 +1395,8 @@ position: absolute;">
 
             jQuery(".sidebar-title").click(function() {
                 jQuery(this).toggleClass('open');
-                jQuery(this).parent().addClass('active').find('.sidebar-body').slideToggle('fast');
-                jQuery(".sidebar-body").not(this).parent().removeClass('active').find('.panel-body').slideUp('fast');
+                jQuery(this).parent().addClass('active').find('.sidebar-body:first').slideToggle('fast');
+                //jQuery(".sidebar-body").not(this).parent().removeClass('active').find('.panel-body').slideUp('fast');
             });
         });
     </script>

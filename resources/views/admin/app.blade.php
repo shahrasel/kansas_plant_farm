@@ -13,12 +13,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/admin/css/select2.min.css')  }}" rel="stylesheet">
     <link href="{{ asset('css/admin/css/bootstrap-daterangepicker/daterangepicker.css')  }}" rel="stylesheet">
-    <link href="{{ asset('css/admin/css/dropzone/dist/dropzone.css')  }}" rel="stylesheet">
+
     <link href="{{ asset('css/admin/css/datatables.net-bs/css/dataTables.bootstrap.min.css')  }}" rel="stylesheet">
     <link href="{{ asset('css/admin/css/fullcalendar/dist/fullcalendar.min.css')  }}" rel="stylesheet">
     <link href="{{ asset('css/admin/css/perfect-scrollbar/css/perfect-scrollbar.min.css')  }}" rel="stylesheet">
     <link href="{{ asset('css/admin/css/slick-carousel/slick/slick.css')  }}" rel="stylesheet">
     <link href="{{ asset('css/admin/css/main.css?v=').time() }}" rel="stylesheet">
+    @yield('stylesheet')
 </head>
 <body class="menu-position-side menu-side-left full-screen with-content-panel">
 <div class="all-wrapper with-side-panel solid-bg-all">
@@ -1504,7 +1505,6 @@
 <script src="{{ asset('js/admin/bootstrap-validator/dist/validator.min.js') }}"></script>
 <script src="{{ asset('js/admin/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{ asset('js/admin/ion.rangeSlider/js/ion.rangeSlider.min.js') }}"></script>
-<script src="{{ asset('js/admin/dropzone/dist/dropzone.js') }}"></script>
 <script src="{{ asset('js/admin/editable-table/mindmup-editabletable.js') }}"></script>
 <script src="{{ asset('js/admin/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/admin/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
@@ -1524,6 +1524,7 @@
 <script src="{{ asset('js/admin/bootstrap/js/dist/popover.js') }}"></script>
 <script src="{{ asset('js/admin/demo_customizer.js?version=4.5.0') }}"></script>
 <script src="{{ asset('js/admin/main.js?version=4.5.0') }}"></script>
+@yield('javascript')
 <script>
     function logoutFormSubmit() {
         $("#logoutform").submit();

@@ -833,6 +833,7 @@ var Dropzone = function (_Emitter) {
         // Called when a thumbnail has been generated
         // Receives `file` and `dataUrl`
         thumbnail: function thumbnail(file, dataUrl) {
+            //alert(dataUrl);
           if (file.previewElement) {
             file.previewElement.classList.remove("dz-file-preview");
             for (var _iterator6 = file.previewElement.querySelectorAll("[data-dz-thumbnail]"), _isArray6 = true, _i6 = 0, _iterator6 = _isArray6 ? _iterator6 : _iterator6[Symbol.iterator]();;) {

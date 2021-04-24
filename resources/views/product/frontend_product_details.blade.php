@@ -18,19 +18,19 @@
                                         </div>
                                     </div>
                                     <div class="product-large-slider">
-                                        <div class="pro-large-img img-zoom">
+                                        <div class="pro-large-img">
                                             <img src="{{ asset('plants_images/1.jpg') }}" alt="product-details" />
                                         </div>
-                                        <div class="pro-large-img img-zoom">
+                                        <div class="pro-large-img">
                                             <img src="{{ asset('plants_images/2.jpg') }}" alt="product-details" />
                                         </div>
-                                        <div class="pro-large-img img-zoom">
+                                        <div class="pro-large-img">
                                             <img src="{{ asset('plants_images/7.jpg') }}" alt="product-details" />
                                         </div>
-                                        <div class="pro-large-img img-zoom">
+                                        <div class="pro-large-img">
                                             <img src="{{ asset('plants_images/4.jpg') }}" alt="product-details" />
                                         </div>
-                                        <div class="pro-large-img img-zoom">
+                                        <div class="pro-large-img">
                                             <img src="{{ asset('plants_images/5.jpg') }}" alt="product-details" />
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                                 @if($product->inventory_count_a >$product->low_inventory_count_a)
                                                     in stock
                                                 @else
-                                                    Only {{ $product->inventory_count_a }} in stock
+                                                    {{ $product->inventory_count_a }} in stock
                                                 @endif
                                             </span>
                                         </div>

@@ -19,7 +19,7 @@
             {{-- "Three Dots" Separator --}}
             @if (is_string($element))
                 {{--<li class="page-item disabled">{{ $element }}</li>--}}
-                <li class="active"><a >1</a></li>
+                <li><a >...</a></li>
             @endif
 
             {{-- Array Of Links --}}

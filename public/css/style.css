@@ -4132,6 +4132,7 @@ textarea:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -4141,6 +4142,7 @@ textarea:focus {
 .paginatoin-area .pagination-box li {
   margin-right: 5px;
   display: inline-block;
+  margin-bottom: 5px;
 }
 
 .paginatoin-area .pagination-box li:last-child {

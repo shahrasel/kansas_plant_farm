@@ -181,88 +181,134 @@
                             @csrf
                             <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
                                 <div class="custom-file text-left">
-                                    <input type="file" name="file" class="custom-file-input" id="customFile">
+                                    <input type="file" name="file" class="custom-file-input" id="customFile" required>
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
+                                @if ($errors->has('file'))
+                                    <div class="custom-file text-left text-danger">
+                                        {{--{{$errors->first('file')}}--}}
+                                        The file must be a file of type: csv
+                                    </div>
+                                @endif
                             </div>
                             <button class="btn btn-primary">Import data</button>
                             <a class="btn btn-success" href="{{ route('file-export') }}">Export data</a>
                         </form>
-                        <div class="table-responsive">
-                            <table id="dataTable10" class="table table-striped table-lightfont">
-                                <thead>
-                                <tr>
-                                    <!--<th>ID</th>--><th>common_name</th><th>include_on_website</th><th>status</th>
-                                    <th>pot_size_a</th>
-                                    <th>inventory_count_a</th>
-                                    <th>contractor_price_a</th>
-                                    <th>retail_sale_price_a</th>
 
-<!--                                    <th>pot_size_b</th>
-                                    <th>inventory_count_b</th>
-                                    <th>contractor_price_b</th>
-                                    <th>retail_sale_price_b</th>
+                            <div class="mx-auto">
+                                <div class="product-amount" style="text-align: center">
+                                    {{--<p>Showing 1–16 of 21 results</p>--}}
+                                    <p style="text-transform:none">Showing {{($product_lists->currentpage()-1)*$product_lists->perpage()+1}} to
+                                        @if($product_lists->total()>50)
+                                            @if(app('request')->input('page'))
+                                                @if($product_lists->lastPage() == app('request')->input('page')) {{$product_lists->total()}}
+                                                @else {{ ($product_lists->currentpage())*$product_lists->perpage() }}
+                                                @endif
+                                            @else
+                                                {{ ($product_lists->currentpage())*$product_lists->perpage() }}
+                                            @endif
+                                        @else
+                                            @if(app('request')->input('page'))
+                                                @if($product_lists->lastPage() == app('request')->input('page')) {{$product_lists->total()}}
+                                                @else {{ ($product_lists->currentpage()-1)*$product_lists->perpage() }}
+                                                @endif
+                                            @else
+                                                {{ $product_lists->total() }}
+                                            @endif
+                                        @endif
+                                        of  {{$product_lists->total()}} products
+                                    </p>
+                                </div>
 
-                                    <th>pot_size_c</th>
-                                    <th>inventory_count_c</th>
-                                    <th>contractor_price_c</th>
-                                    <th>retail_sale_price_c</th>-->
-                                    <th>Image Upload</th>
-                                    <th>Edit</th>
-                                </tr></thead>
-                                <tfoot>
-                                <tr><!--<th>ID</th>--><th>common_name</th><th>include_on_website</th><th>status</th>
-                                    <th>pot_size_a</th>
-                                    <th>inventory_count_a</th>
-                                    <th>contractor_price_a</th>
-                                    <th>retail_sale_price_a</th>
-                                    <th>Image Upload</th>
-                                    <th>Edit</th>
-
-<!--                                    <th>pot_size_b</th>
-                                    <th>inventory_count_b</th>
-                                    <th>contractor_price_b</th>
-                                    <th>retail_sale_price_b</th>
-
-                                    <th>pot_size_c</th>
-                                    <th>inventory_count_c</th>
-                                    <th>contractor_price_c</th>
-                                    <th>retail_sale_price_c</th></tr>-->
-                                </tfoot>
-                                <tbody>
-                                @forelse($product_lists as $product_list)
+                                @if ($product_lists->hasPages())
+                                    <div class="pagination-links mx-auto" style="display: flex">
+                                        {{ $product_lists->withQueryString()->links('admin_pagination') }}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="table-responsive">
+                                <table id="dataTable10" class="table table-striped table-lightfont">
+                                    <thead>
                                     <tr>
-<!--                                        <td>{{ $product_list->plant_id_number }}</td>-->
-                                        <td>{{ $product_list->common_name }}</td>
-                                        <td>{{ $product_list->include_on_website }}</td>
+                                        <!--<th>ID</th>--><th>common_name</th><th>include_on_website</th><th>status</th>
+                                        <th>pot_size_a</th>
+                                        <th>inventory_count_a</th>
+                                        <th>contractor_price_a</th>
+                                        <th>retail_sale_price_a</th>
 
-                                        <td>{{ $product_list->status }}</td>
-                                        <td>{{ $product_list->pot_size_a }}</td>
-                                        <td>{{ $product_list->inventory_count_a }}</td>
-                                        <td>{{ $product_list->contractor_price_a }}</td>
-                                        <td>{{ $product_list->retail_sale_price_a }}</td>
-    <td><a href="{{ url('/admin/edit-product-image?id='.$product_list->id) }}">Image Upload</a></td>
-    <td><a href="{{ url('/admin/edit-product?id='.$product_list->id) }}">Edit</a></td>
+    <!--                                    <th>pot_size_b</th>
+                                        <th>inventory_count_b</th>
+                                        <th>contractor_price_b</th>
+                                        <th>retail_sale_price_b</th>
 
-<!--                                        <td>{{ $product_list->pot_size_b }}</td>
-                                        <td>{{ $product_list->inventory_count_b }}</td>
-                                        <td>{{ $product_list->contractor_price_b }}</td>
-                                        <td>{{ $product_list->retail_sale_price_b }}</td>
+                                        <th>pot_size_c</th>
+                                        <th>inventory_count_c</th>
+                                        <th>contractor_price_c</th>
+                                        <th>retail_sale_price_c</th>-->
+                                        <th>Image Upload</th>
+                                        <th>Edit</th>
+                                    </tr></thead>
+                                    <tfoot>
+                                    <tr><!--<th>ID</th>--><th>common_name</th><th>include_on_website</th><th>status</th>
+                                        <th>pot_size_a</th>
+                                        <th>inventory_count_a</th>
+                                        <th>contractor_price_a</th>
+                                        <th>retail_sale_price_a</th>
+                                        <th>Image Upload</th>
+                                        <th>Edit</th>
 
-                                        <td>{{ $product_list->pot_size_c }}</td>
-                                        <td>{{ $product_list->inventory_count_c }}</td>
-                                        <td>{{ $product_list->contractor_price_c }}</td>
-                                        <td>{{ $product_list->retail_sale_price_c }}</td>-->
+    <!--                                    <th>pot_size_b</th>
+                                        <th>inventory_count_b</th>
+                                        <th>contractor_price_b</th>
+                                        <th>retail_sale_price_b</th>
 
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="16">No data found</td>
-                                    </tr>
-                                @endforelse
-                                </tbody>
-                            </table>
-                        </div>
+                                        <th>pot_size_c</th>
+                                        <th>inventory_count_c</th>
+                                        <th>contractor_price_c</th>
+                                        <th>retail_sale_price_c</th></tr>-->
+                                    </tfoot>
+                                    <tbody>
+                                    @forelse($product_lists as $product_list)
+                                        <tr>
+    <!--                                        <td>{{ $product_list->plant_id_number }}</td>-->
+                                            <td>{{ $product_list->common_name }}</td>
+                                            <td>{{ $product_list->include_on_website }}</td>
+
+                                            <td>{{ $product_list->status }}</td>
+                                            <td>{{ $product_list->pot_size_a }}</td>
+                                            <td>{{ $product_list->inventory_count_a }}</td>
+                                            <td>{{ $product_list->contractor_price_a }}</td>
+                                            <td>{{ $product_list->retail_sale_price_a }}</td>
+        <td><a href="{{ url('/admin/edit-product-image/'.$product_list->id) }}">Image Upload</a></td>
+        <td><a href="{{ url('/admin/edit-product?id='.$product_list->id) }}">Edit</a></td>
+
+    <!--                                        <td>{{ $product_list->pot_size_b }}</td>
+                                            <td>{{ $product_list->inventory_count_b }}</td>
+                                            <td>{{ $product_list->contractor_price_b }}</td>
+                                            <td>{{ $product_list->retail_sale_price_b }}</td>
+
+                                            <td>{{ $product_list->pot_size_c }}</td>
+                                            <td>{{ $product_list->inventory_count_c }}</td>
+                                            <td>{{ $product_list->contractor_price_c }}</td>
+                                            <td>{{ $product_list->retail_sale_price_c }}</td>-->
+
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="16">No data found</td>
+                                        </tr>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mx-auto">
+                                @if ($product_lists->hasPages())
+                                    <div class="pagination-links" style="display: flex">
+                                        {{ $product_lists->withQueryString()->links('admin_pagination') }}
+                                    </div>
+                                @endif
+                            </div>
+
                     </div>
                 </div><!--------------------
               START - Color Scheme Toggler

@@ -58,7 +58,7 @@ class CreateProductsTable extends Migration
             $table->text('purchasing_notes')->nullable();
             $table->text('year_purchased')->nullable();
             $table->text('shipping_notes')->nullable();
-            $table->text('image_file')->nullable();
+            $table->text('images')->nullable();
             $table->text('perennial')->nullable();
             $table->text('shrub')->nullable();
             $table->text('vine')->nullable();

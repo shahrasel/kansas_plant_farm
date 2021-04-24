@@ -13,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
         //$this->middleware('auth');
-    }
+    }*/
 
     /**
      * Show the application dashboard.
@@ -32,7 +32,6 @@ class HomeController extends Controller
 
 
         $role->givePermissionTo($permission);*/
-
 
         return view('home');
     }

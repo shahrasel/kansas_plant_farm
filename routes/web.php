@@ -17,6 +17,17 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
+// Remove route cache
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/clear-route-cache', function() {
+    $exitCode = Artisan::call('route:cache');
+	$exitCode = Artisan::call('config:cache');
+	$exitCode = Artisan::call('cache:clear');
+	$exitCode = Artisan::call('view:clear');
+    return 'All cache has just been removed';
+});
+
+
 Route::get('/products/category/{query}', [App\Http\Controllers\ProductController::class, 'products'])->where('category', 'query')->name('products.category');
 
 //Route::get('/my-profile', [\App\Http\Controllers\Auth\LoginController::class, 'profile'])->name('my-profile');
@@ -24,7 +35,7 @@ Route::get('/products/category/{query}', [App\Http\Controllers\ProductController
 
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'products'])->name('products');
 
 
@@ -78,6 +89,7 @@ Route::post('/admin/my-profile', [\App\Http\Controllers\UserController::class, '
 
 Route::get('/admin/products', [\App\Http\Controllers\ProductController::class, 'adminProducts'])->name('admin-products');
 Route::get('/admin/edit-product-image/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImage'])->name('admin-products-image');
+Route::any('/admin/product-image-processor/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImageProcessor'])->name('admin-product-image-processor');
 Route::get('/admin/add-product', [\App\Http\Controllers\ProductController::class, 'adminAddProducts'])->name('add-product');
 
 Route::get('/admin/contractors', [\App\Http\Controllers\UserController::class, 'adminContractors'])->name('admin-contractors');
