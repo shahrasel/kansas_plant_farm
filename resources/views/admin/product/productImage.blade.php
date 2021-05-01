@@ -273,20 +273,29 @@
                             Product Image Upload
                         </h5>
 
+                        <div class="row" >
                         <div class="col-12" >
-                            <div class="panel-body">
-<!--                                <form action="{{ route('admin-product-image-processor', ['id' => $product_info->id]) }}" class="dropzone" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="fallback">
-                                        <input name="image" type="file" multiple />
+                                <div class="panel-body">
+    <!--                                <form action="{{ route('admin-product-image-processor', ['id' => $product_info->id]) }}" class="dropzone" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="fallback">
+                                            <input name="image" type="file" multiple />
 
-                                    </div>
-                                </form>-->
+                                        </div>
+                                    </form>-->
 
-    <form action="{{ route('admin-product-image-processor', ['id' => $product_info->id]) }}" class="dropzone" id="my-dropzone">
-                                    @csrf
-                                </form>
-                            </div>
+        <form action="{{ route('admin-product-image-processor', ['id' => $product_info->id]) }}" class="dropzone" id="my-dropzone">
+                                        @csrf
+                                    </form>
+
+
+                                </div>
+
+
+                        </div>
+                        <div class="col-12" style="text-align: right">
+                            <a href="{{ url('/admin/products') }}" class="btn btn-primary">Back to Products</a>
+                        </div>
                         </div>
                     </div>
                 </div>

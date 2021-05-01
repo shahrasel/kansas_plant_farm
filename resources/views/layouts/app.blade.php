@@ -32,12 +32,22 @@
     <link rel="stylesheet" href="{{ asset('css/plugins/jqueryui.min.css')  }}">
     <!-- main style css -->
     <link rel="stylesheet" href="{{asset('css/style.css?v=').time()}}">
+    <link href="{{ asset('css/admin/css/jquery-ui.min.css')  }}" rel="stylesheet">
 
     @yield('custom_styles')
+    <style>
+        .ui-autocomplete-category {
+            font-weight: bold;
+            padding: .2em .4em;
+            margin: .8em 0 .2em;
+            line-height: 1.5;
+        }
+    </style>
 
 </head>
 <body>
 @inject('cart', 'App\Models\Cart')
+@inject('product', 'App\Models\Product')
 @php
     $cartlists = $cart->getCartData();
 @endphp
@@ -221,7 +231,7 @@
                             <div class="header-search-container">
                                 <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
                                 <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox">
-                                    <input type="text" placeholder="Search entire store hire" class="header-search-field">
+                                    <input type="text" placeholder="Search entire store hire" class="header-search-field" id="search_store">
                                     <button class="header-search-btn"><i class="pe-7s-search"></i></button>
                                 </form>
                             </div>
@@ -853,6 +863,8 @@
 <script src="{{ asset('js/plugins/ajaxchimp.js')  }}"></script>
 <!-- contact form dynamic js -->
 <script src="{{ asset('js/plugins/ajax-mail.js')  }}"></script>
+
+<script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
 <!-- google map api -->
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfmCVTjRI007pC1Yk2o2d_EhgkjTsFVN8"></script>-->
 <!-- google map active js -->
@@ -860,6 +872,49 @@
 <!-- Main JS -->
 <script src="{{ asset('js/main.js')  }}"></script>
 <script>
+    jQuery( function() {
+        jQuery.widget( "custom.catcomplete", jQuery.ui.autocomplete, {
+            _create: function() {
+                this._super();
+                this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+            },
+            _renderMenu: function( ul, items ) {
+                var that = this,
+                    currentCategory = "";
+                jQuery.each( items, function( index, item ) {
+                    var li;
+                    if ( item.category != currentCategory ) {
+                        ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                        currentCategory = item.category;
+                    }
+                    li = that._renderItemData( ul, item );
+                    if ( item.category ) {
+                        li.attr( "aria-label", item.category + " : " + item.label );
+                    }
+                });
+            }
+        });
+        var data = @json($product->getAllProductsNames());
+
+        jQuery( "#search_store" ).catcomplete({
+            delay: 0,
+            source: data,
+            select: function (event, ui) {
+                var label = ui.item.label;
+                var value = ui.item.value;
+                alert(label+'13'+ui.item.rasel);
+                //store in session
+                //document.valueSelectedForAutocomplete = value
+            }
+        });
+
+        jQuery.ui.autocomplete.filter = function (array, term) {
+            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
+            return $.grep(array, function (value) {
+                return matcher.test(value.label || value.value || value);
+            });
+        };
+    } );
     function showFilterDiv() {
         jQuery("#filter_div").slideToggle("slow","swing", function(){
             if(jQuery("#filter_div").css('display') == 'none') {

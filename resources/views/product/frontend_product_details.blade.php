@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @inject('product_model', 'App\Models\Product')
     <main>
         <!-- page main wrapper start -->
         <div class="shop-main-wrapper section-padding pb-0">
@@ -18,38 +19,23 @@
                                         </div>
                                     </div>
                                     <div class="product-large-slider">
-                                        <div class="pro-large-img">
-                                            <img src="{{ asset('plants_images/1.jpg') }}" alt="product-details" />
-                                        </div>
-                                        <div class="pro-large-img">
-                                            <img src="{{ asset('plants_images/2.jpg') }}" alt="product-details" />
-                                        </div>
-                                        <div class="pro-large-img">
-                                            <img src="{{ asset('plants_images/7.jpg') }}" alt="product-details" />
-                                        </div>
-                                        <div class="pro-large-img">
-                                            <img src="{{ asset('plants_images/4.jpg') }}" alt="product-details" />
-                                        </div>
-                                        <div class="pro-large-img">
-                                            <img src="{{ asset('plants_images/5.jpg') }}" alt="product-details" />
-                                        </div>
+                                        @if(!empty($product_model->getAllImages($product)))
+                                            @foreach($product_model->getAllImages($product) as $image)
+                                                <div class="pro-large-img">
+                                                    <img src="{{ url('img/product/large/'.$product->id.'/'.$image) }}" alt="product-details" />
+                                                </div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                     <div class="pro-nav slick-row-10 slick-arrow-style">
-                                        <div class="pro-nav-thumb">
-                                            <img src="{{ asset('plants_images/1.jpg') }}" alt="product-details" />
-                                        </div>
-                                        <div class="pro-nav-thumb">
-                                            <img src="{{ asset('plants_images/2.jpg') }}" alt="product-details" />
-                                        </div>
-                                        <div class="pro-nav-thumb">
-                                            <img src="{{ asset('plants_images/7.jpg') }}" alt="product-details" />
-                                        </div>
-                                        <div class="pro-nav-thumb">
-                                            <img src="{{ asset('plants_images/4.jpg') }}" alt="product-details" />
-                                        </div>
-                                        <div class="pro-nav-thumb">
-                                            <img src="{{ asset('plants_images/5.jpg') }}" alt="product-details" />
-                                        </div>
+                                        @if(!empty($product_model->getAllImages($product)))
+                                            @foreach($product_model->getAllImages($product) as $image)
+                                                <div class="pro-nav-thumb">
+                                                    <img src="{{ url('img/product/thumb/'.$product->id.'/'.$image) }}" alt="product-details" />
+                                                </div>
+                                            @endforeach
+                                        @endif
+
                                     </div>
                                 </div>
                                 <div class="col-lg-7">
@@ -59,40 +45,40 @@
                                         @if (Auth::check())
                                             @if(Auth()->user()->usertype=='buyer')
                                                 <div class="price-box" id="44_size_price">
-                                                    <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
-                                                    <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
                                                 </div>
                                                 <div class="price-box" id="55gal_size_price" style="display: none">
-                                                    <span class="price-regular">${{ $product->retail_sale_price_b }}</span>
-                                                    <span class="price-old"><del>${{ $product->retail_list_price_b }}</del></span>
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
                                                 </div>
                                                 <div class="price-box" id="flat66_size_price" style="display: none">
-                                                    <span class="price-regular">${{ $product->retail_sale_price_c }}</span>
-                                                    <span class="price-old"><del>${{ $product->retail_list_price_c }}</del></span>
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
                                                 </div>
                                             @else
                                                 <div class="price-box" id="44_size_price">
-                                                    <span class="price-regular">${{ $product->contractor_price_a }}</span>
+                                                    <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
                                                 </div>
                                                 <div class="price-box" id="55gal_size_price" style="display: none">
-                                                    <span class="price-regular">${{ $product->contractor_price_b }}</span>
+                                                    <span class="price-regular">${{ number_format($product->contractor_price_b,2) }}</span>
                                                 </div>
                                                 <div class="price-box" id="flat66_size_price" style="display: none">
-                                                    <span class="price-regular">${{ $product->contractor_price_c }}</span>
+                                                    <span class="price-regular">${{ number_format($product->contractor_price_c,2) }}</span>
                                                 </div>
                                             @endif
                                         @else
                                             <div class="price-box" id="44_size_price">
-                                                <span class="price-regular">${{ $product->retail_sale_price_a }}</span>
-                                                <span class="price-old"><del>${{ $product->retail_list_price_a }}</del></span>
+                                                <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
                                             </div>
                                             <div class="price-box" id="55gal_size_price" style="display: none">
-                                                <span class="price-regular">${{ $product->retail_sale_price_b }}</span>
-                                                <span class="price-old"><del>${{ $product->retail_list_price_b }}</del></span>
+                                                <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
+                                                <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
                                             </div>
                                             <div class="price-box" id="flat66_size_price" style="display: none">
-                                                <span class="price-regular">${{ $product->retail_sale_price_c }}</span>
-                                                <span class="price-old"><del>${{ $product->retail_list_price_c }}</del></span>
+                                                <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
+                                                <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
                                             </div>
                                         @endif
 

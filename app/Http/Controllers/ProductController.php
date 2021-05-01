@@ -116,7 +116,7 @@ class ProductController extends Controller
 
         //$product_lists = Product:: paginate(50);
 
-        $where_query['status'] = 'ACTIVE';
+        //$where_query['status'] = 'ACTIVE';
 
 
 
@@ -147,6 +147,132 @@ class ProductController extends Controller
             $where_query1['min_zone'] = 1;
             $where_query1['max_zone'] = 13.5;
         }
+        $sunlight_sel_arr = array();
+        $water_rainfall_sel_arr = array();
+        $soil_quality_sel_arr = array();
+        $bloom_season_sel_arr = array();
+        $flower_color_sel_arr = array();
+        $berry_fruit_color_sel_arr = array();
+        $spring_foliage_color_sel_arr = array();
+        $summer_foliage_color_sel_arr = array();
+        $fall_foliage_color_sel_arr = array();
+        $has_evergreen_foliage_sel_arr = array();
+        $has_winter_interest_sel_arr = array();
+        $scented_flowers_sel_arr = array();
+        $drought_tolerance_sel_arr = array();
+        $wet_feet_tolerance_sel_arr = array();
+        $humidity_tolerance_sel_arr = array();
+        $wind_tolerence_sel_arr = array();
+        $poor_soil_tolerance_sel_arr = array();
+        $growth_rate_sel_arr = array();
+        $service_life_sel_arr = array();
+        $maintenance_requirements_sel_arr = array();
+        $spreading_potential_sel_arr = array();
+        $yearly_trimming_tips_sel_arr = array();
+
+        $plant_grouping_size_sel_arr = array();
+        $best_side_of_house_sel_arr = array();
+        $extreme_planting_locations_sel_arr = array();
+        $ornamental_features_sel_arr = array();
+        $special_landscape_uses_sel_arr = array();
+        $possible_pest_problems_sel_arr = array();
+        $plant_limitations_sel_arr = array();
+
+        if($request->has('sunlight')) {
+            $sunlight_sel_arr = $request->get('sunlight');
+        }
+        if($request->has('water_rainfall')) {
+            $water_rainfall_sel_arr = $request->get('water_rainfall');
+        }
+        if($request->has('soil_quality')) {
+            $soil_quality_sel_arr = $request->get('soil_quality');
+        }
+        if($request->has('bloom_season')) {
+            $bloom_season_sel_arr = $request->get('bloom_season');
+        }
+        if($request->has('flower_color')) {
+            $flower_color_sel_arr = $request->get('flower_color');
+        }
+        if($request->has('berry_fruit_color')) {
+            $berry_fruit_color_sel_arr = $request->get('berry_fruit_color');
+        }
+        if($request->has('spring_foliage_color')) {
+            $spring_foliage_color_sel_arr = $request->get('spring_foliage_color');
+        }
+        if($request->has('summer_foliage_color')) {
+            $summer_foliage_color_sel_arr = $request->get('summer_foliage_color');
+        }
+        if($request->has('fall_foliage_color')) {
+            $fall_foliage_color_sel_arr = $request->get('fall_foliage_color');
+        }
+        if($request->has('has_evergreen_foliage')) {
+            $has_evergreen_foliage_sel_arr = $request->get('has_evergreen_foliage');
+        }
+
+
+
+        if($request->has('has_winter_interest')) {
+            $has_winter_interest_sel_arr = $request->get('has_winter_interest');
+        }
+        if($request->has('scented_flowers')) {
+            $scented_flowers_sel_arr = $request->get('scented_flowers');
+        }
+        if($request->has('drought_tolerance')) {
+            $drought_tolerance_sel_arr = $request->get('drought_tolerance');
+        }
+        if($request->has('wet_feet_tolerance')) {
+            $wet_feet_tolerance_sel_arr = $request->get('wet_feet_tolerance');
+        }
+        if($request->has('humidity_tolerance')) {
+            $humidity_tolerance_sel_arr = $request->get('humidity_tolerance');
+        }
+        if($request->has('wind_tolerence')) {
+            $wind_tolerence_sel_arr = $request->get('wind_tolerence');
+        }
+        if($request->has('poor_soil_tolerance')) {
+            $poor_soil_tolerance_sel_arr = $request->get('poor_soil_tolerance');
+        }
+        if($request->has('growth_rate')) {
+            $growth_rate_sel_arr = $request->get('growth_rate');
+        }
+        if($request->has('service_life')) {
+            $service_life_sel_arr = $request->get('service_life');
+        }
+        if($request->has('maintenance_requirements')) {
+            $maintenance_requirements_sel_arr = $request->get('maintenance_requirements');
+        }
+        if($request->has('spreading_potential')) {
+            $spreading_potential_sel_arr = $request->get('spreading_potential');
+        }
+        if($request->has('yearly_trimming_tips')) {
+            $yearly_trimming_tips_sel_arr = $request->get('yearly_trimming_tips');
+        }
+
+
+        if($request->has('plant_grouping_size')) {
+            $plant_grouping_size_sel_arr = $request->get('plant_grouping_size');
+        }
+        if($request->has('best_side_of_house')) {
+            $best_side_of_house_sel_arr = $request->get('best_side_of_house');
+        }
+        if($request->has('extreme_planting_locations')) {
+            $extreme_planting_locations_sel_arr = $request->get('extreme_planting_locations');
+        }
+        if($request->has('ornamental_features')) {
+            $ornamental_features_sel_arr = $request->get('ornamental_features');
+        }
+        if($request->has('special_landscape_uses')) {
+            $special_landscape_uses_sel_arr = $request->get('special_landscape_uses');
+        }
+        if($request->has('possible_pest_problems')) {
+            $possible_pest_problems_sel_arr = $request->get('possible_pest_problems');
+        }
+        if($request->has('plant_limitations')) {
+            $plant_limitations_sel_arr = $request->get('plant_limitations');
+        }
+
+
+
 
         if(!empty($request->sortby)) {
             if($request->sortby == 'name_asc') {
@@ -176,13 +302,167 @@ class ProductController extends Controller
         }
         else {
             if(!empty($where_query1)) {
-                $where_query1['status'] = 'ACTIVE';
+                //$where_query1['status'] = 'ACTIVE';
                 $product_lists = DB::table('products')
                     ->where($where_query)
-                    ->whereBetween('retail_sale_price_a', [$where_query1['min_price'],$where_query1['max_price']])
-                    //->where('status', '<>', 1)
+                    //->whereBetween('retail_sale_price_a', [$where_query1['min_price'],$where_query1['max_price']])
+                    //->orWhere('retail_sale_price_a', '=', null)
                     ->where('min_zone', '>=', $where_query1['min_zone'])
                     ->where('max_zone', '<=', $where_query1['max_zone'])
+                    ->Where(function ($query) use($sunlight_sel_arr) {
+                        for ($i = 0; $i < count($sunlight_sel_arr); $i++){
+                            $query->where('sunlight', 'like',  '%' . $sunlight_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($water_rainfall_sel_arr) {
+                        for ($i = 0; $i < count($water_rainfall_sel_arr); $i++){
+                            $query->where('water_rainfall', 'like',  '%' . $water_rainfall_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($soil_quality_sel_arr) {
+                        for ($i = 0; $i < count($soil_quality_sel_arr); $i++){
+                            $query->where('soil_quality', 'like',  '%' . $soil_quality_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($bloom_season_sel_arr) {
+                        for ($i = 0; $i < count($bloom_season_sel_arr); $i++){
+                            $query->where('bloom_season', 'like',  '%' . $bloom_season_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($flower_color_sel_arr) {
+                        for ($i = 0; $i < count($flower_color_sel_arr); $i++){
+                            $query->where('flower_color', 'like',  '%' . $flower_color_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($berry_fruit_color_sel_arr) {
+                        for ($i = 0; $i < count($berry_fruit_color_sel_arr); $i++){
+                            $query->where('berry_fruit_color', 'like',  '%' . $berry_fruit_color_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($spring_foliage_color_sel_arr) {
+                        for ($i = 0; $i < count($spring_foliage_color_sel_arr); $i++){
+                            $query->where('spring_foliage_color', 'like',  '%' . $spring_foliage_color_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($summer_foliage_color_sel_arr) {
+                        for ($i = 0; $i < count($summer_foliage_color_sel_arr); $i++){
+                            $query->where('summer_foliage_color', 'like',  '%' . $summer_foliage_color_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($fall_foliage_color_sel_arr) {
+                        for ($i = 0; $i < count($fall_foliage_color_sel_arr); $i++){
+                            $query->where('fall_foliage_color', 'like',  '%' . $fall_foliage_color_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($has_evergreen_foliage_sel_arr) {
+                        for ($i = 0; $i < count($has_evergreen_foliage_sel_arr); $i++){
+                            $query->where('has_evergreen_foliage', 'like',  '%' . $has_evergreen_foliage_sel_arr [$i] .'%');
+                        }
+                    })
+                    ->Where(function ($query) use($has_winter_interest_sel_arr) {
+                        for ($i = 0; $i < count($has_winter_interest_sel_arr); $i++){
+                            $query->where('has_winter_interest', 'like',  '%' . $has_winter_interest_sel_arr [$i] .'%');
+                        }
+                    })
+                    ->Where(function ($query) use($scented_flowers_sel_arr) {
+                        for ($i = 0; $i < count($scented_flowers_sel_arr); $i++){
+                            $query->where('scented_flowers', 'like',  '%' . $scented_flowers_sel_arr [$i] .'%');
+                        }
+                    })
+                    ->Where(function ($query) use($drought_tolerance_sel_arr) {
+                        for ($i = 0; $i < count($drought_tolerance_sel_arr); $i++){
+                            $query->where('drought_tolerance', 'like',  '%' . $drought_tolerance_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($wet_feet_tolerance_sel_arr) {
+                        for ($i = 0; $i < count($wet_feet_tolerance_sel_arr); $i++){
+                            $query->where('wet_feet_tolerance', 'like',  '%' . $wet_feet_tolerance_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($humidity_tolerance_sel_arr) {
+                        for ($i = 0; $i < count($humidity_tolerance_sel_arr); $i++){
+                            $query->where('humidity_tolerance', 'like',  '%' . $humidity_tolerance_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($wind_tolerence_sel_arr) {
+                        for ($i = 0; $i < count($wind_tolerence_sel_arr); $i++){
+                            $query->where('wind_tolerence', 'like',  '%' . $wind_tolerence_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($poor_soil_tolerance_sel_arr) {
+                        for ($i = 0; $i < count($poor_soil_tolerance_sel_arr); $i++){
+                            $query->where('poor_soil_tolerance', 'like',  '%' . $poor_soil_tolerance_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($growth_rate_sel_arr) {
+                        for ($i = 0; $i < count($growth_rate_sel_arr); $i++){
+                            $query->where('growth_rate', 'like',  '%' . $growth_rate_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($service_life_sel_arr) {
+                        for ($i = 0; $i < count($service_life_sel_arr); $i++){
+                            $query->where('service_life', '=',  ' . $service_life_sel_arr [$i] .');
+                        }
+                    })
+                    ->Where(function ($query) use($maintenance_requirements_sel_arr) {
+                        for ($i = 0; $i < count($maintenance_requirements_sel_arr); $i++){
+                            //$query->where('sunlight', 'like',  '%' . $sunlight_fin_arr [$i] .',%');
+                            $query->where('maintenance_requirements', '=',  ' . $maintenance_requirements_sel_arr [$i] .');
+                        }
+                    })
+                    ->Where(function ($query) use($spreading_potential_sel_arr) {
+                        for ($i = 0; $i < count($spreading_potential_sel_arr); $i++){
+                            //$query->where('sunlight', 'like',  '%' . $sunlight_fin_arr [$i] .',%');
+                            $query->where('spreading_potential', '=',  ' . $spreading_potential_sel_arr [$i] .');
+                        }
+                    })
+                    ->Where(function ($query) use($yearly_trimming_tips_sel_arr) {
+                        for ($i = 0; $i < count($yearly_trimming_tips_sel_arr); $i++){
+                            //$query->where('sunlight', 'like',  '%' . $yearly_trimming_tips_sel_arr [$i] .',%');
+                            $query->where('yearly_trimming_tips', '=',  ' . $yearly_trimming_tips_sel_arr [$i] .');
+                        }
+                    })
+                    ->Where(function ($query) use($plant_grouping_size_sel_arr) {
+                        for ($i = 0; $i < count($plant_grouping_size_sel_arr); $i++){
+                            $query->where('plant_grouping_size', 'like',  '%' . $plant_grouping_size_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($best_side_of_house_sel_arr) {
+                        for ($i = 0; $i < count($best_side_of_house_sel_arr); $i++){
+                            //$query->where('best_side_of_house', '=',  ' . $best_side_of_house_sel_arr [$i] .');
+                            $query->where('best_side_of_house', 'like',  '%' . $best_side_of_house_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($extreme_planting_locations_sel_arr) {
+                        for ($i = 0; $i < count($extreme_planting_locations_sel_arr); $i++){
+                            //$query->where('extreme_planting_locations', '=',  ' . $extreme_planting_locations_sel_arr [$i] .');
+                            $query->where('extreme_planting_locations', 'like',  '%' . $extreme_planting_locations_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($ornamental_features_sel_arr) {
+                        for ($i = 0; $i < count($ornamental_features_sel_arr); $i++){
+                            //$query->where('ornamental_features', '=',  ' . $ornamental_features_sel_arr [$i] .');
+                            $query->where('ornamental_features', 'like',  '%' . $ornamental_features_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($special_landscape_uses_sel_arr) {
+                        for ($i = 0; $i < count($special_landscape_uses_sel_arr); $i++){
+                            //$query->where('special_landscape_uses', '=',  ' . $special_landscape_uses_sel_arr [$i] .');
+                            $query->where('special_landscape_uses', 'like',  '%' . $special_landscape_uses_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($possible_pest_problems_sel_arr) {
+                        for ($i = 0; $i < count($possible_pest_problems_sel_arr); $i++){
+                            //$query->where('possible_pest_problems', '=',  ' . $possible_pest_problems_sel_arr [$i] .');
+                            $query->where('possible_pest_problems', 'like',  '%' . $possible_pest_problems_sel_arr [$i] .',%');
+                        }
+                    })
+                    ->Where(function ($query) use($plant_limitations_sel_arr) {
+                        for ($i = 0; $i < count($plant_limitations_sel_arr); $i++){
+                            //$query->where('plant_limitations', '=',  ' . $plant_limitations_sel_arr [$i] .');
+                            $query->where('plant_limitations', 'like',  '%' . $plant_limitations_sel_arr [$i] .',%');
+                        }
+                    })
                     ->paginate(50);
             }
             else {
@@ -202,7 +482,7 @@ class ProductController extends Controller
         }
 
         $total_product_count = DB::table('products')
-            ->where('status','ACTIVE')
+            //->where('status','ACTIVE')
             ->count();
 
         /*if(!empty($request->get('category'))) {
@@ -241,7 +521,7 @@ class ProductController extends Controller
             }
         }*/
         $sel_products = DB::table('products')
-            ->select('sunlight', 'water_rainfall', 'soil_quality', 'bloom_season', 'flower_color', 'berry_fruit_color', 'spring_foliage_color', 'summer_foliage_color', 'fall_foliage_color', 'has_evergreen_foliage', 'has_winter_interest', 'scented_flowers', 'drought_tolerance', 'wet_feet_tolerance', 'humidity_tolerance', 'wind_tolerence', 'poor_soil_tolerance', 'growth_rate', 'service_life', 'maintenance_requirements', 'spreading_potential', 'yearly_trimming_tips')
+            ->select('sunlight', 'water_rainfall', 'soil_quality', 'bloom_season', 'flower_color', 'berry_fruit_color', 'spring_foliage_color', 'summer_foliage_color', 'fall_foliage_color', 'has_evergreen_foliage', 'has_winter_interest', 'scented_flowers', 'drought_tolerance', 'wet_feet_tolerance', 'humidity_tolerance', 'wind_tolerence', 'poor_soil_tolerance', 'growth_rate', 'service_life', 'maintenance_requirements', 'spreading_potential', 'yearly_trimming_tips','plant_grouping_size','best_side_of_house','extreme_planting_locations','ornamental_features','special_landscape_uses','possible_pest_problems','plant_limitations')
             ->get();
         if(!empty($sel_products)) {
             $sunlight_arr = array();
@@ -266,6 +546,14 @@ class ProductController extends Controller
             $maintenance_requirements_arr = array();
             $spreading_potential_arr = array();
             $yearly_trimming_tips_arr = array();
+
+            $plant_grouping_size_arr = array();
+            $best_side_of_house_arr = array();
+            $extreme_planting_locations_arr = array();
+            $ornamental_features_arr = array();
+            $special_landscape_uses_arr = array();
+            $possible_pest_problems_arr = array();
+            $plant_limitations_arr = array();
 
             foreach ($sel_products as $sel_product) {
                 if(!empty($sel_product->sunlight)) {
@@ -513,7 +801,82 @@ class ProductController extends Controller
                     }
                 }
 
+                if(!empty($sel_product->plant_grouping_size)) {
+                    $arr = explode(',',rtrim($sel_product->plant_grouping_size, ","));
+                    foreach ($arr as $ar) {
+                        if(!empty($ar)) {
+                            if (!in_array($ar, $plant_grouping_size_arr)) {
+                                $plant_grouping_size_arr[] = $ar;
+                            }
+                        }
+                    }
+                }
 
+                if(!empty($sel_product->best_side_of_house)) {
+                    $arr = explode(',',rtrim($sel_product->best_side_of_house, ","));
+                    foreach ($arr as $ar) {
+                        if(!empty($ar)) {
+                            if (!in_array($ar, $best_side_of_house_arr)) {
+                                $best_side_of_house_arr[] = $ar;
+                            }
+                        }
+                    }
+                }
+
+                if(!empty($sel_product->extreme_planting_locations)) {
+                    $arr = explode(',',rtrim($sel_product->extreme_planting_locations, ","));
+                    foreach ($arr as $ar) {
+                        if(!empty($ar)) {
+                            if (!in_array($ar, $extreme_planting_locations_arr)) {
+                                $extreme_planting_locations_arr[] = $ar;
+                            }
+                        }
+                    }
+                }
+
+                if(!empty($sel_product->ornamental_features)) {
+                    $arr = explode(',',rtrim($sel_product->ornamental_features, ","));
+                    foreach ($arr as $ar) {
+                        if(!empty($ar)) {
+                            if (!in_array($ar, $ornamental_features_arr)) {
+                                $ornamental_features_arr[] = $ar;
+                            }
+                        }
+                    }
+                }
+
+                if(!empty($sel_product->special_landscape_uses)) {
+                    $arr = explode(',',rtrim($sel_product->special_landscape_uses, ","));
+                    foreach ($arr as $ar) {
+                        if(!empty($ar)) {
+                            if (!in_array($ar, $special_landscape_uses_arr)) {
+                                $special_landscape_uses_arr[] = $ar;
+                            }
+                        }
+                    }
+                }
+
+                if(!empty($sel_product->possible_pest_problems)) {
+                    $arr = explode(',',rtrim($sel_product->possible_pest_problems, ","));
+                    foreach ($arr as $ar) {
+                        if(!empty($ar)) {
+                            if (!in_array($ar, $possible_pest_problems_arr)) {
+                                $possible_pest_problems_arr[] = $ar;
+                            }
+                        }
+                    }
+                }
+
+                if(!empty($sel_product->plant_limitations)) {
+                    $arr = explode(',',rtrim($sel_product->plant_limitations, ","));
+                    foreach ($arr as $ar) {
+                        if(!empty($ar)) {
+                            if (!in_array($ar, $plant_limitations_arr)) {
+                                $plant_limitations_arr[] = $ar;
+                            }
+                        }
+                    }
+                }
             }
 
             sort($sunlight_arr);
@@ -538,6 +901,14 @@ class ProductController extends Controller
             sort($maintenance_requirements_arr);
             sort($spreading_potential_arr);
             sort($yearly_trimming_tips_arr);
+
+            sort($plant_grouping_size_arr);
+            sort($best_side_of_house_arr);
+            sort($extreme_planting_locations_arr);
+            sort($ornamental_features_arr);
+            sort($special_landscape_uses_arr);
+            sort($possible_pest_problems_arr);
+            sort($plant_limitations_arr);
         }
 
 
@@ -568,10 +939,32 @@ class ProductController extends Controller
             'poor_soil_tolerance_arr' => $poor_soil_tolerance_arr,
             'growth_rate_arr' => $growth_rate_arr,
             'service_life_arr' => $service_life_arr,
-
             'maintenance_requirements_arr' => $maintenance_requirements_arr,
             'spreading_potential_arr' => $spreading_potential_arr,
             'yearly_trimming_tips_arr' => $yearly_trimming_tips_arr,
+
+
+            'plant_grouping_size_arr' => $plant_grouping_size_arr,
+            'best_side_of_house_arr' => $best_side_of_house_arr,
+            'extreme_planting_locations_arr' => $extreme_planting_locations_arr,
+            'ornamental_features_arr' => $ornamental_features_arr,
+            'special_landscape_uses_arr' => $special_landscape_uses_arr,
+            'possible_pest_problems_arr' => $possible_pest_problems_arr,
+            'plant_limitations_arr' => $plant_limitations_arr,
+
+
+            /*if($request->has('ornamental_features')) {
+                $ornamental_features_sel_arr = $request->get('ornamental_features');
+            }
+            if($request->has('special_landscape_uses')) {
+                $special_landscape_uses_sel_arr = $request->get('special_landscape_uses');
+            }
+            if($request->has('possible_pest_problems')) {
+                $possible_pest_problems_sel_arr = $request->get('possible_pest_problems');
+            }
+            if($request->has('plant_limitations')) {
+                $plant_limitations_sel_arr = $request->get('plant_limitations');
+            }*/
 
             /*'perennial_cat_count' => $perennial_cat_count,
             'shrub_cat_count' => $shrub_cat_count,
@@ -596,15 +989,61 @@ class ProductController extends Controller
         ]);
     }
 
-    public function adminProducts() {
+    public function adminProducts(Request $request) {
         $where_query= array();
+        //dd($request);
+        if($request->has('f_botanical_name') && !is_null($request->get('f_botanical_name'))) {
+            $where_query['botanical_name'] = $request->get('f_botanical_name');
+        }
+
+        if($request->has('f_common_name') && !is_null($request->get('f_common_name'))) {
+            $where_query['common_name'] = $request->get('f_common_name');
+        }
+
+        if($request->has('f_plant_type') && !is_null($request->get('f_plant_type'))) {
+            $where_query[$request->get('f_plant_type')] = 'YES';
+        }
 
         $product_lists = DB::table('products')
             ->where($where_query)
-            ->orderBy('id', 'asc')->paginate(50);
+            ->orderBy('botanical_name', 'asc')->paginate(200);
+
+        $botanical_common_lists = DB::table('products')
+            ->select('id','botanical_name','common_name')->get();
+
+        $botanical_arr = array();
+        $common_arr = array();
+        if(!empty($botanical_common_lists)) {
+            foreach ($botanical_common_lists as $botanical_common_list) {
+                $botanical_arr[] = $botanical_common_list->botanical_name;
+                if($botanical_common_list->common_name)
+                    $common_arr[] = $botanical_common_list->common_name;
+            }
+        }
+
+        //dd($product_lists);
+        if(!empty($product_lists)) {
+            foreach ($product_lists as $product_list) {
+                if(!empty($product_list->images)) {
+                    if (count(json_decode($product_list->images)) > 0) {
+                        $product_list->image_count = count(json_decode($product_list->images));
+                    }
+                    else {
+                        $product_list->image_count = 0;
+                    }
+                }
+                else {
+                    $product_list->image_count = 0;
+                }
+            }
+        }
+
+        //dd($product_lists);
 
         return view('admin.product.allProducts', [
-            'product_lists' => $product_lists
+            'product_lists' => $product_lists,
+            'botanical_lists' => $botanical_arr,
+            'common_lists' => $common_arr
         ]);
     }
 

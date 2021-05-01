@@ -34,6 +34,7 @@ class ProductsImport implements ToModel
             );*/
 
         $zoneArray = array(
+            ''=>'0',
             '1a'=>'1','1b'=>'1.5',
             '2a'=>'2','2b'=>'2.5',
             '3a'=>'3','3b'=>'3.5',
@@ -169,9 +170,12 @@ class ProductsImport implements ToModel
             return null;
         }
         else {
+
             do {
                 $refrence_id = mt_rand( 100000, 999999 );
             } while ( DB::table( 'products' )->where( 'plant_id_number', $refrence_id )->exists() );
+
+
 
             return new \App\Models\Product([
                 'plant_id_number' => $refrence_id,
@@ -193,7 +197,7 @@ class ProductsImport implements ToModel
                 'click_to_inquire_a' => $row[15],
                 'pre_order_a' => $row[16],
                 'contractor_price_a' => $row[17],
-                'retail_sale_price_a' => $row[28],
+                'retail_sale_price_a' => $row[18],
                 'retail_list_price_a' => $row[19],
                 'pot_size_b' => $row[20],
                 'inventory_count_b' => $row[21],
@@ -229,8 +233,8 @@ class ProductsImport implements ToModel
                 'cactus_succulent' => $row[51],
                 'small_tree' => $row[52],
                 'large_tree' => $row[53],
-                'min_zone' => $zoneArray[$row[54]],
-                'max_zone' => $zoneArray[$row[55]],
+                'min_zone' => ($row[54]?$zoneArray[$row[54]]:0),
+                'max_zone' => ($row[55]?$zoneArray[$row[55]]:0),
                 /*'min_zone' => $row[54],
                 'max_zone' => $row[55],*/
                 'sunlight' => $row[56],

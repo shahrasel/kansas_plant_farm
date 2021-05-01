@@ -1307,6 +1307,7 @@ textarea:focus {
   top: 50%;
   width: 30px;
   position: absolute;
+    color: #7fbc03;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -1318,6 +1319,7 @@ textarea:focus {
   border-radius: 30px;
   padding: 10px 20px 10px 50px;
   width: 100%;
+    color: #7fbc03;
 }
 
 .search-trigger {
@@ -3087,7 +3089,7 @@ textarea:focus {
 .custom-radio label,
 .custom-radio .custom-control-label {
   font-size: 14px;
-  line-height: 1;
+  line-height: 1.15;
   padding-left: 10px;
   font-weight: 400;
   display: block;
@@ -3971,14 +3973,14 @@ textarea:focus {
 }
 
 .sidebar-single {
-  margin-bottom: 35px;
+  margin-bottom: 28px;
 }
 
 .sidebar-single .sidebar-title {
   position: relative;
-  line-height: 1;
+  line-height: 1.2;
   margin-top: -3px;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
   margin-bottom: 20px;
   text-transform: capitalize;
   cursor: pointer;
@@ -4081,12 +4083,12 @@ textarea:focus {
 /*------ pricing filter slider end ------*/
 .categories-list li {
   color: #7fbc03;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-transform: capitalize;
 }
 
 .categories-list li:last-child {
-  margin-bottom: 0;
+  margin-bottom: 25px;
 }
 
 .categories-list li:hover {

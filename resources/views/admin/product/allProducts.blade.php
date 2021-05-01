@@ -1,4 +1,14 @@
 @extends('admin.app')
+@section('stylesheet')
+    <link href="{{ asset('css/admin/css/jquery-ui.min.css')  }}" rel="stylesheet">
+    <style>
+        [class*="ui-"] {
+            -webkit-box-sizing: inherit !important;
+            -moz-box-sizing: inherit !important;
+            box-sizing: inherit !important;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="content-w">
         <!--------------------
@@ -177,7 +187,9 @@
                         <h5 class="form-header">
                             Product List
                         </h5>
-                        <form action="{{ route('file-import') }}" method="POST" enctype="multipart/form-data">
+                        <fieldset class="form-group">
+                            <legend><span>Import / Export CSV</span></legend>
+                            <form action="{{ route('file-import') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
                                 <div class="custom-file text-left">
@@ -193,6 +205,57 @@
                             </div>
                             <button class="btn btn-primary">Import data</button>
                             <a class="btn btn-success" href="{{ route('file-export') }}">Export data</a>
+                        </form>
+                        </fieldset>
+                        <form action="" method="get">
+                            @csrf
+                            <fieldset class="form-group">
+                                <legend><span>Filter</span></legend>
+                                <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for=""> Botanical Name</label>
+                                        <input class="form-control" name="f_botanical_name" id="f_botanical_name" type="text" value="{{ app('request')->input('f_botanical_name') }}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Common Name</label>
+                                        <input class="form-control" name="f_common_name" id="f_common_name" type="text" value="{{ app('request')->input('f_common_name') }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Plant Type</label>
+                                        <select name="f_plant_type" class="form-control">
+                                            <option value="">-- Select Plant Type --</option>
+                                            <option value="Perennial" @if(app('request')->input('f_plant_type')=='Perennial') selected @endif>Perennial</option>
+                                            <option value="Shrub" @if(app('request')->input('f_plant_type')=='Shrub') selected @endif>Shrub</option>
+                                            <option value="Vine" @if(app('request')->input('f_plant_type')=='Vine') selected @endif>Vine</option>
+                                            <option value="Grass Bamboo" @if(app('request')->input('f_plant_type')=='Grass Bamboo') selected @endif>Grass Bamboo</option>
+                                            <option value="Hardy Tropical" @if(app('request')->input('f_plant_type')=='Hardy Tropical') selected @endif>Hardy Tropical</option>
+                                            <option value="Water Plant" @if(app('request')->input('f_plant_type')=='Water Plant') selected @endif>Water Plant</option>
+                                            <option value="Annual" @if(app('request')->input('f_plant_type')=='Annual') selected @endif>Annual</option>
+                                            <option value="House Deck Plant" @if(app('request')->input('f_plant_type')=='House Deck Plant') selected @endif>House Deck Plant</option>
+                                            <option value="Cactus Succulent" @if(app('request')->input('f_plant_type')=='Cactus Succulent') selected @endif>Cactus Succulent</option>
+                                            <option value="Small Tree" @if(app('request')->input('f_plant_type')=='Small Tree') selected @endif>Small Tree</option>
+                                            <option value="Large Tree" @if(app('request')->input('f_plant_type')=='Large Tree') selected @endif>Large Tree</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">Filter</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </fieldset>
                         </form>
 
                             <div class="mx-auto">
@@ -230,11 +293,12 @@
                                 <table id="dataTable10" class="table table-striped table-lightfont">
                                     <thead>
                                     <tr>
-                                        <!--<th>ID</th>--><th>common_name</th><th>include_on_website</th><th>status</th>
-                                        <th>pot_size_a</th>
-                                        <th>inventory_count_a</th>
-                                        <th>contractor_price_a</th>
-                                        <th>retail_sale_price_a</th>
+                                        <!--<th>ID</th>--><th>Botanical name</th><th>Include in website</th><th>Image count</th><th>Status</th>
+                                        <th>Pot size a</th>
+                                        <th>Inventory count a</th>
+
+                                        <th>Contractor pricea</th>
+                                        <th>Retail sale price a</th>
 
     <!--                                    <th>pot_size_b</th>
                                         <th>inventory_count_b</th>
@@ -249,11 +313,11 @@
                                         <th>Edit</th>
                                     </tr></thead>
                                     <tfoot>
-                                    <tr><!--<th>ID</th>--><th>common_name</th><th>include_on_website</th><th>status</th>
-                                        <th>pot_size_a</th>
-                                        <th>inventory_count_a</th>
-                                        <th>contractor_price_a</th>
-                                        <th>retail_sale_price_a</th>
+                                    <tr><!--<th>ID</th>--><th>Botanical name</th><th>Include in website</th><th>Image count</th><th>Status</th>
+                                        <th>Pot size a</th>
+                                        <th>Inventory count a</th>
+                                        <th>Contractor pricea</th>
+                                        <th>Retail sale price a</th>
                                         <th>Image Upload</th>
                                         <th>Edit</th>
 
@@ -271,14 +335,14 @@
                                     @forelse($product_lists as $product_list)
                                         <tr>
     <!--                                        <td>{{ $product_list->plant_id_number }}</td>-->
-                                            <td>{{ $product_list->common_name }}</td>
+                                            <td>{{ $product_list->botanical_name }}</td>
                                             <td>{{ $product_list->include_on_website }}</td>
-
+                                            <td> {{ $product_list->image_count }}</td>
                                             <td>{{ $product_list->status }}</td>
                                             <td>{{ $product_list->pot_size_a }}</td>
                                             <td>{{ $product_list->inventory_count_a }}</td>
-                                            <td>{{ $product_list->contractor_price_a }}</td>
-                                            <td>{{ $product_list->retail_sale_price_a }}</td>
+                                            <td>{{ $product_list->contractor_price_a?'$'.number_format($product_list->contractor_price_a,2):'' }}</td>
+                                            <td>{{ $product_list->retail_sale_price_a?'$'.number_format($product_list->retail_sale_price_a,2):'' }}</td>
         <td><a href="{{ url('/admin/edit-product-image/'.$product_list->id) }}">Image Upload</a></td>
         <td><a href="{{ url('/admin/edit-product?id='.$product_list->id) }}">Edit</a></td>
 
@@ -529,4 +593,29 @@
             </div>
         </div>
     </div>
+@endsection
+@section('javascript')
+    <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
+    <script>
+        $( function() {
+            var botanicalarr = @json($botanical_lists);
+
+            jQuery("#f_botanical_name").autocomplete({
+                source: botanicalarr
+            });
+
+            var commonarr = @json($common_lists);
+            jQuery("#f_common_name").autocomplete({
+                source: commonarr
+            });
+
+            jQuery.ui.autocomplete.filter = function (array, term) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
+                return $.grep(array, function (value) {
+                    return matcher.test(value.label || value.value || value);
+                });
+            };
+
+        });
+    </script>
 @endsection
