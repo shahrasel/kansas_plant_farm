@@ -230,7 +230,7 @@
                         <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
                             <div class="header-search-container">
                                 <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
-                                <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox">
+                                <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox" id="search_store_form">
                                     <input type="text" placeholder="Search entire store hire" class="header-search-field" id="search_store">
                                     <button class="header-search-btn"><i class="pe-7s-search"></i></button>
                                 </form>
@@ -902,9 +902,8 @@
             select: function (event, ui) {
                 var label = ui.item.label;
                 var value = ui.item.value;
-                alert(label+'13'+ui.item.rasel);
-                //store in session
-                //document.valueSelectedForAutocomplete = value
+                /*alert(label+'13'+ui.item.rasel);*/
+                jQuery("#search_store_form").attr('action',"{{ url('/plants') }}/"+ui.item.slug)
             }
         });
 

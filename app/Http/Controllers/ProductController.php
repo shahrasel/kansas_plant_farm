@@ -980,11 +980,10 @@ class ProductController extends Controller
         ]);
     }
 
-    public function product_details(Product $id, Request $request) {
-
-
+    public function product_details(Product $product, Request $request) {
+        //dd($product);
         return view('product.frontend_product_details', [
-            'product' => $id,
+            'product' => $product,
             //'cart_lists' => $cart_lists
         ]);
     }

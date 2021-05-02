@@ -5,11 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Product extends Model
 {
     use HasFactory;
+    use HasSlug;
     protected $guarded = [];
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('botanical_name')
+            ->saveSlugsTo('slug');
+    }
 
     public function cart() {
         return $this->hasMany(Cart::class);
@@ -21,7 +31,7 @@ class Product extends Model
 
     public static function getAllProductsNames() {
         $product_names = DB::table('products')
-            ->select('botanical_name', 'common_name')
+            ->select('botanical_name', 'common_name', 'slug')
             ->get();
         $product_arr = array();
         if(!empty($product_names)) {
@@ -29,7 +39,7 @@ class Product extends Model
             foreach ($product_names as $product_name) {
                 $temp_arr['label'] = $product_name->botanical_name;
                 $temp_arr['category'] = 'Botanical Name';
-                $temp_arr['rasel'] = 'Botanical-Name';
+                $temp_arr['slug'] = $product_name->slug;
 
                 $product_arr[] = $temp_arr;
             }
@@ -38,7 +48,7 @@ class Product extends Model
             foreach ($product_names as $product_name) {
                 $temp_arr1['label'] = $product_name->common_name;
                 $temp_arr1['category'] = 'Common Name';
-                $temp_arr1['rasel'] = 'Common-Name';
+                $temp_arr1['slug'] = $product_name->slug;
 
                 $product_arr[] = $temp_arr1;
             }
@@ -60,4 +70,12 @@ class Product extends Model
             return 'img/product/thumb/'.$product->id.'/'.$images[0];
         }
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }
+
+
