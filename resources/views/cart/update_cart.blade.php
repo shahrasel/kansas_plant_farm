@@ -15,7 +15,7 @@
                         </div>
                         <div class="minicart-content">
                             <h3 class="product-name">
-                                <a href="product-details/{{ $cartdata->product->id }}">{{ $cartdata->product->common_name }}</a>
+                                <a href="{{ url('/plants') }}/{{ $cartdata->product->slug }}">{{ $cartdata->product->common_name }}</a>
                             </h3>
                             <p>
                                 <span class="cart-quantity">{{ $cartdata->quantity }} <strong>&times;</strong></span>

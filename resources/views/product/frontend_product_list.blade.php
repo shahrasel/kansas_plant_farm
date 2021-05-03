@@ -1049,7 +1049,7 @@
                                     {{--{{ $product_model->getImage($product) }}--}}
                                     <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details/{{ $product->id }}">
+                                                <a href="{{ url('/plants') }}/{{ $product->slug }}">
                                                     @if(!empty(($product_model->getImage($product))))
                                                     <img class="pri-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
                                                     <img class="sec-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
@@ -1069,7 +1069,7 @@
                                             </figure>
                                             <div class="product-caption text-center">
                                                 <div class="product-identity">
-                                                    <p class="manufacturer-name"><a href="product-details/{{ $product->id }}">{{ $product->common_name }} <br/> <i>{{ $product->botanical_name }}</i></a></p>
+                                                    <p class="manufacturer-name"><a href="{{ url('/plants') }}/{{ $product->slug }}">{{ $product->common_name }} <br/> <i>{{ $product->botanical_name }}</i></a></p>
                                                 </div>
                                                 {{--<ul class="color-categories">
                                                     <li>
@@ -1144,7 +1144,7 @@
                                     <!-- product list item end -->
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
-                                            <a href="product-details/{{ $product->id }}">
+                                            <a href="{{ url('/plants') }}/{{ $product->slug }}">
 <!--                                                <img class="pri-img" src="{{ asset('plants_images/'.$product->image) }}" alt="product">
                                                 <img class="sec-img" src="{{ asset('plants_images/'.$product->image) }}" alt="product">-->
                                                 @if(!empty(($product_model->getImage($product))))
@@ -1166,7 +1166,7 @@
                                         </figure>
                                         <div class="product-content-list">
                                             <h5 class="product-name" style="padding-top: 0px;">
-                                                <a href="product-details/{{ $product->id }}">{{ $product->common_name }} <br/> <i>{{ $product->botanical_name }}</i></a>
+                                                <a href="{{ url('/plants') }}/{{ $product->slug }}">{{ $product->common_name }} <br/> <i>{{ $product->botanical_name }}</i></a>
                                             </h5>
                                             <div class="price-box">
                                                 @if (Auth::check())

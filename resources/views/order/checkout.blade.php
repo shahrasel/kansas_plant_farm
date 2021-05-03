@@ -315,7 +315,7 @@
                                             @endphp
                                             @foreach($cart_lists as $cart_list)
                                                 <tr>
-                                                    <td><a href="product-details/{{ $cart_list->product->id }}">{{ $cart_list->product->common_name }} <strong> × {{ $cart_list->quantity }}</strong></a>
+                                                    <td><a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}">{{ $cart_list->product->common_name }} <strong> × {{ $cart_list->quantity }}</strong></a>
                                                     </td>
                                                     <td>
                                                         ${{ number_format($cart_list->quantity*$cart_list->unit_price, 2, '.', ',') }}

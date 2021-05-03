@@ -50,8 +50,9 @@ Route::get('/products', [App\Http\Controllers\ProductController::class, 'product
 
 Route::post('/products', [App\Http\Controllers\ProductController::class, 'products'])->name('products_post');
 #Route::get('/product-details/{id}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');
-/*Route::get('/details/{product:slug}', function (\App\Models\Product $product) {
-    return $product;
+/*Route::get('/details/{product:slug}', function ($product) {
+    echo  $product;
+    exit;
 });*/
 Route::get('/plants/{product}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');
 

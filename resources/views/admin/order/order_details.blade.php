@@ -214,9 +214,9 @@
                                     @endphp
                                     @forelse($orderdetails_lists as $orderdetails_list)
                                         <tr>
-                                            <td><a href="{{ url('/') }}/product-details/{{ $orderdetails_list->product->id }}"><img class="img-fluid" src="{{ asset('plants_images/5.jpg') }}" style="max-width: 100px;" alt="Product" /></a></td>
+                                            <td><a href="{{ url('/plants') }}/{{ $orderdetails_list->product->slug }}"><img class="img-fluid" src="{{ asset('plants_images/5.jpg') }}" style="max-width: 100px;" alt="Product" /></a></td>
 
-                                            <td><a href="{{ url('/') }}/product-details/{{ $orderdetails_list->product->id }}">{{ $orderdetails_list->product->common_name }}</a></td>
+                                            <td><a href="{{ url('/plants') }}/{{ $orderdetails_list->product->slug }}">{{ $orderdetails_list->product->common_name }}</a></td>
 
                                             <td>${{ $orderdetails_list->unit_price }}</td>
                                             <td>{{ $orderdetails_list->quantity }}</td>

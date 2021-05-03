@@ -32,8 +32,8 @@
                                             @endphp
                                             @foreach($cart_lists as $cart_list)
                                                 <tr>
-                                                    <td class="pro-thumbnail"><a href="product-details/{{ $cart_list->product->id }}"><img class="img-fluid" src="{{ asset('plants_images/5.jpg') }}" alt="Product" /></a></td>
-                                                    <td class="pro-title"><a href="product-details/{{ $cart_list->product->id }}">{{ $cart_list->product->common_name }}</a></td>
+                                                    <td class="pro-thumbnail"><a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}"><img class="img-fluid" src="{{ asset('plants_images/5.jpg') }}" alt="Product" /></a></td>
+                                                    <td class="pro-title"><a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}">{{ $cart_list->product->common_name }}</a></td>
                                                     <td class="pro-price"><span>${{ $cart_list->unit_price }}</span></td>
                                                     <td class="pro-quantity">
                                                         <div class="pro-qty"><input type="text" name="quantity_{{ $cart_list->id }}" value="{{ $cart_list->quantity }}" style="color: #7FBC03"></div>

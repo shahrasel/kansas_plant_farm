@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="product-details-des">
-                                        <h3 class="product-name">{{ $product->common_name }} <br/> <i>{{ $product->botanical_name }}</i></h3>
+                                        <h3 class="product-name">{{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i></h3>
 
                                         @if (Auth::check())
                                             @if(Auth()->user()->usertype=='buyer')

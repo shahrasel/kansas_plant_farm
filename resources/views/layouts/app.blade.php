@@ -232,7 +232,7 @@
                                 <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
                                 <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox" id="search_store_form">
                                     <input type="text" placeholder="Search entire store hire" class="header-search-field" id="search_store">
-                                    <button class="header-search-btn"><i class="pe-7s-search"></i></button>
+                                    <button class="header-search-btn" type="submit"><i class="pe-7s-search"></i></button>
                                 </form>
                             </div>
                             <div class="header-configure-area">
@@ -762,13 +762,13 @@
                             @forelse($cartlists as $cartdata)
                                 <li class="minicart-item">
                                     <div class="minicart-thumb">
-                                        <a href="product-details/{{ $cartdata->product->id }}">
+                                        <a href="{{ url('/plants') }}/{{ $cartdata->product->slug }}">
                                             <img src="{{ asset('plants_images/5.jpg') }}" alt="product">
                                         </a>
                                     </div>
                                     <div class="minicart-content">
                                         <h3 class="product-name">
-                                            <a href="product-details/{{ $cartdata->product->id }}">{{ $cartdata->product->common_name }}</a>
+                                            <a href="{{ url('/plants') }}/{{ $cartdata->product->slug }}">{{ $cartdata->product->common_name }}</a>
                                         </h3>
                                         <p>
                                             <span class="cart-quantity">{{ $cartdata->quantity }} <strong>&times;</strong></span>
@@ -902,8 +902,10 @@
             select: function (event, ui) {
                 var label = ui.item.label;
                 var value = ui.item.value;
-                /*alert(label+'13'+ui.item.rasel);*/
-                jQuery("#search_store_form").attr('action',"{{ url('/plants') }}/"+ui.item.slug)
+                //alert(ui.item.slug);
+
+                jQuery("#search_store_form").attr('action',"{{ url('/plants') }}/"+ui.item.slug);
+                jQuery("#search_store_form").submit();
             }
         });
 
