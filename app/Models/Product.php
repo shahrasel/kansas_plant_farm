@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -67,8 +68,82 @@ class Product extends Model
     public static function getImage($product) {
         if(!empty($product->images)) {
             $images = json_decode($product->images);
-            return 'img/product/thumb/'.$product->id.'/'.$images[0];
+            if(!empty($images)) {
+                return 'img/product/thumb/' . $product->id . '/' . $images[0];
+            }
+            else {
+                return false;
+            }
         }
+    }
+
+    public static function getProductPrice($product) {
+        $price = "";
+        if (Auth::check()) {
+            if(Auth()->user()->usertype=='contractor') {
+                if (!empty($product->contractor_price_a)) {
+                    $price = number_format($product->contractor_price_a, 2);
+                } else if (!empty($product->contractor_price_b)) {
+                    $price = number_format($product->contractor_price_b, 2);
+                } else if (!empty($product->contractor_price_c)) {
+                    $price = number_format($product->contractor_price_c, 2);
+                }
+            }
+            else {
+                if (!empty($product->retail_sale_price_a)) {
+                    $price = number_format($product->retail_sale_price_a, 2);
+                } else if (!empty($product->retail_sale_price_b)) {
+                    $price = number_format($product->retail_sale_price_b, 2);
+                } else if (!empty($product->retail_sale_price_c)) {
+                    $price = number_format($product->retail_sale_price_c, 2);
+                }
+            }
+        }
+        else {
+            if (!empty($product->retail_sale_price_a)) {
+                $price = number_format($product->retail_sale_price_a, 2);
+            } else if (!empty($product->retail_sale_price_b)) {
+                $price = number_format($product->retail_sale_price_b, 2);
+            } else if (!empty($product->retail_sale_price_c)) {
+                $price = number_format($product->retail_sale_price_c, 2);
+            }
+        }
+        return $price;
+    }
+
+    public static function getProductSize($product) {
+        $sizes = array();
+        if (Auth::check()) {
+            if(Auth()->user()->usertype=='contractor') {
+                if (!empty($product->contractor_price_a)) {
+                    $sizes[] = $product->pot_size_a;
+                } if (!empty($product->contractor_price_b)) {
+                    $sizes[] = $product->pot_size_b;
+                } if (!empty($product->contractor_price_c)) {
+                    $sizes[] = $product->pot_size_c;
+                }
+            }
+            else {
+                if (!empty($product->retail_sale_price_a)) {
+                    $sizes[] = $product->pot_size_a;
+                } if (!empty($product->retail_sale_price_b)) {
+                    $sizes[] = $product->pot_size_b;
+                } if (!empty($product->retail_sale_price_c)) {
+                    $sizes[] = $product->pot_size_c;
+                }
+            }
+        }
+        else {
+            if (!empty($product->retail_sale_price_a)) {
+                $sizes[] = $product->pot_size_a;
+            } if (!empty($product->retail_sale_price_b)) {
+                $sizes[] = $product->pot_size_b;
+            } if (!empty($product->retail_sale_price_c)) {
+                $sizes[] = $product->pot_size_c;
+            }
+        }
+
+        return $sizes;
     }
 
     public function getRouteKeyName()

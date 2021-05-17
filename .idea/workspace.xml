@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bae407d-1439-4ad1-9d29-f7cb303a969a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../akku-master/.idea/code.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ben_verify_receipt/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bootstrap/.idea/bootstrap.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../brandtexmaker/.idea/brandtexmaker.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../buildentory/media/floor_plans/6005edcf4b19f_Screenshot 2021-01-15 at 1.09.16 AM.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../buildentory/media/floor_plans/6006c6a4ae876_Screenshot 2021-01-15 at 1.09.16 AM.png" afterDir="false" />
@@ -16,8 +14,6 @@
       <change afterPath="$PROJECT_DIR$/../buildentory/media/floor_plans/6006f6f7dbd59_Screenshot 2021-01-05 at 12.35.31 PM.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../buildentory_symfony/.idea/buildentory_symfony.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../cars_match/.idea/cars_match.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ctn_invoice_generator/.idea/invoice.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dd.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../finish/.idea/finish.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../first_laravel/.idea/first_laravel.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/.idea/html5_test.iml" afterDir="false" />
@@ -45,6 +41,25 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kansas_plant_farm.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/1'2'.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/1=2 a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/billboard_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/bottom_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/curbside.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/locally_grown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/logo_bottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/logo_top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/shop_by_season_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/shop_by_season_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/shop_by_season_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/shop_by_season_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/thousand_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/thousands_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/transport.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/plants_images/yellow.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../my_first_symfony_full/.idea/my_first_symfony_full.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../new_zend/.idea/new_zend.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../stock_analysis/.idea/arp1_project.iml" afterDir="false" />
@@ -91,12 +106,13 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/search.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/update_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/update_cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/update_main_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/update_main_cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plants_images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plants_images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -291,9 +307,10 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css/admin/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -313,11 +330,11 @@
       <recent name="$PROJECT_DIR$/resources/views/admin/order" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/plants_images" />
       <recent name="$PROJECT_DIR$/public/img" />
       <recent name="$PROJECT_DIR$/public/css/admin/css" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/js/admin" />
-      <recent name="$PROJECT_DIR$/public/css" />
     </key>
   </component>
   <component name="RunManager">
@@ -380,7 +397,17 @@
       <workItem from="1619804868422" duration="3919000" />
       <workItem from="1619885135452" duration="15391000" />
       <workItem from="1619972834576" duration="6556000" />
-      <workItem from="1620068429579" duration="1534000" />
+      <workItem from="1620068429579" duration="2909000" />
+      <workItem from="1620076086839" duration="289000" />
+      <workItem from="1620076434912" duration="3021000" />
+      <workItem from="1620130600114" duration="15978000" />
+      <workItem from="1620227821252" duration="4936000" />
+      <workItem from="1620328962994" duration="8289000" />
+      <workItem from="1620520592324" duration="60000" />
+      <workItem from="1620849626081" duration="3190000" />
+      <workItem from="1620913840227" duration="11201000" />
+      <workItem from="1620951504057" duration="220000" />
+      <workItem from="1621294229946" duration="1048000" />
     </task>
     <servers />
   </component>

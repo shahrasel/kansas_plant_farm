@@ -13,11 +13,11 @@
                         <div class="product-details-inner">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <div class="product-badge">
+<!--                                    <div class="product-badge">
                                         <div class="product-label new">
                                             <span>{{ $product->tags }}</span>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="product-large-slider">
                                         @if(!empty($product_model->getAllImages($product)))
                                             @foreach($product_model->getAllImages($product) as $image)
@@ -40,10 +40,86 @@
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="product-details-des">
-                                        <h3 class="product-name">{{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i></h3>
+                                        <h3 class="product-name">{{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i>@if(!empty($product->patent_trademark_names))<br/>{{ $product->patent_trademark_names }} @endif</h3>
+
 
                                         @if (Auth::check())
-                                            @if(Auth()->user()->usertype=='buyer')
+                                            @if(Auth()->user()->usertype=='contractor')
+                                                @if(!empty($product->contractor_price_a))
+                                                    <div class="price-box" id="44_size_price">
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
+                                                    </div>
+                                                    <div class="price-box" id="55gal_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_b,2) }}</span>
+                                                    </div>
+                                                    <div class="price-box" id="flat66_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_c,2) }}</span>
+                                                    </div>
+                                                @elseif(!empty($product->contractor_price_b))
+                                                    <div class="price-box" id="44_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
+                                                    </div>
+                                                    <div class="price-box" id="55gal_size_price" >
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_b,2) }}</span>
+                                                    </div>
+                                                    <div class="price-box" id="flat66_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_c,2) }}</span>
+                                                    </div>
+                                                @elseif(!empty($product->contractor_price_c))
+                                                    <div class="price-box" id="44_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
+                                                    </div>
+                                                    <div class="price-box" id="55gal_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_b,2) }}</span>
+                                                    </div>
+                                                    <div class="price-box" id="flat66_size_price" >
+                                                        <span class="price-regular">${{ number_format($product->contractor_price_c,2) }}</span>
+                                                    </div>
+                                                @endif
+                                            @else
+                                                @if(!empty($product->retail_sale_price_a))
+                                                    <div class="price-box" id="44_size_price">
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                                    </div>
+                                                    <div class="price-box" id="55gal_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
+                                                    </div>
+                                                    <div class="price-box" id="flat66_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
+                                                    </div>
+                                                @elseif(!empty($product->retail_sale_price_b))
+                                                    <div class="price-box" id="44_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                                    </div>
+                                                    <div class="price-box" id="55gal_size_price" >
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
+                                                    </div>
+                                                    <div class="price-box" id="flat66_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
+                                                    </div>
+                                                @elseif(!empty($product->retail_sale_price_c))
+                                                    <div class="price-box" id="44_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                                    </div>
+                                                    <div class="price-box" id="55gal_size_price" style="display: none">
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
+                                                    </div>
+                                                    <div class="price-box" id="flat66_size_price">
+                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
+                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
+                                                    </div>
+                                                @endif
+                                            @endif
+                                        @else
+                                            @if(!empty($product->retail_sale_price_a))
                                                 <div class="price-box" id="44_size_price">
                                                     <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
                                                     <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
@@ -56,31 +132,35 @@
                                                     <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
                                                     <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
                                                 </div>
-                                            @else
-                                                <div class="price-box" id="44_size_price">
-                                                    <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
+                                            @elseif(!empty($product->retail_sale_price_b))
+                                                <div class="price-box" id="44_size_price" style="display: none">
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
                                                 </div>
-                                                <div class="price-box" id="55gal_size_price" style="display: none">
-                                                    <span class="price-regular">${{ number_format($product->contractor_price_b,2) }}</span>
+                                                <div class="price-box" id="55gal_size_price" >
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
                                                 </div>
                                                 <div class="price-box" id="flat66_size_price" style="display: none">
-                                                    <span class="price-regular">${{ number_format($product->contractor_price_c,2) }}</span>
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
+                                                </div>
+                                            @elseif(!empty($product->retail_sale_price_c))
+                                                <div class="price-box" id="44_size_price" style="display: none">
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                                </div>
+                                                <div class="price-box" id="55gal_size_price" style="display: none">
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
+                                                </div>
+                                                <div class="price-box" id="flat66_size_price">
+                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
+                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
                                                 </div>
                                             @endif
-                                        @else
-                                            <div class="price-box" id="44_size_price">
-                                                <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
-                                            </div>
-                                            <div class="price-box" id="55gal_size_price" style="display: none">
-                                                <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
-                                                <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
-                                            </div>
-                                            <div class="price-box" id="flat66_size_price" style="display: none">
-                                                <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
-                                                <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
-                                            </div>
                                         @endif
+
 
 
 
@@ -89,46 +169,50 @@
                                         <div class="product-countdown" data-countdown="2019/12/20"></div>--}}
                                         <div class="manufacturer-name">
                                             @if($product->perennial == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=perennial") }}">Perennial</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=perennial") }}">Perennial</a>
                                             @endif
                                             @if($product->shrub == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=shrub") }}">Shrub</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=shrub") }}">Shrub</a>
                                             @endif
                                             @if($product->vine == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=vine") }}">Vine</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=vine") }}">Vine</a>
                                             @endif
                                             @if($product->grass_bamboo == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=grass_bamboo") }}">Grass Bamboo</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=grass_bamboo") }}">Grass Bamboo</a>
                                             @endif
                                             @if($product->hardy_tropical == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=hardy_tropical") }}">Hardy Tropical</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
                                             @endif
                                             @if($product->water_plant == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=water_plant") }}">Water Plant</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
                                             @endif
                                             @if($product->annual == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=annual") }}">Annual</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=annual") }}">Annual</a>
                                             @endif
                                             @if($product->house_deck_plant == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=house_deck_plant") }}">House Deck Plant</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=house_deck_plant") }}">House Deck Plant</a>
                                             @endif
                                             @if($product->cactus_succulent == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=cactus_succulent") }}">Cactus Succulent</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=cactus_succulent") }}">Cactus Succulent</a>
                                             @endif
                                             @if($product->small_tree == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=small_tree") }}">Small Tree</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
                                             @endif
                                             @if($product->large_tree == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/products?category=large_tree") }}">Large_tree</a>
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
                                             @endif
                                         </div>
                                         <div class="availability">
                                             <i class="fa fa-check-circle"></i>
                                             <span>
-                                                @if($product->inventory_count_a >$product->low_inventory_count_a)
-                                                    in stock
+                                                @if(!empty($product->retail_sale_price_a))
+                                                    @if($product->inventory_count_a > $product->low_inventory_count_a)
+                                                        in stock
+                                                    @else
+                                                        {{ $product->inventory_count_a }} in stock
+                                                    @endif
                                                 @else
-                                                    {{ $product->inventory_count_a }} in stock
+                                                    CURRENTLY NOT AVAILABLE
                                                 @endif
                                             </span>
                                         </div>
@@ -137,23 +221,27 @@
                                         </p>
                                         <form id="cartform">
                                             @csrf
-                                            <div class="quantity-cart-box d-flex align-items-center">
-                                                <h6 class="option-title">qty:</h6>
-                                                <div class="quantity">
-                                                    <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity"></div>
+
+                                            @if(!empty($product->retail_sale_price_a))
+                                                <div class="quantity-cart-box d-flex align-items-center">
+                                                    <h6 class="option-title">qty:</h6>
+                                                    <div class="quantity">
+                                                        <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity"></div>
+                                                    </div>
+                                                    <div class="action_link">
+                                                        <button class="btn btn-cart2">Add to cart</button>
+                                                    </div>
                                                 </div>
-                                                <div class="action_link">
-<!--                                                    <a class="btn btn-cart2" href="#" type="button">Add to cart</a>-->
-                                                    <button class="btn btn-cart2">Add to cart</button>
-                                                </div>
-                                            </div>
+                                            @endif
                                             <div class="pro-size">
-                                                <h6 class="option-title">size :</h6>
-                                                <select class="nice-select" onchange="change_price()" id="size_select_box" name="size">
-                                                    <option value="44">44"</option>
-                                                    <option value="55">55gal</option>
-                                                    <option value="66">flat of 66</option>
-                                                </select>
+                                                @if(!empty($product_model->getProductSize($product)))
+                                                    <h6 class="option-title">size :</h6>
+                                                    <select class="nice-select" onchange="change_price()" id="size_select_box" name="size">
+                                                        @foreach($product_model->getProductSize($product) as $size)
+                                                            <option value="{{ $size }}">{{ $size }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                @endif
                                             </div>
                                             <input type="hidden" name="addtocart" value="1">
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -199,6 +287,39 @@
                                                 </a>
                                             </div>
                                         @endguest
+                                        <div class="manufacturer-name" style="margin-bottom: 13px;">
+                                            @if($product->sustainable_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" >Sustainable Garden</a>
+                                            @endif
+                                            @if($product->native_plant_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Native Plant Garden</a>
+                                            @endif
+                                            @if($product->bird_wildlife_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Bird Wildlife Garden</a>
+                                            @endif
+                                            @if($product->butterfly_bee_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Butterfly Bee Garden</a>
+                                            @endif
+                                            @if($product->lush_tropical_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Lush Tropical Garden</a>
+                                            @endif
+                                            @if($product->dry_shade_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Dry Shade Garden</a>
+                                            @endif
+                                            @if($product->edible_medicinal_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Edible Medicinal Garden</a>
+                                            @endif
+                                            @if($product->rain_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Rain Garden</a>
+                                            @endif
+                                            @if($product->colorado_rustic_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Colorado Rustic Garden</a>
+                                            @endif
+                                            @if($product->desert_cactus_rock_garden == 'YES')
+                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Desert Cactus Rock Garden</a>
+                                            @endif
+
+                                        </div>
                                         <div class="like-icon">
                                             <a class="facebook" href="#"><i class="fa fa-facebook"></i>like</a>
                                             <a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
@@ -364,14 +485,14 @@
                                         <img class="pri-img" src="{{ asset('plants_images/1.jpg') }}" alt="product">
                                         <img class="sec-img" src="{{ asset('plants_images/1.jpg') }}" alt="product">
                                     </a>
-                                    <div class="product-badge">
+<!--                                    <div class="product-badge">
                                         <div class="product-label new">
                                             <span>new</span>
                                         </div>
                                         <div class="product-label discount">
                                             <span>10%</span>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="button-group">
                                         <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
@@ -417,14 +538,14 @@
                                         <img class="pri-img" src="{{ asset('plants_images/2.jpg') }}" alt="product">
                                         <img class="sec-img" src="{{ asset('plants_images/2.jpg') }}" alt="product">
                                     </a>
-                                    <div class="product-badge">
+<!--                                    <div class="product-badge">
                                         <div class="product-label new">
                                             <span>sale</span>
                                         </div>
                                         <div class="product-label discount">
                                             <span>new</span>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="button-group">
                                         <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
@@ -470,11 +591,11 @@
                                         <img class="pri-img" src="{{ asset('plants_images/7.jpg') }}" alt="product">
                                         <img class="sec-img" src="{{ asset('plants_images/7.jpg') }}" alt="product">
                                     </a>
-                                    <div class="product-badge">
+<!--                                    <div class="product-badge">
                                         <div class="product-label new">
                                             <span>new</span>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="button-group">
                                         <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
@@ -520,14 +641,14 @@
                                         <img class="pri-img" src="{{ asset('plants_images/4.jpg') }}" alt="product">
                                         <img class="sec-img" src="{{ asset('plants_images/4.jpg') }}" alt="product">
                                     </a>
-                                    <div class="product-badge">
+<!--                                    <div class="product-badge">
                                         <div class="product-label new">
                                             <span>sale</span>
                                         </div>
                                         <div class="product-label discount">
                                             <span>15%</span>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="button-group">
                                         <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
@@ -573,14 +694,14 @@
                                         <img class="pri-img" src="{{ asset('plants_images/5.jpg') }}" alt="product">
                                         <img class="sec-img" src="{{ asset('plants_images/5.jpg') }}" alt="product">
                                     </a>
-                                    <div class="product-badge">
+<!--                                    <div class="product-badge">
                                         <div class="product-label new">
                                             <span>new</span>
                                         </div>
                                         <div class="product-label discount">
                                             <span>20%</span>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="button-group">
                                         <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>

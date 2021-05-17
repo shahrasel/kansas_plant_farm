@@ -28,9 +28,23 @@ Route::get('/clear-route-cache', function() {
 	$exitCode = Artisan::call('view:clear');
     return 'All cache has just been removed';
 });
+#Route::get('/plants/{product}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');
 
 
-Route::get('/products/category/{query}', [App\Http\Controllers\ProductController::class, 'products'])->where('category', 'query')->name('products.category');
+/*Route::get(
+    '/user/profile',
+    [UserProfileController::class, 'show']
+)->name('profile');*/
+
+/*Route::get('/plants/alphabetic-sort-by/{query}', [App\Http\Controllers\ProductController::class, 'products'])->name('products.sortbyalphabet');*/
+
+//Route::get('/plants/category/{query2}', [App\Http\Controllers\ProductController::class, 'categoryproducts'])->name('products.category');
+
+Route::get('/plants/alphabetic-sort-by/{query1}', [App\Http\Controllers\ProductController::class, 'sortalphaproducts'])->name('products.alphabeticsort');
+
+Route::get('/plants', [App\Http\Controllers\ProductController::class, 'products'])->name('products');
+
+
 
 //Route::get('/my-profile', [\App\Http\Controllers\Auth\LoginController::class, 'profile'])->name('my-profile');
 //Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
@@ -38,7 +52,6 @@ Route::get('/products/category/{query}', [App\Http\Controllers\ProductController
 
 Auth::routes();
 
-Route::get('/products', [App\Http\Controllers\ProductController::class, 'products'])->name('products');
 
 
 
@@ -48,7 +61,8 @@ Route::get('/products', [App\Http\Controllers\ProductController::class, 'product
 
 
 
-Route::post('/products', [App\Http\Controllers\ProductController::class, 'products'])->name('products_post');
+
+Route::post('/plants', [App\Http\Controllers\ProductController::class, 'products'])->name('products_post');
 #Route::get('/product-details/{id}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');
 /*Route::get('/details/{product:slug}', function ($product) {
     echo  $product;

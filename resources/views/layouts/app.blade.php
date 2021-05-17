@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kansas  - Lorem ipsum dolor</title>
+    <title>Kansas Plant Farm - Plants with over 500 varieties.</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
+    <meta name="description" content="Kansas Plant Farm offers the highest quality of plants with over 500 varieties.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     @yield('custom_meta')
     <!-- Favicon -->
@@ -42,14 +42,21 @@
             margin: .8em 0 .2em;
             line-height: 1.5;
         }
-    </style>
+        input[type=search]::-webkit-search-cancel-button {
+            -webkit-appearance: searchfield-cancel-button;
+        }
+        input[type=search] {
+            -webkit-appearance: none;
+        }
 
+
+    </style>
 </head>
 <body>
 @inject('cart', 'App\Models\Cart')
 @inject('product', 'App\Models\Product')
 @php
-    $cartlists = $cart->getCartData();
+    $cartlists = $cart->getCartData()
 @endphp
 <!-- Start Header Area -->
 <header class="header-area header-wide">
@@ -100,7 +107,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                <img src="{{ asset('img/logo/logo.png')  }}" alt="Brand Logo">
+                                <img src="{{ asset('plants_images/logo_top.png')  }}" alt="Brand Logo">
                             </a>
                         </div>
                     </div>
@@ -112,8 +119,15 @@
                             <div class="main-menu">
                                 <!-- main menu navbar start -->
                                 <nav class="desktop-menu">
+
                                     <ul>
-                                        <li class="active"><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
+                                        <li><a href="{{ url('/') }}">Home</a></li>
+                                        <li><a href="{{ url('/') }}/plants">Plants</a></li>
+                                        <li><a href="{{ url('/') }}/garden-ideas">Garden Ideas</a></li>
+                                        <li><a href="{{ url('/') }}/upcoming-events">Upcoming Events</a></li>
+                                        <li><a href="{{ url('/') }}/about-us">About Us</a></li>
+                                        <li><a href="{{ url('/') }}/contact-us">Contact Us</a></li>
+<!--                                        <li class="active"><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown">
                                                 <li><a href="index.html">Home version 01</a></li>
                                                 <li><a href="index-2.html">Home version 02</a></li>
@@ -175,32 +189,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="{{ url('/products') }}">shop</a>
-<!--                                            <ul class="dropdown">
-                                                <li><a href="#">shop grid layout <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="shop.html">shop grid left sidebar</a></li>
-                                                        <li><a href="shop-grid-right-sidebar.html">shop grid right sidebar</a></li>
-                                                        <li><a href="shop-grid-full-3-col.html">shop grid full 3 col</a></li>
-                                                        <li><a href="shop-grid-full-4-col.html">shop grid full 4 col</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">shop list layout <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="shop-list-left-sidebar.html">shop list left sidebar</a></li>
-                                                        <li><a href="shop-list-right-sidebar.html">shop list right sidebar</a></li>
-                                                        <li><a href="shop-list-full-width.html">shop list full width</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">products details <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="product-details.html">product details</a></li>
-                                                        <li><a href="product-details-affiliate.html">product details affiliate</a></li>
-                                                        <li><a href="product-details-variable.html">product details variable</a></li>
-                                                        <li><a href="product-details-group.html">product details group</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>-->
+                                        <li><a href="{{ url('/plants') }}">shop</a>
                                         </li>
                                         <li><a href="blog-left-sidebar.html">Blog <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown">
@@ -216,7 +205,7 @@
                                                 <li><a href="blog-details-image.html">blog details image</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact-us.html">Contact us</a></li>
+                                        <li><a href="contact-us.html">Contact us</a></li>-->
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
@@ -231,7 +220,7 @@
                             <div class="header-search-container">
                                 <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
                                 <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox" id="search_store_form">
-                                    <input type="text" placeholder="Search entire store hire" class="header-search-field" id="search_store">
+                                    <input type="search" placeholder="Search by Plant Name" class="header-search-field" id="search_store">
                                     <button class="header-search-btn" type="submit"><i class="pe-7s-search"></i></button>
                                 </form>
                             </div>
@@ -260,12 +249,12 @@
 
                                         </ul>
                                     </li>
-                                    <li>
+<!--                                    <li>
                                         <a href="wishlist.html">
                                             <i class="pe-7s-like"></i>
                                             <div class="notification">0</div>
                                         </a>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <a href="#" class="minicart-btn" data-turbolinks="false">
                                             <i class="pe-7s-shopbag"></i>
@@ -294,8 +283,8 @@
                 <div class="col-12">
                     <div class="mobile-main-header">
                         <div class="mobile-logo">
-                            <a href="index.html">
-                                <img src="{{ asset('img/logo/logo.png')  }}" alt="Brand Logo">
+                            <a href="{{ url('/') }}">
+                                <img src="{{ asset('plants_images/logo_top.png')  }}" alt="Brand Logo">
                             </a>
                         </div>
                         <div class="mobile-menu-toggler">
@@ -345,100 +334,12 @@
                     <!-- mobile menu navigation start -->
                     <nav>
                         <ul class="mobile-menu">
-                            <li class="menu-item-has-children"><a href="index.html">Home</a>
-                                <ul class="dropdown">
-                                    <li><a href="index.html">Home version 01</a></li>
-                                    <li><a href="index-2.html">Home version 02</a></li>
-                                    <li><a href="index-3.html">Home version 03</a></li>
-                                    <li><a href="index-4.html">Home version 04</a></li>
-                                    <li><a href="index-5.html">Home version 05</a></li>
-                                    <li><a href="index-6.html">Home version 06</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="#">pages</a>
-                                <ul class="megamenu dropdown">
-                                    <li class="mega-title menu-item-has-children"><a href="#">column 01</a>
-                                        <ul class="dropdown">
-                                            <li><a href="shop.html">shop grid left
-                                                    sidebar</a></li>
-                                            <li><a href="shop-grid-right-sidebar.html">shop grid right
-                                                    sidebar</a></li>
-                                            <li><a href="shop-list-left-sidebar.html">shop list left sidebar</a></li>
-                                            <li><a href="shop-list-right-sidebar.html">shop list right sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-title menu-item-has-children"><a href="#">column 02</a>
-                                        <ul class="dropdown">
-                                            <li><a href="product-details.html">product details</a></li>
-                                            <li><a href="product-details-affiliate.html">product
-                                                    details
-                                                    affiliate</a></li>
-                                            <li><a href="product-details-variable.html">product details
-                                                    variable</a></li>
-                                            <li><a href="product-details-group.html">product details
-                                                    group</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-title menu-item-has-children"><a href="#">column 03</a>
-                                        <ul class="dropdown">
-                                            <li><a href="cart.html">cart</a></li>
-                                            <li><a href="checkout.html">checkout</a></li>
-                                            <li><a href="compare.html">compare</a></li>
-                                            <li><a href="wishlist.html">wishlist</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-title menu-item-has-children"><a href="#">column 04</a>
-                                        <ul class="dropdown">
-                                            <li><a href="my-account.html">my-account</a></li>
-                                            <li><a href="login-register.html">login-register</a></li>
-                                            <li><a href="about-us.html">about us</a></li>
-                                            <li><a href="contact-us.html">contact us</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children "><a href="{{ url('/products') }}">shop</a>
-<!--                                <ul class="dropdown">
-                                    <li class="menu-item-has-children"><a href="#">shop grid layout</a>
-                                        <ul class="dropdown">
-                                            <li><a href="shop.html">shop grid left sidebar</a></li>
-                                            <li><a href="shop-grid-right-sidebar.html">shop grid right sidebar</a></li>
-                                            <li><a href="shop-grid-full-3-col.html">shop grid full 3 col</a></li>
-                                            <li><a href="shop-grid-full-4-col.html">shop grid full 4 col</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="#">shop list layout</a>
-                                        <ul class="dropdown">
-                                            <li><a href="shop-list-left-sidebar.html">shop list left sidebar</a></li>
-                                            <li><a href="shop-list-right-sidebar.html">shop list right sidebar</a></li>
-                                            <li><a href="shop-list-full-width.html">shop list full width</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="#">products details</a>
-                                        <ul class="dropdown">
-                                            <li><a href="product-details.html">product details</a></li>
-                                            <li><a href="product-details-affiliate.html">product details affiliate</a></li>
-                                            <li><a href="product-details-variable.html">product details variable</a></li>
-                                            <li><a href="product-details-group.html">product details group</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>-->
-                            </li>
-                            <li class="menu-item-has-children "><a href="#">Blog</a>
-                                <ul class="dropdown">
-                                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                    <li><a href="blog-list-left-sidebar.html">blog list left sidebar</a></li>
-                                    <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                    <li><a href="blog-list-right-sidebar.html">blog list right sidebar</a></li>
-                                    <li><a href="blog-grid-full-width.html">blog grid full width</a></li>
-                                    <li><a href="blog-details.html">blog details</a></li>
-                                    <li><a href="blog-details-left-sidebar.html">blog details left sidebar</a></li>
-                                    <li><a href="blog-details-audio.html">blog details audio</a></li>
-                                    <li><a href="blog-details-video.html">blog details video</a></li>
-                                    <li><a href="blog-details-image.html">blog details image</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact-us.html">Contact us</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
+                            <li><a href="{{ url('/') }}/plants">Plants</a></li>
+                            <li><a href="{{ url('/') }}/garden-ideas">Garden Ideas</a></li>
+                            <li><a href="{{ url('/') }}/upcoming-events">Upcoming Events</a></li>
+                            <li><a href="{{ url('/') }}/about-us">About Us</a></li>
+                            <li><a href="{{ url('/') }}/contact-us">Contact Us</a></li>
                         </ul>
                     </nav>
                     <!-- mobile menu navigation end -->
@@ -449,27 +350,11 @@
                     <ul class="nav">
                         <li>
                             <div class="dropdown mobile-top-dropdown">
-                                <a href="#" class="dropdown-toggle" id="currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Currency
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="currency">
-                                    <a class="dropdown-item" href="#">$ USD</a>
-                                    <a class="dropdown-item" href="#">$ EURO</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown mobile-top-dropdown">
                                 <a href="#" class="dropdown-toggle" id="myaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     My Account
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-<!--                                    <a class="dropdown-item" href="my-account.html">my account</a>
-                                    <a class="dropdown-item" href="login-register.html"> login</a>
-                                    <a class="dropdown-item" href="login-register.html">register</a>-->
-
                                     @auth
                                         <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                                         <a class="dropdown-item" href="{{ route('orders') }}">Orders</a>
@@ -485,11 +370,7 @@
                                         <a class="dropdown-item" href="{{ route('login') }}">login</a>
                                         <a class="dropdown-item" href="{{ route('register') }}">register</a>
                                     @endguest
-
                                 </div>
-
-
-
                             </div>
                         </li>
                     </ul>
@@ -499,11 +380,11 @@
                 <div class="offcanvas-widget-area">
                     <div class="off-canvas-contact-widget">
                         <ul>
-                            <li><i class="fa fa-mobile"></i>
-                                <a href="#">0123456789</a>
+                            <li><i class="pe-7s-home"></i>
+                                <a href="https://goo.gl/maps/m18PLV9WTRMq6rB16" target="_blank">1210 Lakeview Ct Lawrence, KS  66049</a>
                             </li>
                             <li><i class="fa fa-envelope-o"></i>
-                                <a href="#">info@yourdomain.com</a>
+                                <a href="mailto:kansasplantfarm@gmail.com">kansasplantfarm@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -545,13 +426,13 @@
                     <div class="widget-item">
                         <div class="widget-title">
                             <div class="widget-logo">
-                                <a href="index.html">
-                                    <img src="{{ asset('img/logo/logo.png') }}" alt="brand logo">
+                                <a href="{{ url('/') }}">
+                                    <img src="{{ asset('plants_images/logo_bottom.png') }}" alt="brand logo">
                                 </a>
                             </div>
                         </div>
                         <div class="widget-body">
-                            <p>We are a team of designers and developers that create high quality wordpress, shopify, Opencart </p>
+                            <p>Kansas Plant Farm offers the highest quality of plants with over 500 varieties.</p>
                         </div>
                     </div>
                 </div>
@@ -561,9 +442,11 @@
                         <div class="widget-body">
                             <address class="contact-block">
                                 <ul>
-                                    <li><i class="pe-7s-home"></i> 4710-4890 Breckinridge USA</li>
-                                    <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">demo@yourdomain.com </a></li>
-                                    <li><i class="pe-7s-call"></i> <a href="tel:(012)800456789987">(012) 800 456 789-987</a></li>
+                                    <li><i class="pe-7s-home"></i>
+                                        <a href="https://goo.gl/maps/m18PLV9WTRMq6rB16" target="_blank">1210 Lakeview Ct <br/><span style="padding-left: 27px;">Lawrence, KS  66049</span></a>
+                                    </li>
+                                    <li><i class="pe-7s-mail"></i> <a href="mailto:kansasplantfarm@gmail.com">kansasplantfarm@gmail.com </a></li>
+<!--                                    <li><i class="pe-7s-call"></i> <a href="tel:(012)800456789987">(012) 800 456 789-987</a></li>-->
                                 </ul>
                             </address>
                         </div>
@@ -571,15 +454,15 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="widget-item">
-                        <h6 class="widget-title">Information</h6>
+                        <h6 class="widget-title">Quick Menu</h6>
                         <div class="widget-body">
                             <ul class="info-list">
-                                <li><a href="#">about us</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                                <li><a href="#">privet policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">contact us</a></li>
-                                <li><a href="#">site map</a></li>
+                                <li><a href="{{ url('/') }}">Home</a></li>
+                                <li><a href="{{ url('/') }}/plants">Plants</a></li>
+                                <li><a href="{{ url('/') }}/garden-ideas">Garden Ideas</a></li>
+                                <li><a href="{{ url('/') }}/upcoming-events">Upcoming Events</a></li>
+                                <li><a href="{{ url('/') }}/about-us">About Us</a></li>
+                                <li><a href="{{ url('/') }}/contact-us">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -597,23 +480,21 @@
                 </div>
             </div>
             <div class="row align-items-center mt-20">
-                <div class="col-md-6">
+<!--                <div class="col-md-6">
                     <div class="newsletter-wrapper">
                         <h6 class="widget-title-text">Signup for newsletter</h6>
                         <form class="newsletter-inner" id="mc-form">
                             <input type="email" class="news-field" id="mc-email" autocomplete="off" placeholder="Enter your email address">
                             <button class="news-btn" id="mc-submit">Subscribe</button>
                         </form>
-                        <!-- mailchimp-alerts Start -->
                         <div class="mailchimp-alerts">
-                            <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                            <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                            <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                            <div class="mailchimp-submitting"></div>&lt;!&ndash; mailchimp-submitting end &ndash;&gt;
+                            <div class="mailchimp-success"></div>&lt;!&ndash; mailchimp-success end &ndash;&gt;
+                            <div class="mailchimp-error"></div>&lt;!&ndash; mailchimp-error end &ndash;&gt;
                         </div>
-                        <!-- mailchimp-alerts end -->
                     </div>
-                </div>
-                <div class="col-md-6">
+                </div>-->
+                <div class="col-md-12">
                     <div class="footer-payment">
                         <img src="{{ asset('img/payment.png') }}" alt="payment method">
                     </div>
@@ -626,7 +507,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="copyright-text text-center">
-                        <p>Powered By <a href="#">Corano</a>. Store 1 © 2019</p>
+                        <p>Copyright © <a href="{{ url('/') }}">Kansas Plant Farm {{ date('Y') }}</a>. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
@@ -634,114 +515,6 @@
     </div>
 </footer>
 <!-- footer area end -->
-
-<!-- Quick view modal start -->
-<div class="modal" id="quick_view">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <!-- product details inner end -->
-                <div class="product-details-inner">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="product-large-slider">
-                                <div class="pro-large-img img-zoom">
-                                    <img src="{{ asset('img/product/product-details-img1.jpg') }}" alt="product-details" />
-                                </div>
-                                <div class="pro-large-img img-zoom">
-                                    <img src="{{ asset('img/product/product-details-img2.jpg') }}" alt="product-details" />
-                                </div>
-                                <div class="pro-large-img img-zoom">
-                                    <img src="{{ asset('img/product/product-details-img3.jpg') }}" alt="product-details" />
-                                </div>
-                                <div class="pro-large-img img-zoom">
-                                    <img src="{{ asset('img/product/product-details-img4.jpg') }}" alt="product-details" />
-                                </div>
-                                <div class="pro-large-img img-zoom">
-                                    <img src="{{ asset('img/product/product-details-img5.jpg') }}" alt="product-details" />
-                                </div>
-                            </div>
-                            <div class="pro-nav slick-row-10 slick-arrow-style">
-                                <div class="pro-nav-thumb">
-                                    <img src="{{ asset('img/product/product-details-img1.jpg') }}" alt="product-details" />
-                                </div>
-                                <div class="pro-nav-thumb">
-                                    <img src="{{ asset('img/product/product-details-img2.jpg') }}" alt="product-details" />
-                                </div>
-                                <div class="pro-nav-thumb">
-                                    <img src="{{ asset('img/product/product-details-img3.jpg') }}" alt="product-details" />
-                                </div>
-                                <div class="pro-nav-thumb">
-                                    <img src="{{ asset('img/product/product-details-img4.jpg') }}" alt="product-details" />
-                                </div>
-                                <div class="pro-nav-thumb">
-                                    <img src="{{ asset('img/product/product-details-img5.jpg') }}" alt="product-details" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="product-details-des">
-                                <div class="manufacturer-name">
-                                    <a href="product-details.html">HasTech</a>
-                                </div>
-                                <h3 class="product-name">Handmade Golden Necklace</h3>
-                                <div class="ratings d-flex">
-                                    <span><i class="fa fa-star-o"></i></span>
-                                    <span><i class="fa fa-star-o"></i></span>
-                                    <span><i class="fa fa-star-o"></i></span>
-                                    <span><i class="fa fa-star-o"></i></span>
-                                    <span><i class="fa fa-star-o"></i></span>
-                                    <div class="pro-review">
-                                        <span>1 Reviews</span>
-                                    </div>
-                                </div>
-                                <div class="price-box">
-                                    <span class="price-regular">$70.00</span>
-                                    <span class="price-old"><del>$90.00</del></span>
-                                </div>
-                                <h5 class="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
-                                <div class="product-countdown" data-countdown="2022/02/20"></div>
-                                <div class="availability">
-                                    <i class="fa fa-check-circle"></i>
-                                    <span>200 in stock</span>
-                                </div>
-                                <p class="pro-desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                                    eirmod tempor invidunt ut labore et dolore magna.</p>
-                                <div class="quantity-cart-box d-flex align-items-center">
-                                    <h6 class="option-title">qty:</h6>
-                                    <div class="quantity">
-                                        <div class="pro-qty"><input type="text" value="1"></div>
-                                    </div>
-                                    <div class="action_link">
-                                        <a class="btn btn-cart2" href="#">Add to cart</a>
-                                    </div>
-                                </div>
-                                <div class="useful-links">
-                                    <a href="#" data-toggle="tooltip" title="Compare"><i
-                                            class="pe-7s-refresh-2"></i>compare</a>
-                                    <a href="#" data-toggle="tooltip" title="Wishlist"><i
-                                            class="pe-7s-like"></i>wishlist</a>
-                                </div>
-                                <div class="like-icon">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i>like</a>
-                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
-                                    <a class="pinterest" href="#"><i class="fa fa-pinterest"></i>save</a>
-                                    <a class="google" href="#"><i class="fa fa-google-plus"></i>share</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- product details inner end -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Quick view modal end -->
-
-
 
 {{--{{ dd($cart->getCartData()) }}--}}
 <!-- offcanvas mini cart start -->
@@ -865,10 +638,6 @@
 <script src="{{ asset('js/plugins/ajax-mail.js')  }}"></script>
 
 <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
-<!-- google map api -->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfmCVTjRI007pC1Yk2o2d_EhgkjTsFVN8"></script>-->
-<!-- google map active js -->
-<!--<script src="{{ asset('js/plugins/google-map.js')  }}"></script>-->
 <!-- Main JS -->
 <script src="{{ asset('js/main.js')  }}"></script>
 <script>
