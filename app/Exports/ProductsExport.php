@@ -46,6 +46,9 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping
             '13'=>'13a','13.5'=>'13b'
         );
 
+        $final_height = $row->min_height."' - ".$row->max_height."'";
+        $final_width = $row->min_width."' - ".$row->max_width."'";
+
         return [
             $row->id,
             $row->plant_id_number,
@@ -122,8 +125,8 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping
             $row->humidity_tolerance,
             $row->wind_tolerence,
             $row->poor_soil_tolerance,
-            $row->height,
-            $row->width,
+            $final_height,
+            $final_width,
             $row->growth_rate,
             $row->service_life,
             $row->maintenance_requirements,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -16,16 +17,22 @@ class CartController extends Controller
             $cart_validation = $request->validate([
                 'product_id' => ['required', 'integer'],
                 'quantity' => ['required', 'min:1', 'max:255'],
-                'size' => ['required', 'numeric'],
-                'unit_price' => ['required', 'numeric']
+                //'size' => ['required', 'numeric'],
+                //'unit_price' => ['required', 'numeric']
             ]);
 
             $cart = new Cart();
             $cart->product_id = $request->get('product_id');
             $cart->quantity = $request->get('quantity');
-            $cart->size = $request->get('size');
-            $cart->unit_price = $request->get('unit_price');
-            $cart->total_price = $request->get('unit_price') * $request->get('quantity');
+            if($request->has('size')) {
+                $cart->size = $request->get('size');
+            }
+
+
+            $product_price = json_decode(Product::getProductPriceByIDandSize($request->get('product_id'),$request->get('size')));
+
+            $cart->unit_price = $product_price[0];
+            $cart->total_price = $product_price[0] * $request->get('quantity');
             $cart->user_session_id = session()->getId();
             //dd($cart);
             $cart->save();

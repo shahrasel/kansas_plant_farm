@@ -30,6 +30,24 @@ class Product extends Model
         return $this->hasMany(Wishlist::class);
     }
 
+    public static function zoneLists() {
+        return $zoneArray = array(
+            '1'=>'1a','1.5'=>'1b',
+            '2'=>'2a','2.5'=>'2b',
+            '3'=>'3a','3.5'=>'3b',
+            '4'=>'4a','4.5'=>'4b',
+            '5'=>'5a','5.5'=>'5b',
+            '6'=>'6a','6.5'=>'6b',
+            '7'=>'7a','7.5'=>'7b',
+            '8'=>'8a','8.5'=>'8b',
+            '9'=>'9a','9.5'=>'9b',
+            '10'=>'10a','10.5'=>'10b',
+            '11'=>'11a','11.5'=>'11b',
+            '12'=>'12a','12.5'=>'12b',
+            '13'=>'13a','13.5'=>'13b'
+        );
+    }
+
     public static function getAllProductsNames() {
         $product_names = DB::table('products')
             ->select('botanical_name', 'common_name', 'slug')
@@ -144,6 +162,71 @@ class Product extends Model
         }
 
         return $sizes;
+    }
+
+    public static function getProductPriceByIDandSize($id,$size) {
+        $product = Product::where('id',$id)->first();
+
+
+
+        $price_arr = array();
+
+        if (Auth::check()) {
+            if(Auth()->user()->usertype=='contractor') {
+                if(!empty($product->other_product_service_name)) {
+                    $price_arr[]= number_format($product->contractor_price_a,2);
+                }
+                else {
+                    if($size == $product->pot_size_a) {
+                        $price_arr[]= number_format($product->contractor_price_a,2);
+                    }
+                    elseif($size == $product->pot_size_b) {
+                        $price_arr[]= number_format($product->contractor_price_b,2);
+                    }
+                    elseif($size == $product->pot_size_c) {
+                        $price_arr[]= number_format($product->contractor_price_c,2);
+                    }
+                }
+            }
+            else {
+                if(!empty($product->other_product_service_name)) {
+                    $price_arr[] = number_format($product->retail_sale_price_a, 2);
+                    $price_arr[] = number_format($product->retail_list_price_a, 2);
+                }
+                else {
+                    if ($size == $product->pot_size_a) {
+                        $price_arr[] = number_format($product->retail_sale_price_a, 2);
+                        $price_arr[] = number_format($product->retail_list_price_a, 2);
+                    } elseif ($size == $product->pot_size_b) {
+                        $price_arr[] = number_format($product->retail_sale_price_b, 2);
+                        $price_arr[] = number_format($product->retail_list_price_b, 2);
+                    } elseif ($size == $product->pot_size_c) {
+                        $price_arr[] = number_format($product->retail_sale_price_c, 2);
+                        $price_arr[] = number_format($product->retail_list_price_c, 2);
+                    }
+                }
+            }
+        }
+        else {
+            if(!empty($product->other_product_service_name)) {
+                $price_arr[] = number_format($product->retail_sale_price_a, 2);
+                $price_arr[] = number_format($product->retail_list_price_a, 2);
+            }
+            else {
+                if ($size == $product->pot_size_a) {
+                    $price_arr[] = number_format($product->retail_sale_price_a, 2);
+                    $price_arr[] = number_format($product->retail_list_price_a, 2);
+                } elseif ($size == $product->pot_size_b) {
+                    $price_arr[] = number_format($product->retail_sale_price_b, 2);
+                    $price_arr[] = number_format($product->retail_list_price_b, 2);
+                } elseif ($size == $product->pot_size_c) {
+                    $price_arr[] = number_format($product->retail_sale_price_c, 2);
+                    $price_arr[] = number_format($product->retail_list_price_c, 2);
+                }
+            }
+        }
+        return json_encode($price_arr);
+
     }
 
     public function getRouteKeyName()

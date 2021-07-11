@@ -585,10 +585,12 @@ require.register("dropzone/lib/dropzone.js", function(exports, require, module){
         var thumbnailElement;
         file.previewElement.classList.remove("dz-file-preview");
         file.previewElement.classList.add("dz-image-preview");
+        //alert(file.name);
 		//.attr('id', file.name);
 		//str.replace(/#|_/g,'');
 		//$(file.previewElement).attr('id', 'foo_'+file.name.substr(0, file.name.indexOf('.')).replace(/#|_|-|=/g,''));
 		$(file.previewElement).attr('id', 'foo_'+file.name.replace(/#|_|-|=/g,''));
+        //$(file.previewElement).attr('id', 'foo_'+file.name);
         thumbnailElement = file.previewElement.querySelector("[data-dz-thumbnail]");
         thumbnailElement.alt = file.name;
           thumbnailElement.id = "imgl_"+file.name;

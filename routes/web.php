@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 // Remove route cache
 
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/clear-route-cache', function() {
     $exitCode = Artisan::call('route:cache');
@@ -58,7 +57,7 @@ Auth::routes();
 
 
 
-
+Route::get('/add_image_count', [App\Http\Controllers\ProductController::class, 'add_image_count'])->name('add_image_count');
 
 
 
@@ -69,6 +68,7 @@ Route::post('/plants', [App\Http\Controllers\ProductController::class, 'products
     exit;
 });*/
 Route::get('/plants/{product}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');
+Route::get('/get-product-price', [App\Http\Controllers\ProductController::class, 'get_product_price'])->name('get_product_price');
 
 
 
@@ -94,34 +94,36 @@ Route::post('/payment-confirmation', [\App\Http\Controllers\OrderController::cla
 
 
 ############################ FILE EXPORT / IMPORT ############################
-Route::get('file-import-export', [\App\Http\Controllers\ProductController::class, 'fileImportExport']);
-Route::post('file-import', [\App\Http\Controllers\ProductController::class, 'fileImport'])->name('file-import');
-Route::get('file-export', [\App\Http\Controllers\ProductController::class, 'fileExport'])->name('file-export');
+Route::get('file-import-export', [\App\Http\Controllers\ProductController::class, 'fileImportExport'])->middleware('adminauth');
+Route::post('file-import', [\App\Http\Controllers\ProductController::class, 'fileImport'])->name('file-import')->middleware('adminauth');
+Route::get('file-export', [\App\Http\Controllers\ProductController::class, 'fileExport'])->name('file-export')->middleware('adminauth');
 ############################ FILE EXPORT / IMPORT ############################
 
 
 ############################ ADMIN PANEL ############################
 Route::get('/admin', [\App\Http\Controllers\UserController::class, 'adminLogin'])->name('admin-login-form');
 Route::post('/admin', [\App\Http\Controllers\UserController::class, 'adminLogin'])->name('admin-login-form-post');
-Route::post('/admin/logout', [\App\Http\Controllers\UserController::class, 'adminLogout'])->name('adminLogout');
+Route::post('/admin/logout', [\App\Http\Controllers\UserController::class, 'adminLogout'])->name('adminLogout')->middleware('adminauth');
 
-Route::get('/admin/dashboard', [\App\Http\Controllers\UserController::class, 'adminDashboard'])->name('admin-dashboard');
-Route::get('/admin/my-profile', [\App\Http\Controllers\UserController::class, 'adminMyProfile'])->name('admin-my-profile');
-Route::post('/admin/my-profile', [\App\Http\Controllers\UserController::class, 'adminMyProfile'])->name('admin-my-profile-update');
+Route::get('/admin/dashboard', [\App\Http\Controllers\UserController::class, 'adminDashboard'])->name('admin-dashboard')->middleware('adminauth');
+Route::get('/admin/my-profile', [\App\Http\Controllers\UserController::class, 'adminMyProfile'])->name('admin-my-profile')->middleware('adminauth');
+Route::post('/admin/my-profile', [\App\Http\Controllers\UserController::class, 'adminMyProfile'])->name('admin-my-profile-update')->middleware('adminauth');
 
-Route::get('/admin/products', [\App\Http\Controllers\ProductController::class, 'adminProducts'])->name('admin-products');
-Route::get('/admin/edit-product-image/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImage'])->name('admin-products-image');
-Route::any('/admin/product-image-processor/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImageProcessor'])->name('admin-product-image-processor');
-Route::get('/admin/add-product', [\App\Http\Controllers\ProductController::class, 'adminAddProducts'])->name('add-product');
+Route::get('/admin/products', [\App\Http\Controllers\ProductController::class, 'adminProducts'])->name('admin-products')->middleware('adminauth');
+Route::get('/admin/edit-product-image/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImage'])->name('admin-products-image')->middleware('adminauth');
+Route::any('/admin/product-image-processor/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImageProcessor'])->name('admin-product-image-processor')->middleware('adminauth');
+Route::post('/admin/add-product', [\App\Http\Controllers\ProductController::class, 'adminAddProducts'])->name('add-product')->middleware('adminauth');
+Route::get('/admin/edit-product/{product}', [\App\Http\Controllers\ProductController::class, 'adminEditProducts'])->name('edit-product')->middleware('adminauth');
+Route::put('/admin/update-product', [\App\Http\Controllers\ProductController::class, 'adminUpdateProducts'])->name('update-product')->middleware('adminauth');
 
-Route::get('/admin/contractors', [\App\Http\Controllers\UserController::class, 'adminContractors'])->name('admin-contractors');
-Route::get('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor');
-Route::post('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor-post');
+Route::get('/admin/contractors', [\App\Http\Controllers\UserController::class, 'adminContractors'])->name('admin-contractors')->middleware('adminauth');
+Route::get('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor')->middleware('adminauth');
+Route::post('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor-post')->middleware('adminauth');
 
-Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'adminCustomers'])->name('admin-customers');
+Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'adminCustomers'])->name('admin-customers')->middleware('adminauth');
 
-Route::get('/admin/orders', [\App\Http\Controllers\OrderController::class, 'adminOrders'])->name('admin-orders');
-Route::any('/admin/orderdetails/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderDetails'])->name('admin-order-details');
+Route::get('/admin/orders', [\App\Http\Controllers\OrderController::class, 'adminOrders'])->name('admin-orders')->middleware('adminauth');
+Route::any('/admin/orderdetails/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderDetails'])->name('admin-order-details')->middleware('adminauth');
 
 ############################ ADMIN PANEL ############################
 

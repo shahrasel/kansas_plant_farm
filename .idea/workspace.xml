@@ -4,6 +4,12 @@
     <list default="true" id="5bae407d-1439-4ad1-9d29-f7cb303a969a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../ben_verify_receipt/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../brandtexmaker/.idea/brandtexmaker.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../buildentory/admin/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../buildentory/admin/.idea/admin.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../buildentory/admin/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../buildentory/admin/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../buildentory/admin/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../buildentory/admin/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../buildentory/media/floor_plans/6005edcf4b19f_Screenshot 2021-01-15 at 1.09.16 AM.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../buildentory/media/floor_plans/6006c6a4ae876_Screenshot 2021-01-15 at 1.09.16 AM.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../buildentory/media/floor_plans/6006c6a54a822_Screenshot 2021-01-05 at 12.35.31 PM.png" afterDir="false" />
@@ -41,25 +47,55 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kansas_plant_farm.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/1'2'.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/1=2 a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/billboard_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/bottom_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/curbside.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/locally_grown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/logo_bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/logo_top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/orange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/shop_by_season_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/shop_by_season_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/shop_by_season_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/shop_by_season_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/thousand_small.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/thousands_small.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/transport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/AdminAuth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_18_234902_rename_other_product_service_column.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_18_235436_rename_height_width_column.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_19_003601_add_min_max_height_width_column_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_20_013231_change_field_type_size_cart_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_05_111752_add_image_count_column_to_product_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5103/AcanthusmollisWhiteWater2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5103/AcanthusmollisWhiteWater3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5107/Abelia-2-mosanensis-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5107/Abelia-grandiflora-Ruby-Anniversary-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5107/Abelia-grandiflora-Ruby-Anniversary-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5107/Abelia-grandiflora-Ruby-Anniversary-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5107/Abelia-grandiflora-Ruby-Anniversary-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5107/Abelia-grandiflora-Ruby-Anniversary-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5107/Abelia-grandiflora-Ruby-Anniversary-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/large/5107/Abelia-mosanensis-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5103/AcanthusmollisWhiteWater2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5103/AcanthusmollisWhiteWater3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5107/Abelia-2-mosanensis-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5107/Abelia-grandiflora-Ruby-Anniversary-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5107/Abelia-grandiflora-Ruby-Anniversary-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5107/Abelia-grandiflora-Ruby-Anniversary-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5107/Abelia-grandiflora-Ruby-Anniversary-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5107/Abelia-grandiflora-Ruby-Anniversary-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5107/Abelia-grandiflora-Ruby-Anniversary-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/product/thumb/5107/Abelia-mosanensis-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/editProducts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8GALzKi5GVgEmZehfik0n9Fj9PdSC2we.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8H2bAp3kpZ8DJZQ5Rn3XmUhOkgh8El50.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8bXNwgswtztolNbVb4i1CzXsoJVDP47M.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SxW17kvY4FtwWRKJM4hsyGfPPD20sWg5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ivjtQPL3UfOwODqSTYI3lkOVOP8SkVcT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-mXOXFfutSU3IdHX52EaDMisSrZo6SFnp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/Paintbrush-Effect/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/food-delivery/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/mini-website/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/packages/photographer-website-template-package.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/packages/zen-technology-website-template-package.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/slider-with-illustrations/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-about/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-features/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-footer/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-header/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-menu/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-pricing/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-testimonials-title/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-testimonials/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/zen-video/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/wc-logs/geolocation-2021-06-23-5f7ac3a04e1ad66b321b1833e057ed3f.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../my_first_symfony_full/.idea/my_first_symfony_full.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../new_zend/.idea/new_zend.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../stock_analysis/.idea/arp1_project.iml" afterDir="false" />
@@ -86,6 +122,8 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/floor_plan_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/floor_plan_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/floor_plan_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/floor_plan_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/floor_plans.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/floor_plans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/home_loan_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/home_loan_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/home_loan_notes.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/home_loan_notes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/home_loans.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/home_loans.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lead_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lead_add.php" afterDir="false" />
@@ -95,7 +133,6 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lender_current_zips.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lender_current_zips.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lot_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lot_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lot_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lot_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../buildentory/admin/lot_edit_.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lot_edit_.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lots.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lots.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/properties.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/properties.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/property_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/property_add.php" afterDir="false" />
@@ -106,16 +143,38 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/search.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ProductsExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ProductsExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/ProductsImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductsImport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/plants_images/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/plants_images/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/dropzone.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin/dropzone_buildentory/dropzone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/productImage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/productImage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cart/update_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/update_cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cart/update_main_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/update_main_cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/PlantTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" afterDir="false" />
@@ -165,6 +224,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
@@ -310,7 +370,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/product" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -323,10 +383,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/product" />
       <recent name="$PROJECT_DIR$/public/css/admin/css" />
       <recent name="$PROJECT_DIR$/public/js/admin" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/product" />
       <recent name="$PROJECT_DIR$/resources/views/admin/order" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -407,7 +467,26 @@
       <workItem from="1620849626081" duration="3190000" />
       <workItem from="1620913840227" duration="11201000" />
       <workItem from="1620951504057" duration="220000" />
-      <workItem from="1621294229946" duration="1048000" />
+      <workItem from="1621294229946" duration="4360000" />
+      <workItem from="1621380636160" duration="7012000" />
+      <workItem from="1621451244294" duration="14490000" />
+      <workItem from="1621524794532" duration="2796000" />
+      <workItem from="1621651595054" duration="1485000" />
+      <workItem from="1621733003456" duration="382000" />
+      <workItem from="1621885377263" duration="187000" />
+      <workItem from="1622097031483" duration="38047000" />
+      <workItem from="1622721699667" duration="15346000" />
+      <workItem from="1622846655830" duration="1765000" />
+      <workItem from="1623537304185" duration="3868000" />
+      <workItem from="1623928445450" duration="2176000" />
+      <workItem from="1624141611040" duration="1232000" />
+      <workItem from="1624187816772" duration="5205000" />
+      <workItem from="1624270621954" duration="3711000" />
+      <workItem from="1624372815977" duration="1031000" />
+      <workItem from="1624449491450" duration="7023000" />
+      <workItem from="1625164474280" duration="2866000" />
+      <workItem from="1625170412489" duration="39945000" />
+      <workItem from="1625686615676" duration="28214000" />
     </task>
     <servers />
   </component>

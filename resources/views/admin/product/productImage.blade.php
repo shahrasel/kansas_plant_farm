@@ -273,6 +273,8 @@
                             Product Image Upload
                         </h5>
 
+                        <p id="abc"></p>
+
                         <div class="row" >
                         <div class="col-12" >
                                 <div class="panel-body">
@@ -294,7 +296,7 @@
 
                         </div>
                         <div class="col-12" style="text-align: right">
-                            <a href="{{ url('/admin/products') }}" class="btn btn-primary">Back to Products</a>
+                            <a onclick="window.history.go(-1); return false;" class="btn btn-primary" style="color: #fff">Back to Products</a>
                         </div>
                         </div>
                     </div>
@@ -364,9 +366,10 @@
                     next.css({'-moz-transition':'none', '-webkit-transition':'none', 'transition':'none'});
                     setTimeout(next.css.bind(next, {'-moz-transition':'border-top-width 0.1s ease-in', '-webkit-transition':'border-top-width 0.1s ease-in', 'transition':'border-top-width 0.1s ease-in'}));
 
-                    var data = $(this).sortable('serialize');
+                    var data = $(this).sortable("serialize");
+                    //var data = $(this).sortable('serialize', { expression: "/(.+)[_](.+)/" });
                     //alert(data);
-                    //$('#abc').text(data);
+                    /*$('#abc').text(data);*/
                     $.ajax({
                         type: 'POST',
                         url: '{{ route('admin-product-image-processor', ['id'=>$product_info->id]) }}',
@@ -376,6 +379,7 @@
                     });
                 }
             });
+            //$( ".dropzone" ).disableSelection();
 
 
         });

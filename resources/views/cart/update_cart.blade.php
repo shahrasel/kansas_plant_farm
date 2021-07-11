@@ -1,21 +1,34 @@
 @inject('cart', 'App\Models\cart')
+@inject('product_model', 'App\Models\Product')
 <div class="minicart-content-box" id="cart_div">
     @if(!$cart->getCartData()->isEmpty())
         <div class="minicart-item-wrapper">
             <ul>
                 @php
                     $i=0;
+                    $tax_amount = 0;
                 @endphp
                 @forelse($cart->getCartData() as $cartdata)
                     <li class="minicart-item">
                         <div class="minicart-thumb">
                             <a href="product-details.html">
-                                <img src="{{ asset('plants_images/5.jpg') }}" alt="product">
+                                @if(!empty(($cartdata->product->getImage($cartdata->product))))
+                                    <img src="{{ url($cartdata->product->getImage($cartdata->product)) }}" alt="product">
+                                @else
+                                    <img src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                @endif
                             </a>
                         </div>
                         <div class="minicart-content">
                             <h3 class="product-name">
-                                <a href="{{ url('/plants') }}/{{ $cartdata->product->slug }}">{{ $cartdata->product->common_name }}</a>
+                                <a href="{{ url('/plants') }}/{{ $cartdata->product->slug }}">
+                                    @if(!empty($cartdata->product->other_product_service_name))
+                                        {{ $cartdata->product->other_product_service_name }}
+                                    @else
+                                        {{ $cartdata->product->botanical_name }}<br/>
+                                        {{ $cartdata->product->common_name }}
+                                    @endif
+                                </a>
                             </h3>
                             <p>
                                 <span class="cart-quantity">{{ $cartdata->quantity }} <strong>&times;</strong></span>
@@ -26,6 +39,9 @@
                     </li>
                     @php
                         $i += $cartdata->quantity*$cartdata->unit_price;
+                        if($cartdata->product->tax_free !='YES') {
+                            $tax_amount += 9.30/100*($cartdata->quantity*$cartdata->unit_price);
+                        }
                     @endphp
                 @empty
                     <p>No product is added to the cart!</p>
@@ -44,11 +60,11 @@
                                             <span><strong>$10.00</strong></span>
                                         </li>-->
                 <li>
-                    <span>Sales Tax (8.25%)</span>
-                    <span><strong>${{ number_format(8.25/100*$i, 2, '.', ',') }}</strong></span>
+                    <span>Sales Tax (9.30%)</span>
+                    <span><strong>${{ number_format($tax_amount, 2, '.', ',') }}</strong></span>
                 </li>
                 @php
-                    $i += 8.25/100*$i;
+                    $i += $tax_amount;
                 @endphp
 
                 <li class="total">
@@ -58,8 +74,8 @@
             </ul>
         </div>
         <div class="minicart-button">
-            <a href="/cart"><i class="fa fa-shopping-cart"></i> View Cart</a>
-            <a href="/checkout"><i class="fa fa-share"></i> Checkout</a>
+            <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> View Cart</a>
+            <a href="{{ url('/checkout') }}"><i class="fa fa-share"></i> Checkout</a>
         </div>
     @else
         <p>No product is added to the cart!</p>

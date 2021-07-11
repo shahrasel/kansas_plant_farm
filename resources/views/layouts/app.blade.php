@@ -34,23 +34,8 @@
     <link rel="stylesheet" href="{{asset('css/style.css?v=').time()}}">
     <link href="{{ asset('css/admin/css/jquery-ui.min.css')  }}" rel="stylesheet">
 
+
     @yield('custom_styles')
-    <style>
-        .ui-autocomplete-category {
-            font-weight: bold;
-            padding: .2em .4em;
-            margin: .8em 0 .2em;
-            line-height: 1.5;
-        }
-        input[type=search]::-webkit-search-cancel-button {
-            -webkit-appearance: searchfield-cancel-button;
-        }
-        input[type=search] {
-            -webkit-appearance: none;
-        }
-
-
-    </style>
 </head>
 <body>
 @inject('cart', 'App\Models\Cart')
@@ -58,6 +43,7 @@
 @php
     $cartlists = $cart->getCartData()
 @endphp
+
 <!-- Start Header Area -->
 <header class="header-area header-wide">
     <!-- main header start -->
@@ -321,8 +307,10 @@
             <div class="off-canvas-inner">
                 <!-- search box start -->
                 <div class="search-box-offcanvas">
-                    <form>
-                        <input type="text" placeholder="Search Here...">
+                    <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox" id="search_store_form2">
+<!--                        <input type="text" placeholder="Search by Plant Name" id="">-->
+
+                        <input type="search" placeholder="Search by Plant Name" class="header-search-field" id="search_store2">
                         <button class="search-btn"><i class="pe-7s-search"></i></button>
                     </form>
                 </div>
@@ -531,17 +519,29 @@
                         <ul>
                             @php
                                 $i=0;
+                                $tax_amount = 0;
                             @endphp
                             @forelse($cartlists as $cartdata)
                                 <li class="minicart-item">
                                     <div class="minicart-thumb">
                                         <a href="{{ url('/plants') }}/{{ $cartdata->product->slug }}">
-                                            <img src="{{ asset('plants_images/5.jpg') }}" alt="product">
+                                            @if(!empty(($cartdata->product->getImage($cartdata->product))))
+                                                <img src="{{ url($cartdata->product->getImage($cartdata->product)) }}" alt="product">
+                                            @else
+                                                <img src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                            @endif
                                         </a>
                                     </div>
                                     <div class="minicart-content">
                                         <h3 class="product-name">
-                                            <a href="{{ url('/plants') }}/{{ $cartdata->product->slug }}">{{ $cartdata->product->common_name }}</a>
+                                            <a href="{{ url('/plants') }}/{{ $cartdata->product->slug }}">
+                                                @if(!empty($cartdata->product->other_product_service_name))
+                                                    {{ $cartdata->product->other_product_service_name }}
+                                                @else
+                                                    {{ $cartdata->product->botanical_name }}<br>
+                                                    {{ $cartdata->product->common_name }}
+                                                @endif
+                                            </a>
                                         </h3>
                                         <p>
                                             <span class="cart-quantity">{{ $cartdata->quantity }} <strong>&times;</strong></span>
@@ -552,6 +552,9 @@
                                 </li>
                                 @php
                                     $i += $cartdata->quantity*$cartdata->unit_price;
+                                    if($cartdata->product->tax_free !='YES') {
+                                        $tax_amount += 9.30/100*($cartdata->quantity*$cartdata->unit_price);
+                                    }
                                 @endphp
                             @empty
                                 <p>No product is added to the cart!</p>
@@ -570,11 +573,11 @@
                                 <span><strong>$10.00</strong></span>
                             </li>-->
                             <li>
-                                <span>Sales Tax (8.25%)</span>
-                                <span><strong>${{ number_format(8.25/100*$i, 2, '.', ',') }}</strong></span>
+                                <span>Sales Tax (9.30%)</span>
+                                <span><strong>${{ number_format($tax_amount, 2, '.', ',') }}</strong></span>
                             </li>
                             @php
-                                $i += 8.25/100*$i;
+                                $i += $tax_amount;
                             @endphp
 
                             <li class="total">
@@ -594,12 +597,29 @@
         </div>
     </div>
 </div>
+
+
 <!-- offcanvas mini cart end -->
 @if(checkDevice() == 'phone')
-    @if(Request::path() == 'products')
+    @if(Request::path() == 'plants')
         <div id="calltextdiv" style="position: fixed; width: 101%; height: 50px; color: rgb(255, 255, 255); bottom: 0px; text-align: center; background-color: #7FBC03;display:block;z-index:100000000">
             <div style="background-position:right center; background-repeat:no-repeat;width:100%;float:left;height:49px;line-height:50px;background-position:98%;font-size:20px;border-right:1px solid #fff">
-                <a style="color:#FFF" onclick="showFilterDiv()" id="filteranchor">Filter</a>
+                <div id="filteranchor">
+                    <a style="color:#FFF" onclick="showFilterDiv()">FILTER</a>
+                </div>
+
+                <div id="filterselanchor" style="display: none">
+                    <div style="width: 58%;float: left">
+                        <a style="color:#FFF;" onclick="submitMobileForm()">FILTER SELECTED</a>
+                    </div>
+
+                    <div style="width: 38%;float: right">
+                        <a style="color:#FFF;" href="{{ url('/') }}/plants">RESET</a>
+                    </div>
+                    <div style="width: 4%;float: right">
+                        |
+                    </div>
+                </div>
             </div>
         </div>
     @endif
@@ -678,6 +698,19 @@
             }
         });
 
+        jQuery( "#search_store2" ).catcomplete({
+            delay: 0,
+            source: data,
+            select: function (event, ui) {
+                var label = ui.item.label;
+                var value = ui.item.value;
+                //alert(ui.item.slug);
+
+                jQuery("#search_store_form2").attr('action',"{{ url('/plants') }}/"+ui.item.slug);
+                jQuery("#search_store_form2").submit();
+            }
+        });
+
         jQuery.ui.autocomplete.filter = function (array, term) {
             var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
             return $.grep(array, function (value) {
@@ -685,6 +718,10 @@
             });
         };
     } );
+
+    function submitMobileForm() {
+        $("#cat_form2").submit();
+    }
     function showFilterDiv() {
         jQuery("#filter_div").slideToggle("slow","swing", function(){
             if(jQuery("#filter_div").css('display') == 'none') {
@@ -692,14 +729,17 @@
                     overflow: 'auto',
                     height: 'auto'
                 });
-                $("#filteranchor").html("Filter");
+                $("#filteranchor").css('display','block');
+                $("#filterselanchor").css('display','none');
             }
             else {
+
                 $('html, body').css({
                     overflow: 'hidden',
                     height: '100%'
                 });
-                $("#filteranchor").html("Close Filter");
+                $("#filteranchor").css('display','none');
+                $("#filterselanchor").css('display','block');
             }
         });
     }
@@ -714,8 +754,9 @@
         jQuery("#flat66_size_price").css('display','none');
     }
 
-    function change_price() {
-        if(jQuery("#size_select_box").val()=='44') {
+    function change_price(id, user_type) {
+        //alert(id +'----'+jQuery('#size_select_box').val()+'----'+user_type);
+        /*if(jQuery("#size_select_box").val()=='44') {
             hideAllPrice();
             jQuery("#44_size_price").css('display','block');
         }
@@ -726,20 +767,40 @@
         else if(jQuery("#size_select_box").val()=='66') {
             hideAllPrice();
             jQuery("#flat66_size_price").css('display','block');
-        }
+        }*/
+        $.ajax({url: "../get-product-price?id="+id+"&user_type="+user_type+"&size="+jQuery('#size_select_box').val(), success: function(retval){
+            var result = $.parseJSON(retval);
+            if(user_type == 'contractor') {
+                if(result[0]) {
+                    jQuery(".price-regular-ajax-contractor").html('$' + result[0]);
+                    jQuery("#unit_price_contractor").val(result[0]);
+                }
+            }
+            else {
+                if(result[0]) {
+                    jQuery(".price-regular-ajax").html('$' + result[0]);
+                    jQuery("#unit_price_user1").val(result[0]);
+                    jQuery("#unit_price_user2").val(result[0]);
+                }
+
+                if(result[1])
+                    jQuery(".price-old-ajax").html('<del>$'+result[1]+'</del>');
+            }
+        }});
     }
 
     function deleteCartItem(id) {
-        $.ajax({url: "../delete-cart-item?id="+id, success: function(result){
+        $.ajax({url: "{{ url('/delete-cart-item') }}?id="+id, success: function(result){
                 $("#cart_div").html(result);
         }});
     }
 
-    function wishlist_form_submit() {
+    function wishlist_form_submit(formid) {
+        //alert(formid);
         $.ajax({
             url: "{{ url('/add-to-wishlist') }}",
             type: "POST",
-            data: $("#wishlist_form").serialize(),
+            data: $("#wishlist_form_"+formid).serialize(),
             success: function(msg) {
                 if(msg == 'Added to the wishlist successfully!') {
                     $("#like_active").addClass('like_active');

@@ -10,7 +10,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="content-w">
+    <div class="content-w" style="min-width: 0">
         <!--------------------
         START - Top Bar
         -------------------->
@@ -180,8 +180,8 @@
         <!--------------------
         END - Top Bar
         -------------------->
-        <div class="content-i">
-            <div class="content-box">
+        <div class="content-i" style="min-width: 0">
+            <div class="content-box" style="min-width: 0">
                 <div class="element-wrapper">
                     <div class="element-box">
                         <h5 class="form-header">
@@ -235,15 +235,62 @@
                                             <option value="Perennial" @if(app('request')->input('f_plant_type')=='Perennial') selected @endif>Perennial</option>
                                             <option value="Shrub" @if(app('request')->input('f_plant_type')=='Shrub') selected @endif>Shrub</option>
                                             <option value="Vine" @if(app('request')->input('f_plant_type')=='Vine') selected @endif>Vine</option>
-                                            <option value="Grass Bamboo" @if(app('request')->input('f_plant_type')=='Grass Bamboo') selected @endif>Grass Bamboo</option>
+                                            <option value="Grass Bamboo" @if(app('request')->input('f_plant_type')=='Grass Bamboo') selected @endif>Grass / Bamboo</option>
                                             <option value="Hardy Tropical" @if(app('request')->input('f_plant_type')=='Hardy Tropical') selected @endif>Hardy Tropical</option>
                                             <option value="Water Plant" @if(app('request')->input('f_plant_type')=='Water Plant') selected @endif>Water Plant</option>
                                             <option value="Annual" @if(app('request')->input('f_plant_type')=='Annual') selected @endif>Annual</option>
-                                            <option value="House Deck Plant" @if(app('request')->input('f_plant_type')=='House Deck Plant') selected @endif>House Deck Plant</option>
-                                            <option value="Cactus Succulent" @if(app('request')->input('f_plant_type')=='Cactus Succulent') selected @endif>Cactus Succulent</option>
+                                            <option value="House Deck Plant" @if(app('request')->input('f_plant_type')=='House Deck Plant') selected @endif>House / Deck Plant</option>
+                                            <option value="Cactus / Succulent" @if(app('request')->input('f_plant_type')=='Cactus Succulent') selected @endif>Cactus Succulent</option>
                                             <option value="Small Tree" @if(app('request')->input('f_plant_type')=='Small Tree') selected @endif>Small Tree</option>
                                             <option value="Large Tree" @if(app('request')->input('f_plant_type')=='Large Tree') selected @endif>Large Tree</option>
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="f_product_id_number">Product ID Number</label>
+                                        <input class="form-control" name="f_product_id_number" id="f_product_id_number" type="text" value="{{ app('request')->input('f_product_id_number') }}" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="include_on_website"><input id="include_on_website" type="checkbox" name="f_checkbox[]" value="include_on_website" @if(!empty(app('request')->input('f_checkbox'))) @if(in_array('include_on_website',app('request')->input('f_checkbox'))) checked @endif @endif>&nbsp;&nbsp;Include on Website</label><br/>
+                                        <label for="active_only"><input id="active_only" type="checkbox" name="f_checkbox[]" value="active_only" @if(!empty(app('request')->input('f_checkbox'))) @if(in_array('active_only',app('request')->input('f_checkbox'))) checked @endif @endif>&nbsp;&nbsp;Active Only</label><br/>
+                                        <label for="best_sellers"><input id="best_sellers" type="checkbox" name="f_checkbox[]" value="best_sellers" @if(!empty(app('request')->input('f_checkbox'))) @if(in_array('best_sellers',app('request')->input('f_checkbox'))) checked @endif @endif>&nbsp;&nbsp;Best Sellers</label>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="new_for_this_year"><input id="new_for_this_year" type="checkbox" name="f_checkbox[]" value="new_for_this_year" @if(!empty(app('request')->input('f_checkbox'))) @if(in_array('new_for_this_year',app('request')->input('f_checkbox'))) checked @endif @endif>&nbsp;&nbsp;New For This Year</label><br/>
+                                        <label for="other_product_services"><input id="other_product_services" type="checkbox" name="f_checkbox[]" value="other_product_services" @if(!empty(app('request')->input('f_checkbox'))) @if(in_array('other_product_services',app('request')->input('f_checkbox'))) checked @endif @endif>&nbsp;&nbsp;Other Products/Services</label><br/>
+                                        <label for="tax_free"><input id="tax_free" type="checkbox" name="f_checkbox[]" value="tax_free" @if(!empty(app('request')->input('f_checkbox'))) @if(in_array('tax_free',app('request')->input('f_checkbox'))) checked @endif @endif>&nbsp;&nbsp;Tax Free</label>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="image_count_sort">Image Count</label>
+                                        <select name="image_count_sort" class="form-control">
+                                            <option value="">-- Select --</option>
+                                            <option value="high_to_low" @if(app('request')->input('image_count_sort')=='high_to_low') selected @endif>High to Low</option>
+                                            <option value="low_to_high" @if(app('request')->input('image_count_sort')=='low_to_high') selected @endif>Low to High</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        &nbsp;
                                     </div>
                                 </div>
                             </div>
@@ -289,72 +336,101 @@
                                     </div>
                                 @endif
                             </div>
-                            <div class="table-responsive">
+                            <div class="table-responsive" style="overflow: scroll">
                                 <table id="dataTable10" class="table table-striped table-lightfont">
                                     <thead>
                                     <tr>
-                                        <!--<th>ID</th>--><th>Botanical name</th><th>Include in website</th><th>Image count</th><th>Status</th>
-                                        <th>Pot size a</th>
-                                        <th>Inventory count a</th>
-
-                                        <th>Contractor pricea</th>
-                                        <th>Retail sale price a</th>
-
-    <!--                                    <th>pot_size_b</th>
-                                        <th>inventory_count_b</th>
-                                        <th>contractor_price_b</th>
-                                        <th>retail_sale_price_b</th>
-
-                                        <th>pot_size_c</th>
-                                        <th>inventory_count_c</th>
-                                        <th>contractor_price_c</th>
-                                        <th>retail_sale_price_c</th>-->
-                                        <th>Image Upload</th>
+                                        <th>Product ID</th><th>Botanical name</th>
+                                        <th>Status</th>
+                                        <th>Image count</th>
+                                        <th>imgae upload</th>
                                         <th>Edit</th>
+
+                                        <th>Pot size(a)</th>
+                                        <th>Inventory_count(a)</th>
+                                        <th>Retail Sale Price(a)</th>
+
+                                        <th>Pot size(b)</th>
+                                        <th>Inventory_count(b)</th>
+                                        <th>Retail Sale Price(b)</th>
+
+                                        <th>Pot size(c)</th>
+                                        <th>Inventory_count(c)</th>
+                                        <th>Retail Sale Price(c)</th>
+
+
+                                        <th>Date Entered</th>
+                                        <th>Best Sellers</th>
+                                        <th>New For this year</th>
+                                        <th>Common Name</th>
+                                        <th>Patent / Trademark name</th>
                                     </tr></thead>
                                     <tfoot>
-                                    <tr><!--<th>ID</th>--><th>Botanical name</th><th>Include in website</th><th>Image count</th><th>Status</th>
-                                        <th>Pot size a</th>
-                                        <th>Inventory count a</th>
-                                        <th>Contractor pricea</th>
-                                        <th>Retail sale price a</th>
-                                        <th>Image Upload</th>
+                                    <tr>
+                                        <th>Product ID</th><th>Botanical name</th>
+                                        <th>Status</th>
+                                        <th>Image count</th>
+                                        <th>imgae upload</th>
                                         <th>Edit</th>
 
-    <!--                                    <th>pot_size_b</th>
-                                        <th>inventory_count_b</th>
-                                        <th>contractor_price_b</th>
-                                        <th>retail_sale_price_b</th>
+                                        <th>Pot size(a)</th>
+                                        <th>Inventory_count(a)</th>
+                                        <th>Retail Sale Price(a)</th>
 
-                                        <th>pot_size_c</th>
-                                        <th>inventory_count_c</th>
-                                        <th>contractor_price_c</th>
-                                        <th>retail_sale_price_c</th></tr>-->
+                                        <th>Pot size(b)</th>
+                                        <th>Inventory_count(b)</th>
+                                        <th>Retail Sale Price(b)</th>
+
+                                        <th>Pot size(c)</th>
+                                        <th>Inventory_count(c)</th>
+                                        <th>Retail Sale Price(c)</th>
+
+
+                                        <th>Date Entered</th>
+                                        <th>Best Sellers</th>
+                                        <th>New For this year</th>
+                                        <th>Common Name</th>
+                                        <th>Patent / Trademark name</th>
                                     </tfoot>
                                     <tbody>
                                     @forelse($product_lists as $product_list)
                                         <tr>
-    <!--                                        <td>{{ $product_list->plant_id_number }}</td>-->
+                                            <td>{{ $product_list->plant_id_number }}</td>
                                             <td>{{ $product_list->botanical_name }}</td>
-                                            <td>{{ $product_list->include_on_website }}</td>
-                                            <td> {{ $product_list->image_count }}</td>
                                             <td>{{ $product_list->status }}</td>
+                                            <td> {{ $product_list->image_count }}</td>
+                                            <td><a href="{{ url('/admin/edit-product-image/'.$product_list->id) }}">Image Upload</a></td>
+                                            <td><a href="{{ url('/admin/edit-product/'.$product_list->slug) }}">Edit</a></td>
+
+
                                             <td>{{ $product_list->pot_size_a }}</td>
                                             <td>{{ $product_list->inventory_count_a }}</td>
-                                            <td>{{ $product_list->contractor_price_a?'$'.number_format($product_list->contractor_price_a,2):'' }}</td>
                                             <td>{{ $product_list->retail_sale_price_a?'$'.number_format($product_list->retail_sale_price_a,2):'' }}</td>
-        <td><a href="{{ url('/admin/edit-product-image/'.$product_list->id) }}">Image Upload</a></td>
-        <td><a href="{{ url('/admin/edit-product?id='.$product_list->id) }}">Edit</a></td>
 
-    <!--                                        <td>{{ $product_list->pot_size_b }}</td>
+                                            <td>{{ $product_list->pot_size_b }}</td>
                                             <td>{{ $product_list->inventory_count_b }}</td>
-                                            <td>{{ $product_list->contractor_price_b }}</td>
-                                            <td>{{ $product_list->retail_sale_price_b }}</td>
+                                            <td>{{ $product_list->retail_sale_price_b?'$'.number_format($product_list->retail_sale_price_b,2):'' }}</td>
+
 
                                             <td>{{ $product_list->pot_size_c }}</td>
                                             <td>{{ $product_list->inventory_count_c }}</td>
-                                            <td>{{ $product_list->contractor_price_c }}</td>
-                                            <td>{{ $product_list->retail_sale_price_c }}</td>-->
+                                            <td>{{ $product_list->retail_sale_price_c?'$'.number_format($product_list->retail_sale_price_c,2):'' }}</td>
+
+
+                                            <td>{{ $product_list->date_entered }}</td>
+                                            <td>{{ $product_list->best_sellers }}</td>
+                                            <td>{{ $product_list->new_for_this_year }}</td>
+
+
+
+                                            <td>{{ $product_list->common_name }}</td>
+                                            <td>{{ $product_list->patent_trademark_names }}</td>
+
+
+
+
+
+
 
                                         </tr>
                                     @empty

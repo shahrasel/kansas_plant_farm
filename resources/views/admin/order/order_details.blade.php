@@ -211,6 +211,7 @@
                                 <tbody>
                                     @php
                                         $i=0;
+                                        $tax_amount = 0;
                                     @endphp
                                     @forelse($orderdetails_lists as $orderdetails_list)
                                         <tr>
@@ -224,6 +225,9 @@
                                         </tr>
                                         @php
                                             $i += $orderdetails_list->quantity*$orderdetails_list->unit_price;
+                                            if($orderdetails_list->product->tax_free !='YES') {
+                                                $tax_amount += 9.30/100*($orderdetails_list->quantity*$orderdetails_list->unit_price);
+                                            }
                                         @endphp
                                     @empty
                                             <tr>
@@ -259,11 +263,12 @@
                                                     <td>${{ number_format($i, 2, '.', ',') }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Sales Tax (8.25%)</td>
-                                                    <td>${{ number_format(8.25/100*$i, 2, '.', ',') }}</td>
+                                                    <td>Sales Tax (9.30%)</td>
+                                                    <td>${{ number_format($tax_amount, 2, '.', ',') }}</td>
                                                 </tr>
                                                 @php
-                                                    $i += 8.25/100*$i;
+                                                    //$i += 9.30/100*$i;
+                                                      $i += $tax_amount;
                                                 @endphp
                                                 <tr class="total">
                                                     <td>Total</td>

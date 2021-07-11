@@ -22,7 +22,7 @@
                                         @if(!empty($product_model->getAllImages($product)))
                                             @foreach($product_model->getAllImages($product) as $image)
                                                 <div class="pro-large-img">
-                                                    <img src="{{ url('img/product/large/'.$product->id.'/'.$image) }}" alt="product-details" />
+                                                    <img src="{{ url('img/product/large/'.$product->id.'/'.$image) }}" onclick="openModal();currentSlide(1)" />
                                                 </div>
                                             @endforeach
                                         @endif
@@ -45,51 +45,37 @@
 
                                         @if (Auth::check())
                                             @if(Auth()->user()->usertype=='contractor')
-                                                @if(!empty($product->contractor_price_a))
-                                                    <div class="price-box" id="44_size_price">
+                                                <div class="price-box" id="contractor_price">
+                                                    <span class="price-regular price-regular-ajax-contractor">${{ number_format($product->contractor_price_a,2) }}</span>
+                                                </div>
+
+                                                {{--@if(!empty($product->contractor_price_a))
+                                                    <div class="price-box" id="contractor_price_a">
                                                         <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
                                                     </div>
-                                                    <div class="price-box" id="55gal_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_b,2) }}</span>
-                                                    </div>
-                                                    <div class="price-box" id="flat66_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_c,2) }}</span>
-                                                    </div>
+
+
                                                 @elseif(!empty($product->contractor_price_b))
-                                                    <div class="price-box" id="44_size_price" style="display: none">
+                                                    <div class="price-box" id="contractor_price_b">
                                                         <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
                                                     </div>
-                                                    <div class="price-box" id="55gal_size_price" >
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_b,2) }}</span>
-                                                    </div>
-                                                    <div class="price-box" id="flat66_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_c,2) }}</span>
-                                                    </div>
+
                                                 @elseif(!empty($product->contractor_price_c))
-                                                    <div class="price-box" id="44_size_price" style="display: none">
+                                                    <div class="price-box" id="contractor_price_c">
                                                         <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
                                                     </div>
-                                                    <div class="price-box" id="55gal_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_b,2) }}</span>
-                                                    </div>
-                                                    <div class="price-box" id="flat66_size_price" >
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_c,2) }}</span>
-                                                    </div>
-                                                @endif
+                                                @endif--}}
                                             @else
-                                                @if(!empty($product->retail_sale_price_a))
-                                                    <div class="price-box" id="44_size_price">
+                                                <div class="price-box" id="regular_size_price_user1">
+                                                    <span class="price-regular price-regular-ajax">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                    <span class="price-old price-old-ajax"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                                </div>
+                                                {{--@if(!empty($product->retail_sale_price_a))
+                                                    <div class="price-box" id="regular_size_price_a">
                                                         <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
                                                         <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
                                                     </div>
-                                                    <div class="price-box" id="55gal_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
-                                                    </div>
-                                                    <div class="price-box" id="flat66_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
-                                                    </div>
+
                                                 @elseif(!empty($product->retail_sale_price_b))
                                                     <div class="price-box" id="44_size_price" style="display: none">
                                                         <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
@@ -116,10 +102,14 @@
                                                         <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
                                                         <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
                                                     </div>
-                                                @endif
+                                                @endif--}}
                                             @endif
                                         @else
-                                            @if(!empty($product->retail_sale_price_a))
+                                            <div class="price-box" id="regular_size_price_user2">
+                                                <span class="price-regular price-regular-ajax">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                <span class="price-old price-old-ajax"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                            </div>
+                                            {{--@if(!empty($product->retail_sale_price_a))
                                                 <div class="price-box" id="44_size_price">
                                                     <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
                                                     <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
@@ -158,7 +148,7 @@
                                                     <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
                                                     <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
                                                 </div>
-                                            @endif
+                                            @endif--}}
                                         @endif
 
 
@@ -167,44 +157,44 @@
 
                                         {{--<h5 class="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
                                         <div class="product-countdown" data-countdown="2019/12/20"></div>--}}
-                                        <div class="manufacturer-name">
+                                        <div class="manufacturer-name details_tag">
                                             @if($product->perennial == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=perennial") }}">Perennial</a>
+                                                <a  href="{{ url("/plants?category=perennial") }}">Perennial</a>
                                             @endif
                                             @if($product->shrub == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=shrub") }}">Shrub</a>
+                                                <a  href="{{ url("/plants?category=shrub") }}">Shrub</a>
                                             @endif
                                             @if($product->vine == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=vine") }}">Vine</a>
+                                                <a  href="{{ url("/plants?category=vine") }}">Vine</a>
                                             @endif
                                             @if($product->grass_bamboo == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=grass_bamboo") }}">Grass Bamboo</a>
+                                                <a  href="{{ url("/plants?category=grass_bamboo") }}">Grass / Bamboo</a>
                                             @endif
                                             @if($product->hardy_tropical == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
+                                                <a  href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
                                             @endif
                                             @if($product->water_plant == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
+                                                <a  href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
                                             @endif
                                             @if($product->annual == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=annual") }}">Annual</a>
+                                                <a  href="{{ url("/plants?category=annual") }}">Annual</a>
                                             @endif
                                             @if($product->house_deck_plant == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=house_deck_plant") }}">House Deck Plant</a>
+                                                <a  href="{{ url("/plants?category=house_deck_plant") }}">House / Deck Plant</a>
                                             @endif
                                             @if($product->cactus_succulent == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=cactus_succulent") }}">Cactus Succulent</a>
+                                                <a  href="{{ url("/plants?category=cactus_succulent") }}">Cactus / Succulent</a>
                                             @endif
                                             @if($product->small_tree == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
+                                                <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
                                             @endif
                                             @if($product->large_tree == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
+                                                <a  href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
                                             @endif
                                         </div>
                                         <div class="availability">
                                             <i class="fa fa-check-circle"></i>
-                                            <span>
+                                            <span style="margin-right: 40px">
                                                 @if(!empty($product->retail_sale_price_a))
                                                     @if($product->inventory_count_a > $product->low_inventory_count_a)
                                                         in stock
@@ -215,6 +205,7 @@
                                                     CURRENTLY NOT AVAILABLE
                                                 @endif
                                             </span>
+                                            <span>Product ID: {{ $product->plant_id_number }}</span>
                                         </div>
                                         <p class="pro-desc">
                                             {{ $product->plant_description }}
@@ -224,7 +215,7 @@
 
                                             @if(!empty($product->retail_sale_price_a))
                                                 <div class="quantity-cart-box d-flex align-items-center">
-                                                    <h6 class="option-title">qty:</h6>
+                                                    <h6 class="option-title" style="margin-right: 12px;">qty:</h6>
                                                     <div class="quantity">
                                                         <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity"></div>
                                                     </div>
@@ -233,28 +224,31 @@
                                                     </div>
                                                 </div>
                                             @endif
-                                            <div class="pro-size">
-                                                @if(!empty($product_model->getProductSize($product)))
-                                                    <h6 class="option-title">size :</h6>
-                                                    <select class="nice-select" onchange="change_price()" id="size_select_box" name="size">
-                                                        @foreach($product_model->getProductSize($product) as $size)
-                                                            <option value="{{ $size }}">{{ $size }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                @endif
-                                            </div>
+
+                                            @if(empty($product->other_product_service_name))
+                                                <div class="pro-size">
+                                                    @if(!empty($product_model->getProductSize($product)))
+                                                        <h6 class="option-title">size :</h6>
+                                                        <select class="nice-select" @if (Auth::check()) onchange="change_price('{{ $product->id }}', {{ Auth()->user()->usertype }})" @else onchange="change_price('{{ $product->id }}', 'none')" @endif id="size_select_box" name="size">
+                                                            @foreach($product_model->getProductSize($product) as $size)
+                                                                <option value="{{ $size }}">{{ $size }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    @endif
+                                                </div>
+                                            @endif
                                             <input type="hidden" name="addtocart" value="1">
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
 
-                                            @if (Auth::check())
-                                                @if(Auth()->user()->usertype=='buyer')
-                                                    <input type="hidden" name="unit_price" id="unit_price" value="{{ $product->retail_sale_price_a }}">
+                                            {{--@if (Auth::check())
+                                                @if(Auth()->user()->usertype=='contractor')
+                                                    <input type="hidden" name="unit_price" id="unit_price_contractor" value="{{ $product->retail_sale_price_a }}">
                                                 @else
-                                                    <input type="hidden" name="unit_price" id="unit_price" value="{{ $product->contractor_price_a }}">
+                                                    <input type="hidden" name="unit_price" id="unit_price_user1" value="{{ $product->contractor_price_a }}">
                                                 @endif
                                             @else
-                                                <input type="hidden" name="unit_price" id="unit_price" value="{{ $product->retail_sale_price_a }}">
-                                            @endif
+                                                <input type="hidden" name="unit_price" id="unit_price_user2" value="{{ $product->retail_sale_price_a }}">
+                                            @endif--}}
 
 
                                         </form>
@@ -263,12 +257,10 @@
                                         @auth
                                             @inject('wishlist', 'App\Models\Wishlist')
 
-                                            <form id="wishlist_form" method="post">
+                                            <form id="wishlist_form_{{ $product->id }}" method="post">
                                                 @csrf
                                                 <div class="useful-links">
-                                                    {{--<a href="#" data-toggle="tooltip" title="Compare"><i
-                                                        class="pe-7s-refresh-2"></i>compare</a>--}}
-                                                    <a onclick="wishlist_form_submit()" data-toggle="tooltip" title="Wishlist" style="cursor: pointer;text-transform: none">
+                                                    <a onclick="wishlist_form_submit({{ $product->id }})" data-toggle="tooltip" title="Wishlist" style="cursor: pointer;text-transform: none">
 
                                                             @if($wishlist->checkUsersWishlist($product) == 1)
                                                             <i id="like_active" class="pe-7s-like like_active"></i><span id="wish_text">Added to wishlist</span></a>
@@ -282,41 +274,41 @@
                                         @endauth
                                         @guest
                                             <div class="useful-links">
-                                                <a href="{{ url('/login') }}" data-toggle="tooltip" title="Wishlist" style="cursor: pointer">
+<!--                                                <a href="{{ url('/login') }}" data-toggle="tooltip" title="Wishlist" style="cursor: pointer">
                                                     <i id="like_active" class="pe-7s-like"></i>Add to wishlist
-                                                </a>
+                                                </a>-->
                                             </div>
                                         @endguest
-                                        <div class="manufacturer-name" style="margin-bottom: 13px;">
+                                        <div class="manufacturer-name details_tag" style="margin-bottom: 13px;">
                                             @if($product->sustainable_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;" >Sustainable Garden</a>
+                                                <a>Sustainable Garden</a>
                                             @endif
                                             @if($product->native_plant_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Native Plant Garden</a>
+                                                <a >Native Plant Garden</a>
                                             @endif
                                             @if($product->bird_wildlife_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Bird Wildlife Garden</a>
+                                                <a >Bird Wildlife Garden</a>
                                             @endif
                                             @if($product->butterfly_bee_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Butterfly Bee Garden</a>
+                                                <a >Butterfly Bee Garden</a>
                                             @endif
                                             @if($product->lush_tropical_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Lush Tropical Garden</a>
+                                                <a >Lush Tropical Garden</a>
                                             @endif
                                             @if($product->dry_shade_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Dry Shade Garden</a>
+                                                <a >Dry Shade Garden</a>
                                             @endif
                                             @if($product->edible_medicinal_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Edible Medicinal Garden</a>
+                                                <a >Edible Medicinal Garden</a>
                                             @endif
                                             @if($product->rain_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Rain Garden</a>
+                                                <a >Rain Garden</a>
                                             @endif
                                             @if($product->colorado_rustic_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Colorado Rustic Garden</a>
+                                                <a >Colorado Rustic Garden</a>
                                             @endif
                                             @if($product->desert_cactus_rock_garden == 'YES')
-                                                <a style="background-color: #7FBC03;display: inline-block;line-height:17px;color: #fff;padding: 2px 7px;border-radius: 20px;margin: 0px 4px 0px 0px;">Desert Cactus Rock Garden</a>
+                                                <a >Desert Cactus Rock Garden</a>
                                             @endif
 
                                         </div>
@@ -339,43 +331,174 @@
                                     <div class="product-review-info">
                                         <ul class="nav review-tab">
                                             <li>
-                                                <a class="active" data-toggle="tab" href="#tab_one">description</a>
+                                                <a class="active" data-toggle="tab" href="#tab_one">Information</a>
                                             </li>
                                             <li>
-                                                <a data-toggle="tab" href="#tab_two">information</a>
+                                                <a data-toggle="tab" href="#tab_two">Description</a>
                                             </li>
-                                            {{--<li>
-                                                <a data-toggle="tab" href="#tab_three">reviews (1)</a>
-                                            </li>--}}
                                         </ul>
                                         <div class="tab-content reviews-tab">
                                             <div class="tab-pane fade show active" id="tab_one">
                                                 <div class="tab-one">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                                                        fringilla augue nec est tristique auctor. Ipsum metus feugiat
-                                                        sem, quis fermentum turpis eros eget velit. Donec ac tempus
-                                                        ante. Fusce ultricies massa massa. Fusce aliquam, purus eget
-                                                        sagittis vulputate, sapien libero hendrerit est, sed commodo
-                                                        augue nisi non neque.Cras neque metus, consequat et blandit et,
-                                                        luctus a nunc. Etiam gravida vehicula tellus, in imperdiet
-                                                        ligula euismod eget. Pellentesque habitant morbi tristique
-                                                        senectus et netus et malesuada fames ac turpis egestas. Nam
-                                                        erat mi, rutrum at sollicitudin rhoncus</p>
+                                                    <div class="row">
+                                                        <div class="col-xl-4 col-md-6 col-sm-12">
+                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">CULTURAL CONDITIONS</h5>
+                                                            @if($product->min_zone)
+                                                                <p><b>Plant Min Zone:</b> {{ \App\Models\Product::zoneLists()[$product->min_zone] }}</p>
+                                                            @endif
+                                                            @if($product->max_zone)
+                                                                <p><b>Plant Max Zone:</b> {{ \App\Models\Product::zoneLists()[$product->max_zone] }}</p>
+                                                            @endif
+
+                                                            @if($product->sunlight)
+                                                                <p><b>Sunlight:</b> {{ rtrim(str_replace(',',', ',$product->sunlight),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->water_rainfall)
+                                                                <p><b>Water / Rainfall:</b> {{ rtrim(str_replace(',',', ',$product->water_rainfall),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->soil_quality)
+                                                                <p><b>Soil Quality:</b> {{ rtrim(str_replace(',',', ',$product->soil_quality),", ") }}</p>
+                                                            @endif
+                                                        </div>
+
+                                                        <div class="col-xl-4 col-md-6 col-sm-12">
+                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">FLOWERS AND FOLIAGE</h5>
+                                                            @if($product->bloom_season)
+                                                                <p><b>Bloom Season:</b> {{ rtrim(str_replace(',',', ',$product->bloom_season),", ") }}</p>
+                                                            @endif
+                                                            @if($product->flower_color)
+                                                                <p><b>Flower Color:</b> {{ rtrim(str_replace(',',', ',$product->flower_color),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->berry_fruit_color)
+                                                                <p><b>Berry / Fruit Color:</b> {{ rtrim(str_replace(',',', ',$product->berry_fruit_color),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->spring_foliage_color)
+                                                                <p><b>Spring Foliage Color:</b> {{ rtrim(str_replace(',',', ',$product->spring_foliage_color),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->summer_foliage_color)
+                                                                <p><b>Summer Foliage Color:</b> {{ rtrim(str_replace(',',', ',$product->summer_foliage_color),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->fall_foliage_color)
+                                                                <p><b>Fall Foliage Color:</b> {{ rtrim(str_replace(',',', ',$product->fall_foliage_color),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->has_evergreen_foliage)
+                                                                <p><b>Evergreen Foliage:</b> {{ $product->has_evergreen_foliage }}</p>
+                                                            @endif
+
+                                                            @if($product->has_winter_interest)
+                                                                <p><b>Winter Interest:</b> {{ $product->has_winter_interest }}</p>
+                                                            @endif
+
+                                                            @if($product->scented_flowers)
+                                                                <p><b>Scented Flowers:</b> {{ $product->scented_flowers }}</p>
+                                                            @endif
+                                                        </div>
+
+
+                                                        <div class="col-xl-4 col-md-6 col-sm-12">
+                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">PLANT TOLERANCES</h5>
+                                                            @if($product->drought_tolerance)
+                                                                <p><b>Drought Tolerance:</b> {{ rtrim(str_replace(',',', ',$product->drought_tolerance),", ") }}</p>
+                                                            @endif
+                                                            @if($product->wet_feet_tolerance)
+                                                                <p><b>Wet-Feet Tolerance:</b> {{ rtrim(str_replace(',',', ',$product->wet_feet_tolerance),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->humidity_tolerance)
+                                                                <p><b>Humidity Tolerance:</b> {{ rtrim(str_replace(',',', ',$product->humidity_tolerance),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->wind_tolerence)
+                                                                <p><b>Wind Tolerance:</b> {{ rtrim(str_replace(',',', ',$product->wind_tolerence),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->poor_soil_tolerance)
+                                                                <p><b>Poor Soil Tolerance:</b> {{ rtrim(str_replace(',',', ',$product->poor_soil_tolerance),", ") }}</p>
+                                                            @endif
+                                                        </div>
+
+                                                        <div class="col-xl-4 col-md-6 col-sm-12">
+                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">GROWTH AND MAINTENANCE</h5>
+                                                            @if($product->min_height)
+                                                                <p><b>Height:</b> {{ $product->min_height."' - ".$product->max_height."'" }}</p>
+                                                            @endif
+                                                            @if($product->min_width)
+                                                                <p><b>Width:</b> {{ $product->min_width."' - ".$product->max_width."'" }}</p>
+                                                            @endif
+
+                                                            @if($product->growth_rate)
+                                                                <p><b>Growth Rate:</b> {{ rtrim(str_replace(',',', ',$product->growth_rate),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->service_life)
+                                                                <p><b>Service Life:</b> {{ rtrim(str_replace(',',', ',$product->service_life),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->maintenance_requirements)
+                                                                <p><b>Maintenance Need:</b> {{ rtrim(str_replace(',',', ',$product->maintenance_requirements),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->spreading_potential)
+                                                                <p><b>Spreading Potential:</b> {{ rtrim(str_replace(',',', ',$product->spreading_potential),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->yearly_trimming_tips)
+                                                                <p><b>Yearly Trimming Tips:</b> {{ rtrim(str_replace(',',', ',$product->yearly_trimming_tips),", ") }}</p>
+                                                            @endif
+
+
+                                                        </div>
+
+
+
+                                                        <div class="col-xl-4 col-md-6 col-sm-12">
+                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">PLANT USES AND LIMITATIONS</h5>
+                                                            @if($product->plant_grouping_size)
+                                                                <p><b>Plant Grouping Size:</b> {{ rtrim(str_replace(',',', ',$product->plant_grouping_size),", ") }}</p>
+                                                            @endif
+                                                            @if($product->best_side_of_house)
+                                                                <p><b>Best Side of House:</b> {{ rtrim(str_replace(',',', ',$product->best_side_of_house),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->extreme_planting_locations)
+                                                                <p><b>Extreme Planting Locations:</b> {{ rtrim(str_replace(',',', ',$product->extreme_planting_locations),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->ornamental_features)
+                                                                <p><b>Ornamental Features:</b> {{ rtrim(str_replace(',',', ',$product->ornamental_features),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->special_landscape_uses)
+                                                                <p><b>Special Landscape Uses:</b> {{ rtrim(str_replace(',',', ',$product->special_landscape_uses),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->possible_pest_problems)
+                                                                <p><b>Possible Pest Problems:</b> {{ rtrim(str_replace(',',', ',$product->possible_pest_problems),", ") }}</p>
+                                                            @endif
+
+                                                            @if($product->plant_limitations)
+                                                                <p><b>Plant Limitations:</b> {{ rtrim(str_replace(',',', ',$product->plant_limitations),", ") }}</p>
+                                                            @endif
+
+
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="tab_two">
-                                                <table class="table table-bordered">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>color</td>
-                                                        <td>black, blue, red</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>size</td>
-                                                        <td>L, M, S</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                                <div class="col-xl-4 col-md-6 col-sm-12">
+                                                    <h5 style="margin-top: 20px;margin-bottom: 10px">Description section</h5>
+                                                    @if($product->how_to_grow_in_kansas)
+                                                        <p><b>How to Grow in Kansas:</b> {{ rtrim(str_replace(',',', ',$product->how_to_grow_in_kansas),", ") }}</p>
+                                                    @endif
+                                                </div>
                                             </div>
                                             {{--<div class="tab-pane fade" id="tab_three">
                                                 <form action="#" class="review-form">
@@ -461,294 +584,237 @@
             </div>
         </div>
         <!-- page main wrapper end -->
-
-        <!-- related products area start -->
-        <section class="related-products section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- section title start -->
-                        <div class="section-title text-center">
-                            <h2 class="title">Related Products</h2>
-                            <p class="sub-title">Add related products to weekly lineup</p>
-                        </div>
-                        <!-- section title start -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="product-carousel-4 slick-row-10 slick-arrow-style">
-                            <!-- product item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ asset('plants_images/1.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ asset('plants_images/1.jpg') }}" alt="product">
-                                    </a>
-<!--                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>10%</span>
-                                        </div>
-                                    </div>-->
-                                    <div class="button-group">
-                                        <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                        <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                    </div>
-                                    <div class="cart-hover">
-                                        <button class="btn btn-cart">add to cart</button>
-                                    </div>
-                                </figure>
-                                <div class="product-caption text-center">
-                                    <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.html">Gold</a></p>
-                                    </div>
-                                    <ul class="color-categories">
-                                        <li>
-                                            <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-darktan" href="#" title="Darktan"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-brown" href="#" title="Brown"></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="product-name">
-                                        <a href="product-details.html">Perfect Diamond Jewelry</a>
-                                    </h6>
-                                    <div class="price-box">
-                                        <span class="price-regular">$60.00</span>
-                                        <span class="price-old"><del>$70.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product item end -->
-
-                            <!-- product item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ asset('plants_images/2.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ asset('plants_images/2.jpg') }}" alt="product">
-                                    </a>
-<!--                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>sale</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>new</span>
-                                        </div>
-                                    </div>-->
-                                    <div class="button-group">
-                                        <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                        <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                    </div>
-                                    <div class="cart-hover">
-                                        <button class="btn btn-cart">add to cart</button>
-                                    </div>
-                                </figure>
-                                <div class="product-caption text-center">
-                                    <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.html">mony</a></p>
-                                    </div>
-                                    <ul class="color-categories">
-                                        <li>
-                                            <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-darktan" href="#" title="Darktan"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-brown" href="#" title="Brown"></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="product-name">
-                                        <a href="product-details.html">Handmade Golden Necklace</a>
-                                    </h6>
-                                    <div class="price-box">
-                                        <span class="price-regular">$50.00</span>
-                                        <span class="price-old"><del>$80.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product item end -->
-
-                            <!-- product item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ asset('plants_images/7.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ asset('plants_images/7.jpg') }}" alt="product">
-                                    </a>
-<!--                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                    </div>-->
-                                    <div class="button-group">
-                                        <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                        <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                    </div>
-                                    <div class="cart-hover">
-                                        <button class="btn btn-cart">add to cart</button>
-                                    </div>
-                                </figure>
-                                <div class="product-caption text-center">
-                                    <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.html">Diamond</a></p>
-                                    </div>
-                                    <ul class="color-categories">
-                                        <li>
-                                            <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-darktan" href="#" title="Darktan"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-brown" href="#" title="Brown"></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="product-name">
-                                        <a href="product-details.html">Perfect Diamond Jewelry</a>
-                                    </h6>
-                                    <div class="price-box">
-                                        <span class="price-regular">$99.00</span>
-                                        <span class="price-old"><del></del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product item end -->
-
-                            <!-- product item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ asset('plants_images/4.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ asset('plants_images/4.jpg') }}" alt="product">
-                                    </a>
-<!--                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>sale</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>15%</span>
-                                        </div>
-                                    </div>-->
-                                    <div class="button-group">
-                                        <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                        <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                    </div>
-                                    <div class="cart-hover">
-                                        <button class="btn btn-cart">add to cart</button>
-                                    </div>
-                                </figure>
-                                <div class="product-caption text-center">
-                                    <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.html">silver</a></p>
-                                    </div>
-                                    <ul class="color-categories">
-                                        <li>
-                                            <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-darktan" href="#" title="Darktan"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-brown" href="#" title="Brown"></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="product-name">
-                                        <a href="product-details.html">Diamond Exclusive Ornament</a>
-                                    </h6>
-                                    <div class="price-box">
-                                        <span class="price-regular">$55.00</span>
-                                        <span class="price-old"><del>$75.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product item end -->
-
-                            <!-- product item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ asset('plants_images/5.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ asset('plants_images/5.jpg') }}" alt="product">
-                                    </a>
-<!--                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>20%</span>
-                                        </div>
-                                    </div>-->
-                                    <div class="button-group">
-                                        <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                        <a href="compare.html" data-toggle="tooltip" data-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                    </div>
-                                    <div class="cart-hover">
-                                        <button class="btn btn-cart">add to cart</button>
-                                    </div>
-                                </figure>
-                                <div class="product-caption text-center">
-                                    <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.html">mony</a></p>
-                                    </div>
-                                    <ul class="color-categories">
-                                        <li>
-                                            <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-darktan" href="#" title="Darktan"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-brown" href="#" title="Brown"></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="product-name">
-                                        <a href="product-details.html">Citygold Exclusive Ring</a>
-                                    </h6>
-                                    <div class="price-box">
-                                        <span class="price-regular">$60.00</span>
-                                        <span class="price-old"><del>$70.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product item end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- related products area end -->
     </main>
+    <!-- The Modal/Lightbox -->
+
+    <style>
+        .row > .column {
+            padding: 0 8px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Create four equal columns that floats next to eachother */
+        .column {
+            float: left;
+            width: 25%;
+        }
+
+        /* The Modal (background) */
+        .fodal {
+            display: none;
+            /*visibility: visible;*/
+            position: fixed;
+            z-index: 1000000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: black;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            width: 70%;
+            max-width: 1200px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Hide the slides by default */
+        .mySlides {
+            display: none;
+        }
+
+
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Caption text */
+        .caption-container {
+            text-align: center;
+            background-color: black;
+            padding: 2px 16px;
+            color: white;
+        }
+
+        img.demo {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+
+        img.hover-shadow {
+            transition: 0.3s;
+        }
+
+        .hover-shadow:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        </style>
+
+    <div id="myModal" class="fodal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content" id="modal_content">
+
+            @if(!empty($product_model->getAllImages($product)))
+                @foreach($product_model->getAllImages($product) as $image)
+                    <div class="mySlides">
+                        <!--                        <div class="numbertext">1 / 4</div>-->
+                        <img src="{{ url('img/product/large/'.$product->id.'/'.$image) }}" style="width:100%">
+                    </div>
+                @endforeach
+            @endif
+
+        <!-- Next/previous controls -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Caption text -->
+<!--            <div class="caption-container">
+                <p id="caption"></p>
+            </div>-->
+
+            <!-- Thumbnail image controls -->
+
+            <div style="background-color: #000">
+                @if(!empty($product->getAllImages($product)))
+                    @php $i=1; @endphp
+                    @foreach($product->getAllImages($product) as $image)
+                        <div class="column">
+                            <img class="demo" src="{{ url('img/product/thumb/'.$product->id.'/'.$image) }}" onclick="currentSlide({{$i++}})">
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('javascript')
     <script>
+
+        // Open the Modal
+        function openModal() {
+            $("#myModal").hide();
+            $("#myModal").fadeIn("slow");
+        }
+
+        // Close the Modal
+        function closeModal() {
+            $("#myModal").fadeOut("slow");
+
+
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            //var captionText = document.getElementById("caption");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            //captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+
+        $(document).click(function(event) {
+            //if you click on anything except the modal itself or the "open modal" link, close the modal
+            if (!$(event.target).closest("#modal_content,.pro-large-img").length) {
+                $("#myModal").fadeOut();
+            }
+        });
+
+
         jQuery( document ).ready( function( $ ) {
             jQuery("select#size_select_box").change(function() {
                 @if (Auth::check())

@@ -24,14 +24,19 @@ class OrderController extends Controller
         $cart = new Cart();
         $cart_lists = $cart->getCartData();
         $total_val = 0;
+        $total_amount = 0;
         if(!empty($cart_lists)) {
             foreach ($cart_lists as $cart_list) {
-                $total_val = $cart_list->quantity*$cart_list->unit_price;
+                if($cart_list->product->tax_free != 'YES') {
+                    $total_val = 9.30/100*($cart_list->quantity*$cart_list->unit_price);
+                }
+                else {
+                    $total_val = $cart_list->quantity*$cart_list->unit_price;
+                }
             }
-            $total_val += 8.25/100*$total_val;
+            $total_amount += $total_val;
         }
-        //echo $total_val;
-        if(number_format($total_val, 2, '.', ',') == $request->get('amount')) {
+        if(number_format($total_amount, 2, '.', ',') == $request->get('amount')) {
             $order = new Order();
             $order->orderid = $request->get('orderId');
             $order->user_id = auth()->id()?auth()->id():'0';

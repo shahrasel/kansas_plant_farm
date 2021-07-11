@@ -312,6 +312,7 @@
                                         <tbody>
                                             @php
                                                 $i=0;
+                                                $tax_amount = 0;
                                             @endphp
                                             @foreach($cart_lists as $cart_list)
                                                 <tr>
@@ -323,6 +324,9 @@
                                                 </tr>
                                                 @php
                                                     $i += $cart_list->quantity*$cart_list->unit_price;
+                                                    if($cart_list->product->tax_free !='YES') {
+                                                        $tax_amount += 9.30/100*($cart_list->quantity*$cart_list->unit_price);
+                                                    }
                                                 @endphp
                                             @endforeach
                                         </tbody>
@@ -332,11 +336,11 @@
                                             <td><strong>${{ number_format($i, 2, '.', ',') }}</strong></td>
                                         </tr>
                                         <tr>
-                                            <td>Sales Tax (8.25%)</td>
-                                            <td><strong>${{ number_format(8.25/100*$i, 2, '.', ',') }}</strong></td>
+                                            <td>Sales Tax (9.30%)</td>
+                                            <td><strong>${{ number_format($tax_amount, 2, '.', ',') }}</strong></td>
                                         </tr>
                                         @php
-                                            $i += 8.25/100*$i;
+                                            $i += $tax_amount;
                                         @endphp
                                         <tr>
                                             <td>Total</td>

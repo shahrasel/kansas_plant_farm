@@ -56,6 +56,24 @@ class ProductsImport implements ToModel
         $exists = \App\Models\Product::where('id',$row['0'])->first();
         //print_r($exists);
         if ($exists) {
+
+            //3' - 5'
+            $temp_height = explode('-',str_replace("'","",$row[75]));
+            $min_height = ($temp_height[0]?trim($temp_height[0]):'');
+
+            if(count($temp_height)>1)
+                $max_height = ($temp_height[1]?trim($temp_height[1]):'');
+            else
+                $max_height = '';
+
+            $temp_width = explode('-',str_replace("'","",$row[76]));
+            $min_width = ($temp_width[0]?trim($temp_width[0]):'');
+            //$max_width = ($temp_width[1]?trim($temp_width[1]):'');
+            if(count($temp_width)>1)
+                $max_width = ($temp_width[1]?trim($temp_width[1]):'');
+            else
+                $max_width = '';
+
             \App\Models\Product::updateOrCreate(
                 ['id' => $row[0]],
                 [
@@ -68,7 +86,7 @@ class ProductsImport implements ToModel
                     'date_entered' => $row[7],
                     'best_sellers' => $row[8],
                     'new_for_this_year' => $row[9],
-                    'other_product_service' => $row[10],
+                    'tax_free' => $row[10],
                     'tags' => $row[11],
                     'purchase_options' => $row[12],
                     'pickup_instructions' => $row[13],
@@ -133,8 +151,10 @@ class ProductsImport implements ToModel
                     'humidity_tolerance' => $row[72],
                     'wind_tolerence' => $row[73],
                     'poor_soil_tolerance' => $row[74],
-                    'height' => $row[75],
-                    'width' => $row[76],
+                    'min_height' => $min_height,
+                    'max_height' => $max_height,
+                    'min_width' => $min_width,
+                    'max_width' => $max_width,
                     'growth_rate' => $row[77],
                     'service_life' => $row[78],
                     'maintenance_requirements' => $row[79],
@@ -175,7 +195,22 @@ class ProductsImport implements ToModel
                 $refrence_id = mt_rand( 100000, 999999 );
             } while ( DB::table( 'products' )->where( 'plant_id_number', $refrence_id )->exists() );
 
+            //3' - 5'
+            $temp_height = explode('-',str_replace("'","",$row[73]));
+            $min_height = ($temp_height[0]?trim($temp_height[0]):'0');
 
+            if(count($temp_height)>1)
+                $max_height = ($temp_height[1]?trim($temp_height[1]):'0');
+            else
+                $max_height = '0';
+
+            $temp_width = explode('-',str_replace("'","",$row[74]));
+            $min_width = ($temp_width[0]?trim($temp_width[0]):'0');
+            //$max_width = ($temp_width[1]?trim($temp_width[1]):'');
+            if(count($temp_width)>1)
+                $max_width = ($temp_width[1]?trim($temp_width[1]):'0');
+            else
+                $max_width = '0';
 
             return new \App\Models\Product([
                 'plant_id_number' => $refrence_id,
@@ -187,7 +222,7 @@ class ProductsImport implements ToModel
                 'date_entered' => $row[5],
                 'best_sellers' => $row[6],
                 'new_for_this_year' => $row[7],
-                'other_product_service' => $row[8],
+                'tax_free' => $row[8],
                 'tags' => $row[9],
                 'purchase_options' => $row[10],
                 'pickup_instructions' => $row[11],
@@ -254,8 +289,10 @@ class ProductsImport implements ToModel
                 'humidity_tolerance' => $row[70],
                 'wind_tolerence' => $row[71],
                 'poor_soil_tolerance' => $row[72],
-                'height' => $row[73],
-                'width' => $row[74],
+                'min_height' => $min_height,
+                'max_height' => $max_height,
+                'min_width' => $min_width,
+                'max_width' => $max_width,
                 'growth_rate' => $row[75],
                 'service_life' => $row[76],
                 'maintenance_requirements' => $row[77],

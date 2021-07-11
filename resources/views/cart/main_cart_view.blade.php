@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @inject('product_model', 'App\Models\Product')
     <main>
     <!-- cart main wrapper start -->
     <div class="cart-main-wrapper section-padding">
@@ -19,7 +20,8 @@
                                         <tr>
                                             <th class="pro-thumbnail">Thumbnail</th>
                                             <th class="pro-title">Product</th>
-                                            <th class="pro-price">Price</th>
+                                            <th class="pro-title">Size</th>
+                                            <th class="pro-price">Unit Price</th>
                                             <th class="pro-quantity">Quantity</th>
                                             <th class="pro-subtotal">Total</th>
                                             <th class="pro-remove">Remove</th>
@@ -28,12 +30,29 @@
                                         <tbody>
                                             @php
                                                 $i=0;
+                                                $tax_amount = 0;
                                                 $cart_d = "";
                                             @endphp
                                             @foreach($cart_lists as $cart_list)
                                                 <tr>
-                                                    <td class="pro-thumbnail"><a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}"><img class="img-fluid" src="{{ asset('plants_images/5.jpg') }}" alt="Product" /></a></td>
-                                                    <td class="pro-title"><a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}">{{ $cart_list->product->common_name }}</a></td>
+                                                    <td class="pro-thumbnail">
+                                                        <a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}">
+                                                            @if(!empty(($product_model->getImage($cart_list->product))))
+                                                                <img class="img-fluid" src="{{ url($product_model->getImage($cart_list->product)) }}" alt="product">
+                                                            @else
+                                                                <img class="img-fluid" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                                            @endif
+                                                        </a></td>
+                                                    <td class="pro-title">
+                                                        <a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}">
+                                                            @if(!empty($cart_list->product->other_product_service_name))
+                                                                {{ $cart_list->product->other_product_service_name }}
+                                                            @else
+                                                                {{ $cart_list->product->botanical_name }}<br/>
+                                                                {{ $cart_list->product->common_name }}
+                                                            @endif
+                                                        </a></td>
+                                                    <td class="pro-price"><span>@if(!empty($cart_list->size)){{ $cart_list->size }}@else - @endif</span></td>
                                                     <td class="pro-price"><span>${{ $cart_list->unit_price }}</span></td>
                                                     <td class="pro-quantity">
                                                         <div class="pro-qty"><input type="text" name="quantity_{{ $cart_list->id }}" value="{{ $cart_list->quantity }}" style="color: #7FBC03"></div>
@@ -43,6 +62,9 @@
                                                 </tr>
                                                 @php
                                                     $i += $cart_list->quantity*$cart_list->unit_price;
+                                                    if($cart_list->product->tax_free !='YES') {
+                                                        $tax_amount += 9.30/100*($cart_list->quantity*$cart_list->unit_price);
+                                                    }
                                                     $cart_d .= $cart_list->id."#";
                                                 @endphp
                                             @endforeach
@@ -78,11 +100,11 @@
                                                     <td>${{ number_format($i, 2, '.', ',') }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Sales Tax (8.25%)</td>
-                                                    <td>${{ number_format(8.25/100*$i, 2, '.', ',') }}</td>
+                                                    <td>Sales Tax (9.30%)</td>
+                                                    <td>${{ number_format($tax_amount, 2, '.', ',') }}</td>
                                                 </tr>
                                                 @php
-                                                    $i += 8.25/100*$i;
+                                                    $i += $tax_amount;
                                                 @endphp
                                                 <tr class="total">
                                                     <td>Total</td>
@@ -109,7 +131,7 @@
 @section('javascript')
     <script>
         function deleteCartItem(id) {
-            $.ajax({url: "delete-cart-item?id="+id+"&main_cart=1", success: function(result){
+            $.ajax({url: "{{ url('/delete-cart-item') }}?'id='+id+'&main_cart'", success: function(result){
                     $("#cart_div").html(result);
                 }});
         }
