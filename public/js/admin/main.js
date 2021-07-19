@@ -19,7 +19,7 @@ Main javascript functions to init most of the elements
 #13. EMAIL APP
 #14. FULL CHAT APP
 #15. CRM PIPELINE
-#16. OUR OWN CUSTOM DROPDOWNS 
+#16. OUR OWN CUSTOM DROPDOWNS
 #17. BOOTSTRAP RELATED JS ACTIVATIONS
 #18. TODO Application
 #19. Fancy Selector
@@ -106,7 +106,7 @@ $(function () {
       selectHelper: true,
       select: function select(start, end, allDay) {
         var title;
-        title = prompt("Event Title:");
+        title = prompt("EventController Title:");
 
         if (title) {
           calendar.fullCalendar("renderEvent", {
@@ -121,7 +121,7 @@ $(function () {
       },
       editable: true,
       events: [{
-        title: "Long Event",
+        title: "Long EventController",
         start: new Date(y, m, 3, 12, 0),
         end: new Date(y, m, 7, 14, 0)
       }, {
@@ -630,7 +630,7 @@ $(function () {
 
   $('.content-panel-toggler, .content-panel-close, .content-panel-open').on('click', function () {
     $('.all-wrapper').toggleClass('content-panel-active');
-  }); // #13. EMAIL APP 
+  }); // #13. EMAIL APP
 
   $('.more-messages').on('click', function () {
     $(this).hide();
@@ -701,7 +701,7 @@ $(function () {
       new_pipeline_body.removeClass('over');
       var old_pipeline_body = $(source).closest('.pipeline-body');
     });
-  } // #16. OUR OWN CUSTOM DROPDOWNS 
+  } // #16. OUR OWN CUSTOM DROPDOWNS
 
 
   $('.os-dropdown-trigger').on('mouseenter', function () {
@@ -809,7 +809,7 @@ $(function () {
   $('.onboarding-modal.show-on-load').modal('show');
 
   if ($('.onboarding-modal .onboarding-slider-w').length) {
-    $('.onboarding-modal .onboarding-slider-w').slick({
+    /*$('.onboarding-modal .onboarding-slider-w').slick({
       dots: true,
       infinite: false,
       adaptiveHeight: true,
@@ -818,7 +818,7 @@ $(function () {
     });
     $('.onboarding-modal').on('shown.bs.modal', function (e) {
       $('.onboarding-modal .onboarding-slider-w').slick('setPosition');
-    });
+    });*/
   } // #22. Colors Toggler
 
 

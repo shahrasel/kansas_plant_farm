@@ -4905,9 +4905,9 @@
         return $(htmlElement).off(EVENT_KEY$5);
       });
       /**
-       * `document` has 2 events `Event.FOCUSIN` and `Event.CLICK_DATA_API`
+       * `document` has 2 events `EventController.FOCUSIN` and `EventController.CLICK_DATA_API`
        * Do not move `document` in `htmlElements` array
-       * It will remove `Event.CLICK_DATA_API` event that should remain
+       * It will remove `EventController.CLICK_DATA_API` event that should remain
        */
 
       $(document).off(Event$5.FOCUSIN);

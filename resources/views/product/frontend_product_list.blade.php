@@ -85,8 +85,8 @@
                                 <form action="" method="get" id="cat_form">
                                     @csrf
                                     <div class="sidebar-single">
-                                        <label style="font-size: 14px"><input type="radio" name="search_type" value="partial" checked>&nbsp;PARTIAL MATCH</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px"><input type="radio" name="search_type" value="exact">&nbsp;EXACT MATCH</label>
+                                        <label style="font-size: 14px;cursor: pointer"><input type="radio" name="search_type" value="partial" checked>&nbsp;PARTIAL MATCH</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px;cursor: pointer"><input type="radio" name="search_type" value="exact">&nbsp;EXACT MATCH</label>
                                     </div>
                                     <div class="sidebar-single">
                                         <h5 class="sidebar-title open">SORT<i></i></h5>
@@ -1386,6 +1386,10 @@
                 <!-- single sidebar start -->
                 <form action="" method="get" id="cat_form2">
                     @csrf
+                    <div class="sidebar-single">
+                        <label style="font-size: 14px"><input type="radio" name="search_type" value="partial" checked>&nbsp;PARTIAL MATCH</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px"><input type="radio" name="search_type" value="exact">&nbsp;EXACT MATCH</label>
+                    </div>
                     <div class="sidebar-single">
                         <h5 class="sidebar-title open">SORT<i></i></h5>
                         <div class="sidebar-body" style="margin-bottom:30px;">

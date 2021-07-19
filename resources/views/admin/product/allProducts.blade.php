@@ -341,6 +341,7 @@
                                     <thead>
                                     <tr>
                                         <th>Product ID</th><th>Botanical name</th>
+                                        <th>Common Name</th>
                                         <th>Status</th>
                                         <th>Image count</th>
                                         <th>imgae upload</th>
@@ -362,12 +363,13 @@
                                         <th>Date Entered</th>
                                         <th>Best Sellers</th>
                                         <th>New For this year</th>
-                                        <th>Common Name</th>
+
                                         <th>Patent / Trademark name</th>
                                     </tr></thead>
                                     <tfoot>
                                     <tr>
                                         <th>Product ID</th><th>Botanical name</th>
+                                        <th>Common Name</th>
                                         <th>Status</th>
                                         <th>Image count</th>
                                         <th>imgae upload</th>
@@ -389,7 +391,7 @@
                                         <th>Date Entered</th>
                                         <th>Best Sellers</th>
                                         <th>New For this year</th>
-                                        <th>Common Name</th>
+
                                         <th>Patent / Trademark name</th>
                                     </tfoot>
                                     <tbody>
@@ -397,6 +399,7 @@
                                         <tr>
                                             <td>{{ $product_list->plant_id_number }}</td>
                                             <td>{{ $product_list->botanical_name }}</td>
+                                            <td>{{ $product_list->common_name }}</td>
                                             <td>{{ $product_list->status }}</td>
                                             <td> {{ $product_list->image_count }}</td>
                                             <td><a href="{{ url('/admin/edit-product-image/'.$product_list->id) }}">Image Upload</a></td>
@@ -423,7 +426,7 @@
 
 
 
-                                            <td>{{ $product_list->common_name }}</td>
+
                                             <td>{{ $product_list->patent_trademark_names }}</td>
 
 

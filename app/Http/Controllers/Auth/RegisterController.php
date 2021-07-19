@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Controller;
+use App\Mail\checkoutConfirmation;
+use App\Mail\consumerRegistration;
+use App\Mail\inquireEmail;
+use App\Mail\pickupConfirmation;
+use App\Models\Cart;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use http\Client\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -40,6 +47,28 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+
+        /*$cart_lists = Cart::where('user_session_id','57amlBuIqedocH2gy5kxdNvQ105hVjiQvRyhtI1z')->get();
+
+
+        Mail::to('shahrasel@gmail.com')
+            ->send(new consumerRegistration($cart_lists));
+
+        if (Mail::failures()) {
+            return response()->json([
+                'status'  => false,
+                'message' => 'Nnot sending mail.. retry again...'
+            ]);
+        }
+        return response()->json([
+            'status'  => true,
+            'message' => 'Your details mailed successfully'
+        ]);
+
+        die();*/
+
+
+
         $this->middleware('guest');
     }
 
@@ -67,12 +96,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+
         /*return User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);*/
+        /*Mail::to('shahrasel@gmail.com')
+            ->send(new consumerRegistration($data['firstname']));
+        die();*/
+
+        $cart_lists = Cart::where('user_session_id','57amlBuIqedocH2gy5kxdNvQ105hVjiQvRyhtI1z')->get();
+
+
+        Mail::to('shahrasel@gmail.com')
+            ->send(new inquireEmail($data['firstname'],$cart_lists));
+        die();
+
         $user = new User();
         $user->firstname = $data['firstname'];
         $user->lastname = $data['lastname'];
@@ -85,6 +127,9 @@ class RegisterController extends Controller
         //return redirect($this->redirectPath())->with('message', 'Your message');
         //return route('login');
         //Auth::login($user);
+
+
+
         return route('checkout');
 
     }

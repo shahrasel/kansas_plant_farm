@@ -738,7 +738,7 @@ $(function () {
 
       assert.ok(spy.callCount === 4, '`jQuery.off` was called')
 
-      assert.ok(modalDataApiEvent.length === 1, '`Event.CLICK_DATA_API` on `document` was not removed')
+      assert.ok(modalDataApiEvent.length === 1, '`EventController.CLICK_DATA_API` on `document` was not removed')
 
       $.fn.off.restore()
       done()

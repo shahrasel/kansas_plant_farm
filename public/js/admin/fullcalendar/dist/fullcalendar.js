@@ -3670,7 +3670,7 @@ var InteractiveDateComponent = /** @class */ (function (_super) {
             }
         });
     };
-    // Event Drag-n-Drop
+    // EventController Drag-n-Drop
     // ---------------------------------------------------------------------------------------------------------------
     // Computes if the given event is allowed to be dragged by the user
     InteractiveDateComponent.prototype.isEventDefDraggable = function (eventDef) {
@@ -3693,7 +3693,7 @@ var InteractiveDateComponent = /** @class */ (function (_super) {
         }
         return isEditable;
     };
-    // Event Resizing
+    // EventController Resizing
     // ---------------------------------------------------------------------------------------------------------------
     // Computes if the given event is allowed to be resized from its starting edge
     InteractiveDateComponent.prototype.isEventDefResizableFromStart = function (eventDef) {
@@ -3714,7 +3714,7 @@ var InteractiveDateComponent = /** @class */ (function (_super) {
         }
         return isResizable;
     };
-    // Event Mutation / Constraints
+    // EventController Mutation / Constraints
     // ---------------------------------------------------------------------------------------------------------------
     // Diffs the two dates, returning a duration, based on granularity of the grid
     // TODO: port isTimeScale into this system?
@@ -3905,7 +3905,7 @@ var View = /** @class */ (function (_super) {
     View.prototype.unsetDate = function () {
         this.unset('dateProfile');
     };
-    // Event Data
+    // EventController Data
     // -----------------------------------------------------------------------------------------------------------------
     View.prototype.fetchInitialEvents = function (dateProfile) {
         var calendar = this.calendar;
@@ -3988,7 +3988,7 @@ var View = /** @class */ (function (_super) {
             args: [this, this.el]
         });
     };
-    // Event High-level Rendering
+    // EventController High-level Rendering
     // -----------------------------------------------------------------------------------------------------------------
     View.prototype.requestEventsRender = function (eventsPayload) {
         var _this = this;
@@ -4140,7 +4140,7 @@ var View = /** @class */ (function (_super) {
     View.prototype.applyDateScroll = function (scroll) {
         // subclasses must implement
     };
-    /* Event Drag-n-Drop
+    /* EventController Drag-n-Drop
     ------------------------------------------------------------------------------------------------------------------*/
     View.prototype.reportEventDrop = function (eventInstance, eventMutation, el, ev) {
         var eventManager = this.calendar.eventManager;
@@ -4150,7 +4150,7 @@ var View = /** @class */ (function (_super) {
         if (dateMutation) {
             eventInstance.dateProfile = dateMutation.buildNewDateProfile(eventInstance.dateProfile, this.calendar);
         }
-        this.triggerEventDrop(eventInstance, 
+        this.triggerEventDrop(eventInstance,
         // a drop doesn't necessarily mean a date mutation (ex: resource change)
         (dateMutation && dateMutation.dateDelta) || moment.duration(), undoFunc, el, ev);
     };
@@ -4202,7 +4202,7 @@ var View = /** @class */ (function (_super) {
             });
         }
     };
-    /* Event Resizing
+    /* EventController Resizing
     ------------------------------------------------------------------------------------------------------------------*/
     // Must be called when an event in the view has been resized to a new length
     View.prototype.reportEventResize = function (eventInstance, eventMutation, el, ev) {
@@ -4251,7 +4251,7 @@ var View = /** @class */ (function (_super) {
     };
     // Triggers handlers to 'select'
     View.prototype.triggerSelect = function (footprint, ev) {
-        var dateProfile = this.calendar.footprintToDateProfile(footprint); // abuse of "Event"DateProfile?
+        var dateProfile = this.calendar.footprintToDateProfile(footprint); // abuse of "EventController"DateProfile?
         this.publiclyTrigger('select', {
             context: this,
             args: [
@@ -4277,7 +4277,7 @@ var View = /** @class */ (function (_super) {
             });
         }
     };
-    /* Event Selection
+    /* EventController Selection
     ------------------------------------------------------------------------------------------------------------------*/
     View.prototype.selectEventInstance = function (eventInstance) {
         if (!this.selectedEventInstance ||
@@ -4356,7 +4356,7 @@ var View = /** @class */ (function (_super) {
     // Triggers handlers to 'dayClick'
     // Span has start/end of the clicked area. Only the start is useful.
     View.prototype.triggerDayClick = function (footprint, dayEl, ev) {
-        var dateProfile = this.calendar.footprintToDateProfile(footprint); // abuse of "Event"DateProfile?
+        var dateProfile = this.calendar.footprintToDateProfile(footprint); // abuse of "EventController"DateProfile?
         this.publiclyTrigger('dayClick', {
             context: dayEl,
             args: [dateProfile.start, ev, this]
@@ -4680,7 +4680,7 @@ var EventRenderer = /** @class */ (function () {
         return el;
     };
     // Compute the text that should be displayed on an event's element.
-    // `range` can be the Event object itself, or something range-like, with at least a `start`.
+    // `range` can be the EventController object itself, or something range-like, with at least a `start`.
     // If event times are disabled, or the event has no time, will return a blank string.
     // If not specified, formatStr will default to the eventTimeFormat setting,
     // and displayEnd will default to the displayEventEnd setting.
@@ -7541,7 +7541,7 @@ var DayGrid = /** @class */ (function (_super) {
     DayGrid.prototype.getCellEl = function (row, col) {
         return this.cellEls.eq(row * this.colCnt + col);
     };
-    /* Event Rendering
+    /* EventController Rendering
     ------------------------------------------------------------------------------------------------------------------*/
     // Unrenders all events currently rendered on the grid
     DayGrid.prototype.executeEventUnrender = function () {
@@ -7553,7 +7553,7 @@ var DayGrid = /** @class */ (function (_super) {
         // append the segments from the "more..." popover
         return _super.prototype.getOwnEventSegs.call(this).concat(this.popoverSegs || []);
     };
-    /* Event Drag Visualization
+    /* EventController Drag Visualization
     ------------------------------------------------------------------------------------------------------------------*/
     // Renders a visual indication of an event or external element being dragged.
     // `eventLocation` has zoned start and end (optional)
@@ -7573,7 +7573,7 @@ var DayGrid = /** @class */ (function (_super) {
         this.unrenderHighlight();
         this.helperRenderer.unrender();
     };
-    /* Event Resize Visualization
+    /* EventController Resize Visualization
     ------------------------------------------------------------------------------------------------------------------*/
     // Renders a visual indication of an event being resized
     DayGrid.prototype.renderEventResize = function (eventFootprints, seg, isTouch) {
@@ -8755,7 +8755,7 @@ var EventPeriod = /** @class */ (function () {
             this.removeAllEventDefs(); // might release
         }
     };
-    // Event Definitions
+    // EventController Definitions
     // -----------------------------------------------------------------------------------------------------------------
     EventPeriod.prototype.getEventDefByUid = function (eventDefUid) {
         return this.eventDefsByUid[eventDefUid];
@@ -8811,7 +8811,7 @@ var EventPeriod = /** @class */ (function () {
             this.removeEventInstancesForDef(eventDef);
         }
     };
-    // Event Instances
+    // EventController Instances
     // -----------------------------------------------------------------------------------------------------------------
     EventPeriod.prototype.getEventInstances = function () {
         var eventInstanceGroupsById = this.eventInstanceGroupsById;
@@ -9036,7 +9036,7 @@ var EventManager = /** @class */ (function () {
             return source.id && source.id === id;
         })[0];
     };
-    // Event-Period
+    // EventController-Period
     // -----------------------------------------------------------------------------------------------------------------
     EventManager.prototype.setPeriod = function (eventPeriod) {
         if (this.currentPeriod) {
@@ -9055,7 +9055,7 @@ var EventManager = /** @class */ (function () {
     EventManager.prototype.unbindPeriod = function (eventPeriod) {
         this.stopListeningTo(eventPeriod);
     };
-    // Event Getting/Adding/Removing
+    // EventController Getting/Adding/Removing
     // -----------------------------------------------------------------------------------------------------------------
     EventManager.prototype.getEventDefByUid = function (uid) {
         if (this.currentPeriod) {
@@ -9086,7 +9086,7 @@ var EventManager = /** @class */ (function () {
             this.currentPeriod.removeAllEventDefs();
         }
     };
-    // Event Mutating
+    // EventController Mutating
     // -----------------------------------------------------------------------------------------------------------------
     /*
     Returns an undo function.
@@ -10146,7 +10146,7 @@ var DateComponent = /** @class */ (function (_super) {
             this.businessHourRenderer.unrender();
         }
     };
-    // Event Displaying
+    // EventController Displaying
     // -----------------------------------------------------------------------------------------------------------------
     DateComponent.prototype.executeEventRender = function (eventsPayload) {
         if (this.eventRenderer) {
@@ -10193,7 +10193,7 @@ var DateComponent = /** @class */ (function (_super) {
         }
         return [];
     };
-    // Event Rendering Triggering
+    // EventController Rendering Triggering
     // -----------------------------------------------------------------------------------------------------------------
     DateComponent.prototype.triggerAfterEventsRendered = function () {
         this.triggerAfterEventSegsRendered(this.getEventSegs());
@@ -10236,7 +10236,7 @@ var DateComponent = /** @class */ (function (_super) {
             });
         }
     };
-    // Event Rendering Utils
+    // EventController Rendering Utils
     // -----------------------------------------------------------------------------------------------------------------
     // Hides all rendered event segments linked to the given event
     // RECURSIVE with subcomponents
@@ -10280,7 +10280,7 @@ var DateComponent = /** @class */ (function (_super) {
     DateComponent.prototype.unrenderDrag = function () {
         this.callChildren('unrenderDrag', arguments);
     };
-    // Event Resizing
+    // EventController Resizing
     // ---------------------------------------------------------------------------------------------------------------
     // Renders a visual indication of an event being resized.
     DateComponent.prototype.renderEventResize = function (eventFootprints, seg, isTouch) {
@@ -11329,7 +11329,7 @@ var Calendar = /** @class */ (function () {
         }
         return new UnzonedRange_1.default(start, end);
     };
-    // Event-Date Utilities
+    // EventController-Date Utilities
     // -----------------------------------------------------------------------------------------------------------------
     Calendar.prototype.initEventManager = function () {
         var _this = this;
@@ -11456,7 +11456,7 @@ var Calendar = /** @class */ (function () {
             this.eventManager.mutateEventsWithId(eventDef.id, eventDefMutation); // will release
         }
     };
-    // Public Event Sources API
+    // Public EventController Sources API
     // ------------------------------------------------------------------------------------
     Calendar.prototype.getEventSources = function () {
         return this.eventManager.otherSources.slice(); // clone
@@ -11697,7 +11697,7 @@ ListenerMixin_1.default.mixInto(ExternalDropping);
 // A value of '' will query attributes like data-event. A value of 'fc' will query attributes like data-fc-event.
 exportHooks.dataAttrPrefix = '';
 // Given a jQuery element that might represent a dragged FullCalendar event, returns an intermediate data structure
-// to be used for Event Object creation.
+// to be used for EventController Object creation.
 // A defined `.eventProps`, even when empty, indicates that an event should be created.
 function getDraggedElMeta(el) {
     var prefix = exportHooks.dataAttrPrefix;
@@ -12635,7 +12635,7 @@ var AgendaView = /** @class */ (function (_super) {
         // TODO: hit.component is set as a hack to identify where the hit came from
         return hit.component.getHitEl(hit);
     };
-    /* Event Rendering
+    /* EventController Rendering
     ------------------------------------------------------------------------------------------------------------------*/
     AgendaView.prototype.executeEventRender = function (eventsPayload) {
         var dayEventsPayload = {};
@@ -13201,7 +13201,7 @@ var TimeGrid = /** @class */ (function (_super) {
     TimeGrid.prototype.getHitEl = function (hit) {
         return this.colEls.eq(hit.col);
     };
-    /* Event Drag Visualization
+    /* EventController Drag Visualization
     ------------------------------------------------------------------------------------------------------------------*/
     // Renders a visual indication of an event being dragged over the specified date(s).
     // A returned value of `true` signals that a mock "helper" event has been rendered.
@@ -13225,7 +13225,7 @@ var TimeGrid = /** @class */ (function (_super) {
         this.unrenderHighlight();
         this.helperRenderer.unrender();
     };
-    /* Event Resize Visualization
+    /* EventController Resize Visualization
     ------------------------------------------------------------------------------------------------------------------*/
     // Renders a visual indication of an event being resized
     TimeGrid.prototype.renderEventResize = function (eventFootprints, seg, isTouch) {
@@ -13663,7 +13663,7 @@ var tslib_1 = __webpack_require__(2);
 var $ = __webpack_require__(3);
 var util_1 = __webpack_require__(4);
 var EventRenderer_1 = __webpack_require__(44);
-/* Event-rendering methods for the DayGrid class
+/* EventController-rendering methods for the DayGrid class
 ----------------------------------------------------------------------------------------------------------------------*/
 var DayGridEventRenderer = /** @class */ (function (_super) {
     tslib_1.__extends(DayGridEventRenderer, _super);

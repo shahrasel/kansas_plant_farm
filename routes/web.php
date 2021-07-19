@@ -104,11 +104,12 @@ Route::get('file-export', [\App\Http\Controllers\ProductController::class, 'file
 Route::get('/admin', [\App\Http\Controllers\UserController::class, 'adminLogin'])->name('admin-login-form');
 Route::post('/admin', [\App\Http\Controllers\UserController::class, 'adminLogin'])->name('admin-login-form-post');
 Route::post('/admin/logout', [\App\Http\Controllers\UserController::class, 'adminLogout'])->name('adminLogout')->middleware('adminauth');
-
 Route::get('/admin/dashboard', [\App\Http\Controllers\UserController::class, 'adminDashboard'])->name('admin-dashboard')->middleware('adminauth');
 Route::get('/admin/my-profile', [\App\Http\Controllers\UserController::class, 'adminMyProfile'])->name('admin-my-profile')->middleware('adminauth');
 Route::post('/admin/my-profile', [\App\Http\Controllers\UserController::class, 'adminMyProfile'])->name('admin-my-profile-update')->middleware('adminauth');
 
+
+################## PRODUCT ####################
 Route::get('/admin/products', [\App\Http\Controllers\ProductController::class, 'adminProducts'])->name('admin-products')->middleware('adminauth');
 Route::get('/admin/edit-product-image/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImage'])->name('admin-products-image')->middleware('adminauth');
 Route::any('/admin/product-image-processor/{id}', [\App\Http\Controllers\ProductController::class, 'adminProductsImageProcessor'])->name('admin-product-image-processor')->middleware('adminauth');
@@ -116,14 +117,41 @@ Route::post('/admin/add-product', [\App\Http\Controllers\ProductController::clas
 Route::get('/admin/edit-product/{product}', [\App\Http\Controllers\ProductController::class, 'adminEditProducts'])->name('edit-product')->middleware('adminauth');
 Route::put('/admin/update-product', [\App\Http\Controllers\ProductController::class, 'adminUpdateProducts'])->name('update-product')->middleware('adminauth');
 
+
+################## CONTRACTOR ####################
 Route::get('/admin/contractors', [\App\Http\Controllers\UserController::class, 'adminContractors'])->name('admin-contractors')->middleware('adminauth');
 Route::get('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor')->middleware('adminauth');
 Route::post('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor-post')->middleware('adminauth');
 
+
+################## CUSTOMER ####################
 Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'adminCustomers'])->name('admin-customers')->middleware('adminauth');
 
+
+################## ORDER ####################
 Route::get('/admin/orders', [\App\Http\Controllers\OrderController::class, 'adminOrders'])->name('admin-orders')->middleware('adminauth');
 Route::any('/admin/orderdetails/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderDetails'])->name('admin-order-details')->middleware('adminauth');
+
+
+################## GARDEN THEME ####################
+Route::get('/admin/garden-themes', [\App\Http\Controllers\GardenThemeController::class, 'adminIndex'])->name('admin-index')->middleware('adminauth');
+Route::post('/admin/garden-themes', [\App\Http\Controllers\GardenThemeController::class, 'adminStore'])->name('admin-store')->middleware('adminauth');
+Route::get('/admin/garden-themes/create', [\App\Http\Controllers\GardenThemeController::class, 'adminCreate'])->name('add-create')->middleware('adminauth');
+Route::get('/admin/garden-themes/{gardenTheme}/edit', [\App\Http\Controllers\GardenThemeController::class, 'adminEdit'])->name('admin-edit')->middleware('adminauth');
+Route::put('/admin/garden-themes/{gardenTheme}', [\App\Http\Controllers\GardenThemeController::class, 'adminUpdate'])->name('admin-update')->middleware('adminauth');
+Route::delete('/admin/garden-themes/{gardenTheme}', [\App\Http\Controllers\GardenThemeController::class, 'adminUpdate'])->name('update')->middleware('adminauth');
+Route::any('/admin/edit-garden-theme-image/{id}', [\App\Http\Controllers\GardenThemeController::class, 'adminEditGardenTheme'])->name('admin-garden-theme-image')->middleware('adminauth');
+Route::any('/admin/garden-theme-image-processor/{id}', [\App\Http\Controllers\GardenThemeController::class, 'adminGardenThemeImageProcessor'])->name('garden-theme-image-processor')->middleware('adminauth');
+
+
+################## EVENT ####################
+Route::get('/admin/events',[\App\Http\Controllers\EventController::class, 'index'])->name('admin-event-index')->middleware('adminauth');
+Route::get('/admin/events/create',[\App\Http\Controllers\EventController::class, 'create'])->name('admin-event-create')->middleware('adminauth');
+Route::post('/admin/events',[\App\Http\Controllers\EventController::class, 'store'])->name('admin-event-store')->middleware('adminauth');
+Route::get('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'show'])->name('admin-event-show')->middleware('adminauth');
+Route::get('/admin/events/{event}/edit',[\App\Http\Controllers\EventController::class, 'edit'])->name('admin-event-edit')->middleware('adminauth');
+Route::put('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'update'])->name('admin-event-update')->middleware('adminauth');
+Route::delete('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'delete'])->name('admin-event-delete')->middleware('adminauth');
 
 ############################ ADMIN PANEL ############################
 

@@ -177,7 +177,7 @@
 
 				}
 
-			// Event: Touch stuff.
+			// EventController: Touch stuff.
 				$this.on('touchstart', function(event) {
 
 					$this.touchPosX = event.originalEvent.touches[0].pageX;
@@ -249,12 +249,12 @@
 
 				});
 
-			// Event: Prevent certain events inside the panel from bubbling.
+			// EventController: Prevent certain events inside the panel from bubbling.
 				$this.on('click touchend touchstart touchmove', function(event) {
 					event.stopPropagation();
 				});
 
-			// Event: Hide panel if a child anchor tag pointing to its ID is clicked.
+			// EventController: Hide panel if a child anchor tag pointing to its ID is clicked.
 				$this.on('click', 'a[href="#' + id + '"]', function(event) {
 
 					event.preventDefault();
@@ -266,12 +266,12 @@
 
 		// Body.
 
-			// Event: Hide panel on body click/tap.
+			// EventController: Hide panel on body click/tap.
 				$body.on('click touchend', function(event) {
 					$this._hide(event);
 				});
 
-			// Event: Toggle.
+			// EventController: Toggle.
 				$body.on('click', 'a[href="#' + id + '"]', function(event) {
 
 					event.preventDefault();
@@ -283,7 +283,7 @@
 
 		// Window.
 
-			// Event: Hide on ESC.
+			// EventController: Hide on ESC.
 				if (config.hideOnEscape)
 					$window.on('keydown', function(event) {
 

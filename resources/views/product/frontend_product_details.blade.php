@@ -20,9 +20,10 @@
                                     </div>-->
                                     <div class="product-large-slider">
                                         @if(!empty($product_model->getAllImages($product)))
+                                            @php $i=1; @endphp
                                             @foreach($product_model->getAllImages($product) as $image)
                                                 <div class="pro-large-img">
-                                                    <img src="{{ url('img/product/large/'.$product->id.'/'.$image) }}" onclick="openModal();currentSlide(1)" />
+                                                    <img src="{{ url('img/product/large/'.$product->id.'/'.$image) }}" onclick="openModal();currentSlide({{ $i++ }})" />
                                                 </div>
                                             @endforeach
                                         @endif
@@ -601,7 +602,8 @@
         /* Create four equal columns that floats next to eachother */
         .column {
             float: left;
-            width: 25%;
+            width: 12%;
+            margin-right: 4px;
         }
 
         /* The Modal (background) */
@@ -653,14 +655,16 @@
             display: none;
         }
 
-
+        .slick-row-10 .slick-list .slick-slide {
+            margin-right: 1px !important;
+        }
 
         /* Next & previous buttons */
         .prev,
         .next {
             cursor: pointer;
             position: absolute;
-            top: 40%;
+            top: 45%;
             width: auto;
             padding: 16px;
             margin-top: -50px;
@@ -746,7 +750,7 @@
 
             <!-- Thumbnail image controls -->
 
-            <div style="background-color: #000">
+            <div style="background-color: #000;padding-top: 5px">
                 @if(!empty($product->getAllImages($product)))
                     @php $i=1; @endphp
                     @foreach($product->getAllImages($product) as $image)
