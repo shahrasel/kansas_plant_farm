@@ -9,6 +9,14 @@ use Intervention\Image\Facades\Image;
 
 class EventController extends Controller
 {
+    public function upcomingEvents() {
+        $event_lists = Event::where('start_date', '>', \DB::raw('NOW()'))->get();
+
+        return view('events.upcomingevents', [
+            'event_lists' => $event_lists
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -63,9 +71,12 @@ class EventController extends Controller
 
         $event = new Event();
         $event->name = $request->name;
-        $event->start_date = $request->start_date;
-        $event->end_date = $request->end_date;
+        $event->start_date = date('Y-m-d H:i:s',strtotime($request->start_date));
+        $event->end_date = date('Y-m-d H:i:s',strtotime($request->end_date));
+        $event->location_address_1 = $request->location_address_1;
+        $event->location_address_2 = $request->location_address_2;
         $event->price = $request->price;
+        $event->buy_ticket_link = $request->buy_ticket_link;
         $event->description = $request->description;
 
         if(!empty($filename)) {
@@ -140,9 +151,12 @@ class EventController extends Controller
 
         //$event = new Event();
         $event->name = $request->name;
-        $event->start_date = $request->start_date;
-        $event->end_date = $request->end_date;
+        $event->start_date = date('Y-m-d H:i:s',strtotime($request->start_date));
+        $event->end_date = date('Y-m-d H:i:s',strtotime($request->end_date));
+        $event->location_address_1 = $request->location_address_1;
+        $event->location_address_2 = $request->location_address_2;
         $event->price = $request->price;
+        $event->buy_ticket_link = $request->buy_ticket_link;
         $event->description = $request->description;
 
         if(!empty($filename)) {

@@ -31,8 +31,8 @@ class CartController extends Controller
 
             $product_price = json_decode(Product::getProductPriceByIDandSize($request->get('product_id'),$request->get('size')));
 
-            $cart->unit_price = $product_price[0];
-            $cart->total_price = $product_price[0] * $request->get('quantity');
+            $cart->unit_price = $product_price['price'][0];
+            $cart->total_price = $product_price['price'][0] * $request->get('quantity');
             $cart->user_session_id = session()->getId();
             //dd($cart);
             $cart->save();

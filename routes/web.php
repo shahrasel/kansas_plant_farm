@@ -62,11 +62,6 @@ Route::get('/add_image_count', [App\Http\Controllers\ProductController::class, '
 
 
 Route::post('/plants', [App\Http\Controllers\ProductController::class, 'products'])->name('products_post');
-#Route::get('/product-details/{id}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');
-/*Route::get('/details/{product:slug}', function ($product) {
-    echo  $product;
-    exit;
-});*/
 Route::get('/plants/{product}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');
 Route::get('/get-product-price', [App\Http\Controllers\ProductController::class, 'get_product_price'])->name('get_product_price');
 
@@ -77,6 +72,7 @@ Route::get('/delete-cart-item', [App\Http\Controllers\CartController::class, 'de
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'show'])->name('cart');
 Route::post('/cart', [App\Http\Controllers\CartController::class, 'store'])->name('store-cart');
 
+Route::post('/checkout/store', [App\Http\Controllers\OrderController::class, 'store'])->name('checkout-store');
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');
 
 Route::get('/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('dashboard')->middleware('auth');
@@ -87,6 +83,10 @@ Route::post('/user-update', [\App\Http\Controllers\UserController::class, 'updat
 
 /*Route::post('/add-to-wishlist/{user_id}/{product_id}', [App\Http\Controllers\WishlistController::class, 'store'])->name('add-to-wishlist')->middleware('auth');*/
 Route::post('/add-to-wishlist', [App\Http\Controllers\WishlistController::class, 'store'])->name('add-to-wishlist')->middleware('auth');
+
+Route::get('/garden-ideas', [App\Http\Controllers\GardenThemeController::class, 'frontGardenIdeas'])->name('front-garden-ideas');
+
+Route::get('/upcoming-events', [App\Http\Controllers\EventController::class, 'upcomingEvents'])->name('upcoming-events');
 
 ############################ PAYPAL ############################
 Route::post('/payment-confirmation', [\App\Http\Controllers\OrderController::class, 'paymentConfirmation'])->name('payment-confirmation');

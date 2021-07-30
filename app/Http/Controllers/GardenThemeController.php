@@ -12,6 +12,15 @@ use Intervention\Image\Facades\Image;
 
 class GardenThemeController extends Controller
 {
+    public function frontGardenIdeas() {
+        $garden_theme_lists = GardenTheme::get();
+
+        //dd($garden_theme_lists);
+        return view('garden_theme.allGardenThemes', [
+            'garden_theme_lists' => $garden_theme_lists
+        ]);
+    }
+
     public function adminIndex(Request $request) {
 
         $garden_theme_lists = DB::table('garden_themes')

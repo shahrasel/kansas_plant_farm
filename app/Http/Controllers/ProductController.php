@@ -241,92 +241,92 @@ class ProductController extends Controller
                     })
                     ->Where(function ($query) use($sunlight_sel_arr) {
                         for ($i = 0; $i < count($sunlight_sel_arr); $i++){
-                            $query->where('sunlight', 'like',  '%' . $sunlight_sel_arr [$i] .',%');
+                            $query->where('sunlight', 'like',  '%,' . $sunlight_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($water_rainfall_sel_arr) {
                         for ($i = 0; $i < count($water_rainfall_sel_arr); $i++){
-                            $query->where('water_rainfall', 'like',  '%' . $water_rainfall_sel_arr [$i] .',%');
+                            $query->where('water_rainfall', 'like',  '%,' . $water_rainfall_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($soil_quality_sel_arr) {
                         for ($i = 0; $i < count($soil_quality_sel_arr); $i++){
-                            $query->where('soil_quality', 'like',  '%' . $soil_quality_sel_arr [$i] .',%');
+                            $query->where('soil_quality', 'like',  '%,' . $soil_quality_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($bloom_season_sel_arr) {
                         for ($i = 0; $i < count($bloom_season_sel_arr); $i++){
-                            $query->where('bloom_season', 'like',  '%' . $bloom_season_sel_arr [$i] .',%');
+                            $query->where('bloom_season', 'like',  '%,' . $bloom_season_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($flower_color_sel_arr) {
                         for ($i = 0; $i < count($flower_color_sel_arr); $i++){
-                            $query->where('flower_color', 'like',  '%' . $flower_color_sel_arr [$i] .',%');
+                            $query->where('flower_color', 'like',  '%,' . $flower_color_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($berry_fruit_color_sel_arr) {
                         for ($i = 0; $i < count($berry_fruit_color_sel_arr); $i++){
-                            $query->where('berry_fruit_color', 'like',  '%' . $berry_fruit_color_sel_arr [$i] .',%');
+                            $query->where('berry_fruit_color', 'like',  '%,' . $berry_fruit_color_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($spring_foliage_color_sel_arr) {
                         for ($i = 0; $i < count($spring_foliage_color_sel_arr); $i++){
-                            $query->where('spring_foliage_color', 'like',  '%' . $spring_foliage_color_sel_arr [$i] .',%');
+                            $query->where('spring_foliage_color', 'like',  '%,' . $spring_foliage_color_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($summer_foliage_color_sel_arr) {
                         for ($i = 0; $i < count($summer_foliage_color_sel_arr); $i++){
-                            $query->where('summer_foliage_color', 'like',  '%' . $summer_foliage_color_sel_arr [$i] .',%');
+                            $query->where('summer_foliage_color', 'like',  '%,' . $summer_foliage_color_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($fall_foliage_color_sel_arr) {
                         for ($i = 0; $i < count($fall_foliage_color_sel_arr); $i++){
-                            $query->where('fall_foliage_color', 'like',  '%' . $fall_foliage_color_sel_arr [$i] .',%');
+                            $query->where('fall_foliage_color', 'like',  '%,' . $fall_foliage_color_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($has_evergreen_foliage_sel_arr) {
                         for ($i = 0; $i < count($has_evergreen_foliage_sel_arr); $i++){
-                            $query->where('has_evergreen_foliage', 'like',  '%' . $has_evergreen_foliage_sel_arr [$i] .'%');
+                            $query->where('has_evergreen_foliage', 'like',  '%,' . $has_evergreen_foliage_sel_arr [$i] .'%');
                         }
                     })
                     ->Where(function ($query) use($has_winter_interest_sel_arr) {
                         for ($i = 0; $i < count($has_winter_interest_sel_arr); $i++){
-                            $query->where('has_winter_interest', 'like',  '%' . $has_winter_interest_sel_arr [$i] .'%');
+                            $query->where('has_winter_interest', 'like',  '%,' . $has_winter_interest_sel_arr [$i] .'%');
                         }
                     })
                     ->Where(function ($query) use($scented_flowers_sel_arr) {
                         for ($i = 0; $i < count($scented_flowers_sel_arr); $i++){
-                            $query->where('scented_flowers', 'like',  '%' . $scented_flowers_sel_arr [$i] .'%');
+                            $query->where('scented_flowers', 'like',  '%,' . $scented_flowers_sel_arr [$i] .'%');
                         }
                     })
                     ->Where(function ($query) use($drought_tolerance_sel_arr) {
                         for ($i = 0; $i < count($drought_tolerance_sel_arr); $i++){
-                            $query->where('drought_tolerance', 'like',  '%' . $drought_tolerance_sel_arr [$i] .',%');
+                            $query->where('drought_tolerance', 'like',  '%,' . $drought_tolerance_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($wet_feet_tolerance_sel_arr) {
                         for ($i = 0; $i < count($wet_feet_tolerance_sel_arr); $i++){
-                            $query->where('wet_feet_tolerance', 'like',  '%' . $wet_feet_tolerance_sel_arr [$i] .',%');
+                            $query->where('wet_feet_tolerance', 'like',  '%,' . $wet_feet_tolerance_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($humidity_tolerance_sel_arr) {
                         for ($i = 0; $i < count($humidity_tolerance_sel_arr); $i++){
-                            $query->where('humidity_tolerance', 'like',  '%' . $humidity_tolerance_sel_arr [$i] .',%');
+                            $query->where('humidity_tolerance', 'like',  '%,' . $humidity_tolerance_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($wind_tolerence_sel_arr) {
                         for ($i = 0; $i < count($wind_tolerence_sel_arr); $i++){
-                            $query->where('wind_tolerence', 'like',  '%' . $wind_tolerence_sel_arr [$i] .',%');
+                            $query->where('wind_tolerence', 'like',  '%,' . $wind_tolerence_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($poor_soil_tolerance_sel_arr) {
                         for ($i = 0; $i < count($poor_soil_tolerance_sel_arr); $i++){
-                            $query->where('poor_soil_tolerance', 'like',  '%' . $poor_soil_tolerance_sel_arr [$i] .',%');
+                            $query->where('poor_soil_tolerance', 'like',  '%,' . $poor_soil_tolerance_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($growth_rate_sel_arr) {
                         for ($i = 0; $i < count($growth_rate_sel_arr); $i++){
-                            $query->where('growth_rate', 'like',  '%' . $growth_rate_sel_arr [$i] .',%');
+                            $query->where('growth_rate', 'like',  '%,' . $growth_rate_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($service_life_sel_arr) {
@@ -354,43 +354,43 @@ class ProductController extends Controller
                     })
                     ->Where(function ($query) use($plant_grouping_size_sel_arr) {
                         for ($i = 0; $i < count($plant_grouping_size_sel_arr); $i++){
-                            $query->where('plant_grouping_size', 'like',  '%' . $plant_grouping_size_sel_arr [$i] .',%');
+                            $query->where('plant_grouping_size', 'like',  '%,' . $plant_grouping_size_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($best_side_of_house_sel_arr) {
                         for ($i = 0; $i < count($best_side_of_house_sel_arr); $i++){
                             //$query->where('best_side_of_house', '=',  ' . $best_side_of_house_sel_arr [$i] .');
-                            $query->where('best_side_of_house', 'like',  '%' . $best_side_of_house_sel_arr [$i] .',%');
+                            $query->where('best_side_of_house', 'like',  '%,' . $best_side_of_house_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($extreme_planting_locations_sel_arr) {
                         for ($i = 0; $i < count($extreme_planting_locations_sel_arr); $i++){
                             //$query->where('extreme_planting_locations', '=',  ' . $extreme_planting_locations_sel_arr [$i] .');
-                            $query->where('extreme_planting_locations', 'like',  '%' . $extreme_planting_locations_sel_arr [$i] .',%');
+                            $query->where('extreme_planting_locations', 'like',  '%,' . $extreme_planting_locations_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($ornamental_features_sel_arr) {
                         for ($i = 0; $i < count($ornamental_features_sel_arr); $i++){
                             //$query->where('ornamental_features', '=',  ' . $ornamental_features_sel_arr [$i] .');
-                            $query->where('ornamental_features', 'like',  '%' . $ornamental_features_sel_arr [$i] .',%');
+                            $query->where('ornamental_features', 'like',  '%,' . $ornamental_features_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($special_landscape_uses_sel_arr) {
                         for ($i = 0; $i < count($special_landscape_uses_sel_arr); $i++){
                             //$query->where('special_landscape_uses', '=',  ' . $special_landscape_uses_sel_arr [$i] .');
-                            $query->where('special_landscape_uses', 'like',  '%' . $special_landscape_uses_sel_arr [$i] .',%');
+                            $query->where('special_landscape_uses', 'like',  '%,' . $special_landscape_uses_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($possible_pest_problems_sel_arr) {
                         for ($i = 0; $i < count($possible_pest_problems_sel_arr); $i++){
                             //$query->where('possible_pest_problems', '=',  ' . $possible_pest_problems_sel_arr [$i] .');
-                            $query->where('possible_pest_problems', 'like',  '%' . $possible_pest_problems_sel_arr [$i] .',%');
+                            $query->where('possible_pest_problems', 'like',  '%,' . $possible_pest_problems_sel_arr [$i] .',%');
                         }
                     })
                     ->Where(function ($query) use($plant_limitations_sel_arr) {
                         for ($i = 0; $i < count($plant_limitations_sel_arr); $i++){
                             //$query->where('plant_limitations', '=',  ' . $plant_limitations_sel_arr [$i] .');
-                            $query->where('plant_limitations', 'like',  '%' . $plant_limitations_sel_arr [$i] .',%');
+                            $query->where('plant_limitations', 'like',  '%,' . $plant_limitations_sel_arr [$i] .',%');
                         }
                     })
                     ->paginate(50);
@@ -1180,92 +1180,92 @@ class ProductController extends Controller
                             })
                                 ->orWhere(function ($query) use ($sunlight_sel_arr) {
                                     for ($i = 0; $i < count($sunlight_sel_arr); $i++) {
-                                        $query->orWhere('sunlight', 'like', '%' . $sunlight_sel_arr [$i] . ',%');
+                                        $query->orWhere('sunlight', 'like', '%,' . $sunlight_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($water_rainfall_sel_arr) {
                                     for ($i = 0; $i < count($water_rainfall_sel_arr); $i++) {
-                                        $query->orWhere('water_rainfall', 'like', '%' . $water_rainfall_sel_arr [$i] . ',%');
+                                        $query->orWhere('water_rainfall', 'like', '%,' . $water_rainfall_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($soil_quality_sel_arr) {
                                     for ($i = 0; $i < count($soil_quality_sel_arr); $i++) {
-                                        $query->orWhere('soil_quality', 'like', '%' . $soil_quality_sel_arr [$i] . ',%');
+                                        $query->orWhere('soil_quality', 'like', '%,' . $soil_quality_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($bloom_season_sel_arr) {
                                     for ($i = 0; $i < count($bloom_season_sel_arr); $i++) {
-                                        $query->orWhere('bloom_season', 'like', '%' . $bloom_season_sel_arr [$i] . ',%');
+                                        $query->orWhere('bloom_season', 'like', '%,' . $bloom_season_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($flower_color_sel_arr) {
                                     for ($i = 0; $i < count($flower_color_sel_arr); $i++) {
-                                        $query->orWhere('flower_color', 'like', '%' . $flower_color_sel_arr [$i] . ',%');
+                                        $query->orWhere('flower_color', 'like', '%,' . $flower_color_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($berry_fruit_color_sel_arr) {
                                     for ($i = 0; $i < count($berry_fruit_color_sel_arr); $i++) {
-                                        $query->orWhere('berry_fruit_color', 'like', '%' . $berry_fruit_color_sel_arr [$i] . ',%');
+                                        $query->orWhere('berry_fruit_color', 'like', '%,' . $berry_fruit_color_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($spring_foliage_color_sel_arr) {
                                     for ($i = 0; $i < count($spring_foliage_color_sel_arr); $i++) {
-                                        $query->orWhere('spring_foliage_color', 'like', '%' . $spring_foliage_color_sel_arr [$i] . ',%');
+                                        $query->orWhere('spring_foliage_color', 'like', '%,' . $spring_foliage_color_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($summer_foliage_color_sel_arr) {
                                     for ($i = 0; $i < count($summer_foliage_color_sel_arr); $i++) {
-                                        $query->orWhere('summer_foliage_color', 'like', '%' . $summer_foliage_color_sel_arr [$i] . ',%');
+                                        $query->orWhere('summer_foliage_color', 'like', '%,' . $summer_foliage_color_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($fall_foliage_color_sel_arr) {
                                     for ($i = 0; $i < count($fall_foliage_color_sel_arr); $i++) {
-                                        $query->orWhere('fall_foliage_color', 'like', '%' . $fall_foliage_color_sel_arr [$i] . ',%');
+                                        $query->orWhere('fall_foliage_color', 'like', '%,' . $fall_foliage_color_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($has_evergreen_foliage_sel_arr) {
                                     for ($i = 0; $i < count($has_evergreen_foliage_sel_arr); $i++) {
-                                        $query->orWhere('has_evergreen_foliage', 'like', '%' . $has_evergreen_foliage_sel_arr [$i] . '%');
+                                        $query->orWhere('has_evergreen_foliage', 'like', '%,' . $has_evergreen_foliage_sel_arr [$i] . '%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($has_winter_interest_sel_arr) {
                                     for ($i = 0; $i < count($has_winter_interest_sel_arr); $i++) {
-                                        $query->orWhere('has_winter_interest', 'like', '%' . $has_winter_interest_sel_arr [$i] . '%');
+                                        $query->orWhere('has_winter_interest', 'like', '%,' . $has_winter_interest_sel_arr [$i] . '%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($scented_flowers_sel_arr) {
                                     for ($i = 0; $i < count($scented_flowers_sel_arr); $i++) {
-                                        $query->orWhere('scented_flowers', 'like', '%' . $scented_flowers_sel_arr [$i] . '%');
+                                        $query->orWhere('scented_flowers', 'like', '%,' . $scented_flowers_sel_arr [$i] . '%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($drought_tolerance_sel_arr) {
                                     for ($i = 0; $i < count($drought_tolerance_sel_arr); $i++) {
-                                        $query->orWhere('drought_tolerance', 'like', '%' . $drought_tolerance_sel_arr [$i] . ',%');
+                                        $query->orWhere('drought_tolerance', 'like', '%,' . $drought_tolerance_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($wet_feet_tolerance_sel_arr) {
                                     for ($i = 0; $i < count($wet_feet_tolerance_sel_arr); $i++) {
-                                        $query->orWhere('wet_feet_tolerance', 'like', '%' . $wet_feet_tolerance_sel_arr [$i] . ',%');
+                                        $query->orWhere('wet_feet_tolerance', 'like', '%,' . $wet_feet_tolerance_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($humidity_tolerance_sel_arr) {
                                     for ($i = 0; $i < count($humidity_tolerance_sel_arr); $i++) {
-                                        $query->orWhere('humidity_tolerance', 'like', '%' . $humidity_tolerance_sel_arr [$i] . ',%');
+                                        $query->orWhere('humidity_tolerance', 'like', '%,' . $humidity_tolerance_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($wind_tolerence_sel_arr) {
                                     for ($i = 0; $i < count($wind_tolerence_sel_arr); $i++) {
-                                        $query->orWhere('wind_tolerence', 'like', '%' . $wind_tolerence_sel_arr [$i] . ',%');
+                                        $query->orWhere('wind_tolerence', 'like', '%,' . $wind_tolerence_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($poor_soil_tolerance_sel_arr) {
                                     for ($i = 0; $i < count($poor_soil_tolerance_sel_arr); $i++) {
-                                        $query->orWhere('poor_soil_tolerance', 'like', '%' . $poor_soil_tolerance_sel_arr [$i] . ',%');
+                                        $query->orWhere('poor_soil_tolerance', 'like', '%,' . $poor_soil_tolerance_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($growth_rate_sel_arr) {
                                     for ($i = 0; $i < count($growth_rate_sel_arr); $i++) {
-                                        $query->orWhere('growth_rate', 'like', '%' . $growth_rate_sel_arr [$i] . ',%');
+                                        $query->orWhere('growth_rate', 'like', '%,' . $growth_rate_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($service_life_sel_arr) {
@@ -1293,37 +1293,37 @@ class ProductController extends Controller
                                 })
                                 ->orWhere(function ($query) use ($plant_grouping_size_sel_arr) {
                                     for ($i = 0; $i < count($plant_grouping_size_sel_arr); $i++) {
-                                        $query->orWhere('plant_grouping_size', 'like', '%' . $plant_grouping_size_sel_arr [$i] . ',%');
+                                        $query->orWhere('plant_grouping_size', 'like', '%,' . $plant_grouping_size_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($best_side_of_house_sel_arr) {
                                     for ($i = 0; $i < count($best_side_of_house_sel_arr); $i++) {
-                                        $query->orWhere('best_side_of_house', 'like', '%' . $best_side_of_house_sel_arr [$i] . ',%');
+                                        $query->orWhere('best_side_of_house', 'like', '%,' . $best_side_of_house_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($extreme_planting_locations_sel_arr) {
                                     for ($i = 0; $i < count($extreme_planting_locations_sel_arr); $i++) {
-                                        $query->orWhere('extreme_planting_locations', 'like', '%' . $extreme_planting_locations_sel_arr [$i] . ',%');
+                                        $query->orWhere('extreme_planting_locations', 'like', '%,' . $extreme_planting_locations_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($ornamental_features_sel_arr) {
                                     for ($i = 0; $i < count($ornamental_features_sel_arr); $i++) {
-                                        $query->orWhere('ornamental_features', 'like', '%' . $ornamental_features_sel_arr [$i] . ',%');
+                                        $query->orWhere('ornamental_features', 'like', '%,' . $ornamental_features_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($special_landscape_uses_sel_arr) {
                                     for ($i = 0; $i < count($special_landscape_uses_sel_arr); $i++) {
-                                        $query->orWhere('special_landscape_uses', 'like', '%' . $special_landscape_uses_sel_arr [$i] . ',%');
+                                        $query->orWhere('special_landscape_uses', 'like', '%,' . $special_landscape_uses_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($possible_pest_problems_sel_arr) {
                                     for ($i = 0; $i < count($possible_pest_problems_sel_arr); $i++) {
-                                        $query->orWhere('possible_pest_problems', 'like', '%' . $possible_pest_problems_sel_arr [$i] . ',%');
+                                        $query->orWhere('possible_pest_problems', 'like', '%,' . $possible_pest_problems_sel_arr [$i] . ',%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($plant_limitations_sel_arr) {
                                     for ($i = 0; $i < count($plant_limitations_sel_arr); $i++) {
-                                        $query->orWhere('plant_limitations', 'like', '%' . $plant_limitations_sel_arr [$i] . ',%');
+                                        $query->orWhere('plant_limitations', 'like', '%,' . $plant_limitations_sel_arr [$i] . ',%');
                                     }
                                 });
                         })
@@ -2021,7 +2021,7 @@ class ProductController extends Controller
                         })
                         ->Where(function ($query) use($flower_color_sel_arr) {
                             for ($i = 0; $i < count($flower_color_sel_arr); $i++){
-                                $query->where('flower_color', 'like',  '%' . $flower_color_sel_arr [$i] .',%');
+                                $query->where('flower_color', 'like',  '%,' . $flower_color_sel_arr [$i] .',%');
                             }
                         })
                         ->Where(function ($query) use($berry_fruit_color_sel_arr) {
@@ -2999,6 +2999,8 @@ class ProductController extends Controller
         //$product->plant_id_number = $request->plant_id_number;
         $product->botanical_name = $request->botanical_name;
         $product->common_name = $request->common_name;
+
+        $product->is_featured = ($request->is_featured?1:0);
 
         $product->inventory_count_a = $request->inventory_count_a;
         $product->inventory_count_b = $request->inventory_count_b;

@@ -210,9 +210,30 @@
                                         </div>
 
                                         <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Location Address 1</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" placeholder="Enter Address 1" type="text" name="location_address_1" value="{{ old('location_address_1') }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Location Address 2</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" placeholder="Enter Address 2" type="text" name="location_address_2" value="{{ old('location_address_2') }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> Price</label>
                                             <div class="col-sm-9">
                                                 <input class="form-control" placeholder="Enter price" type="text" name="price" value="{{ old('price') }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Buy Ticket Link</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" placeholder="Enter Buy Ticket Link" type="text" name="buy_ticket_link" value="{{ old('buy_ticket_link') }}">
                                             </div>
                                         </div>
 

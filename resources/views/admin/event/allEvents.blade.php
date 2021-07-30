@@ -56,6 +56,7 @@
                                     <th>Name</th>
                                     <th>Start</th>
                                     <th>End</th>
+                                    <th>Location</th>
                                     <th>Price</th>
                                     <th>Image</th>
                                     <th>Edit</th>
@@ -66,6 +67,7 @@
                                     <th>Name</th>
                                     <th>Start</th>
                                     <th>End</th>
+                                    <th>Location</th>
                                     <th>Price</th>
                                     <th>Image</th>
                                     <th>Edit</th>
@@ -77,6 +79,7 @@
                                         <td>{{ $event->name }}</td>
                                         <td>{{ $event->start_date }}</td>
                                         <td>{{ $event->end_date }}</td>
+                                        <td>{{ $event->location_address_1 }}, {{ $event->location_address_2 }}</td>
                                         <td>${{ $event->price }}</td>
                                         <td><img src="{{ url('img/event/'.$event->image) }}" style="width: 100px"></td>
                                         <td><a href="{{ url('/admin/events/'.$event->id.'/edit') }}">Edit</a></td>

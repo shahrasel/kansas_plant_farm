@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderAdditional;
 use App\Models\Orderdetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -16,8 +18,105 @@ class OrderController extends Controller
         $cart_lists = $cart->getCartData();
         //dd($cart_lists);
         return view('order.checkout', [
-            'cart_lists' => $cart_lists
+            'cart_lists' => $cart_lists,
+            'state_lists' => Order::stateLists()
         ]);
+    }
+
+    public function store(Request $request) {
+
+        //dd($request->all());
+        /*dd(json_decode($request->get('preferred_pick_optinos')));
+        exit;*/
+
+        if($request->post('person')=='assign_other') {
+            $validator = $request->validate([
+                'first_name' => ['required'],
+                'last_name' => ['required'],
+                'email_address' => ['required'],
+                'phone' => ['required'],
+
+                'street_address' => ['required'],
+                'city' => ['required'],
+                //'state' => ['required'],
+                'zip' => ['required'],
+                'pickup_date' => ['required'],
+
+                'p_first_name' => ['required'],
+                'p_last_name' => ['required'],
+                'p_email_address' => ['required'],
+                'p_phone' => ['required']
+            ]);
+        }
+        else {
+            $validator = $request->validate([
+                'first_name' => ['required'],
+                'last_name' => ['required'],
+                'email_address' => ['required'],
+                'phone' => ['required'],
+
+                'street_address' => ['required'],
+                'city' => ['required'],
+                //'state' => ['required'],
+                'zip' => ['required'],
+                'pickup_date' => ['required']
+            ]);
+        }
+
+        $orderAdditional = new OrderAdditional();
+        $orderAdditional->first_name = $request->get('first_name');
+        $orderAdditional->last_name = $request->get('last_name');
+        $orderAdditional->email_address = $request->get('email_address');
+        $orderAdditional->phone = $request->get('phone');
+        $orderAdditional->street_address = $request->get('street_address');
+        $orderAdditional->city = $request->get('city');
+        $orderAdditional->state = $request->get('state');
+        $orderAdditional->zip = $request->get('zip');
+        $orderAdditional->person = $request->get('person');
+        $orderAdditional->p_first_name = $request->get('p_first_name');
+        $orderAdditional->p_last_name = $request->get('p_last_name');
+        $orderAdditional->p_email_address = $request->get('p_email_address');
+        $orderAdditional->p_phone = $request->get('p_phone');
+        $orderAdditional->pickup_date = $request->get('pickup_date');
+        $orderAdditional->time = $request->get('time');
+        $orderAdditional->preferred_pick_optinos = $request->get('preferred_pick_optinos');
+
+        $orderAdditional->save();
+
+        if(!empty($orderAdditional->id)) {
+            Session::put('selOrderAdditionalId', $orderAdditional->id);
+
+            return 'done';
+        }
+
+
+        //echo Session::get('selOrderAdditionalId');
+        /*$validator = Validator::make($request->all(), [
+
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'email_address' => ['required'],
+            'phone' => ['required'],
+
+            'street_address' => ['required'],
+            'city' => ['required'],
+            'state' => ['required'],
+            'zip' => ['required'],
+
+        ]);*/
+
+
+        /*if ($validator->passes()) {
+
+            return response()->json(['success'=>'Added new records.']);
+
+
+        }
+
+
+
+        return response()->json(['error'=>$validator->errors()->all()]);*/
+        //exit;
     }
 
     public function paymentConfirmation(Request $request) {
@@ -39,6 +138,7 @@ class OrderController extends Controller
         if(number_format($total_amount, 2, '.', ',') == $request->get('amount')) {
             $order = new Order();
             $order->orderid = $request->get('orderId');
+            $order->order_additional_id = Session::get('selOrderAdditionalId');
             $order->user_id = auth()->id()?auth()->id():'0';
             $order->firstname = $request->get('payerFname');
             $order->lastname = $request->get('payerLname');

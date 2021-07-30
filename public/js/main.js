@@ -467,7 +467,12 @@
         var oldValue = $button.parent().find('input').val();
 
         if ($button.hasClass('inc')) {
-            var newVal = parseFloat(oldValue) + 1;
+            if(parseFloat(oldValue)<parseFloat($("#max_item").val())) {
+                var newVal = parseFloat(oldValue) + 1;
+            }
+            else {
+                var newVal = parseFloat(oldValue);
+            }
         } else {
             // Don't allow decrementing below zero
             if (oldValue > 1) {

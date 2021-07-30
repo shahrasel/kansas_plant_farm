@@ -74,12 +74,6 @@
                                 </div>
                                 <!-- Cart Update Option -->
                                 <div class="cart-update-option d-block d-md-flex justify-content-between" style="display: inline-block !important; text-align: right !important; width: 100%">
-        <!--                            <div class="apply-coupon-wrapper">
-                                        <form action="#" method="post" class=" d-block d-md-flex">
-                                            <input type="text" placeholder="Enter Your Coupon Code" required />
-                                            <button class="btn btn-sqr">Apply Coupon</button>
-                                        </form>
-                                    </div>-->
                                     <div class="cart-update" style="float: right">
 <!--                                        <a type="submit" class="btn btn-sqr">Update Cart</a>-->
                                         <button class="btn btn-sqr" type="submit">Update Cart</button>

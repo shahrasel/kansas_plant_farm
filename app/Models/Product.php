@@ -96,6 +96,7 @@ class Product extends Model
     }
 
     public static function getProductPrice($product) {
+
         $price = "";
         if (Auth::check()) {
             if(Auth()->user()->usertype=='contractor') {
@@ -170,21 +171,26 @@ class Product extends Model
 
 
         $price_arr = array();
+        $available = 0;
 
         if (Auth::check()) {
             if(Auth()->user()->usertype=='contractor') {
                 if(!empty($product->other_product_service_name)) {
                     $price_arr[]= number_format($product->contractor_price_a,2);
+                    $available = $product->inventory_count_a;
                 }
                 else {
                     if($size == $product->pot_size_a) {
                         $price_arr[]= number_format($product->contractor_price_a,2);
+                        $available = $product->inventory_count_a;
                     }
                     elseif($size == $product->pot_size_b) {
                         $price_arr[]= number_format($product->contractor_price_b,2);
+                        $available = $product->inventory_count_b;
                     }
                     elseif($size == $product->pot_size_c) {
                         $price_arr[]= number_format($product->contractor_price_c,2);
+                        $available = $product->inventory_count_c;
                     }
                 }
             }
@@ -192,17 +198,21 @@ class Product extends Model
                 if(!empty($product->other_product_service_name)) {
                     $price_arr[] = number_format($product->retail_sale_price_a, 2);
                     $price_arr[] = number_format($product->retail_list_price_a, 2);
+                    $available = $product->inventory_count_a;
                 }
                 else {
                     if ($size == $product->pot_size_a) {
                         $price_arr[] = number_format($product->retail_sale_price_a, 2);
                         $price_arr[] = number_format($product->retail_list_price_a, 2);
+                        $available = $product->inventory_count_a;
                     } elseif ($size == $product->pot_size_b) {
                         $price_arr[] = number_format($product->retail_sale_price_b, 2);
                         $price_arr[] = number_format($product->retail_list_price_b, 2);
+                        $available = $product->inventory_count_b;
                     } elseif ($size == $product->pot_size_c) {
                         $price_arr[] = number_format($product->retail_sale_price_c, 2);
                         $price_arr[] = number_format($product->retail_list_price_c, 2);
+                        $available = $product->inventory_count_c;
                     }
                 }
             }
@@ -211,21 +221,32 @@ class Product extends Model
             if(!empty($product->other_product_service_name)) {
                 $price_arr[] = number_format($product->retail_sale_price_a, 2);
                 $price_arr[] = number_format($product->retail_list_price_a, 2);
+                $available = $product->inventory_count_a;
             }
             else {
                 if ($size == $product->pot_size_a) {
                     $price_arr[] = number_format($product->retail_sale_price_a, 2);
                     $price_arr[] = number_format($product->retail_list_price_a, 2);
+                    $available = $product->inventory_count_a;
                 } elseif ($size == $product->pot_size_b) {
                     $price_arr[] = number_format($product->retail_sale_price_b, 2);
                     $price_arr[] = number_format($product->retail_list_price_b, 2);
+                    $available = $product->inventory_count_b;
                 } elseif ($size == $product->pot_size_c) {
                     $price_arr[] = number_format($product->retail_sale_price_c, 2);
                     $price_arr[] = number_format($product->retail_list_price_c, 2);
+                    $available = $product->inventory_count_c;
                 }
             }
         }
-        return json_encode($price_arr);
+
+        $return_arr = array();
+        $return_arr['price'] = $price_arr;
+        $return_arr['available'] = $available;
+
+        //dd($return_arr);
+
+        return json_encode($return_arr);
 
     }
 

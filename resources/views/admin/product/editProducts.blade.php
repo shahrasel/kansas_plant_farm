@@ -220,6 +220,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Featured</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" type="checkbox" name="is_featured" value="1" @if($product->is_featured==1) checked @endif>
+                                            </div>
+                                        </div>
+
                                     </fieldset>
 
                                     <fieldset class="form-group">

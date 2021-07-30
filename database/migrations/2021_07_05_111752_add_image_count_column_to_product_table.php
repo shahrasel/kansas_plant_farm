@@ -26,7 +26,7 @@ class AddImageCountColumnToProductTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->drop('image_count');
+            $table->dropColumn('image_count');
         });
     }
 }

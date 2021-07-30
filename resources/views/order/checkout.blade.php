@@ -5,7 +5,9 @@
 @section('custom_styles')
     <style>
         .nice-select {
-            line-height: 45px;
+            width: 100% !important;
+            height: 45px !important;
+            line-height: 45px !important;
         }
         .custom-control-label.remove::before {
             background-color:#000 !important;
@@ -20,6 +22,9 @@
         #card-fields-container {
             background-color: #fff !important;
         }*/
+        .contact-message form input, .contact-message form textarea {
+            margin-bottom: 15px;
+        }
 
     </style>
 @endsection
@@ -295,12 +300,12 @@
                     </div>-->
 
                     <!-- Order Summary Details -->
-                    <div class="col-lg-8" style="margin: auto">
+                    <div class="col-lg-10" style="margin: auto">
                         <div class="order-summary-details">
                             <h5 class="checkout-title">Your Order Summary</h5>
                             <div class="order-summary-content">
                                 <!-- Order Summary Table -->
-                                <div class="order-summary-table table-responsive text-center">
+<!--                                <div class="order-summary-table table-responsive text-center">
                                     @if(!$cart_lists->isEmpty())
                                         <table class="table table-bordered">
                                         <thead>
@@ -352,36 +357,250 @@
                                     @else
                                         <p>No product is added to the cart!</p>
                                     @endif
+                                </div>-->
+
+
+                                <div class="cart-table table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th class="pro-thumbnail">Thumbnail</th>
+                                            <th class="pro-title">Product</th>
+                                            <th class="pro-title">Size</th>
+                                            <th class="pro-price">Unit Price</th>
+                                            <th class="pro-quantity">Quantity</th>
+                                            <th class="pro-subtotal">Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                            $i=0;
+                                            $tax_amount = 0;
+                                            $cart_d = "";
+                                        @endphp
+                                        @foreach($cart_lists as $cart_list)
+                                            <tr>
+                                                <td class="pro-thumbnail">
+                                                    <a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}">
+                                                        @if(!empty(($cart_list->product->getImage($cart_list->product))))
+                                                            <img class="img-fluid" src="{{ url($cart_list->product->getImage($cart_list->product)) }}" alt="product">
+                                                        @else
+                                                            <img class="img-fluid" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                                        @endif
+                                                    </a></td>
+                                                <td class="pro-title">
+                                                    <a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}">
+                                                        @if(!empty($cart_list->product->other_product_service_name))
+                                                            {{ $cart_list->product->other_product_service_name }}
+                                                        @else
+                                                            {{ $cart_list->product->botanical_name }}<br/>
+                                                            {{ $cart_list->product->common_name }}
+                                                        @endif
+                                                    </a></td>
+                                                <td class="pro-price"><span>@if(!empty($cart_list->size)){{ $cart_list->size }}@else - @endif</span></td>
+                                                <td class="pro-price"><span>${{ $cart_list->unit_price }}</span></td>
+                                                <td class="pro-quantity">
+                                                    <span>{{ $cart_list->quantity }}</span>
+                                                </td>
+                                                <td class="pro-subtotal"><span>${{ number_format(($cart_list->unit_price*$cart_list->quantity), 2, '.', ',') }}</span></td>
+                                            </tr>
+                                            @php
+                                                $i += $cart_list->quantity*$cart_list->unit_price;
+                                                if($cart_list->product->tax_free !='YES') {
+                                                    $tax_amount += 9.30/100*($cart_list->quantity*$cart_list->unit_price);
+                                                }
+                                                $cart_d .= $cart_list->id."#";
+                                            @endphp
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
                                 </div>
 
-                                <h5 class="checkout-title" style="margin-top:30px;">Who will be picking up your order?</h5>
+
+
+                                <div class="row">
+                                    <div class="col-lg-5 ml-auto">
+                                        <!-- Cart Calculation Area -->
+                                        <div class="cart-calculator-wrapper">
+                                            <div class="cart-calculate-items">
+<!--                                                <h6>Cart Totals</h6>-->
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>Sub Total</td>
+                                                            <td>${{ number_format($i, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sales Tax (9.30%)</td>
+                                                            <td>${{ number_format($tax_amount, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $i += $tax_amount;
+                                                        @endphp
+                                                        <tr class="total">
+                                                            <td>Total</td>
+                                                            <td class="total-amount">${{ number_format($i, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="checkout-title" style="margin-top:30px;">CUSTOMER CONTACT INFO</h5>
 
                                 <div class="contact-message">
-                                    <form id="contact-form" action="assets/php/mail.php" method="post" class="contact-form">
+                                    <form id="contact-form" action="{{ route('checkout-store') }}" method="post" class="contact-form">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <input name="first_name" placeholder="First Name" type="text">
+                                                <label>First Name<span style="color:yellow">*</span></label>
+                                                <input name="first_name" id="first_name" type="text" required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <input name="phone" placeholder="Last Name" type="text" required="">
+                                                <label>Last Name<span style="color:yellow">*</span></label>
+                                                <input name="last_name" id="last_name" type="text" required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <input name="email_address" placeholder="Email" type="email" >
+                                                <label>Email<span style="color:yellow">*</span></label>
+                                                <input name="email_address" id="email_address" type="email" required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <input name="phone" placeholder="Phone" type="text" >
+                                                <label>Phone<span style="color:yellow">*</span></label>
+                                                <input name="phone" id="phone" type="text" required>
                                             </div>
                                             <div class="col-12 d-flex justify-content-center">
-                                                <p class="form-messege"></p>
+                                                <p class="form-Who will be picking up your ordermessege"></p>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="checkout-title" style="margin-top: 30px;">Billing Address</h5>
+
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                <label>Street Address<span style="color:yellow">*</span></label>
+                                                <input name="street_address" id="street_address" type="text" required>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                        <label>City<span style="color:yellow">*</span></label>
+                                                        <input name="city" id="city" type="text" required>
+                                                    </div>
+
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <label>State<span style="color:yellow">*</span></label>
+                                                        <select name="state" id="state" required>
+                                                            @foreach($state_lists as $key=>$state_list)
+                                                                <option @if($key=='KS') selected @endif value="{{ $key }}">{{ $key }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <label>Zip<span style="color:yellow">*</span></label>
+                                                        <input name="zip" id="zip" type="text" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <h5 class="checkout-title" style="margin-top:30px;">Who will be picking up your order?</h5>
+
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-8 col-md-8 col-sm-8">
+                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <input type="radio" name="person" style="width: 5%"  value="self_customer" checked>&nbsp;I, as the customer, will pick up the purchased items
+                                                    </label>
+                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <input type="radio" name="person" style="width: 5%" value="assign_other">&nbsp;I am assigning the following person to pick up my purchased items
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <label>First Name</label>
+                                                    <input name="p_first_name" id="p_first_name" type="text">
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <label>Last Name</label>
+                                                    <input name="p_last_name" id="p_last_name"  type="text" required="">
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <label>Email</label>
+                                                    <input name="p_email_address" id="p_email_address"  type="email" >
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <label>Phone</label>
+                                                    <input name="p_phone" id="p_phone"  type="text" >
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <p class="form-messege"></p>
+                                                </div>
+                                            </div>
+
+                                            <h5 class="checkout-title" style="margin-top:30px;">Preferred pickup date</h5>
+
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <input name="pickup_date" id="pickup_date" type="text" placeholder="Preferred date" required>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <select name="time" id="time">
+                                                        <option value="">Select preferred time</option>
+                                                        <option value="Morning">Morning</option>
+                                                        <option value="Noonish">Noonish</option>
+                                                        <option value="Early Afternoon">Early Afternoon</option>
+                                                        <option value="Late Afternoon">Late Afternoon</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-10 col-md-10 col-sm-10">
+                                                    <h6 style="margin-bottom:10px;margin-top:10px;">Please check all that apply:</h6>
+                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_substitute_plant_size">&nbsp;If plant is not available, I’m ok to substitute plant size. (equal or better value)
+                                                    </label>
+
+                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_substitute_plant_variety">&nbsp;If plant is not available, I’m ok to substitute plant variety. (equal or better value)
+                                                    </label>
+
+                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_back_order">&nbsp;If plant is not available, I’m ok to back-order. (Up to 3 months)
+                                                    </label>
+
+                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_issue_refund">&nbsp;If plant is not available, please issue refund on that item
+                                                    </label>
+
+                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="tax_exempt">&nbsp;I or my company is Tax Exempt. (Please email us copy of tax certificate)
+                                                    </label>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-10 col-md-10 col-sm-10">
+                                                    <input type="submit" class="btn btn-sqr btn-submit" value="Continue Checkout" style="max-width: 320px;background-color: #7fbc03 !important">
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-
-
                                 <!-- Order Payment Method -->
                                 <form action="" method="post">
-                                    <div class="order-payment-method">
+                                    <div class="order-payment-method" id="paypal_plugin" style="display: none">
 <!--                                   <div class="single-payment-method show">
                                         <div class="payment-method-name">
                                             <div class="custom-control custom-radio">
@@ -393,56 +612,56 @@
                                             <p>Pay with cash upon delivery.</p>
                                         </div>
                                     </div>-->
-                                    <!--
-                                    <div class="single-payment-method">
-                                        <div class="payment-method-name">
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="directbank" name="paymentmethod" value="bank" class="custom-control-input" />
-                                                <label class="custom-control-label" for="directbank">Direct Bank
-                                                    Transfer</label>
+                                        <!--
+                                        <div class="single-payment-method">
+                                            <div class="payment-method-name">
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="directbank" name="paymentmethod" value="bank" class="custom-control-input" />
+                                                    <label class="custom-control-label" for="directbank">Direct Bank
+                                                        Transfer</label>
+                                                </div>
+                                            </div>
+                                            <div class="payment-method-details" data-method="bank">
+                                                <p>Make your payment directly into our bank account. Please use your Order
+                                                    ID as the payment reference. Your order will not be shipped until the
+                                                    funds have cleared in our account..</p>
                                             </div>
                                         </div>
-                                        <div class="payment-method-details" data-method="bank">
-                                            <p>Make your payment directly into our bank account. Please use your Order
-                                                ID as the payment reference. Your order will not be shipped until the
-                                                funds have cleared in our account..</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-payment-method">
-                                        <div class="payment-method-name">
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="checkpayment" name="paymentmethod" value="check" class="custom-control-input" />
-                                                <label class="custom-control-label" for="checkpayment">Pay with
-                                                    Check</label>
+                                        <div class="single-payment-method">
+                                            <div class="payment-method-name">
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="checkpayment" name="paymentmethod" value="check" class="custom-control-input" />
+                                                    <label class="custom-control-label" for="checkpayment">Pay with
+                                                        Check</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="payment-method-details" data-method="check">
-                                            <p>Please send a check to Store Name, Store Street, Store Town, Store State
-                                                / County, Store Postcode.</p>
-                                        </div>
-                                    </div>-->
-<!--                                    <div class="single-payment-method">
-                                        <div class="payment-method-name">
-&lt;!&ndash;                                            <div class="custom-control custom-radio">&ndash;&gt;
-&lt;!&ndash;                                                <input type="radio" id="paypalpayment" name="paymentmethod" value="paypal" class="custom-control-input" />&ndash;&gt;
-                                                <label class="custom-control-label remove" for="paypalpayment">Paypal <img src="{{ asset('img/paypal-card.jpg') }}" class="img-fluid paypal-card" alt="Paypal" /></label>
-&lt;!&ndash;                                            </div>&ndash;&gt;
-                                        </div>
-                                        <div class="payment-method-details" data-method="paypal">
-                                            <p>Pay via PayPal; you can pay with your credit card if you don’t have a
-                                                PayPal account.</p>
-                                        </div>
-                                    </div>-->
-                                    <div class="summary-footer-area">
-<!--                                        <div class="custom-control custom-checkbox mb-20">
-                                            <input type="checkbox" class="custom-control-input" id="terms" required />
-                                            <label class="custom-control-label" for="terms">I have read and agree to
-                                                the website <a href="index.html">terms and conditions.</a></label>
+                                            <div class="payment-method-details" data-method="check">
+                                                <p>Please send a check to Store Name, Store Street, Store Town, Store State
+                                                    / County, Store Postcode.</p>
+                                            </div>
                                         </div>-->
-                                        <p style="color: yellow"><b>PLEASE NOTE</b>: All orders are curbside pickup only</p>
-                                        <div id="paypal-button-container" style="background-color: #fff;padding: 15px;border-radius: 10px;"></div>
+    <!--                                    <div class="single-payment-method">
+                                            <div class="payment-method-name">
+    &lt;!&ndash;                                            <div class="custom-control custom-radio">&ndash;&gt;
+    &lt;!&ndash;                                                <input type="radio" id="paypalpayment" name="paymentmethod" value="paypal" class="custom-control-input" />&ndash;&gt;
+                                                    <label class="custom-control-label remove" for="paypalpayment">Paypal <img src="{{ asset('img/paypal-card.jpg') }}" class="img-fluid paypal-card" alt="Paypal" /></label>
+    &lt;!&ndash;                                            </div>&ndash;&gt;
+                                            </div>
+                                            <div class="payment-method-details" data-method="paypal">
+                                                <p>Pay via PayPal; you can pay with your credit card if you don’t have a
+                                                    PayPal account.</p>
+                                            </div>
+                                        </div>-->
+                                        <div class="summary-footer-area">
+    <!--                                        <div class="custom-control custom-checkbox mb-20">
+                                                <input type="checkbox" class="custom-control-input" id="terms" required />
+                                                <label class="custom-control-label" for="terms">I have read and agree to
+                                                    the website <a href="index.html">terms and conditions.</a></label>
+                                            </div>-->
+                                            <p style="color: yellow"><b>PLEASE NOTE</b>: All orders are curbside pickup only</p>
+                                            <div id="paypal-button-container" style="background-color: #fff;padding: 15px;border-radius: 10px;text-align: center"></div>
+                                        </div>
                                     </div>
-                                </div>
                                 </form>
 
                             </div>
@@ -463,6 +682,144 @@
     </script>
 
     <script>
+        $(document).ready(function() {
+
+            $(".btn-submit").click(function(e){
+
+                e.preventDefault();
+
+                //alert($("input[name='first_name']").val());
+
+                var _token = $("input[name='_token']").val();
+
+                var first_name = $("input[name='first_name']").val();
+                var last_name = $("input[name='last_name']").val();
+
+                var email_address = $("input[name='email_address']").val();
+                var phone = $("input[name='phone']").val();
+
+                var street_address = $("input[name='street_address']").val();
+                var city = $("input[name='city']").val();
+                var state = $("select[name='state']").val();
+                var zip = $("input[name='zip']").val();
+
+                var person = $("[name='person']:checked").val();
+
+                var p_first_name = $("input[name='p_first_name']").val();
+                var p_last_name = $("input[name='p_last_name']").val();
+                var p_email_address = $("input[name='p_email_address']").val();
+                var p_phone = $("input[name='p_phone']").val();
+                var pickup_date = $("input[name='pickup_date']").val();
+                var time = $("select[name='time']").val();
+
+                var ids = new Array();
+                $('input[name="preferred_pick_optinos[]"]:checked').each(function(){
+                    ids.push($(this).val());
+                });
+
+                //alert(ids);
+
+                var preferred_pick_optinos = JSON.stringify(ids);
+
+                $.ajax({
+                    url: "{{ route('checkout-store') }}",
+                    type: 'POST',
+
+                    data: {
+                        _token: _token,
+                        first_name: first_name,
+                        last_name: last_name,
+                        email_address: email_address,
+                        phone: phone,
+                        street_address: street_address,
+                        city: city,
+                        state: state,
+                        zip: zip,
+                        person: person,
+                        p_first_name: p_first_name,
+                        p_last_name: p_last_name,
+                        p_email_address: p_email_address,
+                        p_phone: p_phone,
+                        pickup_date: pickup_date,
+                        time: time,
+                        preferred_pick_optinos: preferred_pick_optinos,
+                    },
+
+                    success: function (data) {
+                        if(data == 'done') {
+                            $(".btn-submit").css('display','none');
+                            $("#paypal_plugin").css('display','block');
+                        }
+                        //alert(data);
+                        /*alert(data);
+
+                        if ($.isEmptyObject(data.error)) {
+
+                            alert(data.success);
+
+                        } else {
+
+                            printErrorMsg(data.error);
+
+                        }*/
+
+
+                    },
+                    error: function (err) {
+                        if (err.status == 422) {
+                            //printErrorMsg(err.errors);
+                            console.log(err.responseJSON);
+                            //$('#success_message').fadeIn().html(err.responseJSON.message);
+
+                            // you can loop through the errors object and show it to the user
+                            console.warn(err.responseJSON.errors);
+                            // display errors on each form field
+
+                            //var thisClass = $(this).attr("error");
+                            $('span.error').remove();
+
+                            $.each(err.responseJSON.errors, function (i, error) {
+                                var el = $(document).find('[name="'+i+'"]');
+                                if(error[0]=='The p first name field is required.')
+                                    error[0] = 'The first name field is required';
+                                if(error[0]=='The p last name field is required.')
+                                    error[0] = 'The last name field is required';
+                                if(error[0]=='The p email address field is required.')
+                                    error[0] = 'The email field is required';
+                                if(error[0]=='The p phone field is required.')
+                                    error[0] = 'The phone field is required';
+
+                                el.after($('<span style="color: red;" class="error">'+error[0]+'</span>'));
+                            });
+                        }
+                    }
+
+
+
+
+                });
+
+
+
+            });
+        });
+
+
+
+        function printErrorMsg (msg) {
+
+            $(".print-error-msg").find("ul").html('');
+
+            $(".print-error-msg").css('display','block');
+
+            $.each( msg, function( key, value ) {
+
+                $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+
+            });
+
+        }
+
         function formValidation() {
             if($("#create_pwd").is(':checked')) {
                 if($("#pwd").val()=='') {

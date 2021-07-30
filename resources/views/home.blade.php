@@ -1,5 +1,11 @@
 @extends('layouts.app')
-
+@section('custom_styles')
+    <style>
+        .slick-arrow-style button.slick-arrow {
+            top: 45% !important;
+        }
+    </style>
+@endsection
 @section('content')
     <main>
         <!-- hero slider area start -->
@@ -82,6 +88,113 @@
             </div>
         </div>
         <!-- service policy area end -->
+        @if(!empty($featured_lists))
+            <section class="product-area section-padding" style="padding-top: 0px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- section title start -->
+                        <div class="section-title text-center">
+                            <h2 style="color: #fff">Featured Plants</h2>
+                        </div>
+                        <!-- section title start -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-container">
+                            <!-- product tab content start -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="tab1">
+                                    <div class="product-carousel-4 slick-row-10 slick-arrow-style">
+                                        <!-- product item start -->
+                                        @foreach($featured_lists as $product)
+                                            <div class="product-item">
+                                                <figure class="product-thumb">
+                                                    <a href="{{ url('/plants') }}/{{ $product->slug }}">
+                                                        @if(!empty(($product->getImage($product))))
+                                                            <img class="pri-img" src="{{ url($product->getImage($product)) }}" alt="product">
+                                                            <img class="sec-img" src="{{ url($product->getImage($product)) }}" alt="product">
+                                                        @else
+                                                            <img class="pri-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                                            <img class="sec-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                                        @endif
+                                                    </a>
+                                                </figure>
+                                                <div class="product-caption text-center">
+                                                    <div class="product-identity">
+                                                        <p class="manufacturer-name" style="line-height: 20px"><a href="{{ url('/plants') }}/{{ $product->slug }}">
+                                                                @if(!empty($product->other_product_service_name))
+                                                                    {{ $product->other_product_service_name }}@if(!empty($product->patent_trademark_names))<br/>{{ $product->patent_trademark_names }} @endif</a>
+                                                            @else
+                                                                {{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i>@if(!empty($product->patent_trademark_names))<br/>{{ $product->patent_trademark_names }} @endif</a>
+                                                                @endif
+
+                                                        </p>
+                                                    </div>
+                                                    <div class="price-box">
+                                                        <span class="price-regular">
+                                                        @if(!empty($product->getProductPrice($product)))
+                                                                ${{ $product->getProductPrice($product) }}
+                                                            @endif
+                                                    </span>
+                                                        <span class="price-old">
+                                                        @if(!empty($product->retail_list_price_a))
+                                                                <del>${{ number_format($product->retail_list_price_a,2) }}</del>
+                                                            @endif
+                                                    </span>
+                                                    </div>
+
+                                                    <div class="manufacturer-name details_tag" style="margin-top: 20px;line-height: 30px;">
+                                                        @if($product->perennial == 'YES')
+                                                            <a href="{{ url("/plants?category=perennial") }}">Perennial</a>
+                                                        @endif
+                                                        @if($product->shrub == 'YES')
+                                                            <a  href="{{ url("/plants?category=shrub") }}">Shrub</a>
+                                                        @endif
+                                                        @if($product->vine == 'YES')
+                                                            <a  href="{{ url("/plants?category=vine") }}">Vine</a>
+                                                        @endif
+                                                        @if($product->grass_bamboo == 'YES')
+                                                            <a  href="{{ url("/plants?category=grass_bamboo") }}">Grass/Bamboo</a>
+                                                        @endif
+                                                        @if($product->hardy_tropical == 'YES')
+                                                            <a  href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
+                                                        @endif
+                                                        @if($product->water_plant == 'YES')
+                                                            <a  href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
+                                                        @endif
+                                                        @if($product->annual == 'YES')
+                                                            <a  href="{{ url("/plants?category=annual") }}">Annual</a>
+                                                        @endif
+                                                        @if($product->house_deck_plant == 'YES')
+                                                            <a  href="{{ url("/plants?category=house_deck_plant") }}">House / Deck Plant</a>
+                                                        @endif
+                                                        @if($product->cactus_succulent == 'YES')
+                                                            <a  href="{{ url("/plants?category=cactus_succulent") }}">Cactus / Succulent</a>
+                                                        @endif
+                                                        @if($product->small_tree == 'YES')
+                                                            <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
+                                                        @endif
+                                                        @if($product->large_tree == 'YES')
+                                                            <a  href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        @endforeach
+                                        <!-- product item end -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- product tab content end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @endif
 
         <!-- banner statistics area start -->
         <div class="banner-statistics-area">
@@ -217,6 +330,62 @@
                                             <div class="product-caption text-center">
                                                 <div class="product-identity">
                                                     <p class="manufacturer-name white_text"><a href="product-details.html">Green</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-item">
+                                            <figure class="product-thumb">
+                                                <a href="product-details.html">
+                                                    <img class="pri-img" src="{{ asset('plants_images/blue.png')  }}" alt="product">
+                                                    <img class="sec-img" src="{{ asset('plants_images/blue.png')  }}" alt="product">
+                                                </a>
+                                            </figure>
+                                            <div class="product-caption text-center">
+                                                <div class="product-identity">
+                                                    <p class="manufacturer-name white_text"><a href="product-details.html">Blue</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-item">
+                                            <figure class="product-thumb">
+                                                <a href="product-details.html">
+                                                    <img class="pri-img" src="{{ asset('plants_images/lavendar.png')  }}" alt="product">
+                                                    <img class="sec-img" src="{{ asset('plants_images/lavendar.png')  }}" alt="product">
+                                                </a>
+                                            </figure>
+                                            <div class="product-caption text-center">
+                                                <div class="product-identity">
+                                                    <p class="manufacturer-name white_text"><a href="product-details.html">Lavendar</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-item">
+                                            <figure class="product-thumb">
+                                                <a href="product-details.html">
+                                                    <img class="pri-img" src="{{ asset('plants_images/purple.png')  }}" alt="product">
+                                                    <img class="sec-img" src="{{ asset('plants_images/purple.png')  }}" alt="product">
+                                                </a>
+                                            </figure>
+                                            <div class="product-caption text-center">
+                                                <div class="product-identity">
+                                                    <p class="manufacturer-name white_text"><a href="product-details.html">Purple</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-item">
+                                            <figure class="product-thumb">
+                                                <a href="product-details.html">
+                                                    <img class="pri-img" src="{{ asset('plants_images/pink.png')  }}" alt="product">
+                                                    <img class="sec-img" src="{{ asset('plants_images/pink.png')  }}" alt="product">
+                                                </a>
+                                            </figure>
+                                            <div class="product-caption text-center">
+                                                <div class="product-identity">
+                                                    <p class="manufacturer-name white_text"><a href="product-details.html">Pink</a></p>
                                                 </div>
                                             </div>
                                         </div>

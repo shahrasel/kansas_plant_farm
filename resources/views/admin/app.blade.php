@@ -960,6 +960,60 @@
 
                 </li>
 
+                <li class="has-sub-menu">
+                    <a href="{{ url('/admin/garden-themes') }}">
+                        <div class="icon-w">
+                            <div class="os-icon os-icon-layout"></div>
+                        </div>
+                        <span>Garden Themes</span></a>
+                    <div class="sub-menu-w">
+                        <div class="sub-menu-header">
+                            Garden Themes
+                        </div>
+                        <div class="sub-menu-icon">
+                            <i class="os-icon os-icon-layout"></i>
+                        </div>
+                        <div class="sub-menu-i">
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="{{ url('/admin/garden-themes') }}">All Garden Themes</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/admin/garden-themes/create') }}">Add Garden Theme</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+
+                <li class="has-sub-menu">
+                    <a href="{{ url('/admin/events') }}">
+                        <div class="icon-w">
+                            <div class="os-icon os-icon-layout"></div>
+                        </div>
+                        <span>Events</span></a>
+                    <div class="sub-menu-w">
+                        <div class="sub-menu-header">
+                            Events
+                        </div>
+                        <div class="sub-menu-icon">
+                            <i class="os-icon os-icon-layout"></i>
+                        </div>
+                        <div class="sub-menu-i">
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="{{ url('/admin/events') }}">All Events</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/admin/events/create') }}">Add Event</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+
                 <li class="selected">
                     <a href="{{ url('/admin') }}">
                         <div class="icon-w">

@@ -36,6 +36,7 @@
 
 
     @yield('custom_styles')
+    @yield('custom_event_js')
 </head>
 <body>
 @inject('cart', 'App\Models\Cart')
@@ -633,7 +634,7 @@
 <!-- Modernizer JS -->
 <script src="{{ asset('js/vendor/modernizr-3.6.0.min.js')  }}"></script>
 <!-- jQuery JS -->
-<script src="{{ asset('js/vendor/jquery-3.3.1.min.js')  }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <!-- Popper JS -->
 <script src="{{ asset('js/vendor/popper.min.js')  }}"></script>
 <!-- Bootstrap JS -->
@@ -755,36 +756,45 @@
     }
 
     function change_price(id, user_type) {
-        //alert(id +'----'+jQuery('#size_select_box').val()+'----'+user_type);
-        /*if(jQuery("#size_select_box").val()=='44') {
-            hideAllPrice();
-            jQuery("#44_size_price").css('display','block');
-        }
-        else if(jQuery("#size_select_box").val()=='55') {
-            hideAllPrice();
-            jQuery("#55gal_size_price").css('display','block');
-        }
-        else if(jQuery("#size_select_box").val()=='66') {
-            hideAllPrice();
-            jQuery("#flat66_size_price").css('display','block');
-        }*/
         $.ajax({url: "../get-product-price?id="+id+"&user_type="+user_type+"&size="+jQuery('#size_select_box').val(), success: function(retval){
             var result = $.parseJSON(retval);
             if(user_type == 'contractor') {
-                if(result[0]) {
-                    jQuery(".price-regular-ajax-contractor").html('$' + result[0]);
-                    jQuery("#unit_price_contractor").val(result[0]);
+                if(result['price'][0]) {
+                    jQuery(".price-regular-ajax-contractor").html('$' + result['price'][0]);
+                    jQuery("#unit_price_contractor").val(result['price'][0]);
+
+                    if(parseInt(result['available'])>0) {
+                        if(parseInt(result['available']) >= 10)
+                            jQuery("#product_count").html('Currently '+parseInt(result['available'])+' in stock');
+                        else
+                            jQuery("#product_count").html('Only '+parseInt(result['available'])+' in stock');
+
+                        jQuery("#max_item").val(result['available']);
+                        jQuery("#quantity").val(1);
+
+                    }
                 }
             }
             else {
-                if(result[0]) {
-                    jQuery(".price-regular-ajax").html('$' + result[0]);
-                    jQuery("#unit_price_user1").val(result[0]);
-                    jQuery("#unit_price_user2").val(result[0]);
+                if(result['price'][0]) {
+                    jQuery(".price-regular-ajax").html('$' + result['price'][0]);
+                    jQuery("#unit_price_user1").val(result['price'][0]);
+                    jQuery("#unit_price_user2").val(result['price'][0]);
                 }
 
-                if(result[1])
-                    jQuery(".price-old-ajax").html('<del>$'+result[1]+'</del>');
+                if(result['price'][1])
+                    jQuery(".price-old-ajax").html('<del>$'+result['price'][1]+'</del>');
+
+                if(parseInt(result['available'])>0) {
+                    if(parseInt(result['available']) >= 10)
+                        jQuery("#product_count").html('Currently '+parseInt(result['available'])+' in stock');
+                    else
+                        jQuery("#product_count").html('Only '+parseInt(result['available'])+' in stock');
+
+                    jQuery("#max_item").val(result['available']);
+                    jQuery("#quantity").val(1);
+
+                }
             }
         }});
     }
