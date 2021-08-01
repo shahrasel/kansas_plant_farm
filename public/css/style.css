@@ -1034,14 +1034,14 @@ textarea:focus {
 
 /*------- short classes start -------*/
 .section-padding {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 @media only screen and (max-width: 767.98px) {
   .section-padding {
-    padding-top: 63px;
-    padding-bottom: 63px;
+    padding-top: 53px;
+    padding-bottom: 53px;
   }
 }
 
@@ -1886,6 +1886,9 @@ textarea:focus {
   .mobile-menu {
     margin-top: 15px;
   }
+    .text-xs-center {
+        text-align: center;
+    }
 }
 
 .mobile-menu li > a {

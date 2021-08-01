@@ -408,24 +408,24 @@
 
 <!-- footer area start -->
 <footer class="footer-widget-area">
-    <div class="footer-top section-padding">
+    <div class="footer-top section-padding" style="padding-bottom: 40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="widget-item">
                         <div class="widget-title">
-                            <div class="widget-logo">
+                            <div class="widget-logo text-center">
                                 <a href="{{ url('/') }}">
                                     <img src="{{ asset('plants_images/logo_bottom.png') }}" alt="brand logo">
                                 </a>
                             </div>
                         </div>
-                        <div class="widget-body">
+<!--                        <div class="widget-body">
                             <p>Kansas Plant Farm offers the highest quality of plants with over 500 varieties.</p>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 text-xs-center">
                     <div class="widget-item">
                         <h6 class="widget-title">Contact Us</h6>
                         <div class="widget-body">
@@ -441,7 +441,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 text-xs-center">
                     <div class="widget-item">
                         <h6 class="widget-title">Quick Menu</h6>
                         <div class="widget-body">
@@ -456,7 +456,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 text-center">
                     <div class="widget-item">
                         <h6 class="widget-title">Follow Us</h6>
                         <div class="widget-body social-link">
@@ -468,7 +468,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center mt-20">
+            <div class="d-flex justify-content-center my-3">
+                <div class="p-2"><a href="" style="color: #7fbc03">Terms & Conditions</a></div>
+                <div class="p-2">|</div>
+                <div class="p-2"><a href="" style="color: #7fbc03">Privacy Policy</a></div>
+                <div class="p-2">|</div>
+                <div class="p-2"><a href="" style="color: #7fbc03">Our Guarantee</a></div>
+            </div>
+            <div class="row align-items-center">
 <!--                <div class="col-md-6">
                     <div class="newsletter-wrapper">
                         <h6 class="widget-title-text">Signup for newsletter</h6>

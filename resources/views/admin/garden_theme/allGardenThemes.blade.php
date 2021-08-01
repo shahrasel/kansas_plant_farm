@@ -71,7 +71,7 @@
                                         <td>{{ $garden_theme_list->title }}</td>
                                         <td>{{ $garden_theme_list->created_at }}</td>
                                         <td><a href="{{ url('/admin/garden-themes/'.$garden_theme_list->id.'/edit') }}">Edit</a></td>
-                                        <td><a href="{{ url('/admin/edit-product/'.$garden_theme_list->id) }}">Delete</a></td>
+                                        <td><a href="{{ url('/admin/garden-themes/'.$garden_theme_list->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
                                     </tr>
                                 @empty
                                     <tr>

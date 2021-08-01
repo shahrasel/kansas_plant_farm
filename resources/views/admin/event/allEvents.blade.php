@@ -83,7 +83,7 @@
                                         <td>${{ $event->price }}</td>
                                         <td><img src="{{ url('img/event/'.$event->image) }}" style="width: 100px"></td>
                                         <td><a href="{{ url('/admin/events/'.$event->id.'/edit') }}">Edit</a></td>
-                                        <td><a href="{{ url('/admin/edit-product/'.$event->id) }}">Delete</a></td>
+                                        <td><a href="{{ url('/admin/events/'.$event->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
                                     </tr>
                                 @empty
                                     <tr>

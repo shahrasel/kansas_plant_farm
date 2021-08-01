@@ -10,7 +10,7 @@ use Intervention\Image\Facades\Image;
 class EventController extends Controller
 {
     public function upcomingEvents() {
-        $event_lists = Event::where('start_date', '>', \DB::raw('NOW()'))->get();
+        $event_lists = Event::where('start_date', '>', \DB::raw('NOW()'))->orderBy('id', 'DESC')->get();
 
         return view('events.upcomingevents', [
             'event_lists' => $event_lists
@@ -176,6 +176,7 @@ class EventController extends Controller
      */
     public function destroy(EventController $event)
     {
-        //
+        $event->delete();
+        return redirect(url('admin/events'));
     }
 }

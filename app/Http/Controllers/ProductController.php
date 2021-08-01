@@ -1326,14 +1326,14 @@ class ProductController extends Controller
                                         $query->orWhere('plant_limitations', 'like', '%,' . $plant_limitations_sel_arr [$i] . ',%');
                                     }
                                 });
-                        })
+                        })->orderBy('botanical_name','ASC')
                         ->paginate(50);
 
 
                 }
                 else {
                     $product_lists = DB::table('products')
-                        ->where($where_query)
+                        ->where($where_query)->orderBy('botanical_name','ASC')
                         ->paginate(50);
                 }
             }
@@ -1353,7 +1353,7 @@ class ProductController extends Controller
 
 
             $sel_products = DB::table('products')
-                ->select('sunlight', 'water_rainfall', 'soil_quality', 'bloom_season', 'flower_color', 'berry_fruit_color', 'spring_foliage_color', 'summer_foliage_color', 'fall_foliage_color', 'has_evergreen_foliage', 'has_winter_interest', 'scented_flowers', 'drought_tolerance', 'wet_feet_tolerance', 'humidity_tolerance', 'wind_tolerence', 'poor_soil_tolerance', 'growth_rate', 'service_life', 'maintenance_requirements', 'spreading_potential', 'yearly_trimming_tips','plant_grouping_size','best_side_of_house','extreme_planting_locations','ornamental_features','special_landscape_uses','possible_pest_problems','plant_limitations')
+                ->select('sunlight', 'water_rainfall', 'soil_quality', 'bloom_season', 'flower_color', 'berry_fruit_color', 'spring_foliage_color', 'summer_foliage_color', 'fall_foliage_color', 'has_evergreen_foliage', 'has_winter_interest', 'scented_flowers', 'drought_tolerance', 'wet_feet_tolerance', 'humidity_tolerance', 'wind_tolerence', 'poor_soil_tolerance', 'growth_rate', 'service_life', 'maintenance_requirements', 'spreading_potential', 'yearly_trimming_tips','plant_grouping_size','best_side_of_house','extreme_planting_locations','ornamental_features','special_landscape_uses','possible_pest_problems','plant_limitations')->orderBy('botanical_name','ASC')
                 ->get();
             if(!empty($sel_products)) {
                 $sunlight_arr = array();
@@ -2151,12 +2151,12 @@ class ProductController extends Controller
                             for ($i = 0; $i < count($plant_limitations_sel_arr); $i++){
                                 $query->where('plant_limitations', 'like',  '%' . $plant_limitations_sel_arr [$i] .',%');
                             }
-                        })
+                        })->orderBy('botanical_name','ASC')
                         ->paginate(50);
                 }
                 else {
                     $product_lists = DB::table('products')
-                        ->where($where_query)
+                        ->where($where_query)->orderBy('botanical_name','ASC')
                         ->paginate(50);
                 }
             }
@@ -2176,7 +2176,7 @@ class ProductController extends Controller
 
 
             $sel_products = DB::table('products')
-                ->select('sunlight', 'water_rainfall', 'soil_quality', 'bloom_season', 'flower_color', 'berry_fruit_color', 'spring_foliage_color', 'summer_foliage_color', 'fall_foliage_color', 'has_evergreen_foliage', 'has_winter_interest', 'scented_flowers', 'drought_tolerance', 'wet_feet_tolerance', 'humidity_tolerance', 'wind_tolerence', 'poor_soil_tolerance', 'growth_rate', 'service_life', 'maintenance_requirements', 'spreading_potential', 'yearly_trimming_tips','plant_grouping_size','best_side_of_house','extreme_planting_locations','ornamental_features','special_landscape_uses','possible_pest_problems','plant_limitations')
+                ->select('sunlight', 'water_rainfall', 'soil_quality', 'bloom_season', 'flower_color', 'berry_fruit_color', 'spring_foliage_color', 'summer_foliage_color', 'fall_foliage_color', 'has_evergreen_foliage', 'has_winter_interest', 'scented_flowers', 'drought_tolerance', 'wet_feet_tolerance', 'humidity_tolerance', 'wind_tolerence', 'poor_soil_tolerance', 'growth_rate', 'service_life', 'maintenance_requirements', 'spreading_potential', 'yearly_trimming_tips','plant_grouping_size','best_side_of_house','extreme_planting_locations','ornamental_features','special_landscape_uses','possible_pest_problems','plant_limitations')->orderBy('botanical_name', 'ASC')
                 ->get();
             if(!empty($sel_products)) {
                 $sunlight_arr = array();
@@ -2753,7 +2753,7 @@ class ProductController extends Controller
                         }
                     }
                 })
-                ->orderBy('botanical_name', 'asc')->paginate(200);
+                ->orderBy('botanical_name', 'ASC')->paginate(200);
         }
 
 

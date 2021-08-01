@@ -143,6 +143,8 @@ Route::delete('/admin/garden-themes/{gardenTheme}', [\App\Http\Controllers\Garde
 Route::any('/admin/edit-garden-theme-image/{id}', [\App\Http\Controllers\GardenThemeController::class, 'adminEditGardenTheme'])->name('admin-garden-theme-image')->middleware('adminauth');
 Route::any('/admin/garden-theme-image-processor/{id}', [\App\Http\Controllers\GardenThemeController::class, 'adminGardenThemeImageProcessor'])->name('garden-theme-image-processor')->middleware('adminauth');
 
+Route::get('/admin/garden-themes/{gardenTheme}/delete', [\App\Http\Controllers\GardenThemeController::class, 'destroy'])->name('admin-garden-theme-delete')->middleware('adminauth');
+
 
 ################## EVENT ####################
 Route::get('/admin/events',[\App\Http\Controllers\EventController::class, 'index'])->name('admin-event-index')->middleware('adminauth');
@@ -152,6 +154,18 @@ Route::get('/admin/events/{event}',[\App\Http\Controllers\EventController::class
 Route::get('/admin/events/{event}/edit',[\App\Http\Controllers\EventController::class, 'edit'])->name('admin-event-edit')->middleware('adminauth');
 Route::put('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'update'])->name('admin-event-update')->middleware('adminauth');
 Route::delete('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'delete'])->name('admin-event-delete')->middleware('adminauth');
+Route::get('/admin/events/{event}/delete', [\App\Http\Controllers\EventController::class, 'destroy'])->name('admin-event-delete')->middleware('adminauth');
+
+
+################## Home Billboard ####################
+Route::get('/admin/billboards',[\App\Http\Controllers\EventController::class, 'index'])->name('admin-billboard-index')->middleware('adminauth');
+Route::get('/admin/billboards/create',[\App\Http\Controllers\EventController::class, 'create'])->name('admin-billboard-create')->middleware('adminauth');
+Route::post('/admin/billboards',[\App\Http\Controllers\EventController::class, 'store'])->name('admin-billboard-store')->middleware('adminauth');
+Route::get('/admin/billboards/{billboard}',[\App\Http\Controllers\EventController::class, 'show'])->name('admin-billboard-show')->middleware('adminauth');
+Route::get('/admin/billboards/{billboard}/edit',[\App\Http\Controllers\EventController::class, 'edit'])->name('admin-billboard-edit')->middleware('adminauth');
+Route::put('/admin/billboards/{billboard}',[\App\Http\Controllers\EventController::class, 'update'])->name('admin-billboard-update')->middleware('adminauth');
+Route::delete('/admin/billboards/{billboard}',[\App\Http\Controllers\EventController::class, 'delete'])->name('admin-billboard-delete')->middleware('adminauth');
+Route::get('/admin/billboards/{billboard}/delete', [\App\Http\Controllers\EventController::class, 'destroy'])->name('admin-billboard-delete')->middleware('adminauth');
 
 ############################ ADMIN PANEL ############################
 

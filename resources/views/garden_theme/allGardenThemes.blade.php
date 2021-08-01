@@ -9,10 +9,12 @@
 @section('content')
     <main>
         <!-- checkout main wrapper start -->
-        <div class="checkout-page-wrapper section-padding">
+        <div class="checkout-page-wrapper section-padding pt-4" >
             <div class="container">
+                <h1 class="text-lg-left text-md-left text-sm-center mb-30">Garden Ideas</h1>
                 @foreach($garden_theme_lists as $garden_theme_list)
-                    @if(count(json_decode($garden_theme_list->images))>0)
+                    @if(!empty($garden_theme_list->images))
+                        @if(count(json_decode($garden_theme_list->images))>0)
                         <div style="margin-bottom: 60px;border-bottom: 1px solid;padding-bottom: 50px;">
                             <section class="slider">
                                 <div id="slider_{{ $garden_theme_list->id }}" class="flexslider">
@@ -40,6 +42,7 @@
                             </section>
                         </div>
                     @endif
+                    @endif
                 @endforeach
             </div>
         </div>
@@ -51,27 +54,29 @@
     <script type="text/javascript">
         $(window).load(function(){
             @foreach($garden_theme_lists as $garden_theme_list)
-                @if(count(json_decode($garden_theme_list->images))>0)
-                    $('#carousel_{{ $garden_theme_list->id }}').flexslider({
-                        animation: "slide",
-                        controlNav: false,
-                        animationLoop: false,
-                        slideshow: false,
-                        itemWidth: 210,
-                        itemMargin: 5,
-                        asNavFor: '#slider_{{ $garden_theme_list->id }}'
-                    });
+                @if(!empty($garden_theme_list->images))
+                    @if(count(json_decode($garden_theme_list->images))>0)
+                        $('#carousel_{{ $garden_theme_list->id }}').flexslider({
+                            animation: "slide",
+                            controlNav: false,
+                            animationLoop: false,
+                            slideshow: false,
+                            itemWidth: 210,
+                            itemMargin: 5,
+                            asNavFor: '#slider_{{ $garden_theme_list->id }}'
+                        });
 
-                    $('#slider_{{ $garden_theme_list->id }}').flexslider({
-                        animation: "slide",
-                        controlNav: false,
-                        animationLoop: false,
-                        slideshow: false,
-                        sync: "#carousel",
-                        start: function(slider){
-                            $('body').removeClass('loading');
-                        }
-                    });
+                        $('#slider_{{ $garden_theme_list->id }}').flexslider({
+                            animation: "slide",
+                            controlNav: false,
+                            animationLoop: false,
+                            slideshow: false,
+                            sync: "#carousel",
+                            start: function(slider){
+                                $('body').removeClass('loading');
+                            }
+                        });
+                    @endif
                 @endif
             @endforeach
         });

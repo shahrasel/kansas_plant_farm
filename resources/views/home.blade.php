@@ -12,7 +12,7 @@
         <section class="slider-area">
             <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
                 <!-- single slider item start -->
-                <div class="hero-single-slide hero-overlay">
+                <div class="hero-single-slide">
                     <div class="hero-slider-item bg-img" data-bg="{{ asset('plants_images/billboard_1.png') }}">
                         <div class="container">
                             <div class="row">
@@ -232,7 +232,7 @@
                             </a>
                             <div class="banner-content text-right">
 <!--                                <h5 class="banner-text1">NEW ARRIVALLS</h5>-->
-                                <h2 class="banner-text2">Fall<span>Plants</span></h2>
+                                <h2 class="banner-text2">Fall <span>Plants</span></h2>
                                 <a href="shop.html" class="btn btn-text shop">Shop Now</a>
                             </div>
                         </figure>
@@ -244,7 +244,7 @@
                             </a>
                             <div class="banner-content text-right">
 <!--                                <h5 class="banner-text1">NEW DESIGN</h5>-->
-                                <h2 class="banner-text2">Winter<span>Plants</span></h2>
+                                <h2 class="banner-text2">Winter <span>Plants</span></h2>
                                 <a href="shop.html" class="btn btn-text shop">Shop Now</a>
                             </div>
                         </figure>

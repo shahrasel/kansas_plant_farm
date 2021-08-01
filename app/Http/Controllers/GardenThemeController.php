@@ -13,7 +13,7 @@ use Intervention\Image\Facades\Image;
 class GardenThemeController extends Controller
 {
     public function frontGardenIdeas() {
-        $garden_theme_lists = GardenTheme::get();
+        $garden_theme_lists = GardenTheme::orderBy('id', 'DESC')->get();
 
         //dd($garden_theme_lists);
         return view('garden_theme.allGardenThemes', [
@@ -73,7 +73,7 @@ class GardenThemeController extends Controller
             $thumb_image_resize->save(public_path('img/garden_theme/thumb/' .$request->id.'/'. $filename));
 
             $lg_image_resize = Image::make($path->getRealPath());
-            $lg_image_resize->resize(600, null, function ($constraint) {
+            $lg_image_resize->resize(1200, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
@@ -223,6 +223,12 @@ class GardenThemeController extends Controller
 
         return redirect(url('/admin/garden-themes/'.$inserted_data->id.'/edit'));
 
+    }
+
+    public function destroy(GardenTheme $gardenTheme)
+    {
+        $gardenTheme->delete();
+        return redirect(url('admin/garden-themes'));
     }
 
     protected function validateGardenTheme() {

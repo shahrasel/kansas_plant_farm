@@ -75,7 +75,7 @@
         <!-- breadcrumb area end -->
 
         <!-- page main wrapper start -->
-        <div class="shop-main-wrapper section-padding">
+        <div class="shop-main-wrapper section-padding" style="padding-top: 40px">
             <div class="container" id="parent_container">
                 <div class="row">
                     <!-- sidebar area start -->
@@ -1001,6 +1001,7 @@
                     <div class="col-lg-9 order-1 order-lg-2">
                         <div class="shop-product-wrapper">
                             <div class="alpha_pagination text-center mb-30">
+                                <h1 class="text-lg-left text-md-left text-sm-center mb-30">Plants</h1>
                                 <p style="text-align: left;">Shop by Latin Name:</p>
                                 <ul class="pagination-box" style="text-align: left;">
                                     @if(!empty($query1))
@@ -1255,7 +1256,7 @@
                                                             <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
                                                     @endif
                                                     @if($product->large_tree == 'YES')
-                                                            <a  href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
+                                                            <a  href="{{ url("/plants?category=large_tree") }}">Large Tree</a>
                                                     @endif
                                                 </div>
                                             </div>
@@ -1345,7 +1346,7 @@
                                                         <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
                                                 @endif
                                                 @if($product->large_tree == 'YES')
-                                                        <a  href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
+                                                        <a  href="{{ url("/plants?category=large_tree") }}">Large Tree</a>
                                                 @endif
                                             </div>
                                             <p style="padding-top:15px;">

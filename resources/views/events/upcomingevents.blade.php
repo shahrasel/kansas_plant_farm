@@ -9,8 +9,9 @@
 @section('content')
     <main>
         <!-- checkout main wrapper start -->
-        <div class="checkout-page-wrapper section-padding">
+        <div class="checkout-page-wrapper section-padding pt-4">
             <div class="container">
+                <h1 class="text-lg-left text-md-left text-sm-center mb-30">Upcoming Events</h1>
                 @foreach($event_lists as $event_list)
                     <div class="row" style="margin-bottom: 50px;border-bottom: 1px solid;padding-bottom: 40px;">
                         <div class="col-xl-4 col-xxl-4 col-lg-4 col-md-4 col-sm-6 pb-4">

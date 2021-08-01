@@ -4,8 +4,22 @@
     @inject('product_model', 'App\Models\Product')
     <main>
         <!-- page main wrapper start -->
-        <div class="shop-main-wrapper section-padding pb-0">
+        <div class="shop-main-wrapper section-padding pb-0 pt-4">
             <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="{{ url('/plants') }}">Plants</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ $product->botanical_name }} / {{ $product->common_name }}</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <!-- product details wrapper start -->
                     <div class="col-lg-12 order-1 order-lg-2">
