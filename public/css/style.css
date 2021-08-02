@@ -6635,15 +6635,17 @@ blockquote {
 
 .contact-message form input, .contact-message form textarea {
   width: 100%;
-  border: none;
+  border: 1px solid #fff;
+  color: #7fbc03;
   padding: 10px 10px;
-  border-bottom: 3px solid transparent;
+  /*border-bottom: 3px solid transparent;*/
   background-color: #000;
   margin-bottom: 30px;
 }
 
 .contact-message form textarea {
-  height: 150px;
+  height: 100px;
+    color: #7fbc03;
 }
 
 /*------ contact form area start -------*/

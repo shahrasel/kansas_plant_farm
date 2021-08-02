@@ -10,6 +10,7 @@ class CartController extends Controller
 {
     public function add(Request $request)
     {
+        //dd($request);
         /*$cart_lists = Cart::with('product')->get();
         dd($cart_lists);*/
         if ($request->has('addtocart')) {
@@ -26,6 +27,10 @@ class CartController extends Controller
             $cart->quantity = $request->get('quantity');
             if($request->has('size')) {
                 $cart->size = $request->get('size');
+            }
+
+            if($request->has('pot_size')) {
+                $cart->pot_size = $request->get('pot_size');
             }
 
 

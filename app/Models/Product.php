@@ -172,25 +172,30 @@ class Product extends Model
 
         $price_arr = array();
         $available = 0;
+        $pot_size = "";
 
         if (Auth::check()) {
             if(Auth()->user()->usertype=='contractor') {
                 if(!empty($product->other_product_service_name)) {
                     $price_arr[]= number_format($product->contractor_price_a,2);
                     $available = $product->inventory_count_a;
+                    $pot_size = "a";
                 }
                 else {
                     if($size == $product->pot_size_a) {
                         $price_arr[]= number_format($product->contractor_price_a,2);
                         $available = $product->inventory_count_a;
+                        $pot_size = "a";
                     }
                     elseif($size == $product->pot_size_b) {
                         $price_arr[]= number_format($product->contractor_price_b,2);
                         $available = $product->inventory_count_b;
+                        $pot_size = "b";
                     }
                     elseif($size == $product->pot_size_c) {
                         $price_arr[]= number_format($product->contractor_price_c,2);
                         $available = $product->inventory_count_c;
+                        $pot_size = "c";
                     }
                 }
             }
@@ -199,20 +204,24 @@ class Product extends Model
                     $price_arr[] = number_format($product->retail_sale_price_a, 2);
                     $price_arr[] = number_format($product->retail_list_price_a, 2);
                     $available = $product->inventory_count_a;
+                    $pot_size = "a";
                 }
                 else {
                     if ($size == $product->pot_size_a) {
                         $price_arr[] = number_format($product->retail_sale_price_a, 2);
                         $price_arr[] = number_format($product->retail_list_price_a, 2);
                         $available = $product->inventory_count_a;
+                        $pot_size = "a";
                     } elseif ($size == $product->pot_size_b) {
                         $price_arr[] = number_format($product->retail_sale_price_b, 2);
                         $price_arr[] = number_format($product->retail_list_price_b, 2);
                         $available = $product->inventory_count_b;
+                        $pot_size = "b";
                     } elseif ($size == $product->pot_size_c) {
                         $price_arr[] = number_format($product->retail_sale_price_c, 2);
                         $price_arr[] = number_format($product->retail_list_price_c, 2);
                         $available = $product->inventory_count_c;
+                        $pot_size = "c";
                     }
                 }
             }
@@ -222,20 +231,24 @@ class Product extends Model
                 $price_arr[] = number_format($product->retail_sale_price_a, 2);
                 $price_arr[] = number_format($product->retail_list_price_a, 2);
                 $available = $product->inventory_count_a;
+                $pot_size = "a";
             }
             else {
                 if ($size == $product->pot_size_a) {
                     $price_arr[] = number_format($product->retail_sale_price_a, 2);
                     $price_arr[] = number_format($product->retail_list_price_a, 2);
                     $available = $product->inventory_count_a;
+                    $pot_size = "a";
                 } elseif ($size == $product->pot_size_b) {
                     $price_arr[] = number_format($product->retail_sale_price_b, 2);
                     $price_arr[] = number_format($product->retail_list_price_b, 2);
                     $available = $product->inventory_count_b;
+                    $pot_size = "b";
                 } elseif ($size == $product->pot_size_c) {
                     $price_arr[] = number_format($product->retail_sale_price_c, 2);
                     $price_arr[] = number_format($product->retail_list_price_c, 2);
                     $available = $product->inventory_count_c;
+                    $pot_size = "c";
                 }
             }
         }
@@ -243,6 +256,7 @@ class Product extends Model
         $return_arr = array();
         $return_arr['price'] = $price_arr;
         $return_arr['available'] = $available;
+        $return_arr['pot_size'] = $pot_size;
 
         //dd($return_arr);
 

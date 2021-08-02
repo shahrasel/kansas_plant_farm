@@ -15,7 +15,7 @@ class Cart extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function getCartData() {
+    public static function getCartData() {
 
         $cart_lists = Cart::with('product')
             ->where('user_session_id', session()->getId())

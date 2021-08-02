@@ -32,26 +32,28 @@
                                             <span>{{ $product->tags }}</span>
                                         </div>
                                     </div>-->
-                                    <div class="product-large-slider">
-                                        @if(!empty($product_model->getAllImages($product)))
-                                            @php $i=1; @endphp
-                                            @foreach($product_model->getAllImages($product) as $image)
-                                                <div class="pro-large-img">
-                                                    <img src="{{ url('img/product/large/'.$product->id.'/'.$image) }}" onclick="openModal();currentSlide({{ $i++ }})" />
-                                                </div>
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                    <div class="pro-nav slick-row-10 slick-arrow-style">
-                                        @if(!empty($product_model->getAllImages($product)))
-                                            @foreach($product_model->getAllImages($product) as $image)
-                                                <div class="pro-nav-thumb">
-                                                    <img src="{{ url('img/product/thumb/'.$product->id.'/'.$image) }}" alt="product-details" />
-                                                </div>
-                                            @endforeach
-                                        @endif
+                                    @if(!empty($product_model->getAllImages($product)))
+                                        <div class="product-large-slider">
 
-                                    </div>
+                                                @php $i=1; @endphp
+                                                @foreach($product_model->getAllImages($product) as $image)
+                                                    <div class="pro-large-img">
+                                                        <img src="{{ url('img/product/large/'.$product->id.'/'.$image) }}" onclick="openModal();currentSlide({{ $i++ }})" />
+                                                    </div>
+                                                @endforeach
+
+                                        </div>
+                                    @endif
+                                    @if(!empty($product_model->getAllImages($product)))
+                                        <div class="pro-nav slick-row-10 slick-arrow-style">
+
+                                                @foreach($product_model->getAllImages($product) as $image)
+                                                    <div class="pro-nav-thumb">
+                                                        <img src="{{ url('img/product/thumb/'.$product->id.'/'.$image) }}" alt="product-details" />
+                                                    </div>
+                                                @endforeach
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="product-details-des">
@@ -240,6 +242,7 @@
                                                     </div>
                                                     <div class="action_link">
                                                         <button class="btn btn-cart2">Add to cart</button>
+<!--                                                        <input type="submit" class="btn btn-cart2" value="Add to cart">-->
                                                     </div>
                                                 </div>
                                                 <input type="hidden" id="max_item" value="{{ $product->inventory_count_a }}">
@@ -257,6 +260,7 @@
                                                     @endif
                                                 </div>
                                             @endif
+                                            <input type="hidden" name="pot_size" id="pot_size" value="a">
                                             <input type="hidden" name="addtocart" value="1">
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
 
@@ -799,8 +803,10 @@
 
         }
 
-        var slideIndex = 1;
-        showSlides(slideIndex);
+        @if(!empty($product_model->getAllImages($product)))
+            var slideIndex = 1;
+            showSlides(slideIndex);
+        @endif
 
         // Next/previous controls
         function plusSlides(n) {

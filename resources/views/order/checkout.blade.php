@@ -347,6 +347,8 @@
                                         @php
                                             $i += $tax_amount;
                                         @endphp
+
+
                                         <tr>
                                             <td>Total</td>
                                             <td><strong>${{ number_format($i, 2, '.', ',') }}</strong></td>
@@ -358,6 +360,8 @@
                                         <p>No product is added to the cart!</p>
                                     @endif
                                 </div>-->
+
+                                <input type="hidden" id="total_val" value="{{ number_format($i, 2, '.', ',') }}">
 
 
                                 <div class="cart-table table-responsive">
@@ -592,7 +596,7 @@
 
                                             <div class="row">
                                                 <div class="col-lg-10 col-md-10 col-sm-10">
-                                                    <input type="submit" class="btn btn-sqr btn-submit" value="Continue Checkout" style="max-width: 320px;background-color: #7fbc03 !important">
+                                                    <input type="submit" class="btn btn-sqr btn-submit" value="Continue Checkout" style="max-width: 320px;background-color: #7fbc03 !important;color: #fff;border-color: #7fbc03;">
                                                 </div>
                                             </div>
                                         </div>

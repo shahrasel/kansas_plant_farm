@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 
+use App\Mail\consumerRegistration;
 use App\Models\User;
 use App\Rules\CurrentPasswordVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -73,16 +75,14 @@ class UserController extends Controller
 
             $user->save();
 
+            
+
             return redirect()->route('my-profile');
 
         }
     }
 
-    ///                      ///
-    ///                      ///
-    /// code for admin panel ///
-    ///                      ///
-    ///                      ///
+
     public function adminLogin(Request $request) {
         if($request->has('email') && $request->has('password')) {
             $this->validate($request, [

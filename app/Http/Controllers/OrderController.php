@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Mail\checkoutConfirmation;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderAdditional;
 use App\Models\Orderdetails;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -120,21 +124,28 @@ class OrderController extends Controller
     }
 
     public function paymentConfirmation(Request $request) {
-        $cart = new Cart();
-        $cart_lists = $cart->getCartData();
-        $total_val = 0;
+        //$cart = new Cart();
+        //$cart_lists = $cart->getCartData();
+        $cart_lists = Cart::getCartData();
+        //dd($cart_lists);
+
         $total_amount = 0;
         if(!empty($cart_lists)) {
             foreach ($cart_lists as $cart_list) {
                 if($cart_list->product->tax_free != 'YES') {
-                    $total_val = 9.30/100*($cart_list->quantity*$cart_list->unit_price);
+                    //echo $cart_list->quantity.'!!'.$cart_list->unit_price;
+                    $total_val = ($cart_list->quantity*$cart_list->unit_price)+(9.30/100*($cart_list->quantity*$cart_list->unit_price));
+
                 }
                 else {
                     $total_val = $cart_list->quantity*$cart_list->unit_price;
                 }
+                $total_amount += $total_val;
             }
-            $total_amount += $total_val;
+
         }
+        /*echo number_format($total_amount, 2, '.', ',').'####'.$request->get('amount');
+        exit;*/
         if(number_format($total_amount, 2, '.', ',') == $request->get('amount')) {
             $order = new Order();
             $order->orderid = $request->get('orderId');
@@ -149,8 +160,29 @@ class OrderController extends Controller
 
             $orderId = $order->id;
 
+            Mail::to($request->get('payerEmail'))
+                ->send(new checkoutConfirmation($request->get('payerFname'),$cart_lists));
+            //die();
+
             if(!empty($cart_lists)) {
                 foreach ($cart_lists as $cart_list) {
+
+                    $product_info = Product::find($cart_list->product_id);
+
+                    //$event->name = $request->name;
+                    if($cart_list->pot_size == 'a') {
+                        $product_info->inventory_count_a = ($product_info->inventory_count_a-$cart_list->quantity);
+                    }
+                    else if($cart_list->pot_size == 'b') {
+                        $product_info->inventory_count_b = ($product_info->inventory_count_b-$cart_list->quantity);
+                    }
+                    else if($cart_list->pot_size == 'c') {
+                        $product_info->inventory_count_c = ($product_info->inventory_count_c - $cart_list->quantity);
+                    }
+
+                    $product_info->save();
+
+
                     $orderdetails = new Orderdetails();
                     $orderdetails->order_id = $orderId;
                     $orderdetails->product_id = $cart_list->product_id;

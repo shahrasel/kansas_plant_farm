@@ -1014,6 +1014,33 @@
 
                 </li>
 
+                <li class="has-sub-menu">
+                    <a href="{{ url('/admin/billboards') }}">
+                        <div class="icon-w">
+                            <div class="os-icon os-icon-layout"></div>
+                        </div>
+                        <span>Billboards</span></a>
+                    <div class="sub-menu-w">
+                        <div class="sub-menu-header">
+                            Billboards
+                        </div>
+                        <div class="sub-menu-icon">
+                            <i class="os-icon os-icon-layout"></i>
+                        </div>
+                        <div class="sub-menu-i">
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="{{ url('/admin/billboards') }}">All Billboards</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/admin/billboards/create') }}">Add Billboard</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+
                 <li class="selected">
                     <a href="{{ url('/admin') }}">
                         <div class="icon-w">

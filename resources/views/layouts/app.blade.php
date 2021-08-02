@@ -777,6 +777,7 @@
                             jQuery("#product_count").html('Only '+parseInt(result['available'])+' in stock');
 
                         jQuery("#max_item").val(result['available']);
+                        jQuery("#pot_size").val(result['pot_size']);
                         jQuery("#quantity").val(1);
 
                     }
@@ -799,6 +800,7 @@
                         jQuery("#product_count").html('Only '+parseInt(result['available'])+' in stock');
 
                     jQuery("#max_item").val(result['available']);
+                    jQuery("#pot_size").val(result['pot_size']);
                     jQuery("#quantity").val(1);
 
                 }

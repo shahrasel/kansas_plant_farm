@@ -108,12 +108,12 @@ class RegisterController extends Controller
             ->send(new consumerRegistration($data['firstname']));
         die();*/
 
-        $cart_lists = Cart::where('user_session_id','57amlBuIqedocH2gy5kxdNvQ105hVjiQvRyhtI1z')->get();
+        /*$cart_lists = Cart::where('user_session_id','57amlBuIqedocH2gy5kxdNvQ105hVjiQvRyhtI1z')->get();
 
 
         Mail::to('shahrasel@gmail.com')
             ->send(new inquireEmail($data['firstname'],$cart_lists));
-        die();
+        die();*/
 
         $user = new User();
         $user->firstname = $data['firstname'];
@@ -123,6 +123,9 @@ class RegisterController extends Controller
         $user->usertype = 'buyer';
         $user->save();
 
+        //Mail::to($data['email'])->send(new consumerRegistration($data['firstname']));
+
+        //return redirect($this->redirectPath())->with('message', 'Your message');
         //return redirect()->route('login');
         //return redirect($this->redirectPath())->with('message', 'Your message');
         //return route('login');
@@ -130,7 +133,10 @@ class RegisterController extends Controller
 
 
 
-        return route('checkout');
+        //return route('checkout');
+        //return view('login');
+
+        return route('login');
 
     }
 
