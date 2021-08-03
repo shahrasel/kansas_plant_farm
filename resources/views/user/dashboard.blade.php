@@ -43,8 +43,7 @@
                                                 <div class="myaccount-content">
                                                     <h5>Dashboard</h5>
                                                     <div class="welcome">
-                                                        <p>Hello, <strong>{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</strong> (If Not <strong>Jhonson
-                                                                !</strong><a href="login-register.html" class="logout"> Logout</a>)</p>
+                                                        <p>Hello <strong>{{ auth()->user()->firstname }},</strong></p>
                                                     </div>
                                                     <p class="mb-0">From your account dashboard. you can easily check &
                                                         view your recent orders, manage your shipping and billing addresses

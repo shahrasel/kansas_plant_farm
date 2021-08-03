@@ -361,7 +361,7 @@
                                     @endif
                                 </div>-->
 
-                                <input type="hidden" id="total_val" value="{{ number_format($i, 2, '.', ',') }}">
+                                <input type="hidden" id="total_val" value="{{ str_replace(',','',number_format($i, 2, '.', ','))  }}">
 
 
                                 <div class="cart-table table-responsive">

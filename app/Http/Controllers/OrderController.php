@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\OrderAdditional;
 use App\Models\Orderdetails;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -17,6 +18,14 @@ use Illuminate\Support\Facades\Session;
 class OrderController extends Controller
 {
     //
+    public function paySuccess() {
+        return view('order.paySuccess');
+    }
+
+    public function payFailed() {
+        return view('order.payFailed');
+    }
+
     public function checkout() {
         $cart = new Cart();
         $cart_lists = $cart->getCartData();
@@ -146,7 +155,7 @@ class OrderController extends Controller
         }
         /*echo number_format($total_amount, 2, '.', ',').'####'.$request->get('amount');
         exit;*/
-        if(number_format($total_amount, 2, '.', ',') == $request->get('amount')) {
+        if(str_replace(',','',number_format($total_amount, 2, '.', ',')) == $request->get('amount')) {
             $order = new Order();
             $order->orderid = $request->get('orderId');
             $order->order_additional_id = Session::get('selOrderAdditionalId');

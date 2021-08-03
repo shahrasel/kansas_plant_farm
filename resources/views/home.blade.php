@@ -12,21 +12,23 @@
         <section class="slider-area">
             <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
                 <!-- single slider item start -->
-                <div class="hero-single-slide">
-                    <div class="hero-slider-item bg-img" data-bg="{{ asset('plants_images/billboard_1.png') }}">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="hero-slider-content slide-1">
-                                        <h2 class="slide-title">BEST SELLERS</h2>
-                                        <h4 class="slide-desc">2021 Top Selling Plants.</h4>
-                                        <a href="{{ url('/') }}/plants?category=best-sellers&min_zone=&max_zone=" class="btn btn-hero">See All</a>
+                @foreach($billboard_image_lists as $billboard_image_list)
+                    <div class="hero-single-slide">
+                    <div class="hero-slider-item bg-img" data-bg="{{ asset('img/billboard/') }}/{{ $billboard_image_list->image }}">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="hero-slider-content slide-1">
+                                            <h2 class="slide-title">{{ $billboard_image_list->heading }}</h2>
+                                            <h4 class="slide-desc">{{ $billboard_image_list->subheading }}</h4>
+                                            <a href="{{ $billboard_image_list->button_url }}" class="btn btn-hero">{{ $billboard_image_list->button_text }}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
                 <!-- single slider item start -->
             </div>
         </section>
@@ -79,8 +81,8 @@
                                 <img src="{{ asset('plants_images/transport.png') }}">
                             </div>
                             <div class="policy-content">
-                                <h6>By Appointment Only</h6>
-                                <p>Click Here</p>
+                                <h6>See Upcoming Events</h6>
+                                <p><a href="{{ url('/upcoming-events') }}">Click Here</a></p>
                             </div>
                         </div>
                     </div>

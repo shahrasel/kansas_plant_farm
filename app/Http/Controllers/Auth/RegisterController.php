@@ -123,7 +123,7 @@ class RegisterController extends Controller
         $user->usertype = 'buyer';
         $user->save();
 
-        //Mail::to($data['email'])->send(new consumerRegistration($data['firstname']));
+        Mail::to($data['email'])->send(new consumerRegistration($data['firstname']));
 
         //return redirect($this->redirectPath())->with('message', 'Your message');
         //return redirect()->route('login');

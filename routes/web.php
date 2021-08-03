@@ -78,6 +78,9 @@ Route::post('/cart', [App\Http\Controllers\CartController::class, 'store'])->nam
 Route::post('/checkout/store', [App\Http\Controllers\OrderController::class, 'store'])->name('checkout-store');
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');
 
+Route::get('/pay-success', [App\Http\Controllers\OrderController::class, 'paySuccess'])->name('pay-success');
+Route::get('/pay-failed', [App\Http\Controllers\OrderController::class, 'payFailed'])->name('pay-failed');
+
 Route::get('/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/orders', [\App\Http\Controllers\UserController::class, 'orders'])->name('orders')->middleware('auth');
 

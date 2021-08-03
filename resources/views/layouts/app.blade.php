@@ -799,10 +799,16 @@
                     else
                         jQuery("#product_count").html('Only '+parseInt(result['available'])+' in stock');
 
+                    jQuery("#addtocart_btn").css('display','block');
                     jQuery("#max_item").val(result['available']);
                     jQuery("#pot_size").val(result['pot_size']);
                     jQuery("#quantity").val(1);
 
+                }
+                else {
+                    jQuery("#product_count").html('CURRENTLY NOT AVAILABLE');
+
+                    jQuery("#addtocart_btn").css('display','none');
                 }
             }
         }});

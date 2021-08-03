@@ -212,8 +212,8 @@
                                         <div class="availability">
                                             <i class="fa fa-check-circle"></i>
                                             <span style="margin-right: 40px" id="product_count">
-                                                @if(!empty($product->retail_sale_price_a))
-                                                    @if($product->retail_sale_price_a>0)
+                                                @if(!empty($product->inventory_count_a))
+                                                    @if($product->inventory_count_a>0)
                                                         @if($product->inventory_count_a >= 10)
                                                             Currently {{ $product->inventory_count_a }} in stock
                                                         @else
@@ -231,7 +231,9 @@
                                         <p class="pro-desc">
                                             {{ $product->plant_description }}
                                         </p>
-                                        <form id="cartform">
+
+<!--                                        <form id="cartform" style="display:@if(!empty($product->inventory_count_a)) block @else none @endif">-->
+                                        <form id="cartform" >
                                             @csrf
 
                                             @if(!empty($product->retail_sale_price_a))
@@ -240,7 +242,7 @@
                                                     <div class="quantity">
                                                         <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity" id="quantity"></div>
                                                     </div>
-                                                    <div class="action_link">
+                                                    <div class="action_link" id="addtocart_btn" style="display:@if(!empty($product->inventory_count_a)) block @else none @endif">
                                                         <button class="btn btn-cart2">Add to cart</button>
 <!--                                                        <input type="submit" class="btn btn-cart2" value="Add to cart">-->
                                                     </div>
@@ -276,6 +278,7 @@
 
 
                                         </form>
+
 
 
                                         @auth
