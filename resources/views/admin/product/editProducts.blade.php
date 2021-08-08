@@ -227,6 +227,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Featured Order</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Featured Order" type="text" name="featured_order" value="{{ $product->featured_order }}">
+                                            </div>
+                                        </div>
+
                                     </fieldset>
 
                                     <fieldset class="form-group">

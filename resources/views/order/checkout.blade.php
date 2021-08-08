@@ -751,6 +751,7 @@
 
                     success: function (data) {
                         if(data == 'done') {
+                            $(".error").css('display','none');
                             $(".btn-submit").css('display','none');
                             $("#paypal_plugin").css('display','block');
                         }

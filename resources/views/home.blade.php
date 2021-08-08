@@ -82,7 +82,7 @@
                             </div>
                             <div class="policy-content">
                                 <h6>See Upcoming Events</h6>
-                                <p><a href="{{ url('/upcoming-events') }}">Click Here</a></p>
+                                <p><a style="color: #7fbc03" href="{{ url('/upcoming-events')  }}">Click Here</a></p>
                             </div>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                             </a>
                             <div class="banner-content text-right">
 <!--                                <h5 class="banner-text1">BEAUTIFUL</h5>-->
-                                <h2 class="banner-text2">Spring<span>Plants</span></h2>
+                                <h2 class="banner-text2">Spring <span>Plants</span></h2>
                                 <a href="shop.html" class="btn btn-text shop">Shop Now</a>
                             </div>
                         </figure>

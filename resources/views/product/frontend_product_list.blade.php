@@ -1002,7 +1002,7 @@
                         <div class="shop-product-wrapper">
                             <div class="alpha_pagination text-center mb-30">
                                 <h1 class="text-lg-left text-md-left text-sm-center mb-30">Plants</h1>
-                                <p style="text-align: left;">Shop by Latin Name:</p>
+                                <p style="text-align: left;">Search by Latin Name:</p>
                                 <ul class="pagination-box" style="text-align: left;">
                                     @if(!empty($query1))
                                     <li><a class="alpha @if($query1=='all') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/all">All</a></li>
