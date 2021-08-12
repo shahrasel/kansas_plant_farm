@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Mail\checkoutConfirmation;
+use App\Mail\pickupConfirmation;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderAdditional;
@@ -228,14 +229,21 @@ class OrderController extends Controller
 
     public function adminOrderDetails($id, Request $request) {
         $oderInfo = Order::find($id);
-        if($request->has('status')) {
-            $oderInfo->status = $request->input('status');
-            $oderInfo->save();
-        }
-
 
         $orderDetails = new Orderdetails();
         $orderdetails_lists = $orderDetails->getOrderDetails($id);
+
+
+        if($request->has('status')) {
+
+            if($request->has('status') == 'Customer Picked Up') {
+                Mail::to($oderInfo->email)
+                    ->send(new pickupConfirmation($oderInfo->firstname,$orderdetails_lists,$oderInfo->orderid));
+            }
+
+            $oderInfo->status = $request->input('status');
+            $oderInfo->save();
+        }
 
         return view('admin.order.order_details', [
             'oderInfo' => $oderInfo,

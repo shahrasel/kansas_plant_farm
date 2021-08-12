@@ -159,7 +159,7 @@ Route::post('/admin/events',[\App\Http\Controllers\EventController::class, 'stor
 Route::get('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'show'])->name('admin-event-show')->middleware('adminauth');
 Route::get('/admin/events/{event}/edit',[\App\Http\Controllers\EventController::class, 'edit'])->name('admin-event-edit')->middleware('adminauth');
 Route::put('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'update'])->name('admin-event-update')->middleware('adminauth');
-Route::delete('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'delete'])->name('admin-event-delete')->middleware('adminauth');
+/*Route::delete('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'delete'])->name('admin-event-delete')->middleware('adminauth');*/
 Route::get('/admin/events/{event}/delete', [\App\Http\Controllers\EventController::class, 'destroy'])->name('admin-event-delete')->middleware('adminauth');
 
 
@@ -170,8 +170,15 @@ Route::post('/admin/billboards',[\App\Http\Controllers\BillboardController::clas
 Route::get('/admin/billboards/{billboard}',[\App\Http\Controllers\BillboardController::class, 'show'])->name('admin-billboard-show')->middleware('adminauth');
 Route::get('/admin/billboards/{billboard}/edit',[\App\Http\Controllers\BillboardController::class, 'edit'])->name('admin-billboard-edit')->middleware('adminauth');
 Route::put('/admin/billboards/{billboard}',[\App\Http\Controllers\BillboardController::class, 'update'])->name('admin-billboard-update')->middleware('adminauth');
-Route::delete('/admin/billboards/{billboard}',[\App\Http\Controllers\BillboardController::class, 'delete'])->name('admin-billboard-delete')->middleware('adminauth');
+/*Route::delete('/admin/billboards/{billboard}',[\App\Http\Controllers\BillboardController::class, 'delete'])->name('admin-billboard-delete')->middleware('adminauth');*/
 Route::get('/admin/billboards/{billboard}/delete', [\App\Http\Controllers\BillboardController::class, 'destroy'])->name('admin-billboard-delete')->middleware('adminauth');
+
+/*Route::get('/admin/settings', [\App\Http\Controllers\SettingsController::class, 'destroy'])->name('admin-billboard-delete')->middleware('adminauth');*/
+
+
+Route::get('/admin/settings/{setting}/edit', [\App\Http\Controllers\SettingsController::class, 'edit'])->name('admin-settings-edit')->middleware('adminauth');
+Route::put('/admin/settings/{setting}',[\App\Http\Controllers\SettingsController::class, 'update'])->name('admin-settings-update')->middleware('adminauth');
+
 
 ############################ ADMIN PANEL ############################
 

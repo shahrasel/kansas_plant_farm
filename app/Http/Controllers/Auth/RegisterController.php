@@ -120,6 +120,7 @@ class RegisterController extends Controller
         $user->lastname = $data['lastname'];
         $user->password = Hash::make($data['password']);
         $user->email = $data['email'];
+        $user->phone = $data['phone'];
         $user->usertype = 'buyer';
         $user->save();
 

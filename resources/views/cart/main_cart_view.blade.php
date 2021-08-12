@@ -54,8 +54,13 @@
                                                         </a></td>
                                                     <td class="pro-price"><span>@if(!empty($cart_list->size)){{ $cart_list->size }}@else - @endif</span></td>
                                                     <td class="pro-price"><span>${{ $cart_list->unit_price }}</span></td>
-                                                    <td class="pro-quantity">
+<!--                                                    <td class="pro-quantity">
                                                         <div class="pro-qty"><input type="text" name="quantity_{{ $cart_list->id }}" value="{{ $cart_list->quantity }}" style="color: #7FBC03"></div>
+                                                    </td>-->
+                                                    <td class="pro-quantity">
+                                                        <div style="color: #7FBC03">
+                                                            {{ $cart_list->quantity }}
+                                                        </div>
                                                     </td>
                                                     <td class="pro-subtotal"><span>${{ number_format(($cart_list->unit_price*$cart_list->quantity), 2, '.', ',') }}</span></td>
                                                     <td class="pro-remove"><a href="#" onclick="deleteCartItem({{ $cart_list->id }})"><i class="fa fa-trash-o"></i></a></td>
@@ -73,12 +78,11 @@
                                     </table>
                                 </div>
                                 <!-- Cart Update Option -->
-                                <div class="cart-update-option d-block d-md-flex justify-content-between" style="display: inline-block !important; text-align: right !important; width: 100%">
+<!--                                <div class="cart-update-option d-block d-md-flex justify-content-between" style="display: inline-block !important; text-align: right !important; width: 100%">
                                     <div class="cart-update" style="float: right">
-<!--                                        <a type="submit" class="btn btn-sqr">Update Cart</a>-->
                                         <button class="btn btn-sqr" type="submit">Update Cart</button>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="row">

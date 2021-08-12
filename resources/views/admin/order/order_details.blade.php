@@ -203,7 +203,7 @@
                             <table id="dataTable10" width="100%" class="table table-striped table-lightfont">
                                 <thead>
                                     <tr>
-                                        <th>Product Image</th><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th>
+                                        <th>Product Image</th><th>Product</th><th>Size</th><th>Price</th><th>Quantity</th><th>Total</th>
                                     </tr></thead>
 <!--                                <tfoot>
                                     <tr><th>Product Image</th><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th></tr>
@@ -219,6 +219,7 @@
 
                                             <td><a href="{{ url('/plants') }}/{{ $orderdetails_list->product->slug }}">{{ $orderdetails_list->product->common_name }}</a></td>
 
+                                            <td>${{ $orderdetails_list->size }}</td>
                                             <td>${{ $orderdetails_list->unit_price }}</td>
                                             <td>{{ $orderdetails_list->quantity }}</td>
                                             <td>${{ number_format(($orderdetails_list->unit_price*$orderdetails_list->quantity), 2, '.', ',') }}</td>
@@ -245,7 +246,7 @@
                                     @csrf
                                     <select class="form-control" name="status">
                                         <option value="Payment Completed" @if($oderInfo->status=='Payment Completed') selected @endif >Payment Completed</option>
-                                        <option value="Delivered" @if($oderInfo->status=='Delivered') selected @endif >Delivered</option>
+                                        <option value="Customer Picked Up" @if($oderInfo->status=='Customer Picked Up') selected @endif >Customer Picked Up</option>
                                     </select>
                                     <br/>
                                     <input type="submit" name="change_status" value="Apply" class="btn btn-primary">

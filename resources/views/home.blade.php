@@ -89,6 +89,16 @@
                 </div>
             </div>
         </div>
+        <section class="product-area section-padding" style="padding-top: 0px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {{ $settings_info->home_description }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- service policy area end -->
         @if(!empty($featured_lists))
             <section class="product-area section-padding" style="padding-top: 0px">

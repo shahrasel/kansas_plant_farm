@@ -15,7 +15,7 @@
         <div class="col-md-8">
             <div class="card">
 <!--                <div class="card-header">{{ __('Register') }}</div>-->
-    <h2 class="card-body">Register</h2>
+                <h2 class="card-body">Register</h2>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -124,6 +124,17 @@
                             <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                             @error('email')
+                            <span class="invalid-feedback" role="alert" style="display: block">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                        <div class="single-input-item">
+                            <label for="phone">{{ __('Phone') }}</label>
+                            <input id="phone" type="text" name="phone" value="{{ old('phone') }}" required>
+
+                            @error('phone')
                             <span class="invalid-feedback" role="alert" style="display: block">
                                 <strong>{{ $message }}</strong>
                             </span>

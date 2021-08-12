@@ -1051,7 +1051,7 @@
                 </li>
 
                 <li class="selected">
-                    <a href="{{ url('/admin') }}">
+                    <a href="{{ url('/admin/settings') }}">
                         <div class="icon-w">
                             <div class="os-icon os-icon-layout"></div>
                         </div>

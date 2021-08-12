@@ -461,19 +461,19 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                 <label>First Name<span style="color:yellow">*</span></label>
-                                                <input name="first_name" id="first_name" type="text" required>
+                                                <input name="first_name" id="first_name" type="text" @if (Auth::check()) value="{{ Auth()->user()->firstname }}" @endif required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                 <label>Last Name<span style="color:yellow">*</span></label>
-                                                <input name="last_name" id="last_name" type="text" required>
+                                                <input name="last_name" id="last_name" type="text" @if (Auth::check()) value="{{ Auth()->user()->lastname }}" @endif required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                 <label>Email<span style="color:yellow">*</span></label>
-                                                <input name="email_address" id="email_address" type="email" required>
+                                                <input name="email_address" id="email_address" type="email" @if (Auth::check()) value="{{ Auth()->user()->email }}" @endif required>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                 <label>Phone<span style="color:yellow">*</span></label>
-                                                <input name="phone" id="phone" type="text" required>
+                                                <input name="phone" id="phone" type="text" @if (Auth::check()) value="{{ Auth()->user()->phone }}" @endif required>
                                             </div>
                                             <div class="col-12 d-flex justify-content-center">
                                                 <p class="form-Who will be picking up your ordermessege"></p>
@@ -485,28 +485,28 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                 <label>Street Address<span style="color:yellow">*</span></label>
-                                                <input name="street_address" id="street_address" type="text" required>
+                                                <input name="street_address" id="street_address" type="text" @if (Auth::check()) value="{{ Auth()->user()->address1 }} {{ Auth()->user()->address2 }}" @endif required>
                                             </div>
 
                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                                         <label>City<span style="color:yellow">*</span></label>
-                                                        <input name="city" id="city" type="text" required>
+                                                        <input name="city" id="city" type="text" @if (Auth::check()) value="{{ Auth()->user()->city }}"  @endif required>
                                                     </div>
 
                                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                                         <label>State<span style="color:yellow">*</span></label>
                                                         <select name="state" id="state" required>
                                                             @foreach($state_lists as $key=>$state_list)
-                                                                <option @if($key=='KS') selected @endif value="{{ $key }}">{{ $key }}</option>
+                                                                <option @if (Auth::check()) @if(Auth()->user()->state==$key) selected @endif @else @if($key=='KS') selected @endif @endif value="{{ $key }}">{{ $key }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
 
                                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                                         <label>Zip<span style="color:yellow">*</span></label>
-                                                        <input name="zip" id="zip" type="text" required>
+                                                        <input name="zip" id="zip" type="text" @if (Auth::check()) value="{{ Auth()->user()->zip }}"  @endif required>
                                                     </div>
                                                 </div>
                                             </div>

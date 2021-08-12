@@ -17,10 +17,11 @@ class pickupConfirmation extends Mailable
      *
      * @return void
      */
-    public function __construct($firstname, $cartList)
+    public function __construct($firstname, $orderdetails_lists, $orderid)
     {
-        $this->cartList = $cartList;
+        $this->orderdetails_lists = $orderdetails_lists;
         $this->firstname = $firstname;
+        $this->orderid = $orderid;
     }
 
     /**
@@ -30,6 +31,6 @@ class pickupConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.pickupConfirmation')->subject('Pickup Confirmation on Order No: 9988779');
+        return $this->view('emails.pickupConfirmation')->subject('Pickup Confirmation on Order No: '.$this->orderid);
     }
 }
