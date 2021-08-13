@@ -124,7 +124,7 @@ class BillboardController extends Controller
 
             $thumb_image_resize = Image::make($path->getRealPath());
 
-            $thumb_image_resize->resize(250, null, function ($constraint) {
+            $thumb_image_resize->resize(1400, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });

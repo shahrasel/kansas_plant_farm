@@ -130,6 +130,13 @@ Route::get('/admin/add-contractor', [\App\Http\Controllers\UserController::class
 Route::post('/admin/add-contractor', [\App\Http\Controllers\UserController::class, 'addAdminContractor'])->name('admin-add-contractor-post')->middleware('adminauth');
 
 
+################## SALES AGENT ####################
+Route::get('/admin/sales', [\App\Http\Controllers\UserController::class, 'adminSales'])->name('admin-sales')->middleware('adminauth');
+Route::get('/admin/add-sales', [\App\Http\Controllers\UserController::class, 'addAdminSales'])->name('admin-add-sales')->middleware('adminauth');
+Route::post('/admin/add-sales', [\App\Http\Controllers\UserController::class, 'addAdminSales'])->name('admin-add-sale-post')->middleware('adminauth');
+
+
+
 ################## CUSTOMER ####################
 Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'adminCustomers'])->name('admin-customers')->middleware('adminauth');
 

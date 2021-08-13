@@ -75,7 +75,7 @@ class UserController extends Controller
 
             $user->save();
 
-            
+
 
             return redirect()->route('my-profile');
 
@@ -126,7 +126,7 @@ class UserController extends Controller
             ->orderBy('id', 'desc')->get();
 
         $completed_order_lists = DB::table('orders')
-            ->where('status', 'Delivered')
+            ->where('status', 'Customer Picked Up')
             ->orderBy('id', 'desc')->get();
 
         return view('admin.user.dashboard', [
@@ -248,5 +248,61 @@ class UserController extends Controller
         }
 
         return view('admin.user.addContractor');
+    }
+
+    public function adminSales() {
+        $where_query= array();
+        $where_query['usertype'] = 'sales';
+
+        $sale_lists = DB::table('users')
+            ->where($where_query)
+            ->orderBy('id', 'desc')->get();
+
+        return view('admin.user.allSales', [
+            'sale_lists' => $sale_lists
+        ]);
+    }
+
+    public function addAdminSales(Request $request) {
+        if($request->has('email') && $request->has('password')) {
+            $this->validate($request, [
+                'firstname' => 'required|string|max:255',
+                'lastname' => 'required|string|max:255',
+                'email' => 'required|email|max:255|unique:users,email,'.$request->input('id'),
+                'phone' => 'nullable|regex:/(01)[0-9]{9}/',
+                'company' => 'nullable|string|max:100',
+                'address1' => 'nullable|string|max:100',
+                'address2' => 'nullable|string|max:100',
+                'city' => 'nullable|string|max:50',
+                'state' => 'nullable|string|max:50',
+                //'zip' => 'nullable|numeric|max:5',
+                'password' => 'min:8|required_with:confirm_password|same:confirm_password',
+            ]);
+
+            //dd($user);
+
+            //$user = User::find($request->input('id'));
+            $user = new User();
+            $user->firstname = $request->input('firstname');
+            $user->lastname = $request->input('lastname');
+            $user->email = $request->input('email');
+            $user->usertype = 'sales';
+
+            $user->password = Hash::make($request->input('password'));
+
+            $user->phone = $request->input('phone');
+            $user->company_name = $request->input('company');
+            $user->address1 = $request->input('address1');
+            $user->address2 = $request->input('address2');
+            $user->city = $request->input('city');
+            $user->state = $request->input('state');
+            $user->zip = $request->input('zip');
+
+            $user->save();
+
+            return redirect('/admin/sales');
+        }
+
+        return view('admin.user.addSale');
     }
 }

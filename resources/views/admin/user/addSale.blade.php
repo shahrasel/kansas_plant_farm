@@ -317,7 +317,7 @@
                                 <form action="" method="post">
                                     @csrf
                                     <h5 class="form-header">
-                                        Add Contractor
+                                        Add Sales Agent
                                     </h5>
 <!--                                    <div class="form-desc">
                                         Discharge best employed your phase each the of shine. Be met even reason consider logbook redesigns. Never a turned interfaces among asking

@@ -1051,7 +1051,7 @@
                 </li>
 
                 <li class="selected">
-                    <a href="{{ url('/admin/settings') }}">
+                    <a href="{{ url('/admin/settings/1/edit') }}">
                         <div class="icon-w">
                             <div class="os-icon os-icon-layout"></div>
                         </div>
@@ -1242,7 +1242,7 @@
                 </li>
 
                 <li class=" has-sub-menu">
-                    <a href="apps_bank.html">
+                    <a href="{{ url('/admin/sales') }}">
                         <div class="icon-w">
                             <div class="os-icon os-icon-package"></div>
                         </div>
@@ -1257,10 +1257,10 @@
                         <div class="sub-menu-i">
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="apps_email.html">All Sales Agents</a>
+                                    <a href="{{ url('/admin/sales') }}">All Sales Agents</a>
                                 </li>
                                 <li>
-                                    <a href="apps_support_dashboard.html">Add Sales Agent</a>
+                                    <a href="{{ url('/admin/add-sales') }}">Add Sales Agent</a>
                                 </li>
                             </ul>
                         </div>

@@ -174,6 +174,41 @@
 
                                         {{--<h5 class="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
                                         <div class="product-countdown" data-countdown="2019/12/20"></div>--}}
+<!--                                        <div class="manufacturer-name details_tag">
+                                            @if($product->perennial == 'YES')
+                                                <a  href="{{ url("/plants?category=perennial") }}">Perennial</a>
+                                            @endif
+                                            @if($product->shrub == 'YES')
+                                                <a  href="{{ url("/plants?category=shrub") }}">Shrub</a>
+                                            @endif
+                                            @if($product->vine == 'YES')
+                                                <a  href="{{ url("/plants?category=vine") }}">Vine</a>
+                                            @endif
+                                            @if($product->grass_bamboo == 'YES')
+                                                <a  href="{{ url("/plants?category=grass_bamboo") }}">Grass / Bamboo</a>
+                                            @endif
+                                            @if($product->hardy_tropical == 'YES')
+                                                <a  href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
+                                            @endif
+                                            @if($product->water_plant == 'YES')
+                                                <a  href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
+                                            @endif
+                                            @if($product->annual == 'YES')
+                                                <a  href="{{ url("/plants?category=annual") }}">Annual</a>
+                                            @endif
+                                            @if($product->house_deck_plant == 'YES')
+                                                <a  href="{{ url("/plants?category=house_deck_plant") }}">House / Deck Plant</a>
+                                            @endif
+                                            @if($product->cactus_succulent == 'YES')
+                                                <a  href="{{ url("/plants?category=cactus_succulent") }}">Cactus / Succulent</a>
+                                            @endif
+                                            @if($product->small_tree == 'YES')
+                                                <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
+                                            @endif
+                                            @if($product->large_tree == 'YES')
+                                                <a  href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
+                                            @endif
+                                        </div>-->
                                         <div class="manufacturer-name details_tag">
                                             @if($product->perennial == 'YES')
                                                 <a  href="{{ url("/plants?category=perennial") }}">Perennial</a>

@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class pickupConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
-    public $cartList, $firstname;
+    public $orderdetails_lists, $firstname, $orderid;
 
     /**
      * Create a new message instance.

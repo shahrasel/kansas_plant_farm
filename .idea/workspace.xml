@@ -169,10 +169,10 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_11_194315_create_settings_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/settings/editSettings.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_12_210838_add_sales_id_in_order_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_12_215456_add_our_gurantee_in_settings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/addSale.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/allSales.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/Paintbrush-Effect/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/food-delivery/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/mini-website/slide1.jpg" afterDir="false" />
@@ -235,18 +235,20 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Mail/pickupConfirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/pickupConfirmation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_11_194315_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_11_194315_create_settings_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings/editSettings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings/editSettings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/addContractor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/addContractor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/emails/pickupConfirmation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/pickupConfirmation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
@@ -443,7 +445,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/settings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/user" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -457,11 +459,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/user" />
       <recent name="$PROJECT_DIR$/resources/views/admin/settings" />
       <recent name="$PROJECT_DIR$/resources/views/order" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/public/css" />
-      <recent name="$PROJECT_DIR$/public/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/plants_images" />
@@ -566,7 +568,7 @@
       <workItem from="1627251456553" duration="4427000" />
       <workItem from="1627508781863" duration="74819000" />
       <workItem from="1628707528738" duration="268000" />
-      <workItem from="1628707820972" duration="9894000" />
+      <workItem from="1628707820972" duration="18455000" />
     </task>
     <servers />
   </component>

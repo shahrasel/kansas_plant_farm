@@ -1195,7 +1195,7 @@ class ProductController extends Controller
                                 })
                                 ->orWhere(function ($query) use ($has_evergreen_foliage_sel_arr) {
                                     for ($i = 0; $i < count($has_evergreen_foliage_sel_arr); $i++) {
-                                        $query->orWhere('has_evergreen_foliage', 'like', '%,' . $has_evergreen_foliage_sel_arr [$i] . '%');
+                                        $query->orWhere('has_evergreen_foliage', 'like', '%' . $has_evergreen_foliage_sel_arr [$i] . '%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($has_winter_interest_sel_arr) {
@@ -2933,7 +2933,7 @@ class ProductController extends Controller
                                 })
                                 ->orWhere(function ($query) use ($has_evergreen_foliage_sel_arr) {
                                     for ($i = 0; $i < count($has_evergreen_foliage_sel_arr); $i++) {
-                                        $query->orWhere('has_evergreen_foliage', 'like', '%,' . $has_evergreen_foliage_sel_arr [$i] . '%');
+                                        $query->orWhere('has_evergreen_foliage', 'like', '%' . $has_evergreen_foliage_sel_arr [$i] . '%');
                                     }
                                 })
                                 ->orWhere(function ($query) use ($has_winter_interest_sel_arr) {

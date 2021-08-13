@@ -233,20 +233,29 @@ class OrderController extends Controller
         $orderDetails = new Orderdetails();
         $orderdetails_lists = $orderDetails->getOrderDetails($id);
 
+        $where_query= array();
+        $where_query['usertype'] = 'sales';
+
+        $sale_lists = DB::table('users')
+            ->where($where_query)
+            ->orderBy('id', 'desc')->get();
+
 
         if($request->has('status')) {
 
-            if($request->has('status') == 'Customer Picked Up') {
+            if($request->get('status') == 'Customer Picked Up') {
                 Mail::to($oderInfo->email)
                     ->send(new pickupConfirmation($oderInfo->firstname,$orderdetails_lists,$oderInfo->orderid));
             }
 
+            $oderInfo->sales_id = $request->input('sales_id');
             $oderInfo->status = $request->input('status');
             $oderInfo->save();
         }
 
         return view('admin.order.order_details', [
             'oderInfo' => $oderInfo,
+            'sale_lists' => $sale_lists,
             'orderdetails_lists' => $orderdetails_lists
         ]);
     }

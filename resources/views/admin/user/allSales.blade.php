@@ -194,54 +194,29 @@
                     </h6>-->
                     <div class="element-box">
                         <h5 class="form-header">
-                            Order List
+                            Sale Agent List
                         </h5>
 <!--                        <div class="form-desc">
                             DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.. <a href="https://www.datatables.net/" target="_blank">Learn More about DataTables</a>
                         </div>-->
-                        <div class="table-responsive" style="margin-bottom: 50px;">
+                        <div class="table-responsive">
                             <table id="dataTable10" width="100%" class="table table-striped table-lightfont">
                                 <thead>
                                     <tr>
-                                        <th>Product Image</th><th>Product</th><th>Size</th><th>Price</th><th>Quantity</th><th>Total</th>
+                                        <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created</th>
                                     </tr></thead>
-<!--                                <tfoot>
-                                    <tr><th>Product Image</th><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th></tr>
-                                </tfoot>-->
+                                <tfoot>
+                                    <tr><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created</th></tr>
+                                </tfoot>
                                 <tbody>
-                                    @php
-                                        $i=0;
-                                        $tax_amount = 0;
-                                    @endphp
-                                    @forelse($orderdetails_lists as $orderdetails_list)
+                                    @forelse($sale_lists as $sale_list)
                                         <tr>
-                                            <td><a href="{{ url('/plants') }}/{{ $orderdetails_list->product->slug }}">
-<!--                                                    <img class="img-fluid" src="{{ asset('plants_images/5.jpg') }}" style="max-width: 100px;" alt="Product" />-->
-
-                                                    @if(!empty(($orderdetails_list->product->getImage($orderdetails_list->product))))
-                                                        <img class="pri-img" src="{{ url($orderdetails_list->product->getImage($orderdetails_list->product)) }}" alt="product">
-
-                                                    @else
-                                                        <img class="pri-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
-                                                        <img class="sec-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
-                                                    @endif
-
-                                                </a>
-                                            </td>
-
-                                            <td><a href="{{ url('/plants') }}/{{ $orderdetails_list->product->slug }}">{{ $orderdetails_list->product->common_name }}</a></td>
-
-                                            <td>{{ $orderdetails_list->size }}</td>
-                                            <td>${{ $orderdetails_list->unit_price }}</td>
-                                            <td>{{ $orderdetails_list->quantity }}</td>
-                                            <td>${{ number_format(($orderdetails_list->unit_price*$orderdetails_list->quantity), 2, '.', ',') }}</td>
+                                            <td>{{ $sale_list->firstname }} {{ $sale_list->lastname }}</td>
+                                            <td>{{ $sale_list->email }}</td>
+                                            <td>{{ $sale_list->phone }}</td>
+                                            <td>{{ $sale_list->address1 }} {{ $sale_list->city }} {{ $sale_list->state }} {{ $sale_list->zip }}</td>
+                                            <td>{{ $sale_list->created_at }}</td>
                                         </tr>
-                                        @php
-                                            $i += $orderdetails_list->quantity*$orderdetails_list->unit_price;
-                                            if($orderdetails_list->product->tax_free !='YES') {
-                                                $tax_amount += 9.30/100*($orderdetails_list->quantity*$orderdetails_list->unit_price);
-                                            }
-                                        @endphp
                                     @empty
                                             <tr>
                                                 <td colspan="5">No data found</td>
@@ -249,56 +224,6 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-
-                                <form action="" method="post">
-                                    @csrf
-                                    <select class="form-control" name="sales_id">
-                                        @foreach($sale_lists as $sale_list)
-                                            <option value="">-- Select Sales Agent --</option>
-                                            <option value="{{ $sale_list->id }}" @if($sale_list->id==$oderInfo->sales_id) selected @endif>{{ $sale_list->firstname }} {{ $sale_list->lastname }} ({{ $sale_list->email }})</option>
-                                        @endforeach
-                                    </select>
-                                    <br/>
-                                    <select class="form-control" name="status">
-                                        <option value="Payment Completed" @if($oderInfo->status=='Payment Completed') selected @endif >Payment Completed</option>
-                                        <option value="Customer Picked Up" @if($oderInfo->status=='Customer Picked Up') selected @endif >Customer Picked Up</option>
-                                    </select>
-                                    <br/>
-                                    <input type="submit" name="change_status" value="Apply" class="btn btn-primary">
-                                </form>
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- Cart Calculation Area -->
-                                <div class="cart-calculator-wrapper">
-                                    <div class="cart-calculate-items">
-<!--                                        <h6>Amount</h6>-->
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <tr>
-                                                    <td>Sub Total</td>
-                                                    <td>${{ number_format($i, 2, '.', ',') }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sales Tax (9.30%)</td>
-                                                    <td>${{ number_format($tax_amount, 2, '.', ',') }}</td>
-                                                </tr>
-                                                @php
-                                                    //$i += 9.30/100*$i;
-                                                      $i += $tax_amount;
-                                                @endphp
-                                                <tr class="total">
-                                                    <td>Total</td>
-                                                    <td class="total-amount">${{ number_format($i, 2, '.', ',') }}</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div><!--------------------

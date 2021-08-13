@@ -212,6 +212,13 @@
                                                 <textarea class="ckeditor form-control" name="terms_conditions" id="terms_conditions">{{ $settings_info->terms_conditions }}</textarea>
                                             </div>
                                         </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Our Guarantee</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="ckeditor form-control" name="our_gurantee" id="our_gurantee">{{ $settings_info->our_gurantee }}</textarea>
+                                            </div>
+                                        </div>
                                     </fieldset>
 
 

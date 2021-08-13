@@ -81,6 +81,7 @@ class SettingsController extends Controller
         $settings->home_description_video = $request->home_description_video;
         $settings->privacy_policy = $request->privacy_policy;
         $settings->terms_conditions = $request->terms_conditions;
+        $settings->our_gurantee = $request->our_gurantee;
 
         $settings->save();
 
