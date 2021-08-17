@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Mail\consumerRegistration;
+use App\Models\Order;
 use App\Models\User;
 use App\Rules\CurrentPasswordVerification;
 use Illuminate\Http\Request;
@@ -19,10 +20,7 @@ class UserController extends Controller
         return view('user.dashboard');
     }
 
-    public function orders() {
 
-        return view('user.orders');
-    }
 
     public function profile() {
 

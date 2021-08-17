@@ -85,8 +85,8 @@
                                 <form action="" method="get" id="cat_form">
                                     @csrf
                                     <div class="sidebar-single">
-                                        <label style="font-size: 14px;cursor: pointer"><input type="radio" name="search_type" value="partial" checked>&nbsp;PARTIAL MATCH</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px;cursor: pointer"><input type="radio" name="search_type" value="exact">&nbsp;EXACT MATCH</label>
+                                        <label style="font-size: 14px;cursor: pointer"><input type="radio" name="search_type" value="partial" @if(empty(app('request')->input('search_type')))  checked @else @if(app('request')->input('search_type') == 'partial')  checked @endif @endif>&nbsp;PARTIAL MATCH</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px;cursor: pointer"><input type="radio" name="search_type" value="exact" @if(app('request')->input('search_type') == 'exact')  checked @endif>&nbsp;EXACT MATCH</label>
                                     </div>
                                     <div class="sidebar-single">
                                         <h5 class="sidebar-title open">SORT<i></i></h5>
@@ -1155,7 +1155,7 @@
                                                         <span>{{ $product->tags }}</span>
                                                     </div>
                                                 </div>-->
-                                                <form id="wishlist_form_{{ $product->id }}" method="post">
+<!--                                                <form id="wishlist_form_{{ $product->id }}" method="post">
                                                     @csrf
                                                     <div class="button-group">
                                                         <a onclick="wishlist_form_submit({{ $product->id }})" data-toggle="tooltip" data-placement="left" title="Add to wishlist" @if(!is_object(auth()->user()))  href="{{ url('/') }}/login" @endif>
@@ -1166,7 +1166,7 @@
                                                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                                     @endif
                                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                </form>
+                                                </form>-->
                                             </figure>
                                             <div class="product-caption text-center">
                                                 <div class="product-identity">
@@ -1180,83 +1180,51 @@
                                                     </p>
                                                 </div>
                                                 <div class="price-box">
-                                                    {{--@if (Auth::check())
-                                                        @if(Auth()->user()->usertype=='buyer')
-                                                            <span class="price-regular">
-                                                                @if(!empty($product->retail_sale_price_a))
-                                                                    ${{ number_format($product->retail_sale_price_a,2) }}
-                                                                @endif
-                                                            </span>
-                                                            <span class="price-old">
-                                                                @if(!empty($product->retail_list_price_a))
-                                                                    <del>${{ number_format($product->retail_list_price_a,2) }}</del>
-                                                                @endif
-                                                            </span>
-                                                        @else
-                                                            <span class="price-regular">
-                                                                @if(!empty($product->contractor_price_a))
-                                                                    ${{ number_format($product->contractor_price_a,2) }}
-                                                                @endif
-                                                            </span>
-                                                        @endif
-                                                    @else
-                                                        <span class="price-regular">
-                                                            @if(!empty($product->retail_sale_price_a))
-                                                                ${{ number_format($product->retail_sale_price_a,2) }}
-                                                            @endif
-                                                        </span>
-                                                        <span class="price-old"><del>
-                                                            @if(!empty($product->retail_list_price_a))
-                                                                ${{ number_format($product->retail_list_price_a,2) }}</del>
-                                                            @endif
-                                                        </span>
-                                                    @endif--}}
-
                                                     <span class="price-regular">
                                                         @if(!empty($product_model->getProductPrice($product)))
                                                             ${{ $product_model->getProductPrice($product) }}
                                                         @endif
                                                     </span>
                                                     <span class="price-old">
-                                                        @if(!empty($product->retail_list_price_a))
-                                                            <del>${{ number_format($product->retail_list_price_a,2) }}</del>
+                                                        @if(!empty($product_model->getProductListPrice($product)))
+                                                            <del>${{ $product_model->getProductListPrice($product) }}</del>
                                                         @endif
                                                     </span>
                                                 </div>
 
                                                 <div class="manufacturer-name details_tag" style="margin-top: 20px;line-height: 30px;">
                                                     @if($product->perennial == 'YES')
-                                                        <a href="{{ url("/plants?category=perennial") }}">Perennial</a>
+                                                        <a>Perennial</a>
                                                     @endif
                                                     @if($product->shrub == 'YES')
-                                                            <a  href="{{ url("/plants?category=shrub") }}">Shrub</a>
+                                                            <a>Shrub</a>
                                                     @endif
                                                     @if($product->vine == 'YES')
-                                                            <a  href="{{ url("/plants?category=vine") }}">Vine</a>
+                                                            <a>Vine</a>
                                                     @endif
                                                     @if($product->grass_bamboo == 'YES')
-                                                            <a  href="{{ url("/plants?category=grass_bamboo") }}">Grass/Bamboo</a>
+                                                            <a>Grass/Bamboo</a>
                                                     @endif
                                                     @if($product->hardy_tropical == 'YES')
-                                                            <a  href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
+                                                            <a>Hardy Tropical</a>
                                                     @endif
                                                     @if($product->water_plant == 'YES')
-                                                            <a  href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
+                                                            <a>Water Plant</a>
                                                     @endif
                                                     @if($product->annual == 'YES')
-                                                            <a  href="{{ url("/plants?category=annual") }}">Annual</a>
+                                                            <a>Annual</a>
                                                     @endif
                                                     @if($product->house_deck_plant == 'YES')
-                                                            <a  href="{{ url("/plants?category=house_deck_plant") }}">House / Deck Plant</a>
+                                                            <a>House / Deck Plant</a>
                                                     @endif
                                                     @if($product->cactus_succulent == 'YES')
-                                                            <a  href="{{ url("/plants?category=cactus_succulent") }}">Cactus / Succulent</a>
+                                                            <a>Cactus / Succulent</a>
                                                     @endif
                                                     @if($product->small_tree == 'YES')
-                                                            <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
+                                                            <a>Small Tree</a>
                                                     @endif
                                                     @if($product->large_tree == 'YES')
-                                                            <a  href="{{ url("/plants?category=large_tree") }}">Large Tree</a>
+                                                            <a>Large Tree</a>
                                                     @endif
                                                 </div>
                                             </div>
@@ -1282,7 +1250,7 @@
                                                     <span>{{ $product->tags }}</span>
                                                 </div>
                                             </div>-->
-                                            <form id="wishlist_form" method="post">
+<!--                                            <form id="wishlist_form" method="post">
                                                 @csrf
                                                 <div class="button-group">
                                                     <a onclick="wishlist_form_submit()" data-toggle="tooltip" data-placement="left" title="Add to wishlist" @if(!is_object(auth()->user()))  href="{{ url('/') }}/login" @endif>
@@ -1293,7 +1261,7 @@
                                                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                                 @endif
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            </form>
+                                            </form>-->
                                         </figure>
                                         <div class="product-content-list">
                                             <h5 class="product-name" style="padding-top: 0px;">
@@ -1316,37 +1284,37 @@
                                             </div>
                                             <div class="manufacturer-name details_tag" style="margin-top: 20px;">
                                                 @if($product->perennial == 'YES')
-                                                    <a  href="{{ url("/plants?category=perennial") }}">Perennial</a>
+                                                    <a>Perennial</a>
                                                 @endif
                                                 @if($product->shrub == 'YES')
-                                                        <a  href="{{ url("/plants?category=shrub") }}">Shrub</a>
+                                                        <a>Shrub</a>
                                                 @endif
                                                 @if($product->vine == 'YES')
-                                                        <a  href="{{ url("/plants?category=vine") }}">Vine</a>
+                                                        <a>Vine</a>
                                                 @endif
                                                 @if($product->grass_bamboo == 'YES')
-                                                        <a  href="{{ url("/plants?category=grass_bamboo") }}">Grass/Bamboo</a>
+                                                        <a>Grass/Bamboo</a>
                                                 @endif
                                                 @if($product->hardy_tropical == 'YES')
-                                                        <a  href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
+                                                        <a>Hardy Tropical</a>
                                                 @endif
                                                 @if($product->water_plant == 'YES')
-                                                        <a  href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
+                                                        <a>Water Plant</a>
                                                 @endif
                                                 @if($product->annual == 'YES')
-                                                        <a  href="{{ url("/plants?category=annual") }}">Annual</a>
+                                                        <a>Annual</a>
                                                 @endif
                                                 @if($product->house_deck_plant == 'YES')
-                                                        <a  href="{{ url("/plants?category=house_deck_plant") }}">House / Deck Plant</a>
+                                                        <a>House / Deck Plant</a>
                                                 @endif
                                                 @if($product->cactus_succulent == 'YES')
-                                                        <a  href="{{ url("/plants?category=cactus_succulent") }}">Cactus / Succulent</a>
+                                                        <a>Cactus / Succulent</a>
                                                 @endif
                                                 @if($product->small_tree == 'YES')
-                                                        <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
+                                                        <a>Small Tree</a>
                                                 @endif
                                                 @if($product->large_tree == 'YES')
-                                                        <a  href="{{ url("/plants?category=large_tree") }}">Large Tree</a>
+                                                        <a>Large Tree</a>
                                                 @endif
                                             </div>
                                             <p style="padding-top:15px;">
@@ -1388,9 +1356,10 @@
                 <form action="" method="get" id="cat_form2">
                     @csrf
                     <div class="sidebar-single">
-                        <label style="font-size: 14px"><input type="radio" name="search_type" value="partial" checked>&nbsp;PARTIAL MATCH</label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px"><input type="radio" name="search_type" value="exact">&nbsp;EXACT MATCH</label>
+                        <label style="font-size: 14px"><input type="radio" name="search_type" @if(empty(app('request')->input('search_type')))  checked @else @if(app('request')->input('search_type') == 'partial')  checked @endif @endif value="partial">&nbsp;PARTIAL MATCH</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 14px"><input type="radio" name="search_type" @if(app('request')->input('search_type') == 'exact') checked @endif value="exact">&nbsp;EXACT MATCH</label>
                     </div>
+
                     <div class="sidebar-single">
                         <h5 class="sidebar-title open">SORT<i></i></h5>
                         <div class="sidebar-body" style="margin-bottom:30px;">

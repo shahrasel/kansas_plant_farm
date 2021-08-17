@@ -215,7 +215,7 @@
                 <div class="row row-20 mtn-20">
                     <div class="col-sm-6">
                         <figure class="banner-statistics mt-20">
-                            <a href="#">
+                            <a href="{{ $settings_info->spring_plant_link }}">
                                 <img src="{{ asset('plants_images/shop_by_season_1.png')  }}" alt="product banner">
                             </a>
                             <div class="banner-content text-right">
@@ -227,7 +227,7 @@
                     </div>
                     <div class="col-sm-6">
                         <figure class="banner-statistics mt-20">
-                            <a href="#">
+                            <a href="{{ $settings_info->summer_plant_link }}">
                                 <img src="{{ asset('plants_images/shop_by_season_2.png')  }}" alt="product banner">
                             </a>
                             <div class="banner-content text-right">
@@ -239,7 +239,7 @@
                     </div>
                     <div class="col-sm-6">
                         <figure class="banner-statistics mt-20">
-                            <a href="#">
+                            <a href="{{ $settings_info->fall_plant_link }}">
                                 <img src="{{ asset('plants_images/shop_by_season_3.png')  }}" alt="product banner">
                             </a>
                             <div class="banner-content text-right">
@@ -251,7 +251,7 @@
                     </div>
                     <div class="col-sm-6">
                         <figure class="banner-statistics mt-20">
-                            <a href="#">
+                            <a href="{{ $settings_info->winter_plant_link }}">
                                 <img src="{{ asset('plants_images/shop_by_season_4.png')  }}" alt="product banner">
                             </a>
                             <div class="banner-content text-right">
@@ -288,7 +288,7 @@
                                         <!-- product item start -->
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{{ $settings_info->red_plant_link }}">
                                                     <img class="pri-img" src="{{ asset('plants_images/red.png')  }}" alt="product">
                                                     <img class="sec-img" src="{{ asset('plants_images/red.png')  }}" alt="product">
                                                 </a>
@@ -304,7 +304,7 @@
                                         <!-- product item start -->
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{{ $settings_info->orange_plant_link }}">
                                                     <img class="pri-img" src="{{ asset('plants_images/orange.png')  }}" alt="product">
                                                     <img class="sec-img" src="{{ asset('plants_images/orange.png')  }}" alt="product">
                                                 </a>
@@ -319,7 +319,7 @@
 
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{{ $settings_info->yellow_plant_link }}">
                                                     <img class="pri-img" src="{{ asset('plants_images/yellow.png')  }}" alt="product">
                                                     <img class="sec-img" src="{{ asset('plants_images/yellow.png')  }}" alt="product">
                                                 </a>
@@ -334,7 +334,7 @@
 
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{{ $settings_info->green_plant_link }}">
                                                     <img class="pri-img" src="{{ asset('plants_images/green.png')  }}" alt="product">
                                                     <img class="sec-img" src="{{ asset('plants_images/green.png')  }}" alt="product">
                                                 </a>
@@ -348,7 +348,7 @@
 
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{{ $settings_info->blue_plant_link }}">
                                                     <img class="pri-img" src="{{ asset('plants_images/blue.png')  }}" alt="product">
                                                     <img class="sec-img" src="{{ asset('plants_images/blue.png')  }}" alt="product">
                                                 </a>
@@ -362,7 +362,7 @@
 
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{{ $settings_info->lavendar_plant_link }}">
                                                     <img class="pri-img" src="{{ asset('plants_images/lavendar.png')  }}" alt="product">
                                                     <img class="sec-img" src="{{ asset('plants_images/lavendar.png')  }}" alt="product">
                                                 </a>
@@ -376,7 +376,7 @@
 
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{{ $settings_info->purple_plant_link }}">
                                                     <img class="pri-img" src="{{ asset('plants_images/purple.png')  }}" alt="product">
                                                     <img class="sec-img" src="{{ asset('plants_images/purple.png')  }}" alt="product">
                                                 </a>
@@ -390,7 +390,7 @@
 
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{{ $settings_info->pink_plant_link }}">
                                                     <img class="pri-img" src="{{ asset('plants_images/pink.png')  }}" alt="product">
                                                     <img class="sec-img" src="{{ asset('plants_images/pink.png')  }}" alt="product">
                                                 </a>
@@ -398,6 +398,34 @@
                                             <div class="product-caption text-center">
                                                 <div class="product-identity">
                                                     <p class="manufacturer-name white_text"><a href="product-details.html">Pink</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-item">
+                                            <figure class="product-thumb">
+                                                <a href="{{ $settings_info->magenta_plant_link }}">
+                                                    <img class="pri-img" src="{{ asset('plants_images/magenta.png')  }}" alt="product">
+                                                    <img class="sec-img" src="{{ asset('plants_images/magenta.png')  }}" alt="product">
+                                                </a>
+                                            </figure>
+                                            <div class="product-caption text-center">
+                                                <div class="product-identity">
+                                                    <p class="manufacturer-name white_text"><a href="product-details.html">Magenta</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-item">
+                                            <figure class="product-thumb">
+                                                <a href="{{ $settings_info->white_plant_link }}">
+                                                    <img class="pri-img" src="{{ asset('plants_images/white.png')  }}" alt="product">
+                                                    <img class="sec-img" src="{{ asset('plants_images/white.png')  }}" alt="product">
+                                                </a>
+                                            </figure>
+                                            <div class="product-caption text-center">
+                                                <div class="product-identity">
+                                                    <p class="manufacturer-name white_text"><a href="product-details.html">White</a></p>
                                                 </div>
                                             </div>
                                         </div>

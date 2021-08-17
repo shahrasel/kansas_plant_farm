@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\OrderAdditional;
 use App\Models\Orderdetails;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -214,6 +215,31 @@ class OrderController extends Controller
 
     }
 
+
+    public function orders() {
+
+        $order_lists = Order::where('user_id',auth()->user()->id)->get();
+        //dd($order_lists);
+        return view('user.orders', [
+            'order_lists' => $order_lists
+        ]);
+    }
+
+    public function orderDetails($id, Request $request) {
+        $oderInfo = Order::find($id);
+
+        $orderDetails = new Orderdetails();
+        $orderdetails_lists = $orderDetails->getOrderDetails($id);
+
+        $order_additional_info = OrderAdditional::where('id',$oderInfo->order_additional_id)->first();
+
+        return view('order.order_details', [
+            'oderInfo' => $oderInfo,
+            'orderdetails_lists' => $orderdetails_lists,
+            'order_additional_info' => $order_additional_info
+        ]);
+    }
+
     public function adminOrders() {
         $where_query= array();
         //$where_query['usertype'] = 'buyer';
@@ -246,6 +272,8 @@ class OrderController extends Controller
             if($request->get('status') == 'Customer Picked Up') {
                 Mail::to($oderInfo->email)
                     ->send(new pickupConfirmation($oderInfo->firstname,$orderdetails_lists,$oderInfo->orderid));
+
+                $oderInfo->picked_up_date = Carbon::now();
             }
 
             $oderInfo->sales_id = $request->input('sales_id');
@@ -253,10 +281,51 @@ class OrderController extends Controller
             $oderInfo->save();
         }
 
+        $order_additional_info = OrderAdditional::where('id',$oderInfo->order_additional_id)->first();
+
         return view('admin.order.order_details', [
             'oderInfo' => $oderInfo,
             'sale_lists' => $sale_lists,
-            'orderdetails_lists' => $orderdetails_lists
+            'orderdetails_lists' => $orderdetails_lists,
+            'order_additional_info' => $order_additional_info
+        ]);
+    }
+
+    public function adminOrderPrint($id, Request $request) {
+        $oderInfo = Order::find($id);
+
+        $orderDetails = new Orderdetails();
+        $orderdetails_lists = $orderDetails->getOrderDetails($id);
+
+        $where_query= array();
+        $where_query['usertype'] = 'sales';
+
+        $sale_lists = DB::table('users')
+            ->where($where_query)
+            ->orderBy('id', 'desc')->get();
+
+
+        if($request->has('status')) {
+
+            if($request->get('status') == 'Customer Picked Up') {
+                Mail::to($oderInfo->email)
+                    ->send(new pickupConfirmation($oderInfo->firstname,$orderdetails_lists,$oderInfo->orderid));
+
+                $oderInfo->picked_up_date = Carbon::now();
+            }
+
+            $oderInfo->sales_id = $request->input('sales_id');
+            $oderInfo->status = $request->input('status');
+            $oderInfo->save();
+        }
+
+        $order_additional_info = OrderAdditional::where('id',$oderInfo->order_additional_id)->first();
+
+        return view('admin.order.order_print', [
+            'oderInfo' => $oderInfo,
+            'sale_lists' => $sale_lists,
+            'orderdetails_lists' => $orderdetails_lists,
+            'order_additional_info' => $order_additional_info
         ]);
     }
 }

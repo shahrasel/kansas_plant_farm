@@ -1,4 +1,11 @@
 @extends('admin.app')
+@section('stylesheet')
+    <style>
+        .col-form-label {
+            text-transform: uppercase !important;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="content-w">
         <!--------------------
@@ -237,7 +244,7 @@
                                     </fieldset>
 
                                     <fieldset class="form-group">
-                                        <legend><span>PRODUCT AVAILABILITY</span></legend>
+                                        <legend><span>PRODUCT A</span></legend>
 
 
                                         <div class="form-group row">
@@ -248,9 +255,114 @@
                                         </div>
 
                                         <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> POT SIZE A</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Pot Size A" type="text" name="pot_size_a" value="{{ $product->pot_size_a }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> CONTRACTOR PRICE A</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Contractor Price A" type="text" name="contractor_price_a" value="{{ $product->contractor_price_a }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Retail Sale Price A</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Retail Sale Price A" type="text" name="retail_sale_price_a" value="{{ $product->retail_sale_price_a }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Retail List Price A</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Retail List Price A" type="text" name="retail_list_price_a" value="{{ $product->retail_list_price_a }}">
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+
+
+                                    <fieldset class="form-group">
+                                        <legend><span>PRODUCT B</span></legend>
+
+
+                                        <div class="form-group row">
                                             <label class="col-form-label col-sm-4" for=""> Inventory Count B</label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" placeholder="Enter Inventory Count B" type="text" name="inventory_count_b" value="{{ $product->inventory_count_b }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> POT SIZE B</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Pot Size B" type="text" name="pot_size_b" value="{{ $product->pot_size_b }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> CONTRACTOR PRICE B</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Contractor Price B" type="text" name="contractor_price_b" value="{{ $product->contractor_price_b }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Retail Sale Price B</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Retail Sale Price B" type="text" name="retail_sale_price_b" value="{{ $product->retail_sale_price_b }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Retail List Price B</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Retail List Price B" type="text" name="retail_list_price_b" value="{{ $product->retail_list_price_b }}">
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+
+
+                                    <fieldset class="form-group">
+                                        <legend><span>PRODUCT C</span></legend>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Inventory Count C</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Inventory Count C" type="text" name="inventory_count_c" value="{{ $product->inventory_count_c }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> POT SIZE C</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Pot Size C" type="text" name="pot_size_c" value="{{ $product->pot_size_c }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> CONTRACTOR PRICE C</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Contractor Price C" type="text" name="contractor_price_c" value="{{ $product->contractor_price_c }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Retail Sale Price C</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Retail Sale Price C" type="text" name="retail_sale_price_c" value="{{ $product->retail_sale_price_c }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> Retail List Price C</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter Retail List Price C" type="text" name="retail_list_price_c" value="{{ $product->retail_list_price_c }}">
                                             </div>
                                         </div>
 
@@ -263,16 +375,11 @@
 
                                     </fieldset>
 
-                                    <fieldset class="form-group">
+<!--                                    <fieldset class="form-group">
                                         <legend><span>PRODUCT POT SIZES</span></legend>
 
 
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-sm-4" for=""> POT SIZE A</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" placeholder="Enter Pot Size A" type="text" name="pot_size_a" value="{{ $product->pot_size_a }}">
-                                            </div>
-                                        </div>
+
 
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4" for=""> POT SIZE B</label>
@@ -294,12 +401,7 @@
                                         <legend><span>PRODUCT RETAIL PRICES</span></legend>
 
 
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-sm-4" for=""> Retail Sale Price A</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" placeholder="Enter Retail Sale Price A" type="text" name="retail_sale_price_a" value="{{ $product->retail_sale_price_a }}">
-                                            </div>
-                                        </div>
+
 
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4" for=""> Retail Sale Price B</label>
@@ -315,7 +417,7 @@
                                             </div>
                                         </div>
 
-                                    </fieldset>
+                                    </fieldset>-->
 
                                     <fieldset class="form-group">
                                         <legend><span>OTHER INFO</span></legend>

@@ -220,7 +220,7 @@
                                         <ul class="dropdown-list">
                                             @auth
                                                 <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                                                <li><a href="{{ route('orders') }}">Orders</a></li>
+                                                <li><a href="{{ route('orders') }}">Order History</a></li>
                                                 <li><a href="{{ route('my-profile') }}">My Profile</a></li>
                                                 <form action="{{ url('/logout') }}" method="post">
                                                     @csrf
@@ -346,7 +346,7 @@
                                 <div class="dropdown-menu" aria-labelledby="myaccount">
                                     @auth
                                         <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
-                                        <a class="dropdown-item" href="{{ route('orders') }}">Orders</a>
+                                        <a class="dropdown-item" href="{{ route('orders') }}">Order History</a>
                                         <a class="dropdown-item" href="{{ route('my-profile') }}">My Profile</a>
                                         <form action="{{ url('/logout') }}" method="post">
                                             @csrf
@@ -468,6 +468,7 @@
                     </div>
                 </div>
             </div>
+            <div class="p-2 text-center">Note: Shipping and Delivery are not available at this time. All prices are for pickup at nursery.</div>
             <div class="d-flex justify-content-center my-3">
                 <div class="p-2"><a href="" style="color: #7fbc03">Terms & Conditions</a></div>
                 <div class="p-2">|</div>
@@ -594,6 +595,7 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="p-2 pb-4 text-center">Note: Shipping and Delivery are not available at this time. All prices are for pickup at nursery.</div>
                 <div class="minicart-button">
                     <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> View Cart</a>
                     <a href="{{ url('/checkout') }}"><i class="fa fa-share"></i> Checkout</a>
@@ -793,22 +795,34 @@
                 if(result['price'][1])
                     jQuery(".price-old-ajax").html('<del>$'+result['price'][1]+'</del>');
 
-                if(parseInt(result['available'])>0) {
-                    if(parseInt(result['available']) >= 10)
-                        jQuery("#product_count").html('Currently '+parseInt(result['available'])+' in stock');
-                    else
-                        jQuery("#product_count").html('Only '+parseInt(result['available'])+' in stock');
-
-                    jQuery("#addtocart_btn").css('display','block');
-                    jQuery("#max_item").val(result['available']);
-                    jQuery("#pot_size").val(result['pot_size']);
-                    jQuery("#quantity").val(1);
-
+                //alert(parseInt(result['available']));
+                if (isNaN(parseInt(result['available']))) {
+                    jQuery("#product_count").html('CURRENTLY NOT AVAILABLE');
+                    jQuery("#addtocart_btn").removeClass('d-flex');
+                    jQuery("#addtocart_btn").addClass('d-none');
                 }
                 else {
-                    jQuery("#product_count").html('CURRENTLY NOT AVAILABLE');
+                    if (parseInt(result['available']) > 0) {
 
-                    jQuery("#addtocart_btn").css('display','none');
+                        if (parseInt(result['available']) >= 10)
+                            jQuery("#product_count").html('Currently ' + parseInt(result['available']) + ' in stock');
+                        else
+                            jQuery("#product_count").html('Only ' + parseInt(result['available']) + ' in stock');
+
+                        //jQuery("#addtocart_btn").css('display', 'block');
+                        jQuery("#addtocart_btn").removeClass('d-none');
+                        jQuery("#addtocart_btn").addClass('d-flex');
+                        jQuery("#addtocart_btn").css('display','block');
+                        jQuery("#max_item").val(result['available']);
+                        jQuery("#pot_size").val(result['pot_size']);
+                        jQuery("#quantity").val(1);
+
+                    } else {
+                        jQuery("#product_count").html('CURRENTLY NOT AVAILABLE');
+
+                        jQuery("#addtocart_btn").removeClass('d-flex');
+                        jQuery("#addtocart_btn").addClass('d-none');
+                    }
                 }
             }
         }});

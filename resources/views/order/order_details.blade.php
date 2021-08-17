@@ -3,7 +3,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 @section('custom_styles')
-    <link href="{{ asset('css/admin/css/jquery-ui.css?v=').time()  }}" rel="stylesheet">
     <style>
         .nice-select {
             width: 100% !important;
@@ -303,10 +302,13 @@
                     <!-- Order Summary Details -->
                     <div class="col-lg-10" style="margin: auto">
                         <div class="order-summary-details">
+                            <p>
+                                <a style="max-width: 100px" href="javascript:window.history.back()" class="btn btn-sqr d-block">Back</a>
+                            </p>
+                            <br/>
                             <h5 class="checkout-title">Your Order Summary</h5>
                             <div class="order-summary-content">
                                 <!-- Order Summary Table -->
-
                                 <div class="cart-table table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -325,7 +327,7 @@
                                             $tax_amount = 0;
                                             $cart_d = "";
                                         @endphp
-                                        @foreach($cart_lists as $cart_list)
+                                        @foreach($orderdetails_lists as $cart_list)
                                             <tr>
                                                 <td class="pro-thumbnail">
                                                     <a href="{{ url('/plants') }}/{{ $cart_list->product->slug }}">
@@ -364,7 +366,7 @@
                                     </table>
                                 </div>
 
-                                <input type="hidden" id="total_val" value="{{ str_replace(',','',number_format($i, 2, '.', ','))  }}">
+
 
                                 <div class="row">
                                     <div class="col-lg-5 ml-auto">
@@ -396,226 +398,66 @@
                                     </div>
                                 </div>
 
-                                <h5 class="checkout-title" style="margin-top:30px;">CUSTOMER CONTACT INFO</h5>
+                                <h5 class="checkout-title" style="margin-top:30px;">CUSTOMER INFORMATION</h5>
+                                <p><b>First Name:</b> {{ $order_additional_info->first_name }}</p>
+                                <p><b>Last Name:</b> {{ $order_additional_info->last_name }}</p>
+                                <p><b>Email:</b> {{ $order_additional_info->email_address }}</p>
+                                <p><b>Phone:</b> {{ $order_additional_info->phone }}</p>
 
-                                <div class="contact-message">
-                                    <form id="contact-form" action="{{ route('checkout-store') }}" method="post" class="contact-form">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <label>First Name<span style="color:yellow">*</span></label>
-                                                <input name="first_name" id="first_name" type="text" @if (Auth::check()) value="{{ Auth()->user()->firstname }}" @endif required>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <label>Last Name<span style="color:yellow">*</span></label>
-                                                <input name="last_name" id="last_name" type="text" @if (Auth::check()) value="{{ Auth()->user()->lastname }}" @endif required>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <label>Email<span style="color:yellow">*</span></label>
-                                                <input name="email_address" id="email_address" type="email" @if (Auth::check()) value="{{ Auth()->user()->email }}" @endif required>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <label>Phone<span style="color:yellow">*</span></label>
-                                                <input name="phone" id="phone" type="text" @if (Auth::check()) value="{{ Auth()->user()->phone }}" @endif required>
-                                            </div>
-                                            <div class="col-12 d-flex justify-content-center">
-                                                <p class="form-Who will be picking up your ordermessege"></p>
-                                            </div>
-                                        </div>
+                                <h5 class="checkout-title" style="margin-top:30px;">BILLING INFORMATION</h5>
+                                <p><b>Address:</b> {{ $order_additional_info->street_address }}</p>
+                                <p><b>City:</b> {{ $order_additional_info->city }}</p>
+                                <p><b>State:</b> {{ $order_additional_info->state }}</p>
+                                <p><b>Zip:</b> {{ $order_additional_info->zip }}</p>
 
-                                        <h5 class="checkout-title" style="margin-top: 30px;">Billing Address</h5>
+                                <h5 class="checkout-title" style="margin-top:30px;">PICKUP PERSON:</h5>
+                                @if($order_additional_info->person == 'self_customer')
+                                    <p>I, as the customer, will pickup the purchased item(s).</p>
+                                @else
+                                    <p>I am assigning the following person to pick up my purchased item:</p>
+                                    <p><b>First Name:</b> {{ $order_additional_info->p_first_name }}</p>
+                                    <p><b>Last Name:</b> {{ $order_additional_info->p_last_name }}</p>
+                                    <p><b>Email:</b> {{ $order_additional_info->p_email_address }}</p>
+                                    <p><b>Phone:</b> {{ $order_additional_info->p_phone }}</p>
+                                @endif
 
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <label>Street Address<span style="color:yellow">*</span></label>
-                                                <input name="street_address" id="street_address" type="text" @if (Auth::check()) value="{{ Auth()->user()->address1 }} {{ Auth()->user()->address2 }}" @endif required>
-                                            </div>
-
-                                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                                        <label>City<span style="color:yellow">*</span></label>
-                                                        <input name="city" id="city" type="text" @if (Auth::check()) value="{{ Auth()->user()->city }}"  @endif required>
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                                        <label>State<span style="color:yellow">*</span></label>
-                                                        <select name="state" id="state" required>
-                                                            @foreach($state_lists as $key=>$state_list)
-                                                                <option @if (Auth::check()) @if(Auth()->user()->state==$key) selected @endif @else @if($key=='KS') selected @endif @endif value="{{ $key }}">{{ $key }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                                        <label>Zip<span style="color:yellow">*</span></label>
-                                                        <input name="zip" id="zip" type="text" @if (Auth::check()) value="{{ Auth()->user()->zip }}"  @endif required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <h5 class="checkout-title" style="margin-top:30px;">PREFERRED PICKUP DATE/TIME:</h5>
+                                <p><b>Date:</b> {{ $order_additional_info->pickup_date }}</p>
+                                <p><b>Time:</b> {{ $order_additional_info->time }}</p>
 
 
+                                @php
+                                    if(!empty(json_decode($order_additional_info->preferred_pick_optinos))) {
+                                        $options = json_decode($order_additional_info->preferred_pick_optinos);
+                                    }
+                                @endphp
+
+                                @if(!empty($options))
+                                    <h5 class="checkout-title" style="margin-top:30px;">IMPORTANT INFORMATION:</h5>
+                                    <ul>
+                                    @foreach($options as $option)
+                                        <li style="list-style: disc">
+                                            @if($option=='if_plan_not_available_substitute_plant_size')
+                                                If plant is not available, I’m ok to substitute plant size. (equal or better value)
+                                            @elseif($option=='if_plan_not_available_substitute_plant_variety')
+                                                If plant is not available, I’m ok to substitute plant variety. (equal or better value)
+                                            @elseif($option=='if_plan_not_available_back_order_1_month')
+                                                If plant is not available, I’m ok to back-order. (Up to 1 month)
+                                            @elseif($option=='if_plan_not_available_back_order_3_month')
+                                                If plant is not available, I’m ok to back-order. (Up to 3 months)
+                                            @elseif($option=='if_plan_not_available_issue_refund')
+                                                If plant is not available, please issue refund on that item
+                                            {{--@elseif($option=='tax_exempt')
+                                                I or my company is Tax Exempt. (Please email us copy of tax certificate)--}}
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                    </ul>
+                                @endif
 
 
-
-                                        <h5 class="checkout-title" style="margin-top:30px;">Who will be picking up your order?</h5>
-
-                                        <div>
-                                            <div class="row">
-                                                <div class="col-lg-8 col-md-8 col-sm-8">
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="radio" name="person" style="width: 5%"  value="self_customer" checked>&nbsp;I, as the customer, will pick up the purchased items
-                                                    </label>
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="radio" name="person" style="width: 5%" value="assign_other">&nbsp;I am assigning the following person to pick up my purchased items
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <label>First Name</label>
-                                                    <input name="p_first_name" id="p_first_name" type="text">
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <label>Last Name</label>
-                                                    <input name="p_last_name" id="p_last_name"  type="text" required="">
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <label>Email</label>
-                                                    <input name="p_email_address" id="p_email_address"  type="email" >
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <label>Phone</label>
-                                                    <input name="p_phone" id="p_phone"  type="text" >
-                                                </div>
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <p class="form-messege"></p>
-                                                </div>
-                                            </div>
-
-                                            <h5 class="checkout-title" style="margin-top:30px;">Preferred pickup date</h5>
-
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <input name="pickup_date" id="pickup_date" type="text" placeholder="Preferred date" required>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <select name="time" id="time">
-                                                        <option value="">Select preferred time</option>
-                                                        <option value="Morning">Morning</option>
-                                                        <option value="Noonish">Noonish</option>
-                                                        <option value="Early Afternoon">Early Afternoon</option>
-                                                        <option value="Late Afternoon">Late Afternoon</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-lg-10 col-md-10 col-sm-10">
-                                                    <h6 style="margin-bottom:10px;margin-top:10px;">Please check all that apply:</h6>
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_substitute_plant_size">&nbsp;If plant is not available, I’m ok to substitute plant size. (equal or better value)
-                                                    </label>
-
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_substitute_plant_variety">&nbsp;If plant is not available, I’m ok to substitute plant variety. (equal or better value)
-                                                    </label>
-
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_back_order_1_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 1 month)
-                                                    </label>
-
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_back_order_3_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 3 months)
-                                                    </label>
-
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_issue_refund">&nbsp;If plant is not available, please issue refund on that item
-                                                    </label>
-
-
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-lg-10 col-md-10 col-sm-10">
-                                                    <input type="submit" class="btn btn-sqr btn-submit" value="Continue Checkout" style="max-width: 320px;background-color: #7fbc03 !important;color: #fff;border-color: #7fbc03;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- Order Payment Method -->
-                                <form action="" method="post">
-                                    <div class="order-payment-method" id="paypal_plugin" style="display: none">
-<!--                                   <div class="single-payment-method show">
-                                        <div class="payment-method-name">
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="cashon" name="paymentmethod" value="cash" class="custom-control-input" checked />
-                                                <label class="custom-control-label" for="cashon">Cash On Pickup</label>
-                                            </div>
-                                        </div>
-                                        <div class="payment-method-details" data-method="cash">
-                                            <p>Pay with cash upon delivery.</p>
-                                        </div>
-                                    </div>-->
-                                        <!--
-                                        <div class="single-payment-method">
-                                            <div class="payment-method-name">
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="directbank" name="paymentmethod" value="bank" class="custom-control-input" />
-                                                    <label class="custom-control-label" for="directbank">Direct Bank
-                                                        Transfer</label>
-                                                </div>
-                                            </div>
-                                            <div class="payment-method-details" data-method="bank">
-                                                <p>Make your payment directly into our bank account. Please use your Order
-                                                    ID as the payment reference. Your order will not be shipped until the
-                                                    funds have cleared in our account..</p>
-                                            </div>
-                                        </div>
-                                        <div class="single-payment-method">
-                                            <div class="payment-method-name">
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="checkpayment" name="paymentmethod" value="check" class="custom-control-input" />
-                                                    <label class="custom-control-label" for="checkpayment">Pay with
-                                                        Check</label>
-                                                </div>
-                                            </div>
-                                            <div class="payment-method-details" data-method="check">
-                                                <p>Please send a check to Store Name, Store Street, Store Town, Store State
-                                                    / County, Store Postcode.</p>
-                                            </div>
-                                        </div>-->
-    <!--                                    <div class="single-payment-method">
-                                            <div class="payment-method-name">
-    &lt;!&ndash;                                            <div class="custom-control custom-radio">&ndash;&gt;
-    &lt;!&ndash;                                                <input type="radio" id="paypalpayment" name="paymentmethod" value="paypal" class="custom-control-input" />&ndash;&gt;
-                                                    <label class="custom-control-label remove" for="paypalpayment">Paypal <img src="{{ asset('img/paypal-card.jpg') }}" class="img-fluid paypal-card" alt="Paypal" /></label>
-    &lt;!&ndash;                                            </div>&ndash;&gt;
-                                            </div>
-                                            <div class="payment-method-details" data-method="paypal">
-                                                <p>Pay via PayPal; you can pay with your credit card if you don’t have a
-                                                    PayPal account.</p>
-                                            </div>
-                                        </div>-->
-                                        <div class="summary-footer-area">
-    <!--                                        <div class="custom-control custom-checkbox mb-20">
-                                                <input type="checkbox" class="custom-control-input" id="terms" required />
-                                                <label class="custom-control-label" for="terms">I have read and agree to
-                                                    the website <a href="index.html">terms and conditions.</a></label>
-                                            </div>-->
-                                            <p style="color: yellow"><b>PLEASE NOTE</b>: All orders are curbside pickup only</p>
-                                            <div id="paypal-button-container" style="background-color: #fff;padding: 15px;border-radius: 10px;text-align: center"></div>
-                                        </div>
-                                    </div>
-                                </form>
 
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -626,16 +468,11 @@
     </main>
 @endsection
 @section('javascript')
-    <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=AZdCloEQ0CboLqDpStAhWMENbkqajvH43i1T30xMTAZgCO_GqmBINSGADQZkcD6_X4w85YLR033SekTG"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID
     </script>
 
     <script>
         $(document).ready(function() {
-
-            jQuery('#pickup_date').datepicker({
-                /*timeFormat: "hh:mm tt",*/
-            });
 
             $(".btn-submit").click(function(e){
 

@@ -49,4 +49,12 @@ class HomeController extends Controller
             'settings_info' => $settings_info
         ]);
     }
+
+    public function aboutUs() {
+        $imageLists = Setting::firstOrFail();
+        //dd($imageLists);
+        return view('aboutus.aboutUs', [
+            'imageLists' => $imageLists
+        ]);
+    }
 }

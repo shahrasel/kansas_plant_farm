@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GardenTheme;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class SettingsController extends Controller
 {
@@ -83,6 +86,30 @@ class SettingsController extends Controller
         $settings->terms_conditions = $request->terms_conditions;
         $settings->our_gurantee = $request->our_gurantee;
 
+        $settings->spring_plant_link = $request->spring_plant_link;
+        $settings->summer_plant_link = $request->summer_plant_link;
+        $settings->fall_plant_link = $request->fall_plant_link;
+        $settings->winter_plant_link = $request->winter_plant_link;
+
+        $settings->red_plant_link = $request->red_plant_link;
+        $settings->orange_plant_link = $request->orange_plant_link;
+        $settings->yellow_plant_link = $request->yellow_plant_link;
+        $settings->green_plant_link = $request->green_plant_link;
+
+        $settings->blue_plant_link = $request->blue_plant_link;
+        $settings->lavendar_plant_link = $request->lavendar_plant_link;
+        $settings->purple_plant_link = $request->purple_plant_link;
+        $settings->pink_plant_link = $request->pink_plant_link;
+
+        $settings->magenta_plant_link = $request->magenta_plant_link;
+        $settings->white_plant_link = $request->white_plant_link;
+
+        $settings->facebook_link = $request->facebook_link;
+        $settings->twitter_link = $request->twitter_link;
+        $settings->instagram_link = $request->instagram_link;
+        $settings->youtube_link = $request->youtube_link;
+
+
         $settings->save();
 
         return redirect(url('admin/settings/1/edit'));
@@ -97,5 +124,147 @@ class SettingsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function adminAboutusImageProcessor($id,Request $request) {
+
+        if(!empty($request->file('file'))) {
+            $property_img_info = Setting::find($id);
+
+            $request->validate([
+                'file' => 'image|mimes:jpg,png,jpeg,gif,svg|max:20480',
+            ]);
+
+            $path = $request->file('file');
+
+            $healthy = array("~", "'", "!","@","#","$","%","^","&","*","(",")","-","_","+","=","{","}","[","]","|","/","\\",":",";",'"',"`","<",">",",","?"," ","=");
+            $yummy   = array("","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","");
+
+            $filename = str_replace($healthy, $yummy, $path->getClientOriginalName());
+
+
+            $dir = public_path('img/aboutus/thumb/' . $request->id);
+
+            if(!is_dir($dir)) {
+                File::makeDirectory($dir);
+            }
+            $dir = public_path('img/aboutus/large/' . $request->id);
+            if(!is_dir($dir)) {
+                File::makeDirectory($dir);
+            }
+
+            $thumb_image_resize = Image::make($path->getRealPath());
+
+            $thumb_image_resize->resize(250, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+
+            $thumb_image_resize->save(public_path('img/aboutus/thumb/' .$request->id.'/'. $filename));
+
+            $lg_image_resize = Image::make($path->getRealPath());
+            $lg_image_resize->resize(1200, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $lg_image_resize->save(public_path('img/aboutus/large/' .$request->id.'/'. $filename));
+
+
+
+            $arr = array();
+            $garden_themes_img_info = Setting::find($id);
+            if (!empty($garden_themes_img_info->about_us_images) && ($garden_themes_img_info->about_us_images != 'null')) {
+                $arr = json_decode($garden_themes_img_info->about_us_images);
+            }
+            array_push($arr, $filename);
+
+            $garden_themes_img_info->about_us_images = json_encode($arr);
+            $garden_themes_img_info->save();
+        }
+        else if($request->ac == 'delete') {
+
+            $garden_themes_img_info = Setting::where('id', $request->id)->firstOrFail();
+
+            $arr = array();
+            $arr = json_decode($garden_themes_img_info->about_us_images);
+
+
+            if(($key = array_search($request->fn, $arr)) !== false) {
+                unset($arr[$key]);
+                $foo2 = array_values($arr);
+            }
+
+            unlink(public_path('img/aboutus/thumb/' .$request->id.'/'. $request->fn));
+            unlink(public_path('img/aboutus/large/' .$request->id.'/'. $request->fn));
+
+            $garden_themes_img_info->about_us_images = json_encode($foo2);
+            $garden_themes_img_info->save();
+
+        }
+        else if($request->ac == 'sorting') {
+            $arr = array();
+
+            $healthy = array("~", "'", "!","@","#","$","%","^","&","*","(",")","-","_","+","=","{","}","[","]","|","/","\\",":",";",'"',"`","<",">",",","?"," ","=");
+            $yummy   = array("","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","");
+
+
+
+            if(!empty($request->fn)) {
+                $f1 = str_replace('foo[]=','',$request->fn);
+                $f2 = str_replace($healthy, $yummy, $f1);
+                $arr[] = $f2;
+            }
+
+
+
+
+
+            if(!empty($request->foo)) {
+                foreach($request->foo as $fo) {
+                    $fo1 = str_replace($healthy, $yummy, $fo);
+                    $arr[] = $fo1;
+                }
+            }
+
+            //dd($arr);
+
+            $garden_themes_img_info = Setting::find($request->id);
+            $garden_themes_img_info->about_us_images = json_encode($arr);
+            $garden_themes_img_info->save();
+        }
+        else {
+
+            $garden_themes_img_info = Setting::find($request->id);
+
+            //dd($garden_themes_img_info);
+
+            $arr = array();
+            $arr = json_decode($garden_themes_img_info->about_us_images);
+
+            $healthy = array("~", "'", "!","@","#","$","%","^","&","*","(",")","-","_","+","=","{","}","[","]","|","/","\\",":",";",'"',"`","<",">",",","?"," ","=");
+            $yummy   = array("","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","");
+
+            if(!empty($arr)) {
+                $result = array();
+                foreach($arr as $ar) {
+                    //if(filesize("../media/property/".$ar)>1) {
+                    $ar = str_replace($healthy, $yummy, $ar);
+                    $obj = array();
+                    $obj['name'] = $ar;
+                    $obj['size'] = filesize(public_path('img/aboutus/thumb/' .$request->id.'/'. $ar));
+                    //$obj['src'] = url('img/product/large/' .$request->id.'/'. $ar);
+
+                    $result[] = $obj;
+                    //}
+                }
+            }
+            //dd($result);
+
+            //header('Content-type: text/json');
+            //header('Content-type: application/json');
+            //return json_encode($result, JSON_FORCE_OBJECT);
+            return $result;
+        }
+
     }
 }

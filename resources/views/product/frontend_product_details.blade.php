@@ -60,199 +60,99 @@
                                         <h3 class="product-name">{{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i>@if(!empty($product->patent_trademark_names))<br/>{{ $product->patent_trademark_names }} @endif</h3>
 
 
-                                        @if (Auth::check())
+                                        {{--@if (Auth::check())
                                             @if(Auth()->user()->usertype=='contractor')
                                                 <div class="price-box" id="contractor_price">
-                                                    <span class="price-regular price-regular-ajax-contractor">${{ number_format($product->contractor_price_a,2) }}</span>
+                                                    <span class="price-regular price-regular-ajax-contractor">
+                                                        <!-- ${{ number_format($product->contractor_price_a,2) }}-->
+                                                        @if(!empty($product_model->getProductPrice($product)))
+                                                            ${{ $product_model->getProductPrice($product) }}
+                                                        @endif
+                                                    </span>
                                                 </div>
-
-                                                {{--@if(!empty($product->contractor_price_a))
-                                                    <div class="price-box" id="contractor_price_a">
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
-                                                    </div>
-
-
-                                                @elseif(!empty($product->contractor_price_b))
-                                                    <div class="price-box" id="contractor_price_b">
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
-                                                    </div>
-
-                                                @elseif(!empty($product->contractor_price_c))
-                                                    <div class="price-box" id="contractor_price_c">
-                                                        <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
-                                                    </div>
-                                                @endif--}}
                                             @else
                                                 <div class="price-box" id="regular_size_price_user1">
-                                                    <span class="price-regular price-regular-ajax">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                    <span class="price-old price-old-ajax"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                                    <span class="price-regular price-regular-ajax">
+                                                        ${{ number_format($product->retail_sale_price_a,2) }}
+                                                    </span>
+                                                    <span class="price-old price-old-ajax">
+                                                        <del>${{ number_format($product->retail_list_price_a,2) }}</del>
+                                                    </span>
                                                 </div>
-                                                {{--@if(!empty($product->retail_sale_price_a))
-                                                    <div class="price-box" id="regular_size_price_a">
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
-                                                    </div>
-
-                                                @elseif(!empty($product->retail_sale_price_b))
-                                                    <div class="price-box" id="44_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
-                                                    </div>
-                                                    <div class="price-box" id="55gal_size_price" >
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
-                                                    </div>
-                                                    <div class="price-box" id="flat66_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
-                                                    </div>
-                                                @elseif(!empty($product->retail_sale_price_c))
-                                                    <div class="price-box" id="44_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
-                                                    </div>
-                                                    <div class="price-box" id="55gal_size_price" style="display: none">
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
-                                                    </div>
-                                                    <div class="price-box" id="flat66_size_price">
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
-                                                    </div>
-                                                @endif--}}
                                             @endif
                                         @else
                                             <div class="price-box" id="regular_size_price_user2">
-                                                <span class="price-regular price-regular-ajax">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                <span class="price-old price-old-ajax"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                                <span class="price-regular price-regular-ajax">
+                                                    ${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                <span class="price-old price-old-ajax">
+                                                    <del>${{ number_format($product->retail_list_price_a,2) }}</del>
+                                                </span>
                                             </div>
-                                            {{--@if(!empty($product->retail_sale_price_a))
-                                                <div class="price-box" id="44_size_price">
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
-                                                </div>
-                                                <div class="price-box" id="55gal_size_price" style="display: none">
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
-                                                </div>
-                                                <div class="price-box" id="flat66_size_price" style="display: none">
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
-                                                </div>
-                                            @elseif(!empty($product->retail_sale_price_b))
-                                                <div class="price-box" id="44_size_price" style="display: none">
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
-                                                </div>
-                                                <div class="price-box" id="55gal_size_price" >
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
-                                                </div>
-                                                <div class="price-box" id="flat66_size_price" style="display: none">
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
-                                                </div>
-                                            @elseif(!empty($product->retail_sale_price_c))
-                                                <div class="price-box" id="44_size_price" style="display: none">
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
-                                                </div>
-                                                <div class="price-box" id="55gal_size_price" style="display: none">
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_b,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_b,2) }}</del></span>
-                                                </div>
-                                                <div class="price-box" id="flat66_size_price">
-                                                    <span class="price-regular">${{ number_format($product->retail_sale_price_c,2) }}</span>
-                                                    <span class="price-old"><del>${{ number_format($product->retail_list_price_c,2) }}</del></span>
-                                                </div>
-                                            @endif--}}
-                                        @endif
+                                        @endif--}}
+
+                                        <div class="price-box">
+                                            <span class="price-regular price-regular-ajax">
+                                                @if(!empty($product->getProductPrice($product)))
+                                                    ${{ $product->getProductPrice($product) }}
+                                                @endif
+                                            </span>
+                                            <span class="price-old price-old-ajax">
+                                                <del>
+                                                    @if(!empty($product->getProductListPrice($product)))
+                                                        <del>${{ $product->getProductListPrice($product) }}</del>
+                                                    @endif
+                                                </del>
+                                            </span>
+                                        </div>
 
 
 
 
 
-                                        {{--<h5 class="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
-                                        <div class="product-countdown" data-countdown="2019/12/20"></div>--}}
-<!--                                        <div class="manufacturer-name details_tag">
-                                            @if($product->perennial == 'YES')
-                                                <a  href="{{ url("/plants?category=perennial") }}">Perennial</a>
-                                            @endif
-                                            @if($product->shrub == 'YES')
-                                                <a  href="{{ url("/plants?category=shrub") }}">Shrub</a>
-                                            @endif
-                                            @if($product->vine == 'YES')
-                                                <a  href="{{ url("/plants?category=vine") }}">Vine</a>
-                                            @endif
-                                            @if($product->grass_bamboo == 'YES')
-                                                <a  href="{{ url("/plants?category=grass_bamboo") }}">Grass / Bamboo</a>
-                                            @endif
-                                            @if($product->hardy_tropical == 'YES')
-                                                <a  href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
-                                            @endif
-                                            @if($product->water_plant == 'YES')
-                                                <a  href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
-                                            @endif
-                                            @if($product->annual == 'YES')
-                                                <a  href="{{ url("/plants?category=annual") }}">Annual</a>
-                                            @endif
-                                            @if($product->house_deck_plant == 'YES')
-                                                <a  href="{{ url("/plants?category=house_deck_plant") }}">House / Deck Plant</a>
-                                            @endif
-                                            @if($product->cactus_succulent == 'YES')
-                                                <a  href="{{ url("/plants?category=cactus_succulent") }}">Cactus / Succulent</a>
-                                            @endif
-                                            @if($product->small_tree == 'YES')
-                                                <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
-                                            @endif
-                                            @if($product->large_tree == 'YES')
-                                                <a  href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
-                                            @endif
-                                        </div>-->
                                         <div class="manufacturer-name details_tag">
                                             @if($product->perennial == 'YES')
-                                                <a  href="{{ url("/plants?category=perennial") }}">Perennial</a>
+                                                <a>Perennial</a>
                                             @endif
                                             @if($product->shrub == 'YES')
-                                                <a  href="{{ url("/plants?category=shrub") }}">Shrub</a>
+                                                <a>Shrub</a>
                                             @endif
                                             @if($product->vine == 'YES')
-                                                <a  href="{{ url("/plants?category=vine") }}">Vine</a>
+                                                <a>Vine</a>
                                             @endif
                                             @if($product->grass_bamboo == 'YES')
-                                                <a  href="{{ url("/plants?category=grass_bamboo") }}">Grass / Bamboo</a>
+                                                <a>Grass / Bamboo</a>
                                             @endif
                                             @if($product->hardy_tropical == 'YES')
-                                                <a  href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
+                                                <a>Hardy Tropical</a>
                                             @endif
                                             @if($product->water_plant == 'YES')
-                                                <a  href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
+                                                <a>Water Plant</a>
                                             @endif
                                             @if($product->annual == 'YES')
-                                                <a  href="{{ url("/plants?category=annual") }}">Annual</a>
+                                                <a>Annual</a>
                                             @endif
                                             @if($product->house_deck_plant == 'YES')
-                                                <a  href="{{ url("/plants?category=house_deck_plant") }}">House / Deck Plant</a>
+                                                <a>House / Deck Plant</a>
                                             @endif
                                             @if($product->cactus_succulent == 'YES')
-                                                <a  href="{{ url("/plants?category=cactus_succulent") }}">Cactus / Succulent</a>
+                                                <a>Cactus / Succulent</a>
                                             @endif
                                             @if($product->small_tree == 'YES')
-                                                <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
+                                                <a>Small Tree</a>
                                             @endif
                                             @if($product->large_tree == 'YES')
-                                                <a  href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
+                                                <a>Large_tree</a>
                                             @endif
                                         </div>
                                         <div class="availability">
                                             <i class="fa fa-check-circle"></i>
                                             <span style="margin-right: 40px" id="product_count">
-                                                @if(!empty($product->inventory_count_a))
-                                                    @if($product->inventory_count_a>0)
-                                                        @if($product->inventory_count_a >= 10)
+                                                @if(!empty($product->getProductStock($product)))
+                                                    @if($product->getProductStock($product)>0)
+                                                        @if($product->getProductStock($product) >= 10)
                                                             Currently {{ $product->inventory_count_a }} in stock
                                                         @else
-                                                            Only {{ $product->inventory_count_a }} in stock
+                                                            Only {{ $product->getProductStock($product) }} in stock
                                                         @endif
                                                     @else
                                                         CURRENTLY NOT AVAILABLE
@@ -270,20 +170,18 @@
 <!--                                        <form id="cartform" style="display:@if(!empty($product->inventory_count_a)) block @else none @endif">-->
                                         <form id="cartform" >
                                             @csrf
-
-                                            @if(!empty($product->retail_sale_price_a))
-                                                <div class="quantity-cart-box d-flex align-items-center">
+                                                <div class="quantity-cart-box d-flex align-items-center" id="addtocart_btn" @if(!empty($product->getProductStock($product))) @if($product->getProductStock($product)>0) style="display: block" @endif @else style="display: none !important;" @endif>
                                                     <h6 class="option-title" style="margin-right: 12px;">qty:</h6>
                                                     <div class="quantity">
                                                         <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity" id="quantity"></div>
                                                     </div>
-                                                    <div class="action_link" id="addtocart_btn" style="display:@if(!empty($product->inventory_count_a)) block @else none @endif">
+                                                    <div class="action_link">
                                                         <button class="btn btn-cart2">Add to cart</button>
-<!--                                                        <input type="submit" class="btn btn-cart2" value="Add to cart">-->
                                                     </div>
                                                 </div>
-                                                <input type="hidden" id="max_item" value="{{ $product->inventory_count_a }}">
-                                            @endif
+
+                                                <input type="hidden" id="max_item" value="{{ $product->getProductStock($product) }}">
+
 
                                             @if(empty($product->other_product_service_name))
                                                 <div class="pro-size">
@@ -315,32 +213,6 @@
                                         </form>
 
 
-
-                                        @auth
-                                            @inject('wishlist', 'App\Models\Wishlist')
-
-                                            <form id="wishlist_form_{{ $product->id }}" method="post">
-                                                @csrf
-                                                <div class="useful-links">
-                                                    <a onclick="wishlist_form_submit({{ $product->id }})" data-toggle="tooltip" title="Wishlist" style="cursor: pointer;text-transform: none">
-
-                                                            @if($wishlist->checkUsersWishlist($product) == 1)
-                                                            <i id="like_active" class="pe-7s-like like_active"></i><span id="wish_text">Added to wishlist</span></a>
-                                                            @else
-                                                        <i id="like_active" class="pe-7s-like"></i><span id="wish_text">Add to wishlist</span></a>
-                                                            @endif
-                                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                </div>
-                                            </form>
-                                        @endauth
-                                        @guest
-                                            <div class="useful-links">
-<!--                                                <a href="{{ url('/login') }}" data-toggle="tooltip" title="Wishlist" style="cursor: pointer">
-                                                    <i id="like_active" class="pe-7s-like"></i>Add to wishlist
-                                                </a>-->
-                                            </div>
-                                        @endguest
                                         <div class="manufacturer-name details_tag" style="margin-bottom: 13px;">
                                             @if($product->sustainable_garden == 'YES')
                                                 <a>Sustainable Garden</a>

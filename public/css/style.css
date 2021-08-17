@@ -6526,10 +6526,10 @@ blockquote {
 
 .myaccount-table table th,
 .myaccount-table .table th {
-  color: #7fbc03;
+  color: #fff;
   padding: 10px;
   font-weight: 400;
-  background-color: #f8f8f8;
+  background-color: #7fbc03;
   border-color: #ccc;
   border-bottom: 0;
 }
@@ -6539,6 +6539,7 @@ blockquote {
   padding: 10px;
   vertical-align: middle;
   border-color: #ccc;
+  color: #fff;
 }
 
 .saved-message {

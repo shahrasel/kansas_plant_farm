@@ -4714,12 +4714,21 @@ class ProductController extends Controller
         $product->inventory_count_a = $request->inventory_count_a;
         $product->inventory_count_b = $request->inventory_count_b;
         $product->inventory_count_c = $request->inventory_count_c;
+
+        $product->contractor_price_a = $request->contractor_price_a;
+        $product->contractor_price_b = $request->contractor_price_b;
+        $product->contractor_price_c = $request->contractor_price_c;
+
         $product->pot_size_a = $request->pot_size_a;
         $product->pot_size_b = $request->pot_size_b;
         $product->pot_size_c = $request->pot_size_c;
         $product->retail_sale_price_a = $request->retail_sale_price_a;
         $product->retail_sale_price_b = $request->retail_sale_price_b;
         $product->retail_sale_price_c = $request->retail_sale_price_c;
+
+        $product->retail_list_price_a = $request->retail_list_price_a;
+        $product->retail_list_price_b = $request->retail_list_price_b;
+        $product->retail_list_price_c = $request->retail_list_price_c;
 
         $product->status = $request->status;
         $product->new_for_this_year = $request->new_for_this_year;

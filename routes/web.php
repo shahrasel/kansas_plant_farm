@@ -62,7 +62,7 @@ Auth::routes();
 
 Route::get('/add_image_count', [App\Http\Controllers\ProductController::class, 'add_image_count'])->name('add_image_count');
 
-
+Route::get('/about-us', [App\Http\Controllers\HomeController::class, 'aboutUs'])->name('about-us');
 
 Route::post('/plants', [App\Http\Controllers\ProductController::class, 'products'])->name('products_post');
 Route::get('/plants/{product}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');
@@ -82,7 +82,8 @@ Route::get('/pay-success', [App\Http\Controllers\OrderController::class, 'paySuc
 Route::get('/pay-failed', [App\Http\Controllers\OrderController::class, 'payFailed'])->name('pay-failed');
 
 Route::get('/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('dashboard')->middleware('auth');
-Route::get('/orders', [\App\Http\Controllers\UserController::class, 'orders'])->name('orders')->middleware('auth');
+Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'orders'])->name('orders')->middleware('auth');
+Route::get('/order-details/{orderid}/show', [\App\Http\Controllers\OrderController::class, 'orderDetails'])->name('orders-details')->middleware('auth');
 
 Route::get('/my-profile', [\App\Http\Controllers\UserController::class, 'profile'])->name('my-profile')->middleware('auth');
 Route::post('/user-update', [\App\Http\Controllers\UserController::class, 'update'])->name('user-update')->middleware('auth');
@@ -144,6 +145,7 @@ Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'ad
 ################## ORDER ####################
 Route::get('/admin/orders', [\App\Http\Controllers\OrderController::class, 'adminOrders'])->name('admin-orders')->middleware('adminauth');
 Route::any('/admin/orderdetails/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderDetails'])->name('admin-order-details')->middleware('adminauth');
+Route::any('/admin/orderprint/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderPrint'])->name('admin-order-print')->middleware('adminauth');
 
 
 ################## GARDEN THEME ####################
@@ -157,6 +159,9 @@ Route::any('/admin/edit-garden-theme-image/{id}', [\App\Http\Controllers\GardenT
 Route::any('/admin/garden-theme-image-processor/{id}', [\App\Http\Controllers\GardenThemeController::class, 'adminGardenThemeImageProcessor'])->name('garden-theme-image-processor')->middleware('adminauth');
 
 Route::get('/admin/garden-themes/{gardenTheme}/delete', [\App\Http\Controllers\GardenThemeController::class, 'destroy'])->name('admin-garden-theme-delete')->middleware('adminauth');
+
+
+Route::any('/admin/aboutus-image-processor/{id}', [\App\Http\Controllers\SettingsController::class, 'adminAboutusImageProcessor'])->name('aboutus-image-processor')->middleware('adminauth');
 
 
 ################## EVENT ####################

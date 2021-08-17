@@ -24,7 +24,7 @@
                                             <a href="{{ route('dashboard') }}" ><i class="fa fa-dashboard"></i>
                                                 Dashboard</a>
                                             <a href="{{ route('orders') }}" class="active" ><i class="fa fa-cart-arrow-down"></i>
-                                                Orders</a>
+                                                Order History</a>
                                             <a href="{{ route('my-profile') }}"><i class="fa fa-user"></i> My Profile</a>
                                             <form action="{{ url('/logout') }}" method="post">
                                                 @csrf
@@ -55,43 +55,26 @@
                                             <!-- Single Tab Content Start -->
                                             <div class="tab-pane fade show active" id="orders" role="tabpanel">
                                                 <div class="myaccount-content">
-                                                    <h5>Orders</h5>
+                                                    <h5>Order History</h5>
                                                     <div class="myaccount-table table-responsive text-center">
                                                         <table class="table table-bordered">
                                                             <thead class="thead-light">
                                                             <tr>
-                                                                <th>Order</th>
-                                                                <th>Date</th>
+                                                                <th>Order #</th>
+                                                                <th>Date / Time</th>
                                                                 <th>Status</th>
                                                                 <th>Total</th>
-                                                                <th>Action</th>
+                                                                <th>Details</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Aug 22, 2018</td>
-                                                                <td>Pending</td>
-                                                                <td>$3000</td>
-                                                                <td><a href="cart.html" class="btn btn-sqr">View</a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>July 22, 2018</td>
-                                                                <td>Approved</td>
-                                                                <td>$200</td>
-                                                                <td><a href="cart.html" class="btn btn-sqr">View</a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>June 12, 2017</td>
-                                                                <td>On Hold</td>
-                                                                <td>$990</td>
-                                                                <td><a href="cart.html" class="btn btn-sqr">View</a>
-                                                                </td>
-                                                            </tr>
+                                                                @foreach($order_lists as $order_list)
+                                                                    <td>{{ $order_list->orderid }}</td>
+                                                                    <td>{{ $order_list->created_at }}</td>
+                                                                    <td>{{ $order_list->status }}</td>
+                                                                    <td>${{ number_format($order_list->total_price,2) }}</td>
+    <td><a href="{{ url('/order-details/'.$order_list->id.'/show') }}">View</a></td>
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>

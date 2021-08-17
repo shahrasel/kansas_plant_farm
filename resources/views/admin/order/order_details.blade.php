@@ -193,12 +193,17 @@
                         Data Tables
                     </h6>-->
                     <div class="element-box">
-                        <h5 class="form-header">
-                            Order List
-                        </h5>
-<!--                        <div class="form-desc">
-                            DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.. <a href="https://www.datatables.net/" target="_blank">Learn More about DataTables</a>
-                        </div>-->
+                        <div class="row">
+                            <div class="col-6">
+                                <h5 class="form-header">
+                                    Order# {{ $oderInfo->orderid }}
+                                </h5>
+                            </div>
+                            <div class="col-6 text-right">
+                                <a target="_blank" href="{{ url('/admin/orderprint') }}/{{ $oderInfo->id }}" class="btn btn-success">Print</a>
+                            </div>
+                        </div>
+
                         <div class="table-responsive" style="margin-bottom: 50px;">
                             <table id="dataTable10" width="100%" class="table table-striped table-lightfont">
                                 <thead>
@@ -219,11 +224,10 @@
 <!--                                                    <img class="img-fluid" src="{{ asset('plants_images/5.jpg') }}" style="max-width: 100px;" alt="Product" />-->
 
                                                     @if(!empty(($orderdetails_list->product->getImage($orderdetails_list->product))))
-                                                        <img class="pri-img" src="{{ url($orderdetails_list->product->getImage($orderdetails_list->product)) }}" alt="product">
+                                                        <img class="pri-img" style="width: 120px" src="{{ url($orderdetails_list->product->getImage($orderdetails_list->product)) }}" alt="product">
 
                                                     @else
-                                                        <img class="pri-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
-                                                        <img class="sec-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                                        <img class="pri-img" style="width: 120px" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
                                                     @endif
 
                                                 </a>
@@ -299,6 +303,93 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <fieldset class="form-group">
+                                    <legend><span>CUSTOMER INFORMATION</span></legend>
+                                    <p><b>First Name:</b> {{ $order_additional_info->first_name }}</p>
+                                    <p><b>Last Name:</b> {{ $order_additional_info->last_name }}</p>
+                                    <p><b>Email:</b> {{ $order_additional_info->email_address }}</p>
+                                    <p><b>Phone:</b> {{ $order_additional_info->phone }}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <fieldset class="form-group">
+                                    <legend><span>BILLING INFORMATION</span></legend>
+                                    <p><b>Address:</b> {{ $order_additional_info->street_address }}</p>
+                                    <p><b>City:</b> {{ $order_additional_info->city }}</p>
+                                    <p><b>State:</b> {{ $order_additional_info->state }}</p>
+                                    <p><b>Zip:</b> {{ $order_additional_info->zip }}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <fieldset class="form-group">
+                                    <legend><span>PICKUP PERSON</span></legend>
+                                    @if($order_additional_info->person == 'self_customer')
+                                        <p>I, as the customer, will pickup the purchased item(s).</p>
+                                    @else
+                                        <p>I am assigning the following person to pick up my purchased item:</p>
+                                        <p><b>First Name:</b> {{ $order_additional_info->p_first_name }}</p>
+                                        <p><b>Last Name:</b> {{ $order_additional_info->p_last_name }}</p>
+                                        <p><b>Email:</b> {{ $order_additional_info->p_email_address }}</p>
+                                        <p><b>Phone:</b> {{ $order_additional_info->p_phone }}</p>
+                                    @endif
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <fieldset class="form-group">
+                                    <legend><span>PREFERRED PICKUP DATE/TIME</span></legend>
+                                    <p><b>Date:</b> {{ $order_additional_info->pickup_date }}</p>
+                                    <p><b>Time:</b> {{ $order_additional_info->time }}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                            @php
+                                if(!empty(json_decode($order_additional_info->preferred_pick_optinos))) {
+                                    $options = json_decode($order_additional_info->preferred_pick_optinos);
+                                }
+                            @endphp
+
+                            @if(!empty($options))
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <fieldset class="form-group">
+                                        <legend><span>IMPORTANT INFORMATION</span></legend>
+                                        <ul>
+                                            @foreach($options as $option)
+                                                <li style="list-style: disc">
+                                                    @if($option=='if_plan_not_available_substitute_plant_size')
+                                                        If plant is not available, I’m ok to substitute plant size. (equal or better value)
+                                                    @elseif($option=='if_plan_not_available_substitute_plant_variety')
+                                                        If plant is not available, I’m ok to substitute plant variety. (equal or better value)
+                                                    @elseif($option=='if_plan_not_available_back_order_1_month')
+                                                        If plant is not available, I’m ok to back-order. (Up to 1 month)
+                                                    @elseif($option=='if_plan_not_available_back_order_3_month')
+                                                        If plant is not available, I’m ok to back-order. (Up to 3 months)
+                                                    @elseif($option=='if_plan_not_available_issue_refund')
+                                                        If plant is not available, please issue refund on that item
+                                                        {{--@elseif($option=='tax_exempt')
+                                                            I or my company is Tax Exempt. (Please email us copy of tax certificate)--}}
+                                                    @endif
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </fieldset>
+                                    </div>
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                 </div><!--------------------

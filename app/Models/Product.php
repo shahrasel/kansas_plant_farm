@@ -95,17 +95,94 @@ class Product extends Model
         }
     }
 
+    public static function getProductListPrice($product) {
+
+        $price = "";
+        if(!empty($product->other_product_service_name)) {
+            if (Auth::check()) {
+                if(Auth()->user()->usertype=='contractor') {
+                    if (!empty($product->contractor_price_a)) {
+                        $price = number_format($product->contractor_price_a, 2);
+                    } else if (!empty($product->contractor_price_b)) {
+                        $price = number_format($product->contractor_price_b, 2);
+                    } else if (!empty($product->contractor_price_c)) {
+                        $price = number_format($product->contractor_price_c, 2);
+                    }
+                }
+                else {
+                    if (!empty($product->retail_sale_price_a)) {
+                        $price = number_format($product->retail_list_price_a, 2);
+                    } else if (!empty($product->retail_sale_price_b)) {
+                        $price = number_format($product->retail_list_price_b, 2);
+                    } else if (!empty($product->retail_sale_price_c)) {
+                        $price = number_format($product->retail_list_price_c, 2);
+                    }
+                }
+            }
+            else {
+                if (!empty($product->retail_sale_price_a)) {
+                    $price = number_format($product->retail_list_price_a, 2);
+                } else if (!empty($product->retail_sale_price_b)) {
+                    $price = number_format($product->retail_list_price_b, 2);
+                } else if (!empty($product->retail_sale_price_c)) {
+                    $price = number_format($product->retail_list_price_c, 2);
+                }
+            }
+        }
+        else {
+            if (Auth::check()) {
+                if (Auth()->user()->usertype == 'contractor') {
+                    if (!empty($product->pot_size_a) && !empty($product->contractor_price_a)) {
+                        $price = number_format($product->contractor_price_a, 2);
+                    } else if (!empty($product->pot_size_b) && !empty($product->contractor_price_b)) {
+                        $price = number_format($product->contractor_price_b, 2);
+                    } else if (!empty($product->pot_size_c) && !empty($product->contractor_price_c)) {
+                        $price = number_format($product->contractor_price_c, 2);
+                    }
+                } else {
+                    if (!empty($product->pot_size_a) && !empty($product->retail_sale_price_a)) {
+                        $price = number_format($product->retail_list_price_a, 2);
+                    } else if (!empty($product->pot_size_b) && !empty($product->retail_sale_price_b)) {
+                        $price = number_format($product->retail_list_price_b, 2);
+                    } else if (!empty($product->pot_size_c) && !empty($product->retail_sale_price_c)) {
+                        $price = number_format($product->retail_list_price_c, 2);
+                    }
+                }
+            } else {
+                if (!empty($product->pot_size_a) && !empty($product->retail_sale_price_a)) {
+                    $price = number_format($product->retail_list_price_a, 2);
+                } else if (!empty($product->pot_size_b) && !empty($product->retail_sale_price_b)) {
+                    $price = number_format($product->retail_list_price_b, 2);
+                } else if (!empty($product->pot_size_c) && !empty($product->retail_sale_price_c)) {
+                    $price = number_format($product->retail_list_price_c, 2);
+                }
+            }
+        }
+        return $price;
+    }
+
     public static function getProductPrice($product) {
 
         $price = "";
-        if (Auth::check()) {
-            if(Auth()->user()->usertype=='contractor') {
-                if (!empty($product->contractor_price_a)) {
-                    $price = number_format($product->contractor_price_a, 2);
-                } else if (!empty($product->contractor_price_b)) {
-                    $price = number_format($product->contractor_price_b, 2);
-                } else if (!empty($product->contractor_price_c)) {
-                    $price = number_format($product->contractor_price_c, 2);
+        if(!empty($product->other_product_service_name)) {
+            if (Auth::check()) {
+                if(Auth()->user()->usertype=='contractor') {
+                    if (!empty($product->contractor_price_a)) {
+                        $price = number_format($product->contractor_price_a, 2);
+                    } else if (!empty($product->contractor_price_b)) {
+                        $price = number_format($product->contractor_price_b, 2);
+                    } else if (!empty($product->contractor_price_c)) {
+                        $price = number_format($product->contractor_price_c, 2);
+                    }
+                }
+                else {
+                    if (!empty($product->retail_sale_price_a)) {
+                        $price = number_format($product->retail_sale_price_a, 2);
+                    } else if (!empty($product->retail_sale_price_b)) {
+                        $price = number_format($product->retail_sale_price_b, 2);
+                    } else if (!empty($product->retail_sale_price_c)) {
+                        $price = number_format($product->retail_sale_price_c, 2);
+                    }
                 }
             }
             else {
@@ -119,15 +196,104 @@ class Product extends Model
             }
         }
         else {
-            if (!empty($product->retail_sale_price_a)) {
-                $price = number_format($product->retail_sale_price_a, 2);
-            } else if (!empty($product->retail_sale_price_b)) {
-                $price = number_format($product->retail_sale_price_b, 2);
-            } else if (!empty($product->retail_sale_price_c)) {
-                $price = number_format($product->retail_sale_price_c, 2);
+            if (Auth::check()) {
+                if (Auth()->user()->usertype == 'contractor') {
+                    if (!empty($product->pot_size_a) && !empty($product->contractor_price_a)) {
+                        $price = number_format($product->contractor_price_a, 2);
+                    } else if (!empty($product->pot_size_b) && !empty($product->contractor_price_b)) {
+                        $price = number_format($product->contractor_price_b, 2);
+                    } else if (!empty($product->pot_size_c) && !empty($product->contractor_price_c)) {
+                        $price = number_format($product->contractor_price_c, 2);
+                    }
+                } else {
+                    if (!empty($product->pot_size_a) && !empty($product->retail_sale_price_a)) {
+                        $price = number_format($product->retail_sale_price_a, 2);
+                    } else if (!empty($product->pot_size_b) && !empty($product->retail_sale_price_b)) {
+                        $price = number_format($product->retail_sale_price_b, 2);
+                    } else if (!empty($product->pot_size_c) && !empty($product->retail_sale_price_c)) {
+                        $price = number_format($product->retail_sale_price_c, 2);
+                    }
+                }
+            } else {
+                if (!empty($product->pot_size_a) && !empty($product->retail_sale_price_a)) {
+                    $price = number_format($product->retail_sale_price_a, 2);
+                } else if (!empty($product->pot_size_b) && !empty($product->retail_sale_price_b)) {
+                    $price = number_format($product->retail_sale_price_b, 2);
+                } else if (!empty($product->pot_size_c) && !empty($product->retail_sale_price_c)) {
+                    $price = number_format($product->retail_sale_price_c, 2);
+                }
             }
         }
         return $price;
+    }
+
+    public static function getProductStock($product) {
+
+        $stock = "";
+        if(!empty($product->other_product_service_name)) {
+            /*if (Auth::check()) {
+                if(Auth()->user()->usertype=='contractor') {
+                    if (!empty($product->contractor_price_a)) {
+                        $price = number_format($product->contractor_price_a, 2);
+                    } else if (!empty($product->contractor_price_b)) {
+                        $price = number_format($product->contractor_price_b, 2);
+                    } else if (!empty($product->contractor_price_c)) {
+                        $price = number_format($product->contractor_price_c, 2);
+                    }
+                }
+                else {
+                    if (!empty($product->retail_sale_price_a)) {
+                        $price = number_format($product->retail_sale_price_a, 2);
+                    } else if (!empty($product->retail_sale_price_b)) {
+                        $price = number_format($product->retail_sale_price_b, 2);
+                    } else if (!empty($product->retail_sale_price_c)) {
+                        $price = number_format($product->retail_sale_price_c, 2);
+                    }
+                }
+            }
+            else {
+                if (!empty($product->retail_sale_price_a)) {
+                    $price = number_format($product->retail_sale_price_a, 2);
+                } else if (!empty($product->retail_sale_price_b)) {
+                    $price = number_format($product->retail_sale_price_b, 2);
+                } else if (!empty($product->retail_sale_price_c)) {
+                    $price = number_format($product->retail_sale_price_c, 2);
+                }
+            }*/
+            return 10;
+        }
+        else {
+            if (Auth::check()) {
+                if (Auth()->user()->usertype == 'contractor') {
+                    if (!empty($product->pot_size_a) && !empty($product->contractor_price_a)) {
+                        $stock = $product->inventory_count_a;
+                    } else if (!empty($product->pot_size_b) && !empty($product->contractor_price_b)) {
+                        $stock = $product->inventory_count_b;
+                    } else if (!empty($product->pot_size_c) && !empty($product->contractor_price_c)) {
+                        $stock = $product->inventory_count_c;
+                    }
+                }
+                else {
+                    if (!empty($product->pot_size_a) && !empty($product->retail_sale_price_a)) {
+                        $stock = $product->inventory_count_a;
+                    } else if (!empty($product->pot_size_b) && !empty($product->retail_sale_price_b)) {
+                        $stock = $product->inventory_count_b;
+                    } else if (!empty($product->pot_size_c) && !empty($product->retail_sale_price_c)) {
+                        $stock = $product->inventory_count_c;
+                    }
+                }
+            } else {
+                if (!empty($product->pot_size_a) && !empty($product->retail_sale_price_a)) {
+                    $stock = $product->inventory_count_a;
+                } else if (!empty($product->pot_size_b) && !empty($product->retail_sale_price_b)) {
+                    $stock = $product->inventory_count_b;
+                } else if (!empty($product->pot_size_c) && !empty($product->retail_sale_price_c)) {
+                    $stock = $product->inventory_count_c;
+                }
+            }
+        }
+
+        return $stock;
     }
 
     public static function getProductSize($product) {

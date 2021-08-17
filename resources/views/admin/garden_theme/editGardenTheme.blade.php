@@ -358,7 +358,7 @@
                 jQuery.ajax({
                     type: 'POST',
                     url: '{{ route('garden-theme-image-processor', ['id'=>$garden_theme->id]) }}',
-                    data: 'fn='+name+'&ac=delete'+'&pid={{ $garden_theme->id }}&_token: {{csrf_token()}}',
+                    data: 'fn='+name+'&ac=delete'+'&pid={{ $garden_theme->id }}&_token={{csrf_token()}}',
                     dataType: 'html'
                 });
                 var _ref;
@@ -387,9 +387,6 @@
                     setTimeout(next.css.bind(next, {'-moz-transition':'border-top-width 0.1s ease-in', '-webkit-transition':'border-top-width 0.1s ease-in', 'transition':'border-top-width 0.1s ease-in'}));
 
                     var data = jQuery(this).sortable("serialize");
-                    //var data = jQuery(this).sortable('serialize', { expression: "/(.+)[_](.+)/" });
-                    //alert(data);
-                    /*jQuery('#abc').text(data);*/
                     jQuery.ajax({
                         type: 'POST',
                         url: '{{ route('garden-theme-image-processor', ['id'=>$garden_theme->id]) }}',
@@ -403,11 +400,6 @@
 
 
         });
-
-    </script>
-    <script type="text/javascript">
-
-
 
     </script>
 @endsection
