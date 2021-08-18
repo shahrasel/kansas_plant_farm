@@ -153,7 +153,6 @@ class OrderController extends Controller
                 }
                 $total_amount += $total_val;
             }
-
         }
         /*echo number_format($total_amount, 2, '.', ',').'####'.$request->get('amount');
         exit;*/
@@ -206,7 +205,8 @@ class OrderController extends Controller
                     $cart_info->delete();
                 }
             }
-
+            echo 'done successfully';
+            exit;
         }
         else {
             echo 'not done';
@@ -276,7 +276,13 @@ class OrderController extends Controller
                 $oderInfo->picked_up_date = Carbon::now();
             }
 
-            $oderInfo->sales_id = $request->input('sales_id');
+            if(!empty($request->input('sales_id'))) {
+                $oderInfo->sales_id = $request->input('sales_id');
+            }
+            else {
+                $oderInfo->sales_id = 0;
+            }
+
             $oderInfo->status = $request->input('status');
             $oderInfo->save();
         }

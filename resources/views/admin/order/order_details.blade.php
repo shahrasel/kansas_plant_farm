@@ -369,15 +369,15 @@
                                         <ul>
                                             @foreach($options as $option)
                                                 <li style="list-style: disc">
-                                                    @if($option=='if_plan_not_available_substitute_plant_size')
+                                                    @if($option=='substitute_plant_size')
                                                         If plant is not available, I’m ok to substitute plant size. (equal or better value)
-                                                    @elseif($option=='if_plan_not_available_substitute_plant_variety')
+                                                    @elseif($option=='substitute_plant_variety')
                                                         If plant is not available, I’m ok to substitute plant variety. (equal or better value)
-                                                    @elseif($option=='if_plan_not_available_back_order_1_month')
+                                                    @elseif($option=='back_order_1_month')
                                                         If plant is not available, I’m ok to back-order. (Up to 1 month)
-                                                    @elseif($option=='if_plan_not_available_back_order_3_month')
+                                                    @elseif($option=='back_order_3_month')
                                                         If plant is not available, I’m ok to back-order. (Up to 3 months)
-                                                    @elseif($option=='if_plan_not_available_issue_refund')
+                                                    @elseif($option=='issue_refund')
                                                         If plant is not available, please issue refund on that item
                                                         {{--@elseif($option=='tax_exempt')
                                                             I or my company is Tax Exempt. (Please email us copy of tax certificate)--}}

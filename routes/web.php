@@ -145,7 +145,7 @@ Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'ad
 ################## ORDER ####################
 Route::get('/admin/orders', [\App\Http\Controllers\OrderController::class, 'adminOrders'])->name('admin-orders')->middleware('adminauth');
 Route::any('/admin/orderdetails/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderDetails'])->name('admin-order-details')->middleware('adminauth');
-Route::any('/admin/orderprint/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderPrint'])->name('admin-order-print')->middleware('adminauth');
+Route::any('/admin/orderprint/{id}', [\App\Http\Controllers\OrderController::class, 'about-us'])->name('admin-order-print')->middleware('adminauth');
 
 
 ################## GARDEN THEME ####################

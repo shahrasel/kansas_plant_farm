@@ -364,14 +364,12 @@
                                     </table>
                                 </div>
 
-                                <input type="hidden" id="total_val" value="{{ str_replace(',','',number_format($i, 2, '.', ','))  }}">
+
 
                                 <div class="row">
                                     <div class="col-lg-5 ml-auto">
-                                        <!-- Cart Calculation Area -->
                                         <div class="cart-calculator-wrapper">
                                             <div class="cart-calculate-items">
-<!--                                                <h6>Cart Totals</h6>-->
                                                 <div class="table-responsive">
                                                     <table class="table">
                                                         <tr>
@@ -395,6 +393,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <input type="hidden" id="total_val" value="{{ str_replace(',','',number_format($i, 2, '.', ','))  }}">
 
                                 <h5 class="checkout-title" style="margin-top:30px;">CUSTOMER CONTACT INFO</h5>
 
@@ -515,23 +515,23 @@
                                                 <div class="col-lg-10 col-md-10 col-sm-10">
                                                     <h6 style="margin-bottom:10px;margin-top:10px;">Please check all that apply:</h6>
                                                     <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_substitute_plant_size">&nbsp;If plant is not available, I’m ok to substitute plant size. (equal or better value)
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="substitute_plant_size">&nbsp;If plant is not available, I’m ok to substitute plant size. (equal or better value)
                                                     </label>
 
                                                     <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_substitute_plant_variety">&nbsp;If plant is not available, I’m ok to substitute plant variety. (equal or better value)
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="substitute_plant_variety">&nbsp;If plant is not available, I’m ok to substitute plant variety. (equal or better value)
                                                     </label>
 
                                                     <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_back_order_1_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 1 month)
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="back_order_1_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 1 month)
                                                     </label>
 
                                                     <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_back_order_3_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 3 months)
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="back_order_3_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 3 months)
                                                     </label>
 
                                                     <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="if_plan_not_available_issue_refund">&nbsp;If plant is not available, please issue refund on that item
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="issue_refund">&nbsp;If plant is not available, please issue refund on that item
                                                     </label>
 
 
@@ -835,10 +835,12 @@
                         })
                             .then(status)
                             .then(function(response){
-                                // redirect to the completed page if paid
+                                //alert(response);
                                 window.location.href = APP_URL+'/pay-success';
+
                             })
                             .catch(function(error) {
+                                //alert('456');
                                 // redirect to failed page if internal error occurs
                                 window.location.href = APP_URL+'/pay-failed?reason=internalFailure';
                             });

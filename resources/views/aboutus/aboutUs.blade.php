@@ -13,10 +13,11 @@
             <div class="container">
                 <h1 class="text-lg-left text-md-left text-sm-center mb-30">About Us</h1>
 
-                    @if(!empty($imageLists->about_us_images))
-                        @if(count(json_decode($imageLists->about_us_images))>0)
+
                         <div style="margin-bottom: 30px;">
-                            <section class="slider">
+                            @if(!empty($imageLists->about_us_images))
+                                @if(count(json_decode($imageLists->about_us_images))>0)
+                                    <section class="slider">
                                 <div id="slider" class="flexslider">
                                     <ul class="slides">
                                         @foreach(json_decode($imageLists->about_us_images) as $image)
@@ -36,6 +37,8 @@
                                     </ul>
                                 </div>
                             </section>
+                                @endif
+                            @endif
                             <section class="py-3">
                                 <h3 class="py-2 text-center" style="color: yellow">WHO WE ARE</h3>
                                 <p>Kansas Plant Farm is a private backyard family-owned nursery and display garden. Nestled on an acre of land in the central west Lawrence, the nursery was established in 2005 by Ryan Domnick. Surrounding the front and East side of the residence are display gardens with many types of plants ranging from hardy tropicals, edibles, native plants, butterfly plants, and many other unusual plants. We primarily grow plants available for on-line purchase and curbside pickup. We have occasional "Open to the Public" days, Special Plant Sales, Shopping appointments, Display garden tours, and Educational garden walks. We are open on a seasonal basis so please check our website.</p>
@@ -58,8 +61,7 @@
                                 <p>Most payments are completed on-line thru out payment gateway. Gift cards are available for shopping appointments. At the nursery, we accept cash, check, or gift cards (credit cards in the very near future). Payment is due at time of delivery or before you leave the nursery with your plants. We are exploring the option to add delivery and shipping but not at this time.</p>
                             </section>
                         </div>
-                    @endif
-                    @endif
+
 
             </div>
         </div>
