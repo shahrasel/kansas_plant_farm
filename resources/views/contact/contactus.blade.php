@@ -39,7 +39,7 @@
                             <div class="col-lg-6">
                                 <div class="contact-message">
                                     <h4 class="contact-title">Contact Us</h4>
-                                    <form id="contact-form"  class="contact-form">
+                                    <form id="contact-form"  class="contact-form" >
                                         @csrf
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -122,10 +122,11 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 d-flex justify-content-center">
-                                                <p class="form-messege"></p>
+                                            <div id="contact_success_message" class="col-12 justify-content-center my-5" style="display: none">
+                                                <p class="form-messege" style="color: #fff;font-size: 1.1rem;text-align: center;border: 1px solid #00ff00;padding: 10px;">Contact message sent successfully! You will get back to you soon.</p>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="recaptcha" id="recaptcha">
                                     </form>
                                 </div>
                             </div>
@@ -166,7 +167,9 @@
     </main>
 @endsection
 @section('javascript')
+
     <script>
+
         $(document).ready(function() {
 
             $(".btn-submit").click(function(e){
@@ -176,7 +179,7 @@
                 var _token = $("input[name='_token']").val();
 
                 var name = $("input[name='name']").val();
-                var email_address = $("input[name='email']").val();
+                var email = $("input[name='email']").val();
                 var phone = $("input[name='phone']").val();
 
                 var street_address = $("input[name='street_address']").val();
@@ -185,8 +188,10 @@
                 var zip = $("input[name='zip']").val();
 
 
-                var comment = $("input[name='comment']").val();
-                var plant_req = $("input[name='plant_req']").val();
+                var comment = $('textarea[name="comment"]').val();
+                var plant_req = $("textarea[name='plant_req']").val();
+
+                var recaptcha = $("input[name='recaptcha']").val();
 
                 var ids = new Array();
                 $('input[name="checklist[]"]:checked').each(function(){
@@ -204,22 +209,23 @@
                     data: {
                         _token: _token,
                         name: name,
-                        email_address: email_address,
+                        email: email,
                         phone: phone,
                         street_address: street_address,
                         city: city,
                         state: state,
                         zip: zip,
                         comment: comment,
+                        recaptcha: recaptcha,
                         plant_req: plant_req,
                         checklist: checklist,
                     },
 
                     success: function (data) {
                         if(data == 'done') {
-                            alert('done');
-                            /*$(".btn-submit").css('display','none');
-                            $("#paypal_plugin").css('display','block');*/
+                            /*alert('done');*/
+                            $("#contact-form").trigger("reset");
+                            $("#contact_success_message").css('display','block');
                         }
 
                     },
@@ -264,5 +270,7 @@
             });
         });
     </script>
+
+
 @endsection
 

@@ -981,6 +981,7 @@
                     <!-- shop main wrapper start -->
 
                     <!-- shop main wrapper end -->
+                        <input type="hidden" name="sortby" id="sortby">
                         </form>
                     @endif
                     <div class="col-lg-9 order-1 order-lg-2">
@@ -1092,7 +1093,7 @@
                                             <div class="product-short">
                                                 <p>Sort By : </p>
 
-                                                <select class="nice-select" name="sortby" onchange="submitSortForm()">
+                                                <select class="nice-select" id="sort_select" onchange="sortFormSubmit()">
                                                     <option value="">-- Select --</option>
                                                     <option value="name_asc" @if(app('request')->input('sortby') == 'name_asc')  selected @endif>Name (A - Z)</option>
                                                     <option value="name_desc" @if(app('request')->input('sortby') == 'name_desc')  selected @endif>Name (Z - A)</option>
@@ -2246,6 +2247,7 @@
 <!--                    <div class="sidebar-single">
                         <input type="submit" name="Submit" value="FILTER" class="btn btn-sqr">
                     </div>-->
+                    <input type="hidden" name="sortby" id="psortby">
                 </form>
             </aside>
 
@@ -2270,6 +2272,21 @@
             //jQuery("#cat_form").attr('action',"{{ url('/plants/category') }}/"+val);
             jQuery("#cat_form").submit();
         }
+
+        function sortFormSubmit() {
+            @if(checkDevice() != 'phone')
+                jQuery("#sortby").val(jQuery("#sort_select").val());
+                jQuery("#cat_form").submit();
+            @endif
+
+            @if(checkDevice() == 'phone')
+                jQuery("#psortby").val(jQuery("#sort_select").val());
+                jQuery("#cat_form2").submit();
+            @endif
+
+
+        }
+
         jQuery(document).ready(function($){
             //you can now use $ as your jQuery object.
             $('html, body').css({

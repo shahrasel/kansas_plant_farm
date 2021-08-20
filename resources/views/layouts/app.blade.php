@@ -657,6 +657,16 @@
 <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
 <!-- Main JS -->
 <script src="{{ asset('js/main.js')  }}"></script>
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('{{ config('services.recaptcha.sitekey') }}', {action: 'contact'}).then(function(token) {
+            if (token) {
+                document.getElementById('recaptcha').value = token;
+            }
+        });
+    });
+</script>
 <script>
     jQuery( function() {
         jQuery.widget( "custom.catcomplete", jQuery.ui.autocomplete, {
@@ -741,9 +751,7 @@
         });
     }
 
-    function sortFormSubmit() {
-        jQuery("#sort_form").submit();
-    }
+
 
     function hideAllPrice() {
         jQuery("#44_size_price").css('display','none');
@@ -784,7 +792,7 @@
 
                 //alert(parseInt(result['available']));
                 if (isNaN(parseInt(result['available']))) {
-                    jQuery("#product_count").html('CURRENTLY NOT AVAILABLE');
+                    jQuery("#product_count").html('THIS SIZE NOT AVAILABLE');
                     jQuery("#addtocart_btn").removeClass('d-flex');
                     jQuery("#addtocart_btn").addClass('d-none');
                 }
@@ -792,9 +800,9 @@
                     if (parseInt(result['available']) > 0) {
 
                         if (parseInt(result['available']) >= 10)
-                            jQuery("#product_count").html('Currently ' + parseInt(result['available']) + ' in stock');
+                            jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
                         else
-                            jQuery("#product_count").html('Only ' + parseInt(result['available']) + ' in stock');
+                            jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
 
                         //jQuery("#addtocart_btn").css('display', 'block');
                         jQuery("#addtocart_btn").removeClass('d-none');
@@ -805,7 +813,7 @@
                         jQuery("#quantity").val(1);
 
                     } else {
-                        jQuery("#product_count").html('CURRENTLY NOT AVAILABLE');
+                        jQuery("#product_count").html('THIS SIZE NOT AVAILABLE');
 
                         jQuery("#addtocart_btn").removeClass('d-flex');
                         jQuery("#addtocart_btn").addClass('d-none');

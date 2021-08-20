@@ -151,15 +151,15 @@
                                                 @if(!empty($product->getProductStock($product)))
                                                     @if($product->getProductStock($product)>0)
                                                         @if($product->getProductStock($product) >= 10)
-                                                            Currently {{ $product->inventory_count_a }} in stock
+                                                            This size {{ $product->inventory_count_a }} in stock
                                                         @else
-                                                            Only {{ $product->getProductStock($product) }} in stock
+                                                            This size {{ $product->getProductStock($product) }} in stock
                                                         @endif
                                                     @else
-                                                        CURRENTLY NOT AVAILABLE
+                                                        THIS SIZE NOT AVAILABLE
                                                     @endif
                                                 @else
-                                                    CURRENTLY NOT AVAILABLE
+                                                    THIS SIZE NOT AVAILABLE
                                                 @endif
                                             </span>
                                             <span>Product ID: {{ $product->plant_id_number }}</span>
