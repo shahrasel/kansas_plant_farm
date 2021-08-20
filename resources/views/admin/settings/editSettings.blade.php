@@ -395,7 +395,7 @@
                                     </fieldset>
 
                                     <fieldset class="form-group">
-                                        <legend><span>Socail Media Links</span></legend>
+                                        <legend><span>Social Media Links</span></legend>
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> Facebook Link</label>
                                             <div class="col-sm-9">
@@ -426,6 +426,78 @@
                                     </fieldset>
 
                                     <fieldset class="form-group">
+                                        <legend><span>Contact page Info</span></legend>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Address</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="address"  value="{{ $settings_info->address }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Contact Email</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="email"  value="{{ $settings_info->email }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Contact Phone Number</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="phone"  value="{{ $settings_info->phone }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Nursery Hours</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="nursery_hours"  value="{{ $settings_info->nursery_hours }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Pricing sheet PDF</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" name="pricing_sheet_link">
+                                                @error('pricing_sheet_link')
+                                                <p style="color: #ff0000">{{ $message }}</p>
+                                                @enderror
+                                                <p><span style="color: blue">Link: </span>
+                                                    {{ asset('storage/uploads/'.$settings_info->pricing_sheet_link) }}
+
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> KPF Order form PDF</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" name="order_form_link">
+                                                @error('order_form_link')
+                                                <p style="color: #ff0000">{{ $message }}</p>
+                                                @enderror
+                                                <p><span style="color: blue">Link: </span>
+                                                    {{ asset('storage/uploads/'.$settings_info->order_form_link) }}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Nursery Map PDF</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" name="nursery_link">
+                                                @error('nursery_link')
+                                                <p style="color: #ff0000">{{ $message }}</p>
+                                                @enderror
+                                                <p><span style="color: blue">Link: </span>
+                                                    {{ asset('storage/uploads/'.$settings_info->nursery_link) }}
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset class="form-group">
                                         <legend><span>Other Info</span></legend>
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> Privacy Policy</label>
@@ -448,6 +520,8 @@
                                             </div>
                                         </div>
                                     </fieldset>
+
+
 
 
                                     <div class="form-buttons-w">

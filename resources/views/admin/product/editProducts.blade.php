@@ -228,6 +228,16 @@
                                         </div>
 
                                         <div class="form-group row">
+                                            <label class="col-form-label col-sm-4" for=""> OTHER PRODUCTS / SERVICES NAME</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" placeholder="Enter OTHER PRODUCTS / SERVICES NAME" type="text" name="other_product_service_name" value="{{ $product->other_product_service_name }}" required>
+                                                @error('common_name')
+                                                <p style="color: #ff0000">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
                                             <label class="col-form-label col-sm-4" for=""> Featured</label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" type="checkbox" name="is_featured" value="1" @if($product->is_featured==1) checked @endif>
@@ -363,13 +373,6 @@
                                             <label class="col-form-label col-sm-4" for=""> Retail List Price C</label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" placeholder="Enter Retail List Price C" type="text" name="retail_list_price_c" value="{{ $product->retail_list_price_c }}">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-sm-4" for=""> Inventory Count C</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" placeholder="Enter Inventory Count C" type="text" name="inventory_count_c" value="{{ $product->inventory_count_c }}">
                                             </div>
                                         </div>
 

@@ -14,6 +14,9 @@
         .contact-message form input {
             margin-bottom: 20px;
         }
+        .btn-sqr{
+            padding: 12px 10px;
+        }
         </style>
 @endsection
 @section('content')
@@ -74,6 +77,11 @@
                                                 <label>Phone<span style="color:yellow">*</span></label>
                                                 <input name="phone" type="text" required>
                                             </div>
+
+                                            <div class="col-12">
+                                                <p><span style="color:yellow">*</span> All Fields are Required</p>
+                                            </div>
+
                                             <div class="col-12">
                                                 <div class="contact2-textarea">
                                                     <label>Additional Comment(s)</label>
@@ -125,20 +133,25 @@
                                 <div class="contact-info">
                                     <h4 class="contact-title">KANSAS PLANT FARM</h4>
                                     <ul>
-                                        <li><i class="fa fa-fax"></i> Address : 1210 Lakeview Ct., Lawrence, KS 66049</li>
-                                        <li><i class="fa fa-phone"></i> E-mail:&nbsp;<a href="mailto:KansasPlantFarm@gmail.com" style="color:#7fbc03">KansasPlantFarm@gmail.com</a></li>
-                                        <li><i class="fa fa-envelope-o"></i> <a href="tel:(785) 218-7475" style="color:#7fbc03">(785) 218-7475</a></li>
+                                        <li><i class="fa fa-fax"></i> Address : {{ $settings_info->address }}</li>
+                                        <li><i class="fa fa-envelope-o"></i> E-mail:&nbsp;<a href="mailto:{{ $settings_info->email }}" style="color:#7fbc03">{{ $settings_info->email }}</a></li>
+                                        <li><i class="fa fa-phone"></i> <a href="tel:(785) 218-7475" style="color:#7fbc03">{{ $settings_info->phone }}</a></li>
                                     </ul>
                                     <div class="working-time">
-                                        <h6>Working Hours</h6>
-                                        <p><span>Monday – Saturday:</span>08AM – 22PM</p>
+                                        <h5>Nursery Hours</h5>
+                                        <p>{{ $settings_info->nursery_hours }}</p>
                                     </div>
+                                    <br/>
+                                    <h5>Downloads</h5>
                                     <div class="d-flex justify-content-center">
-                                        <div class="m-3">
-                                            <a class="btn btn-sqr text-white">KPF ORDER FORM</a>
+                                        <div class="m-3" style="margin-left: 0px !important;">
+                                            <a class="btn btn-sqr text-white" href="{{ asset('storage/uploads/'.$settings_info->pricing_sheet_link) }}" target="_blank">KPF PRICING SHEET</a>
                                         </div>
-                                        <div class="m-3">
-                                            <a class="btn btn-sqr text-white">NURSERY MAP</a>
+                                        <div class="m-3" style="margin-left: 0px !important;">
+                                            <a class="btn btn-sqr text-white" href="{{ asset('storage/uploads/'.$settings_info->order_form_link) }}" target="_blank">KPF ORDER FORM</a>
+                                        </div>
+                                        <div class="m-3" style="margin-left: 0px !important;">
+                                            <a class="btn btn-sqr text-white" href="{{ asset('storage/uploads/'.$settings_info->nursery_link) }}" target="_blank">NURSERY MAP FORM</a>
                                         </div>
                                     </div>
                                 </div>

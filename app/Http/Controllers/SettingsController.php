@@ -77,8 +77,42 @@ class SettingsController extends Controller
     public function update(Request $request, $id)
     {
 
-        //dd($request);
         $settings = Setting::find($id);
+
+        $request->validate([
+            'pricing_sheet_link' => 'mimes:pdf',
+            'order_form_link' => 'mimes:pdf',
+            'nursery_link' => 'mimes:jpg,png,jpeg'
+        ]);
+
+
+        if(!empty($request->file('pricing_sheet_link'))) {
+            $name = time().'_'.$request->file('pricing_sheet_link')->getClientOriginalName();
+            $filePath = $request->file('pricing_sheet_link')->storeAs('public/uploads/',$name);
+
+            $settings->pricing_sheet_link = $name;
+        }
+
+        if(!empty($request->file('order_form_link'))) {
+            $name = time().'_'.$request->file('order_form_link')->getClientOriginalName();
+            $filePath = $request->file('order_form_link')->storeAs('public/uploads/',$name);
+
+            $settings->order_form_link = $name;
+        }
+
+        if(!empty($request->file('nursery_link'))) {
+            $name = time().'_'.$request->file('nursery_link')->getClientOriginalName();
+            $filePath = $request->file('nursery_link')->storeAs('public/uploads/',$name);
+
+            $settings->nursery_link = $name;
+        }
+
+
+        //dd($request);
+
+
+
+
 
         $settings->home_description = $request->home_description;
         $settings->home_description_video = $request->home_description_video;
@@ -108,6 +142,13 @@ class SettingsController extends Controller
         $settings->twitter_link = $request->twitter_link;
         $settings->instagram_link = $request->instagram_link;
         $settings->youtube_link = $request->youtube_link;
+
+        $settings->address = $request->address;
+        $settings->email = $request->email;
+        $settings->phone = $request->phone;
+        $settings->nursery_hours = $request->nursery_hours;
+
+
 
 
         $settings->save();

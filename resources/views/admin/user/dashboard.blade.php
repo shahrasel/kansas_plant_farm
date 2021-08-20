@@ -279,36 +279,6 @@
                             </h6>
                             <div class="element-box-tp">
                                 <!--------------------
-                                START - Controls Above Table
-                                -------------------->
-                                <!--                                <div class="controls-above-table">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-6">
-                                                                            <a class="btn btn-sm btn-secondary" href="#">Download CSV</a><a class="btn btn-sm btn-secondary" href="#">Archive</a><a class="btn btn-sm btn-danger" href="#">Delete</a>
-                                                                        </div>
-                                                                        <div class="col-sm-6">
-                                                                            <form class="form-inline justify-content-sm-end">
-                                                                                <input class="form-control form-control-sm rounded bright" placeholder="Search" type="text"><select class="form-control form-control-sm rounded bright">
-                                                                                    <option selected="selected" value="">
-                                                                                        Select Status
-                                                                                    </option>
-                                                                                    <option value="Pending">
-                                                                                        Pending
-                                                                                    </option>
-                                                                                    <option value="Active">
-                                                                                        Active
-                                                                                    </option>
-                                                                                    <option value="Cancelled">
-                                                                                        Cancelled
-                                                                                    </option>
-                                                                                </select>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>-->
-                                <!--------------------
-                                END - Controls Above Table
-                                ------------------          --><!--------------------
                       START - Table with actions
                       ------------------  -->
                                 <div class="table-responsive">

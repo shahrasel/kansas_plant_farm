@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Providers;
+use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 use App\Models\cart;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\View;
 use League\Flysystem\Config;
 use Illuminate\Support\Facades\Schema;
 
@@ -89,5 +91,11 @@ class AppServiceProvider extends ServiceProvider
             'WY'=>"Wyoming");
         //Config::set(['global_state_lists' => $global_state_lists]);
         view()->share('global_state_lists', $global_state_lists);
+
+        $socialnetworkurl_info = Setting::select('facebook_link','twitter_link','instagram_link','youtube_link',)->first();
+
+        //dd($socialnetworkurl_info);
+
+        view()->share('socialnetworkurl_info', $socialnetworkurl_info);
     }
 }

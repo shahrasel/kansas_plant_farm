@@ -55,25 +55,6 @@
 @section('content')
 @inject('product_model', 'App\Models\Product')
     <main>
-        <!-- breadcrumb area start -->
-        {{--<div class="breadcrumb-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="breadcrumb-wrap">
-                            <nav aria-label="breadcrumb">
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">shop list left sidebar</li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>--}}
-        <!-- breadcrumb area end -->
-
         <!-- page main wrapper start -->
         <div class="shop-main-wrapper section-padding" style="padding-top: 40px">
             <div class="container" id="parent_container">
@@ -992,12 +973,16 @@
                                         <input type="submit" name="Submit" value="FILTER SELECTED" class="btn btn-sqr" style="width: 60%;float:left;margin-right: 10px;padding: 12px 14px">
                                         <a href="{{ url('/') }}/plants" role="button" class="btn btn-sqr" style="width: 36%;float:left">RESET</a>
                                     </div>
-                                </form>
+
                             </aside>
                         </div>
-                    @endif
+
                     <!-- sidebar area end -->
                     <!-- shop main wrapper start -->
+
+                    <!-- shop main wrapper end -->
+                        </form>
+                    @endif
                     <div class="col-lg-9 order-1 order-lg-2">
                         <div class="shop-product-wrapper">
                             <div class="alpha_pagination text-center mb-30">
@@ -1005,34 +990,34 @@
                                 <p style="text-align: left;">Search by Latin Name:</p>
                                 <ul class="pagination-box" style="text-align: left;">
                                     @if(!empty($query1))
-                                    <li><a class="alpha @if($query1=='all') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/all">All</a></li>
-                                    <li><a class="alpha @if($query1=='a') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/a">A</a></li>
-                                    <li><a class="alpha @if($query1=='b') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/b">B</a></li>
+                                        <li><a class="alpha @if($query1=='all') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/all">All</a></li>
+                                        <li><a class="alpha @if($query1=='a') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/a">A</a></li>
+                                        <li><a class="alpha @if($query1=='b') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/b">B</a></li>
 
-                                    <li><a class="alpha @if($query1=='c') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/c">C</a></li>
-                                    <li><a class="alpha @if($query1=='d') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/d">D</a></li>
-                                    <li><a class="alpha @if($query1=='e') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/e">E</a></li>
-                                    <li><a class="alpha @if($query1=='f') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/f">F</a></li>
-                                    <li><a class="alpha @if($query1=='g') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/g">G</a></li>
-                                    <li><a class="alpha @if($query1=='h') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/h">H</a></li>
-                                    <li><a class="alpha @if($query1=='i') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/i">I</a></li>
-                                    <li><a class="alpha @if($query1=='j') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/j">J</a></li>
-                                    <li><a class="alpha @if($query1=='k') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/k">K</a></li>
-                                    <li><a class="alpha @if($query1=='l') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/l">L</a></li>
-                                    <li><a class="alpha @if($query1=='m') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/m">M</a></li>
-                                    <li><a class="alpha @if($query1=='n') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/n">N</a></li>
-                                    <li><a class="alpha @if($query1=='o') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/o">O</a></li>
-                                    <li><a class="alpha @if($query1=='p') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/p">P</a></li>
-                                    <li><a class="alpha @if($query1=='q') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/q">Q</a></li>
-                                    <li><a class="alpha @if($query1=='r') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/r">R</a></li>
-                                    <li><a class="alpha @if($query1=='s') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/s">S</a></li>
-                                    <li><a class="alpha @if($query1=='t') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/t">T</a></li>
-                                    <li><a class="alpha @if($query1=='u') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/u">U</a></li>
-                                    <li><a class="alpha @if($query1=='v') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/v">V</a></li>
-                                    <li><a class="alpha @if($query1=='w') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/w">W</a></li>
-                                    <li><a class="alpha @if($query1=='x') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/x">X</a></li>
-                                    <li><a class="alpha @if($query1=='y') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/y">Y</a></li>
-                                    <li><a class="alpha @if($query1=='z') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/z">Z</a></li>
+                                        <li><a class="alpha @if($query1=='c') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/c">C</a></li>
+                                        <li><a class="alpha @if($query1=='d') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/d">D</a></li>
+                                        <li><a class="alpha @if($query1=='e') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/e">E</a></li>
+                                        <li><a class="alpha @if($query1=='f') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/f">F</a></li>
+                                        <li><a class="alpha @if($query1=='g') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/g">G</a></li>
+                                        <li><a class="alpha @if($query1=='h') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/h">H</a></li>
+                                        <li><a class="alpha @if($query1=='i') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/i">I</a></li>
+                                        <li><a class="alpha @if($query1=='j') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/j">J</a></li>
+                                        <li><a class="alpha @if($query1=='k') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/k">K</a></li>
+                                        <li><a class="alpha @if($query1=='l') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/l">L</a></li>
+                                        <li><a class="alpha @if($query1=='m') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/m">M</a></li>
+                                        <li><a class="alpha @if($query1=='n') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/n">N</a></li>
+                                        <li><a class="alpha @if($query1=='o') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/o">O</a></li>
+                                        <li><a class="alpha @if($query1=='p') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/p">P</a></li>
+                                        <li><a class="alpha @if($query1=='q') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/q">Q</a></li>
+                                        <li><a class="alpha @if($query1=='r') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/r">R</a></li>
+                                        <li><a class="alpha @if($query1=='s') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/s">S</a></li>
+                                        <li><a class="alpha @if($query1=='t') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/t">T</a></li>
+                                        <li><a class="alpha @if($query1=='u') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/u">U</a></li>
+                                        <li><a class="alpha @if($query1=='v') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/v">V</a></li>
+                                        <li><a class="alpha @if($query1=='w') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/w">W</a></li>
+                                        <li><a class="alpha @if($query1=='x') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/x">X</a></li>
+                                        <li><a class="alpha @if($query1=='y') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/y">Y</a></li>
+                                        <li><a class="alpha @if($query1=='z') sel_alpha @endif" href="{{ url('/') }}/plants/alphabetic-sort-by/z">Z</a></li>
                                     @else
                                         <li><a class="alpha" href="{{ url('/') }}/plants/alphabetic-sort-by/all">All</a></li>
                                         <li><a class="alpha" href="{{ url('/') }}/plants/alphabetic-sort-by/a">A</a></li>
@@ -1106,16 +1091,15 @@
                                         <div class="top-bar-right">
                                             <div class="product-short">
                                                 <p>Sort By : </p>
-                                                <form action="" method="post" id="sort_form" onchange="sortFormSubmit()">
-                                                    @csrf
-                                                    <select class="nice-select" name="sortby">
-                                                        <option value="">-- Select --</option>
-                                                        <option value="name_asc">Name (A - Z)</option>
-                                                        <option value="name_desc">Name (Z - A)</option>
-                                                        <option value="price_asc">Price (Low - High)</option>
-                                                        <option value="price_desc">Price (High - Low)</option>
-                                                    </select>
-                                                </form>
+
+                                                <select class="nice-select" name="sortby" onchange="submitSortForm()">
+                                                    <option value="">-- Select --</option>
+                                                    <option value="name_asc" @if(app('request')->input('sortby') == 'name_asc')  selected @endif>Name (A - Z)</option>
+                                                    <option value="name_desc" @if(app('request')->input('sortby') == 'name_desc')  selected @endif>Name (Z - A)</option>
+                                                    <option value="price_asc" @if(app('request')->input('sortby') == 'price_asc')  selected @endif>Price (Low - High)</option>
+                                                    <option value="price_desc" @if(app('request')->input('sortby') == 'price_desc')  selected @endif>Price (High - Low)</option>
+                                                </select>
+
                                             </div>
                                         </div>
                                     </div>
@@ -1133,49 +1117,49 @@
                                 </div>
                             @endif
 
-                            <!-- product item list wrapper start -->
+                        <!-- product item list wrapper start -->
                             <div class="shop-product-wrap grid-view row mbn-30">
                                 @foreach($products as $product)
                                     <div class="col-md-4 col-sm-6">
 
-                                    {{--{{ $product_model->getImage($product) }}--}}
-                                    <div class="product-item">
+                                        {{--{{ $product_model->getImage($product) }}--}}
+                                        <div class="product-item">
                                             <figure class="product-thumb">
                                                 <a href="{{ url('/plants') }}/{{ $product->slug }}">
                                                     @if(!empty(($product_model->getImage($product))))
-                                                    <img class="pri-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
-                                                    <img class="sec-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
+                                                        <img class="pri-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
+                                                        <img class="sec-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
                                                     @else
                                                         <img class="pri-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
                                                         <img class="sec-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
                                                     @endif
                                                 </a>
-<!--                                                <div class="product-badge">
+                                            <!--                                                <div class="product-badge">
                                                     <div class="product-label new">
                                                         <span>{{ $product->tags }}</span>
                                                     </div>
                                                 </div>-->
-<!--                                                <form id="wishlist_form_{{ $product->id }}" method="post">
+                                            <!--                                                <form id="wishlist_form_{{ $product->id }}" method="post">
                                                     @csrf
-                                                    <div class="button-group">
-                                                        <a onclick="wishlist_form_submit({{ $product->id }})" data-toggle="tooltip" data-placement="left" title="Add to wishlist" @if(!is_object(auth()->user()))  href="{{ url('/') }}/login" @endif>
+                                                <div class="button-group">
+                                                    <a onclick="wishlist_form_submit({{ $product->id }})" data-toggle="tooltip" data-placement="left" title="Add to wishlist" @if(!is_object(auth()->user()))  href="{{ url('/') }}/login" @endif>
                                                             <i class="pe-7s-like"></i>
                                                         </a>
                                                     </div>
                                                     @if(is_object(auth()->user()))
-                                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                                     @endif
-                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
                                                 </form>-->
                                             </figure>
                                             <div class="product-caption text-center">
                                                 <div class="product-identity">
                                                     <p class="manufacturer-name" style="line-height: 20px"><a href="{{ url('/plants') }}/{{ $product->slug }}">
-                                                    @if(!empty($product->other_product_service_name))
-                                                        {{ $product->other_product_service_name }}@if(!empty($product->patent_trademark_names))<br/>{{ $product->patent_trademark_names }} @endif</a>
-                                                    @else
-                                                        {{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i>@if(!empty($product->patent_trademark_names))<br/>{{ $product->patent_trademark_names }} @endif</a>
-                                                    @endif
+                                                            @if(!empty($product->other_product_service_name))
+                                                                {{ $product->other_product_service_name }}@if(!empty($product->patent_trademark_names))<br/>{{ $product->patent_trademark_names }} @endif</a>
+                                                        @else
+                                                            {{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i>@if(!empty($product->patent_trademark_names))<br/>{{ $product->patent_trademark_names }} @endif</a>
+                                                            @endif
 
                                                     </p>
                                                 </div>
@@ -1197,60 +1181,60 @@
                                                         <a>Perennial</a>
                                                     @endif
                                                     @if($product->shrub == 'YES')
-                                                            <a>Shrub</a>
+                                                        <a>Shrub</a>
                                                     @endif
                                                     @if($product->vine == 'YES')
-                                                            <a>Vine</a>
+                                                        <a>Vine</a>
                                                     @endif
                                                     @if($product->grass_bamboo == 'YES')
-                                                            <a>Grass/Bamboo</a>
+                                                        <a>Grass/Bamboo</a>
                                                     @endif
                                                     @if($product->hardy_tropical == 'YES')
-                                                            <a>Hardy Tropical</a>
+                                                        <a>Hardy Tropical</a>
                                                     @endif
                                                     @if($product->water_plant == 'YES')
-                                                            <a>Water Plant</a>
+                                                        <a>Water Plant</a>
                                                     @endif
                                                     @if($product->annual == 'YES')
-                                                            <a>Annual</a>
+                                                        <a>Annual</a>
                                                     @endif
                                                     @if($product->house_deck_plant == 'YES')
-                                                            <a>House / Deck Plant</a>
+                                                        <a>House / Deck Plant</a>
                                                     @endif
                                                     @if($product->cactus_succulent == 'YES')
-                                                            <a>Cactus / Succulent</a>
+                                                        <a>Cactus / Succulent</a>
                                                     @endif
                                                     @if($product->small_tree == 'YES')
-                                                            <a>Small Tree</a>
+                                                        <a>Small Tree</a>
                                                     @endif
                                                     @if($product->large_tree == 'YES')
-                                                            <a>Large Tree</a>
+                                                        <a>Large Tree</a>
                                                     @endif
                                                 </div>
                                             </div>
                                         </div>
 
 
-                                    <!-- product list item end -->
-                                    <div class="product-list-item">
-                                        <figure class="product-thumb">
-                                            <a href="{{ url('/plants') }}/{{ $product->slug }}">
-<!--                                                <img class="pri-img" src="{{ asset('plants_images/'.$product->image) }}" alt="product">
+                                        <!-- product list item end -->
+                                        <div class="product-list-item">
+                                            <figure class="product-thumb">
+                                                <a href="{{ url('/plants') }}/{{ $product->slug }}">
+                                                <!--                                                <img class="pri-img" src="{{ asset('plants_images/'.$product->image) }}" alt="product">
                                                 <img class="sec-img" src="{{ asset('plants_images/'.$product->image) }}" alt="product">-->
-                                                @if(!empty(($product_model->getImage($product))))
-                                                    <img class="pri-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
-                                                    <img class="sec-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
-                                                @else
-                                                    <img class="pri-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
-                                                    <img class="sec-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
-                                                @endif
-                                            </a>
-<!--                                            <div class="product-badge">
+                                                    @if(!empty(($product_model->getImage($product))))
+                                                        <img class="pri-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
+                                                        <img class="sec-img" src="{{ url($product_model->getImage($product)) }}" alt="product">
+                                                    @else
+                                                        <img class="pri-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                                        <img class="sec-img" src="{{ url('img/IMAGE_COMING_SOON.jpg') }}" alt="product">
+                                                    @endif
+                                                </a>
+                                            <!--                                            <div class="product-badge">
                                                 <div class="product-label new">
                                                     <span>{{ $product->tags }}</span>
                                                 </div>
                                             </div>-->
-<!--                                            <form id="wishlist_form" method="post">
+                                            <!--                                            <form id="wishlist_form" method="post">
                                                 @csrf
                                                 <div class="button-group">
                                                     <a onclick="wishlist_form_submit()" data-toggle="tooltip" data-placement="left" title="Add to wishlist" @if(!is_object(auth()->user()))  href="{{ url('/') }}/login" @endif>
@@ -1258,88 +1242,87 @@
                                                     </a>
                                                 </div>
                                                 @if(is_object(auth()->user()))
-                                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                                 @endif
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                                             </form>-->
-                                        </figure>
-                                        <div class="product-content-list">
-                                            <h5 class="product-name" style="padding-top: 0px;">
-                                                <a href="{{ url('/plants') }}/{{ $product->slug }}">{{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i></a>
-                                            </h5>
-                                            <div class="price-box">
-                                                @if(!empty($product->retail_sale_price_a))
-                                                    @if (Auth::check())
-                                                        @if(Auth()->user()->usertype=='buyer')
+                                            </figure>
+                                            <div class="product-content-list">
+                                                <h5 class="product-name" style="padding-top: 0px;">
+                                                    <a href="{{ url('/plants') }}/{{ $product->slug }}">{{ $product->botanical_name }} <br/> <i>{{ $product->common_name }}</i></a>
+                                                </h5>
+                                                <div class="price-box">
+                                                    @if(!empty($product->retail_sale_price_a))
+                                                        @if (Auth::check())
+                                                            @if(Auth()->user()->usertype=='buyer')
+                                                                <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
+                                                                <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
+                                                            @else
+                                                                <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
+                                                            @endif
+                                                        @else
                                                             <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
                                                             <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
-                                                        @else
-                                                            <span class="price-regular">${{ number_format($product->contractor_price_a,2) }}</span>
                                                         @endif
-                                                    @else
-                                                        <span class="price-regular">${{ number_format($product->retail_sale_price_a,2) }}</span>
-                                                        <span class="price-old"><del>${{ number_format($product->retail_list_price_a,2) }}</del></span>
                                                     @endif
-                                                @endif
-                                            </div>
-                                            <div class="manufacturer-name details_tag" style="margin-top: 20px;">
-                                                @if($product->perennial == 'YES')
-                                                    <a>Perennial</a>
-                                                @endif
-                                                @if($product->shrub == 'YES')
+                                                </div>
+                                                <div class="manufacturer-name details_tag" style="margin-top: 20px;">
+                                                    @if($product->perennial == 'YES')
+                                                        <a>Perennial</a>
+                                                    @endif
+                                                    @if($product->shrub == 'YES')
                                                         <a>Shrub</a>
-                                                @endif
-                                                @if($product->vine == 'YES')
+                                                    @endif
+                                                    @if($product->vine == 'YES')
                                                         <a>Vine</a>
-                                                @endif
-                                                @if($product->grass_bamboo == 'YES')
+                                                    @endif
+                                                    @if($product->grass_bamboo == 'YES')
                                                         <a>Grass/Bamboo</a>
-                                                @endif
-                                                @if($product->hardy_tropical == 'YES')
+                                                    @endif
+                                                    @if($product->hardy_tropical == 'YES')
                                                         <a>Hardy Tropical</a>
-                                                @endif
-                                                @if($product->water_plant == 'YES')
+                                                    @endif
+                                                    @if($product->water_plant == 'YES')
                                                         <a>Water Plant</a>
-                                                @endif
-                                                @if($product->annual == 'YES')
+                                                    @endif
+                                                    @if($product->annual == 'YES')
                                                         <a>Annual</a>
-                                                @endif
-                                                @if($product->house_deck_plant == 'YES')
+                                                    @endif
+                                                    @if($product->house_deck_plant == 'YES')
                                                         <a>House / Deck Plant</a>
-                                                @endif
-                                                @if($product->cactus_succulent == 'YES')
+                                                    @endif
+                                                    @if($product->cactus_succulent == 'YES')
                                                         <a>Cactus / Succulent</a>
-                                                @endif
-                                                @if($product->small_tree == 'YES')
+                                                    @endif
+                                                    @if($product->small_tree == 'YES')
                                                         <a>Small Tree</a>
-                                                @endif
-                                                @if($product->large_tree == 'YES')
+                                                    @endif
+                                                    @if($product->large_tree == 'YES')
                                                         <a>Large Tree</a>
-                                                @endif
+                                                    @endif
+                                                </div>
+                                                <p style="padding-top:15px;">
+                                                    {{ $product->description }}
+                                                </p>
                                             </div>
-                                            <p style="padding-top:15px;">
-                                                {{ $product->description }}
-                                            </p>
                                         </div>
+                                        <!-- product list item end -->
                                     </div>
-                                    <!-- product list item end -->
-                                </div>
                                 @endforeach
 
                             </div>
                             <!-- product item list wrapper end -->
 
                             @if ($product_paginate->hasPages())
-                                <!-- start pagination area -->
+                            <!-- start pagination area -->
                                 <div class="paginatoin-area text-center">
                                     {{ $product_paginate->withQueryString()->links('pagination') }}
                                 </div>
-                                    <!-- end pagination area -->
+                                <!-- end pagination area -->
                             @endif
 
                         </div>
                     </div>
-                    <!-- shop main wrapper end -->
                 </div>
             </div>
         </div>

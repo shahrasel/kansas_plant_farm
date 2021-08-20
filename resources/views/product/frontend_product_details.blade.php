@@ -8,6 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
+                        <a href="{{ route('products') }}" role="button" class="btn btn-sqr" >Back to Shopping</a>
                         <div class="breadcrumb-wrap">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
@@ -141,7 +142,7 @@
                                                 <a>Small Tree</a>
                                             @endif
                                             @if($product->large_tree == 'YES')
-                                                <a>Large_tree</a>
+                                                <a>Large Tree</a>
                                             @endif
                                         </div>
                                         <div class="availability">

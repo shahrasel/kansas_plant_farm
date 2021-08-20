@@ -3569,7 +3569,6 @@ textarea:focus {
   font-size: 16px;
   line-height: 1;
   color: #7fbc03;
-  text-transform: capitalize;
 }
 
 .manufacturer-name a:hover {

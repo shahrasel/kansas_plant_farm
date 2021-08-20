@@ -460,37 +460,24 @@
                     <div class="widget-item">
                         <h6 class="widget-title">Follow Us</h6>
                         <div class="widget-body social-link">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube"></i></a>
+                            <a href="{{ $socialnetworkurl_info->facebook_link  }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ $socialnetworkurl_info->twitter_link  }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ $socialnetworkurl_info->instagram_link  }}" target="_blank"><i class="fa fa-instagram"></i></a>
+                            <a href="{{ $socialnetworkurl_info->youtube_link  }}" target="_blank"><i class="fa fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="p-2 text-center">Note: Shipping and Delivery are not available at this time. All prices are for pickup at nursery.</div>
             <div class="d-flex justify-content-center my-3">
-                <div class="p-2"><a href="" style="color: #7fbc03">Terms & Conditions</a></div>
+                <div class="p-2"><a href="{{ route('terms-conditions') }}" style="color: #7fbc03">Terms & Conditions</a></div>
                 <div class="p-2">|</div>
-                <div class="p-2"><a href="" style="color: #7fbc03">Privacy Policy</a></div>
+                <div class="p-2"><a href="{{ route('privacy-policy') }}" style="color: #7fbc03">Privacy Policy</a></div>
                 <div class="p-2">|</div>
-                <div class="p-2"><a href="" style="color: #7fbc03">Our Guarantee</a></div>
+                <div class="p-2"><a href="{{ route('our-guarantee') }}" style="color: #7fbc03">Our Guarantee</a></div>
             </div>
             <div class="row align-items-center">
-<!--                <div class="col-md-6">
-                    <div class="newsletter-wrapper">
-                        <h6 class="widget-title-text">Signup for newsletter</h6>
-                        <form class="newsletter-inner" id="mc-form">
-                            <input type="email" class="news-field" id="mc-email" autocomplete="off" placeholder="Enter your email address">
-                            <button class="news-btn" id="mc-submit">Subscribe</button>
-                        </form>
-                        <div class="mailchimp-alerts">
-                            <div class="mailchimp-submitting"></div>&lt;!&ndash; mailchimp-submitting end &ndash;&gt;
-                            <div class="mailchimp-success"></div>&lt;!&ndash; mailchimp-success end &ndash;&gt;
-                            <div class="mailchimp-error"></div>&lt;!&ndash; mailchimp-error end &ndash;&gt;
-                        </div>
-                    </div>
-                </div>-->
+
                 <div class="col-md-12">
                     <div class="footer-payment">
                         <img src="{{ asset('img/payment.png') }}" alt="payment method">

@@ -57,4 +57,28 @@ class HomeController extends Controller
             'imageLists' => $imageLists
         ]);
     }
+
+    public function privacyPolicy() {
+        $setting_info = Setting::select('privacy_policy')->first();
+
+        return view('contents.privacy_policy', [
+            'setting_info' => $setting_info
+        ]);
+    }
+
+    public function termsConditions() {
+        $setting_info = Setting::select('terms_conditions')->first();
+        //dd($imageLists);
+        return view('contents.terms_conditions', [
+            'setting_info' => $setting_info
+        ]);
+    }
+
+    public function ourGuarantee() {
+        $setting_info = Setting::select('our_gurantee')->first();
+        //dd($imageLists);
+        return view('contents.our_guarantee', [
+            'setting_info' => $setting_info
+        ]);
+    }
 }

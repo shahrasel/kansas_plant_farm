@@ -189,7 +189,7 @@
                                                             <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
                                                         @endif
                                                         @if($product->large_tree == 'YES')
-                                                            <a  href="{{ url("/plants?category=large_tree") }}">Large_tree</a>
+                                                            <a  href="{{ url("/plants?category=large_tree") }}">Large Tree</a>
                                                         @endif
                                                     </div>
                                                 </div>

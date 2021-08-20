@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\OrderAdditional;
 use App\Models\Orderdetails;
 use App\Models\Product;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -300,6 +301,11 @@ class OrderController extends Controller
     public function adminOrderPrint($id, Request $request) {
         $oderInfo = Order::find($id);
 
+        $sales_info = array();
+        if(!empty($oderInfo->sales_id)) {
+            $sales_info = User::select('firstname','lastname')->where('id',$oderInfo->sales_id)->first();
+        }
+
         $orderDetails = new Orderdetails();
         $orderdetails_lists = $orderDetails->getOrderDetails($id);
 
@@ -326,10 +332,11 @@ class OrderController extends Controller
         }
 
         $order_additional_info = OrderAdditional::where('id',$oderInfo->order_additional_id)->first();
-
+        //dd($sales_info);
         return view('admin.order.order_print', [
             'oderInfo' => $oderInfo,
             'sale_lists' => $sale_lists,
+            'sales_info' => $sales_info,
             'orderdetails_lists' => $orderdetails_lists,
             'order_additional_info' => $order_additional_info
         ]);

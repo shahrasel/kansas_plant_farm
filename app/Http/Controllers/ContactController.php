@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function showContact() {
-        return view('contact.contactus');
+
+        $settings_info = Setting::select('address','email','phone','nursery_hours','pricing_sheet_link','order_form_link','nursery_link')->first();
+
+        //return view('contact.contactus');
+        return view('contact.contactus', [
+            'settings_info' => $settings_info
+        ]);
     }
 
     public function sendMessage(Request $request) {
@@ -24,7 +31,7 @@ class ContactController extends Controller
             'checklist'=>[],
         ]);
 
-        dd($data);
+        //dd($data);
 
     }
 }

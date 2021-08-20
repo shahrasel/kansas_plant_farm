@@ -346,6 +346,7 @@
                                         <th>Image count</th>
                                         <th>imgae upload</th>
                                         <th>Edit</th>
+                                        <th>Delete</th>
 
                                         <th>Pot size(a)</th>
                                         <th>Inventory_count(a)</th>
@@ -374,6 +375,7 @@
                                         <th>Image count</th>
                                         <th>imgae upload</th>
                                         <th>Edit</th>
+                                        <th>Delete</th>
 
                                         <th>Pot size(a)</th>
                                         <th>Inventory_count(a)</th>
@@ -404,6 +406,7 @@
                                             <td> {{ $product_list->image_count }}</td>
                                             <td><a href="{{ url('/admin/edit-product-image/'.$product_list->id) }}">Image Upload</a></td>
                                             <td><a href="{{ url('/admin/edit-product/'.$product_list->slug) }}">Edit</a></td>
+                                            <td><a href="{{ url('/admin/delete-product/'.$product_list->id) }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
 
 
                                             <td>{{ $product_list->pot_size_a }}</td>

@@ -95,6 +95,11 @@ Route::get('/garden-ideas', [App\Http\Controllers\GardenThemeController::class, 
 
 Route::get('/upcoming-events', [App\Http\Controllers\EventController::class, 'upcomingEvents'])->name('upcoming-events');
 
+
+Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/terms-conditions', [App\Http\Controllers\HomeController::class, 'termsConditions'])->name('terms-conditions');
+Route::get('/our-guarantee', [App\Http\Controllers\HomeController::class, 'ourGuarantee'])->name('our-guarantee');
+
 ############################ PAYPAL ############################
 Route::post('/payment-confirmation', [\App\Http\Controllers\OrderController::class, 'paymentConfirmation'])->name('payment-confirmation');
 ############################ PAYPAL ############################
@@ -123,6 +128,7 @@ Route::any('/admin/product-image-processor/{id}', [\App\Http\Controllers\Product
 Route::post('/admin/add-product', [\App\Http\Controllers\ProductController::class, 'adminAddProducts'])->name('add-product')->middleware('adminauth');
 Route::get('/admin/edit-product/{product}', [\App\Http\Controllers\ProductController::class, 'adminEditProducts'])->name('edit-product')->middleware('adminauth');
 Route::put('/admin/update-product', [\App\Http\Controllers\ProductController::class, 'adminUpdateProducts'])->name('update-product')->middleware('adminauth');
+Route::get('/admin/delete-product/{id}', [\App\Http\Controllers\ProductController::class, 'adminDeleteProducts'])->name('delete-product')->middleware('adminauth');
 
 
 ################## CONTRACTOR ####################
@@ -145,7 +151,7 @@ Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'ad
 ################## ORDER ####################
 Route::get('/admin/orders', [\App\Http\Controllers\OrderController::class, 'adminOrders'])->name('admin-orders')->middleware('adminauth');
 Route::any('/admin/orderdetails/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderDetails'])->name('admin-order-details')->middleware('adminauth');
-Route::any('/admin/orderprint/{id}', [\App\Http\Controllers\OrderController::class, 'about-us'])->name('admin-order-print')->middleware('adminauth');
+Route::any('/admin/orderprint/{id}', [\App\Http\Controllers\OrderController::class, 'adminOrderPrint'])->name('admin-order-print')->middleware('adminauth');
 
 
 ################## GARDEN THEME ####################

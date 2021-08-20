@@ -8,9 +8,11 @@ use App\Models\Order;
 use App\Models\User;
 use App\Rules\CurrentPasswordVerification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -55,6 +57,8 @@ class UserController extends Controller
                 'current_password' => ['nullable', 'min:8', new CurrentPasswordVerification(auth()->user())],
             ]);
 
+
+
             $user = User::find($request->input('id'));
             $user->firstname = $request->input('firstname');
             $user->lastname = $request->input('lastname');
@@ -63,6 +67,7 @@ class UserController extends Controller
             if(!empty($request->input('new_password'))) {
                 $user->password = Hash::make($request->input('new_password'));
             }
+
 
             $user->phone = $request->input('phone');
             $user->address1 = $request->input('address1');
@@ -73,6 +78,7 @@ class UserController extends Controller
 
             $user->save();
 
+            //Auth::setUser($user);
 
 
             return redirect()->route('my-profile');
@@ -160,7 +166,8 @@ class UserController extends Controller
     }
 
     public function adminMyProfile(Request $request) {
-        if($request->has('email') && $request->has('password')) {
+        if($request->has('email')) {
+
             $this->validate($request, [
                 'firstname' => 'required|string|max:255',
                 'lastname' => 'required|string|max:255',
@@ -177,7 +184,24 @@ class UserController extends Controller
 
             //dd($user);
 
+            if(!empty($request->file('pimage'))) {
+                $path = $request->file('pimage');
+
+                $filename = $path->getClientOriginalName();
+
+                $thumb_image_resize = Image::make($path->getRealPath());
+
+                $thumb_image_resize->resize(250, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+
+                $thumb_image_resize->save(public_path('img/users/' . $filename));
+            }
+
+
             $user = User::find($request->input('id'));
+
             $user->firstname = $request->input('firstname');
             $user->lastname = $request->input('lastname');
             $user->email = $request->input('email');
@@ -185,6 +209,10 @@ class UserController extends Controller
 
             if(!empty($request->input('password'))) {
                 $user->password = Hash::make($request->input('password'));
+            }
+
+            if(!empty($request->file('pimage'))) {
+                $user->pimage = $filename;
             }
 
             $user->phone = $request->input('phone');
@@ -195,6 +223,13 @@ class UserController extends Controller
             $user->zip = $request->input('zip');
 
             $user->save();
+
+            //$user = User::find($request->input('id'));
+            //dd($user);
+            Auth::setUser($user);
+            //Auth::user($user);
+
+            //return redirect()->route('admin-my-profile');
 
             //return redirect('/admin/contractors');
         }

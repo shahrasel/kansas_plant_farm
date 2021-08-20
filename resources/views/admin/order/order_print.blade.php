@@ -40,7 +40,9 @@
                                 <p class="mb-0">Phone: (785) 218-7475</p>
                                 <p class="mb-0">kansasplantfarm@gmail.com</p>
                                 <p class="mb-0">www.KansasPlantFarm.com</p>
-                                <p class="mb-0">Sales Rep: Ryan D.</p>
+                                <p class="mb-0">
+                                    Sales Rep: @if(!empty($oderInfo->sales_id)) {{ strtoupper($sales_info->firstname).' '.strtoupper(substr($sales_info->lastname, 0, 1)) }}. @else Ryan D. @endif
+                                </p>
                             </div>
                         </div>
 
@@ -102,6 +104,11 @@
 
                         <div class="row">
                             <div class="col-lg-6 col-sm-6 col-md-6">
+                                <fieldset class="form-group mt-0">
+                                    <legend><span>PREFERRED PICK UP DATE/TIME</span></legend>
+                                    <p>{{ $order_additional_info->pickup_date }} {{ $order_additional_info->time }}</p>
+                                </fieldset>
+
                                 @if(!empty($options))
                                     <fieldset class="form-group mt-0">
                                     <legend><span>IMPORTANT INFORMATION</span></legend>
@@ -160,7 +167,7 @@
 
                         <div class="row text-center d-block" style="margin: 70px auto 70px auto">
                             <h6>
-                                We appriciate your business! Please spread the word<br/>and share our website with your friends!
+                                We appreciate your business! Please spread the word<br/>and share our website with your friends!
                             </h6>
                         </div>
 
