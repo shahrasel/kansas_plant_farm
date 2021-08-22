@@ -260,19 +260,35 @@
 
                                 <form action="" method="post">
                                     @csrf
-                                    <select class="form-control" name="sales_id">
-                                        @foreach($sale_lists as $sale_list)
-                                            <option value="">-- Select Sales Agent --</option>
-                                            <option value="{{ $sale_list->id }}" @if($sale_list->id==$oderInfo->sales_id) selected @endif>{{ $sale_list->firstname }} {{ $sale_list->lastname }} ({{ $sale_list->email }})</option>
-                                        @endforeach
-                                    </select>
-                                    <br/>
-                                    <select class="form-control" name="status">
-                                        <option value="Payment Completed" @if($oderInfo->status=='Payment Completed') selected @endif >Payment Completed</option>
-                                        <option value="Customer Picked Up" @if($oderInfo->status=='Customer Picked Up') selected @endif >Customer Picked Up</option>
-                                    </select>
-                                    <br/>
-                                    <input type="submit" name="change_status" value="Apply" class="btn btn-primary">
+                                    <div class="d-flex">
+                                        <div class="mr-3" style="width: 80%">
+                                            <select class="form-control" name="sales_id" >
+                                                @foreach($sale_lists as $sale_list)
+                                                    <option value="">-- Select Sales Agent --</option>
+                                                    <option value="{{ $sale_list->id }}" @if($sale_list->id==$oderInfo->sales_id) selected @endif>{{ $sale_list->firstname }} {{ $sale_list->lastname }} ({{ $sale_list->email }})</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <input type="submit" class="btn btn-primary py-2" value="Update">
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <br/>
+                                <form action="" method="post">
+                                    @csrf
+                                    <div class="d-flex">
+                                        <div class="mr-3" style="width: 80%">
+                                            <select class="form-control" name="status">
+                                                <option value="Payment Completed" @if($oderInfo->status=='Payment Completed') selected @endif >Payment Completed</option>
+                                                <option value="Customer Picked Up" @if($oderInfo->status=='Customer Picked Up') selected @endif >Customer Picked Up</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <input type="submit" name="change_status" value="Update" class="btn btn-primary py-2">
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                             <div class="col-lg-6">

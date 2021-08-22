@@ -203,10 +203,10 @@
                             <table id="dataTable10" width="100%" class="table table-striped table-lightfont">
                                 <thead>
                                     <tr>
-                                        <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created</th>
+                                        <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created</th><th>Edit</th>
                                     </tr></thead>
                                 <tfoot>
-                                    <tr><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created</th></tr>
+                                    <tr><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created</th><th>Edit</th></tr>
                                 </tfoot>
                                 <tbody>
                                     @forelse($sale_lists as $sale_list)
@@ -216,6 +216,7 @@
                                             <td>{{ $sale_list->phone }}</td>
                                             <td>{{ $sale_list->address1 }} {{ $sale_list->city }} {{ $sale_list->state }} {{ $sale_list->zip }}</td>
                                             <td>{{ $sale_list->created_at }}</td>
+                                            <td><a href="{{ url('/admin/sales/'.$sale_list->id.'/edit') }}">Edit</a></td>
                                         </tr>
                                     @empty
                                             <tr>

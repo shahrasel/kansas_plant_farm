@@ -460,10 +460,21 @@
                     <div class="widget-item">
                         <h6 class="widget-title">Follow Us</h6>
                         <div class="widget-body social-link">
-                            <a href="{{ $socialnetworkurl_info->facebook_link  }}" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="{{ $socialnetworkurl_info->twitter_link  }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="{{ $socialnetworkurl_info->instagram_link  }}" target="_blank"><i class="fa fa-instagram"></i></a>
-                            <a href="{{ $socialnetworkurl_info->youtube_link  }}" target="_blank"><i class="fa fa-youtube"></i></a>
+                            @if(!empty($socialnetworkurl_info->facebook_link))
+                                <a href="{{ $socialnetworkurl_info->facebook_link  }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                            @endif
+
+                            @if(!empty($socialnetworkurl_info->twitter_link))
+                                <a href="{{ $socialnetworkurl_info->twitter_link  }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                            @endif
+
+                            @if(!empty($socialnetworkurl_info->instagram_link))
+                                <a href="{{ $socialnetworkurl_info->instagram_link  }}" target="_blank"><i class="fa fa-instagram"></i></a>
+                            @endif
+
+                            @if(!empty($socialnetworkurl_info->youtube_link))
+                                <a href="{{ $socialnetworkurl_info->youtube_link  }}" target="_blank"><i class="fa fa-youtube"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -588,7 +599,7 @@
                     <a href="{{ url('/checkout') }}"><i class="fa fa-share"></i> Checkout</a>
                 </div>
                 @else
-                    <p>No product is added to the cart!</p>
+                    <h4 class="my-5 text-center" style="color: #ff0000">No product is added to the cart!</h4>
                 @endif
             </div>
         </div>
@@ -662,7 +673,8 @@
     grecaptcha.ready(function() {
         grecaptcha.execute('{{ config('services.recaptcha.sitekey') }}', {action: 'contact'}).then(function(token) {
             if (token) {
-                document.getElementById('recaptcha').value = token;
+                if(document.getElementById('recaptcha'))
+                    document.getElementById('recaptcha').value = token;
             }
         });
     });
@@ -773,7 +785,7 @@
                         else
                             jQuery("#product_count").html('Only '+parseInt(result['available'])+' in stock');
 
-                        jQuery("#max_item").val(result['available']);
+                        jQuery("#max_item_1").val(result['available']);
                         jQuery("#pot_size").val(result['pot_size']);
                         jQuery("#quantity").val(1);
 
@@ -808,7 +820,7 @@
                         jQuery("#addtocart_btn").removeClass('d-none');
                         jQuery("#addtocart_btn").addClass('d-flex');
                         jQuery("#addtocart_btn").css('display','block');
-                        jQuery("#max_item").val(result['available']);
+                        jQuery("#max_item_1").val(result['available']);
                         jQuery("#pot_size").val(result['pot_size']);
                         jQuery("#quantity").val(1);
 

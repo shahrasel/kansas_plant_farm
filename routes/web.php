@@ -142,6 +142,10 @@ Route::get('/admin/sales', [\App\Http\Controllers\UserController::class, 'adminS
 Route::get('/admin/add-sales', [\App\Http\Controllers\UserController::class, 'addAdminSales'])->name('admin-add-sales')->middleware('adminauth');
 Route::post('/admin/add-sales', [\App\Http\Controllers\UserController::class, 'addAdminSales'])->name('admin-add-sale-post')->middleware('adminauth');
 
+Route::get('/admin/sales/{id}/edit',[\App\Http\Controllers\UserController::class, 'editAdminSales'])->name('admin-sale-edit')->middleware('adminauth');
+Route::put('/admin/sales/update',[\App\Http\Controllers\UserController::class, 'updateAdminSales'])->name('admin-sales-update')->middleware('adminauth');
+Route::get('/admin/sales/{id}/delete', [\App\Http\Controllers\UserController::class, 'destroy'])->name('admin-sale-delete')->middleware('adminauth');
+
 
 
 ################## CUSTOMER ####################

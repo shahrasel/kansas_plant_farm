@@ -299,6 +299,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Filter</button>
+                                        <a href="{{ url('/admin/products') }}" class="btn btn-danger">Reset</a>
                                     </div>
                                 </div>
                             </div>

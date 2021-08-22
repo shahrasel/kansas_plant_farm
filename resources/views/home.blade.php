@@ -145,16 +145,27 @@
                                                         </p>
                                                     </div>
                                                     <div class="price-box">
-                                                        <span class="price-regular">
-                                                        @if(!empty($product->getProductPrice($product)))
-                                                                ${{ $product->getProductPrice($product) }}
-                                                            @endif
-                                                    </span>
+<!--                                                        <span class="price-regular">
+                                                            @if(!empty($product->getProductPrice($product)))
+                                                                    ${{ $product->getProductPrice($product) }}
+                                                                @endif
+                                                        </span>
                                                         <span class="price-old">
-                                                        @if(!empty($product->retail_list_price_a))
-                                                                <del>${{ number_format($product->retail_list_price_a,2) }}</del>
-                                                            @endif
-                                                    </span>
+                                                            @if(!empty($product->retail_list_price_a))
+                                                                    <del>${{ number_format($product->retail_list_price_a,2) }}</del>
+                                                                @endif
+                                                        </span>-->
+
+                                                        <span class="price-regular">
+                                                            @if(!empty($product->getProductPrice($product)))
+                                                                    ${{ $product->getProductPrice($product) }}
+                                                                @endif
+                                                        </span>
+                                                        <span class="price-old">
+                                                            @if(!empty($product->getProductListPrice($product)))
+                                                                    <del>${{ $product->getProductListPrice($product) }}</del>
+                                                                @endif
+                                                        </span>
                                                     </div>
 
                                                     <div class="manufacturer-name details_tag" style="margin-top: 20px;line-height: 30px;">

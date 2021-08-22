@@ -46,7 +46,7 @@ class UserController extends Controller
                 'firstname' => 'required|string|max:255',
                 'lastname' => 'required|string|max:255',
                 'email' => 'required|email|max:255|unique:users,email,'.$request->input('id'),
-                'phone' => 'nullable|regex:/(01)[0-9]{9}/',
+                'phone' => 'nullable',
                 'company' => 'nullable|string|max:100',
                 'address1' => 'nullable|string|max:100',
                 'address2' => 'nullable|string|max:100',
@@ -172,7 +172,7 @@ class UserController extends Controller
                 'firstname' => 'required|string|max:255',
                 'lastname' => 'required|string|max:255',
                 'email' => 'required|email|max:255|unique:users,email,'.$request->input('id'),
-                'phone' => 'nullable|regex:/(01)[0-9]{9}/',
+                'phone' => 'nullable',
                 'company' => 'nullable|string|max:100',
                 'address1' => 'nullable|string|max:100',
                 'address2' => 'nullable|string|max:100',
@@ -246,7 +246,7 @@ class UserController extends Controller
                 'firstname' => 'required|string|max:255',
                 'lastname' => 'required|string|max:255',
                 'email' => 'required|email|max:255|unique:users,email,'.$request->input('id'),
-                'phone' => 'nullable|regex:/(01)[0-9]{9}/',
+                'phone' => 'nullable',
                 'company' => 'nullable|string|max:100',
                 'address1' => 'nullable|string|max:100',
                 'address2' => 'nullable|string|max:100',
@@ -302,7 +302,7 @@ class UserController extends Controller
                 'firstname' => 'required|string|max:255',
                 'lastname' => 'required|string|max:255',
                 'email' => 'required|email|max:255|unique:users,email,'.$request->input('id'),
-                'phone' => 'nullable|regex:/(01)[0-9]{9}/',
+                'phone' => 'nullable',
                 'company' => 'nullable|string|max:100',
                 'address1' => 'nullable|string|max:100',
                 'address2' => 'nullable|string|max:100',
@@ -322,6 +322,60 @@ class UserController extends Controller
             $user->usertype = 'sales';
 
             $user->password = Hash::make($request->input('password'));
+
+            $user->phone = $request->input('phone');
+            $user->company_name = $request->input('company');
+            $user->address1 = $request->input('address1');
+            $user->address2 = $request->input('address2');
+            $user->city = $request->input('city');
+            $user->state = $request->input('state');
+            $user->zip = $request->input('zip');
+
+            $user->save();
+
+            return redirect('/admin/sales');
+        }
+
+        return view('admin.user.addSale');
+    }
+
+    public function editAdminSales($id) {
+        $sales_info = User::where('id',$id)->first();
+
+        return view('admin.user.EditSale',[
+            'sales_info'=>$sales_info
+        ]);
+    }
+
+    public function updateAdminSales(Request $request) {
+
+        if($request->has('email')) {
+            $this->validate($request, [
+                'firstname' => 'required|string|max:255',
+                'lastname' => 'required|string|max:255',
+                'email' => 'required|email|max:255|unique:users,email,'.$request->input('id'),
+                'phone' => 'nullable',
+                'company' => 'nullable|string|max:100',
+                'address1' => 'nullable|string|max:100',
+                'address2' => 'nullable|string|max:100',
+                'city' => 'nullable|string|max:50',
+                'state' => 'nullable|string|max:50',
+                //'zip' => 'nullable|numeric|max:5',
+                'password' => 'nullable|min:8|required_with:confirm_password|same:confirm_password',
+                'confirm_password' => ['nullable', 'min:8'],
+            ]);
+
+            //dd($user);
+
+            $user = User::find($request->input('id'));
+            //$user = new User();
+            $user->firstname = $request->input('firstname');
+            $user->lastname = $request->input('lastname');
+            $user->email = $request->input('email');
+            $user->usertype = 'sales';
+
+            if(!empty($request->input('password')))
+                $user->password = Hash::make($request->input('password'));
 
             $user->phone = $request->input('phone');
             $user->company_name = $request->input('company');

@@ -13,6 +13,37 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function orderAdditional()
+    {
+        return $this->hasOne(OrderAdditional::class);
+    }
+
+    public static function withAdditional($arr)
+    {
+
+
+        return static::leftJoin(
+            'order_additionals as oa',
+            'oa.id', '=', 'orders.order_additional_id'
+        )->Where(function ($query) use ($arr) {
+            if(array_key_exists('f_first_name', $arr)) {
+                $query->where('oa.first_name', '=',  $arr['f_first_name']);
+            }
+            if(array_key_exists('f_last_name', $arr)) {
+                $query->where('oa.last_name', '=',  $arr['f_last_name']);
+            }
+            if(array_key_exists('f_email', $arr)) {
+                $query->where('oa.email_address', '=',  $arr['f_email']);
+            }
+            if(array_key_exists('f_cell', $arr)) {
+                $query->where('oa.phone', '=',  $arr['f_cell']);
+            }
+            if(array_key_exists('f_order_id', $arr)) {
+                $query->where('orderid', '=',  $arr['f_order_id']);
+            }
+        })->select('orderid','first_name','last_name','email_address','phone','total_price','status','orders.created_at','orders.id');
+    }
+
     public static function stateLists() {
         return array(
             'AL'=>"Alabama",

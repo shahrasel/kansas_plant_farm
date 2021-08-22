@@ -10,9 +10,6 @@ class CartController extends Controller
 {
     public function add(Request $request)
     {
-        //dd($request);
-        /*$cart_lists = Cart::with('product')->get();
-        dd($cart_lists);*/
         if ($request->has('addtocart')) {
 
             $cart_validation = $request->validate([
@@ -22,30 +19,48 @@ class CartController extends Controller
                 //'unit_price' => ['required', 'numeric']
             ]);
 
-            $cart = new Cart();
-            $cart->product_id = $request->get('product_id');
-            $cart->quantity = $request->get('quantity');
-            if($request->has('size')) {
-                $cart->size = $request->get('size');
+            $product_info = Product::find($request->get('product_id'));
+
+
+            if(!empty($product_info->botanical_name) || !empty($product_info->common_name)) {
+                $is_exists = Cart::where('product_id', '=', $request->get('product_id'))
+                    ->where('size', '=', $request->get('size'))
+                    ->where('user_session_id', '=', session()->getId())
+                    ->first();
+            }
+            else {
+                $is_exists = Cart::where('product_id', '=', $request->get('product_id'))
+                    ->where('user_session_id', '=', session()->getId())
+                    ->first();
             }
 
-            if($request->has('pot_size')) {
-                $cart->pot_size = $request->get('pot_size');
-            }
+            if(empty($is_exists)) {
+
+                $cart = new Cart();
+                $cart->product_id = $request->get('product_id');
+                $cart->quantity = $request->get('quantity');
+                if ($request->has('size')) {
+                    $cart->size = $request->get('size');
+                }
+
+                if ($request->has('pot_size')) {
+                    $cart->pot_size = $request->get('pot_size');
+                }
 
 
-            $product_price = json_decode(Product::getProductPriceByIDandSize($request->get('product_id'),$request->get('size')));
+                $product_price = json_decode(Product::getProductPriceByIDandSize($request->get('product_id'), $request->get('size')));
 
-            //dd($product_price);
+                //dd($product_price);
 
-            $cart->unit_price = $product_price->price[0];
-            $cart->total_price = $product_price->price[0] * $request->get('quantity');
-            $cart->user_session_id = session()->getId();
-            //dd($cart);
-            $cart->save();
+                $cart->unit_price = $product_price->price[0];
+                $cart->total_price = $product_price->price[0] * $request->get('quantity');
+                $cart->user_session_id = session()->getId();
+                //dd($cart);
+                $cart->save();
 
-            if (!empty($cart->id)) {
-                echo 'Product is added to the cart successfully!';
+                if (!empty($cart->id)) {
+                    echo 'Product is added to the cart successfully!';
+                }
             }
         }
     }

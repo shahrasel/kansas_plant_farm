@@ -1,12 +1,24 @@
 @extends('layouts.app')
-
+@section('custom_styles')
+    <style>
+        .table-responsive{
+            overflow-y: hidden;
+        }
+        .nice-select.open .list {
+            z-index: 10000 !important;
+            max-height: 150px;
+            overflow-y: scroll;
+        }
+    </style>
+@endsection
 @section('content')
     @inject('product_model', 'App\Models\Product')
     <main>
     <!-- cart main wrapper start -->
     <div class="cart-main-wrapper section-padding">
         <div class="container">
-            <div class="section-bg-color" id="cart_div">
+            <h1 class="text-lg-left text-md-left text-sm-center mb-30">Cart</h1>
+            <div class="section-bg-color text-center" id="cart_div">
                 @if(!$cart_lists->isEmpty())
                     <form action="" method="post">
                         @csrf
@@ -30,6 +42,7 @@
                                         <tbody>
                                             @php
                                                 $i=0;
+                                                $j=1;
                                                 $tax_amount = 0;
                                                 $cart_d = "";
                                             @endphp
@@ -54,12 +67,27 @@
                                                         </a></td>
                                                     <td class="pro-price"><span>@if(!empty($cart_list->size)){{ $cart_list->size }}@else - @endif</span></td>
                                                     <td class="pro-price"><span>${{ $cart_list->unit_price }}</span></td>
-<!--                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty"><input type="text" name="quantity_{{ $cart_list->id }}" value="{{ $cart_list->quantity }}" style="color: #7FBC03"></div>
-                                                    </td>-->
+
+                                                    {{--@php
+                                                        $product_count = $cart_list->product->getProductStockByPotSize($cart_list->product,$cart_list->pot_size);
+                                                    @endphp
+
+                                                    <input type="hidden" id="max_item_{{ $j }}" value="{{ $cart_list->product->getProductStock($cart_list->product) }}">
+
+                                                    <td class="pro-quantity">
+                                                        <div class="pro-qty" id="pro-qty_{{ $j }}"><input type="text" name="quantity_{{ $cart_list->id }}" value="{{ $cart_list->quantity }}" style="color: #7FBC03"></div>
+                                                    </td>--}}
                                                     <td class="pro-quantity">
                                                         <div style="color: #7FBC03">
-                                                            {{ $cart_list->quantity }}
+                                                            @php
+                                                                $j++;
+                                                                $product_count = $cart_list->product->getProductStockByPotSize($cart_list->product,$cart_list->pot_size);
+                                                            @endphp
+                                                            <select name="quantity_{{ $cart_list->id }}">
+                                                                @for($i=1;$i<=$product_count;$i++)
+                                                                    <option @if($cart_list->quantity==$i) selected @endif value="{{ $i }}">{{ $i }}</option>
+                                                                @endfor
+                                                            </select>
                                                         </div>
                                                     </td>
                                                     <td class="pro-subtotal"><span>${{ number_format(($cart_list->unit_price*$cart_list->quantity), 2, '.', ',') }}</span></td>
@@ -73,11 +101,16 @@
                                                     $cart_d .= $cart_list->id."#";
                                                 @endphp
                                             @endforeach
-
+                                            <tr>
+                                                <td colspan="7">
+                                                    <div class="cart-update" style="float: right;min-height: 85px;padding-top: 24px;">
+                                                        <button class="btn btn-sqr" type="submit">Update Cart</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- Cart Update Option -->
 <!--                                <div class="cart-update-option d-block d-md-flex justify-content-between" style="display: inline-block !important; text-align: right !important; width: 100%">
                                     <div class="cart-update" style="float: right">
                                         <button class="btn btn-sqr" type="submit">Update Cart</button>
@@ -118,7 +151,7 @@
                         <input type="hidden" name="cart_d" id="cart_d" value="{{ $cart_d }}">
                     </form>
                 @else
-                    <p>No product is added to the cart!</p>
+                    <h4 style="color: #ff0000">No product is added to the cart!</h4>
                 @endif
             </div>
         </div>
@@ -128,10 +161,12 @@
 @endsection
 @section('javascript')
     <script>
+
         function deleteCartItem(id) {
-            $.ajax({url: "{{ url('/delete-cart-item') }}?'id='+id+'&main_cart'", success: function(result){
-                    $("#cart_div").html(result);
-                }});
+            //alert(id);
+            $.ajax({url: "{{ url('/delete-cart-item') }}?id="+id+"&main_cart=1", success: function(result){
+                $("#cart_div").html(result);
+            }});
         }
     </script>
 @endsection

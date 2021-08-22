@@ -458,7 +458,44 @@
 			$this.html(event.strftime('<div class="single-countdown"><span class="single-countdown__time">%D</span><span class="single-countdown__text">Days</span></div><div class="single-countdown"><span class="single-countdown__time">%H</span><span class="single-countdown__text">Hours</span></div><div class="single-countdown"><span class="single-countdown__time">%M</span><span class="single-countdown__text">Mins</span></div><div class="single-countdown"><span class="single-countdown__time">%S</span><span class="single-countdown__text">Secs</span></div>'));
 		});
 	});
+    
+	/*
+	    var k;
+    for (k = 0; k <= 50; k++) {
+        if ($('#pro-qty_' + k).length) {
+            var p = k;
+            $('#pro-qty_' + k).prepend('<span class="dec qtybtn">-</span>');
+            $('#pro-qty_' + k).append('<span class="inc qtybtn">+</span>');
+            $('.qtybtn').on('click', function () {
+                //alert('1');
+                var $button = $(this);
+                var oldValue = $button.parent().find('input').val();
 
+
+                if ($button.hasClass('inc')) {
+                    alert("max_item_"+p);
+                    alert(parseFloat($("#max_item_"+p).val()));
+                    if (parseFloat(oldValue) < parseFloat($("#max_item_"+p).val())) {
+                        var newVal = parseFloat(oldValue) + 1;
+                        //alert('rase'+newVal);
+                    } else {
+                        var newVal = parseFloat(oldValue);
+                        //alert('dipu'+newVal);
+                    }
+
+                } else {
+                    // Don't allow decrementing below zero
+                    if (oldValue > 1) {
+                        var newVal = parseFloat(oldValue) - 1;
+                    } else {
+                        newVal = 1;
+                    }
+                }
+                $button.parent().find('input').val(newVal);
+            });
+        }
+    }
+	*/
 	// quantity change js
     $('.pro-qty').prepend('<span class="dec qtybtn">-</span>');
     $('.pro-qty').append('<span class="inc qtybtn">+</span>');

@@ -41,7 +41,7 @@ class HomeController extends Controller
         $settings_info = Setting::first();
 
 
-        $featured_lists = Product::where('is_featured',1)->select('id','botanical_name','common_name','other_product_service_name','patent_trademark_names','perennial','shrub','vine','grass_bamboo','hardy_tropical','water_plant','annual','house_deck_plant','cactus_succulent','small_tree','large_tree','slug','retail_list_price_a','retail_list_price_b','retail_list_price_c','retail_sale_price_a','retail_sale_price_b','retail_sale_price_c','contractor_price_a','contractor_price_b','contractor_price_c','images')->orderBy('featured_order','ASC')->get();
+        $featured_lists = Product::where('is_featured',1)->select('id','botanical_name','common_name','other_product_service_name','patent_trademark_names','perennial','shrub','vine','grass_bamboo','hardy_tropical','water_plant','annual','house_deck_plant','cactus_succulent','small_tree','large_tree','slug','retail_list_price_a','retail_list_price_b','retail_list_price_c','retail_sale_price_a','retail_sale_price_b','retail_sale_price_c','contractor_price_a','contractor_price_b','contractor_price_c','pot_size_a','pot_size_b','pot_size_c','images')->orderBy('featured_order','ASC')->get();
 
         return view('home', [
             'featured_lists' => $featured_lists,

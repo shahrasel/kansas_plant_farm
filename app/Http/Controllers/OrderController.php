@@ -241,13 +241,35 @@ class OrderController extends Controller
         ]);
     }
 
-    public function adminOrders() {
+    public function adminOrders(Request $request) {
         $where_query= array();
         //$where_query['usertype'] = 'buyer';
 
-        $order_lists = DB::table('orders')
-            ->where($where_query)
-            ->orderBy('id', 'desc')->get();
+        /*$order_lists = Order::
+            where($where_query)
+            ->with('OrderAdditional')
+            ->orderBy('id', 'desc')
+            ->get();*/
+        $query_arr = array();
+        if(!empty($request->get('f_first_name'))) {
+            $query_arr['f_first_name'] = $request->get('f_first_name');
+        }
+        if(!empty($request->get('f_last_name'))) {
+            $query_arr['f_last_name'] = $request->get('f_last_name');
+        }
+
+        if(!empty($request->get('f_email'))) {
+            $query_arr['f_email'] = $request->get('f_email');
+        }
+        if(!empty($request->get('f_cell'))) {
+            $query_arr['f_cell'] = $request->get('f_cell');
+        }
+        if(!empty($request->get('f_order_id'))) {
+            $query_arr['f_order_id'] = $request->get('f_order_id');
+        }
+        $order_lists = Order::withAdditional($query_arr)->get();
+
+        //dd($order_lists);
 
         return view('admin.order.allOrders', [
             'order_lists' => $order_lists
@@ -271,12 +293,17 @@ class OrderController extends Controller
         if($request->has('status')) {
 
             if($request->get('status') == 'Customer Picked Up') {
-                Mail::to($oderInfo->email)
-                    ->send(new pickupConfirmation($oderInfo->firstname,$orderdetails_lists,$oderInfo->orderid));
+                /*Mail::to($oderInfo->email)
+                    ->send(new pickupConfirmation($oderInfo->firstname,$orderdetails_lists,$oderInfo->orderid));*/
 
                 $oderInfo->picked_up_date = Carbon::now();
             }
 
+            $oderInfo->status = $request->input('status');
+            $oderInfo->save();
+        }
+
+        if($request->has('sales_id')) {
             if(!empty($request->input('sales_id'))) {
                 $oderInfo->sales_id = $request->input('sales_id');
             }
@@ -284,9 +311,10 @@ class OrderController extends Controller
                 $oderInfo->sales_id = 0;
             }
 
-            $oderInfo->status = $request->input('status');
             $oderInfo->save();
         }
+
+        //dd($oderInfo);
 
         $order_additional_info = OrderAdditional::where('id',$oderInfo->order_additional_id)->first();
 

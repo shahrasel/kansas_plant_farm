@@ -196,24 +196,80 @@
                         <h5 class="form-header">
                             Order List
                         </h5>
-<!--                        <div class="form-desc">
-                            DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.. <a href="https://www.datatables.net/" target="_blank">Learn More about DataTables</a>
-                        </div>-->
+                        <form action="" method="get">
+                            @csrf
+                            <fieldset class="form-group">
+                                <legend><span>Filter</span></legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for=""> First Name</label>
+                                            <input class="form-control" name="f_first_name" id="f_first_name" type="text" value="{{ app('request')->input('f_first_name') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="">Last Name</label>
+                                            <input class="form-control" name="f_last_name" id="f_last_name" type="text" value="{{ app('request')->input('f_last_name') }}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="f_product_id_number">Email</label>
+                                            <input class="form-control" name="f_email" id="f_email" type="text" value="{{ app('request')->input('f_email') }}" autocomplete="off">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="f_product_id_number">Cell</label>
+                                            <input class="form-control" name="f_cell" id="f_cell" type="text" value="{{ app('request')->input('f_cell') }}" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="">Order #</label>
+                                            <input class="form-control" name="f_order_id" id="f_order_id" type="text" value="{{ app('request')->input('f_order_id') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" type="submit">Filter</button>
+                                            <a href="{{ url('/admin/orders') }}" class="btn btn-danger">Reset</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                         <div class="table-responsive">
                             <table id="dataTable10" width="100%" class="table table-striped table-lightfont">
                                 <thead>
                                     <tr>
-                                        <th>Order ID</th><th>Name</th><th>Email</th><th>Price</th><th>Status</th><th>Created</th><th>Details</th>
+                                        <th>Order ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Price</th><th>Status</th><th>Created</th><th>Details</th>
                                     </tr></thead>
                                 <tfoot>
-                                    <tr><th>Order ID</th><th>Name</th><th>Email</th><th>Price</th><th>Status</th><th>Created</th><th>Details</th></tr>
+                                    <tr><th>Order ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Price</th><th>Status</th><th>Created</th><th>Details</th></tr>
                                 </tfoot>
                                 <tbody>
                                     @forelse($order_lists as $order_list)
                                         <tr>
                                             <td>{{ $order_list->orderid }}</td>
-                                            <td>{{ $order_list->firstname }} {{ $order_list->lastname }}</td>
-                                            <td>{{ $order_list->email }}</td>
+                                            <td>{{ $order_list->first_name }} {{ $order_list->last_name }}</td>
+                                            <td>{{ $order_list->email_address }}</td>
+                                            <td>{{ $order_list->phone }}</td>
                                             <td>${{ $order_list->total_price }}</td>
                                             <td>{{ $order_list->status }}</td>
                                             <td>{{ $order_list->created_at }}</td>

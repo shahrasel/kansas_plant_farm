@@ -525,7 +525,7 @@
 
 
                                     <div class="form-buttons-w">
-                                        <button class="btn btn-primary" name="submit" type="submit"> Submit</button>
+                                        <button class="btn btn-primary" name="submit" type="submit"> Update</button>
                                     </div>
                                 </form>
 

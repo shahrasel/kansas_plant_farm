@@ -162,7 +162,7 @@ class Product extends Model
     }
 
     public static function getProductPrice($product) {
-
+        //dd($product);
         $price = "";
         if(!empty($product->other_product_service_name)) {
             if (Auth::check()) {
@@ -296,6 +296,30 @@ class Product extends Model
         return $stock;
     }
 
+    public static function getProductStockByPotSize($product,$pot_size) {
+
+        //dd($product);
+
+        $stock = "";
+        if(!empty($product->other_product_service_name)) {
+            return 10;
+        }
+        else {
+
+            if($pot_size == 'a') {
+                $stock = $product->inventory_count_a;
+            }
+            else if($pot_size == 'b') {
+                $stock = $product->inventory_count_b;
+            }
+            else if($pot_size == 'c') {
+                $stock = $product->inventory_count_c;
+            }
+        }
+
+        return $stock;
+    }
+
     public static function getProductSize($product) {
         $sizes = array();
         if (Auth::check()) {
@@ -333,8 +357,6 @@ class Product extends Model
 
     public static function getProductPriceByIDandSize($id,$size) {
         $product = Product::where('id',$id)->first();
-
-
 
         $price_arr = array();
         $available = 0;

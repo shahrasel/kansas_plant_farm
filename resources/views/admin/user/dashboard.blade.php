@@ -191,7 +191,7 @@
         </div>
         <div class="content-i">
             <div class="content-box">
-                <div class="row">
+<!--                <div class="row">
                     <div class="col-sm-12">
                         <div class="element-wrapper">
                             <div class="element-actions">
@@ -209,7 +209,7 @@
                                     </select>
                                 </form>
                             </div>
-                            <h6 class="element-header">
+&lt;!&ndash;                            <h6 class="element-header">
                                 Sales Dashboard
                             </h6>
                             <div class="element-content">
@@ -267,10 +267,10 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div>&ndash;&gt;
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="element-wrapper">
@@ -447,7 +447,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+<!--                <div class="row">
                     <div class="col-sm-8 col-xxxl-6">
                         <div class="element-wrapper">
                             <h6 class="element-header">
@@ -573,7 +573,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4 d-xxxl-none">
-                        <!--START - Top Selling Chart-->
+                        &lt;!&ndash;START - Top Selling Chart&ndash;&gt;
                         <div class="element-wrapper">
                             <h6 class="element-header">
                                 Top Selling Today
@@ -631,10 +631,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!--END - Top Selling Chart-->
+                        &lt;!&ndash;END - Top Selling Chart&ndash;&gt;
                     </div>
                     <div class="d-none d-xxxl-block col-xxxl-6">
-                        <!--START - Questions per Product-->
+                        &lt;!&ndash;START - Questions per Product&ndash;&gt;
                         <div class="element-wrapper">
                             <div class="element-actions">
                                 <form class="form-inline justify-content-sm-end">
@@ -743,7 +743,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--END - Questions per product                  -->
+                        &lt;!&ndash;END - Questions per product                  &ndash;&gt;
                     </div>
                 </div>
                 <div class="row">
@@ -858,7 +858,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <!--------------------
               START - Color Scheme Toggler
               -------------------->
