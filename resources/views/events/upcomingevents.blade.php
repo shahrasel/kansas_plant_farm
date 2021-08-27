@@ -45,7 +45,7 @@
                             </div>
                             <div>
                                 <span style="min-width: 150px;display: inline-block;margin-right: 50px;"><a href="https://www.google.com/maps/place/{{ $event_list->location_address_1 }}, {{ $event_list->location_address_2 }}" class="btn btn-hero" target="_blank">Get Directions</a></span>
-                                <span><a href="shop.html" class="btn btn-hero" target="_blank">Buy Ticket</a></span>
+                                <span><a href="{{ $event_list->buy_ticket_link }}" class="btn btn-hero" target="_blank">Buy Ticket</a></span>
                             </div>
                         </div>
                     </div>

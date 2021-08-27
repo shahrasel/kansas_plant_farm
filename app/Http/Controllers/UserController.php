@@ -342,7 +342,7 @@ class UserController extends Controller
     public function editAdminSales($id) {
         $sales_info = User::where('id',$id)->first();
 
-        return view('admin.user.EditSale',[
+        return view('admin.user.editSale',[
             'sales_info'=>$sales_info
         ]);
     }
@@ -360,12 +360,12 @@ class UserController extends Controller
                 'address2' => 'nullable|string|max:100',
                 'city' => 'nullable|string|max:50',
                 'state' => 'nullable|string|max:50',
-                //'zip' => 'nullable|numeric|max:5',
+                'zip' => 'nullable|numeric',
                 'password' => 'nullable|min:8|required_with:confirm_password|same:confirm_password',
                 'confirm_password' => ['nullable', 'min:8'],
             ]);
 
-            //dd($user);
+            //dd($request->all());
 
             $user = User::find($request->input('id'));
             //$user = new User();

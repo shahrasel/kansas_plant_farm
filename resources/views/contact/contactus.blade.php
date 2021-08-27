@@ -123,7 +123,7 @@
                                             </div>
 
                                             <div id="contact_success_message" class="col-12 justify-content-center my-5" style="display: none">
-                                                <p class="form-messege" style="color: #fff;font-size: 1.1rem;text-align: center;border: 1px solid #00ff00;padding: 10px;">Contact message sent successfully! You will get back to you soon.</p>
+                                                <p class="form-messege" style="color: #fff;font-size: 1.1rem;text-align: center;border: 1px solid #00ff00;padding: 10px;">Thank you for contacting us! We will respond within 24-48 hrs.</p>
                                             </div>
                                         </div>
                                         <input type="hidden" name="recaptcha" id="recaptcha">

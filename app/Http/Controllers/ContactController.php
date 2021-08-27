@@ -63,7 +63,7 @@ class ContactController extends Controller
 
 
 
-            Mail::to('shahrasel@gmail.com')
+            Mail::to('kansasplantfarm@gmail.com')
                 ->send(new contactEmail($request->name,$request->street_address,$request->city,$request->state,$request->zip,$request->email,$request->phone,$request->comment,$request->plant_req,$request->checklist));
 
             echo 'done';

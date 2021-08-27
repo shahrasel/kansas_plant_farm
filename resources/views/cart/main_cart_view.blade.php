@@ -6,7 +6,7 @@
         }
         .nice-select.open .list {
             z-index: 10000 !important;
-            max-height: 150px;
+            max-height: 130px;
             overflow-y: scroll;
         }
     </style>
@@ -84,8 +84,8 @@
                                                                 $product_count = $cart_list->product->getProductStockByPotSize($cart_list->product,$cart_list->pot_size);
                                                             @endphp
                                                             <select name="quantity_{{ $cart_list->id }}">
-                                                                @for($i=1;$i<=$product_count;$i++)
-                                                                    <option @if($cart_list->quantity==$i) selected @endif value="{{ $i }}">{{ $i }}</option>
+                                                                @for($k=1;$k<=$product_count;$k++)
+                                                                    <option @if($cart_list->quantity==$k) selected @endif value="{{ $k }}">{{ $k }}</option>
                                                                 @endfor
                                                             </select>
                                                         </div>

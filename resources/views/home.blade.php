@@ -145,17 +145,6 @@
                                                         </p>
                                                     </div>
                                                     <div class="price-box">
-<!--                                                        <span class="price-regular">
-                                                            @if(!empty($product->getProductPrice($product)))
-                                                                    ${{ $product->getProductPrice($product) }}
-                                                                @endif
-                                                        </span>
-                                                        <span class="price-old">
-                                                            @if(!empty($product->retail_list_price_a))
-                                                                    <del>${{ number_format($product->retail_list_price_a,2) }}</del>
-                                                                @endif
-                                                        </span>-->
-
                                                         <span class="price-regular">
                                                             @if(!empty($product->getProductPrice($product)))
                                                                     ${{ $product->getProductPrice($product) }}
@@ -170,37 +159,37 @@
 
                                                     <div class="manufacturer-name details_tag" style="margin-top: 20px;line-height: 30px;">
                                                         @if($product->perennial == 'YES')
-                                                            <a href="{{ url("/plants?category=perennial") }}">Perennial</a>
+                                                            <a>Perennial</a>
                                                         @endif
                                                         @if($product->shrub == 'YES')
-                                                            <a  href="{{ url("/plants?category=shrub") }}">Shrub</a>
+                                                            <a>Shrub</a>
                                                         @endif
                                                         @if($product->vine == 'YES')
-                                                            <a  href="{{ url("/plants?category=vine") }}">Vine</a>
+                                                            <a>Vine</a>
                                                         @endif
                                                         @if($product->grass_bamboo == 'YES')
-                                                            <a  href="{{ url("/plants?category=grass_bamboo") }}">Grass/Bamboo</a>
+                                                            <a>Grass/Bamboo</a>
                                                         @endif
                                                         @if($product->hardy_tropical == 'YES')
-                                                            <a  href="{{ url("/plants?category=hardy_tropical") }}">Hardy Tropical</a>
+                                                            <a>Hardy Tropical</a>
                                                         @endif
                                                         @if($product->water_plant == 'YES')
-                                                            <a  href="{{ url("/plants?category=water_plant") }}">Water Plant</a>
+                                                            <a>Water Plant</a>
                                                         @endif
                                                         @if($product->annual == 'YES')
-                                                            <a  href="{{ url("/plants?category=annual") }}">Annual</a>
+                                                            <a>Annual</a>
                                                         @endif
                                                         @if($product->house_deck_plant == 'YES')
-                                                            <a  href="{{ url("/plants?category=house_deck_plant") }}">House / Deck Plant</a>
+                                                            <a>House / Deck Plant</a>
                                                         @endif
                                                         @if($product->cactus_succulent == 'YES')
-                                                            <a  href="{{ url("/plants?category=cactus_succulent") }}">Cactus / Succulent</a>
+                                                            <a>Cactus / Succulent</a>
                                                         @endif
                                                         @if($product->small_tree == 'YES')
-                                                            <a  href="{{ url("/plants?category=small_tree") }}">Small Tree</a>
+                                                            <a>Small Tree</a>
                                                         @endif
                                                         @if($product->large_tree == 'YES')
-                                                            <a  href="{{ url("/plants?category=large_tree") }}">Large Tree</a>
+                                                            <a>Large Tree</a>
                                                         @endif
                                                     </div>
                                                 </div>

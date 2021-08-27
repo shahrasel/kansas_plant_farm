@@ -219,7 +219,7 @@ class OrderController extends Controller
 
     public function orders() {
 
-        $order_lists = Order::where('user_id',auth()->user()->id)->get();
+        $order_lists = Order::where('user_id',auth()->user()->id)->orderBy('id', 'desc')->get();
         //dd($order_lists);
         return view('user.orders', [
             'order_lists' => $order_lists
@@ -267,7 +267,7 @@ class OrderController extends Controller
         if(!empty($request->get('f_order_id'))) {
             $query_arr['f_order_id'] = $request->get('f_order_id');
         }
-        $order_lists = Order::withAdditional($query_arr)->get();
+        $order_lists = Order::withAdditional($query_arr)->orderBy('id', 'desc')->get();
 
         //dd($order_lists);
 
@@ -293,8 +293,8 @@ class OrderController extends Controller
         if($request->has('status')) {
 
             if($request->get('status') == 'Customer Picked Up') {
-                /*Mail::to($oderInfo->email)
-                    ->send(new pickupConfirmation($oderInfo->firstname,$orderdetails_lists,$oderInfo->orderid));*/
+                Mail::to($oderInfo->email)
+                    ->send(new pickupConfirmation($oderInfo->firstname,$orderdetails_lists,$oderInfo->orderid));
 
                 $oderInfo->picked_up_date = Carbon::now();
             }

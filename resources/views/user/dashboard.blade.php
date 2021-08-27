@@ -43,11 +43,11 @@
                                                 <div class="myaccount-content">
                                                     <h5>Dashboard</h5>
                                                     <div class="welcome">
-                                                        <p>Hello <strong>{{ auth()->user()->firstname }},</strong></p>
+                                                        <p>Welcome <strong>{{ auth()->user()->firstname }},</strong></p>
                                                     </div>
-                                                    <p class="mb-0">From your account dashboard. you can easily check &
-                                                        view your recent orders, manage your shipping and billing addresses
-                                                        and edit your password and account details.</p>
+                                                    <p class="mb-0">You can use this dashboard to track your orders and update your profile. We look forward to giving you the highest quality of plants!</p>
+                                                    <br/>
+                                                    <p>Thank you for your business!</p>
                                                 </div>
                                             </div>
                                             <!-- Single Tab Content End -->

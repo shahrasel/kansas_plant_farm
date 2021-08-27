@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="{{ route('products') }}" role="button" class="btn btn-sqr" >Back to Shopping</a>
+                        <a onClick="history.go(-1); return false;" role="button" class="btn btn-sqr" style="color: #fff" >Back to Shopping</a>
                         <div class="breadcrumb-wrap">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
@@ -151,7 +151,7 @@
                                                 @if(!empty($product->getProductStock($product)))
                                                     @if($product->getProductStock($product)>0)
                                                         @if($product->getProductStock($product) >= 10)
-                                                            This size {{ $product->inventory_count_a }} in stock
+                                                            This size {{ $product->getProductStock($product) }} in stock
                                                         @else
                                                             This size {{ $product->getProductStock($product) }} in stock
                                                         @endif
@@ -265,168 +265,172 @@
                                 <div class="col-lg-12">
                                     <div class="product-review-info">
                                         <ul class="nav review-tab">
-                                            <li>
-                                                <a class="active" data-toggle="tab" href="#tab_one">Information</a>
-                                            </li>
+                                            @if(empty($product->other_product_service_name))
+                                                <li>
+                                                    <a class="active" data-toggle="tab" href="#tab_one">Information</a>
+                                                </li>
+                                            @endif
                                             <li>
                                                 <a data-toggle="tab" href="#tab_two">Description</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content reviews-tab">
-                                            <div class="tab-pane fade show active" id="tab_one">
-                                                <div class="tab-one">
-                                                    <div class="row">
-                                                        <div class="col-xl-4 col-md-6 col-sm-12">
-                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">CULTURAL CONDITIONS</h5>
-                                                            @if($product->min_zone)
-                                                                <p><b>Plant Min Zone:</b> {{ \App\Models\Product::zoneLists()[$product->min_zone] }}</p>
-                                                            @endif
-                                                            @if($product->max_zone)
-                                                                <p><b>Plant Max Zone:</b> {{ \App\Models\Product::zoneLists()[$product->max_zone] }}</p>
-                                                            @endif
+                                            @if(empty($product->other_product_service_name))
+                                                <div class="tab-pane fade show active" id="tab_one">
+                                                    <div class="tab-one">
+                                                        <div class="row">
+                                                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                                                <h5 style="margin-top: 20px;margin-bottom: 10px">CULTURAL CONDITIONS</h5>
+                                                                @if($product->min_zone)
+                                                                    <p><b>Plant Min Zone:</b> {{ \App\Models\Product::zoneLists()[$product->min_zone] }}</p>
+                                                                @endif
+                                                                @if($product->max_zone)
+                                                                    <p><b>Plant Max Zone:</b> {{ \App\Models\Product::zoneLists()[$product->max_zone] }}</p>
+                                                                @endif
 
-                                                            @if($product->sunlight)
-                                                                <p><b>Sunlight:</b> {{ rtrim(str_replace(',',', ',ltrim($product->sunlight,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->sunlight)
+                                                                    <p><b>Sunlight:</b> {{ rtrim(str_replace(',',', ',ltrim($product->sunlight,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->water_rainfall)
-                                                                <p><b>Water / Rainfall:</b> {{ rtrim(str_replace(',',', ',ltrim($product->water_rainfall,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->water_rainfall)
+                                                                    <p><b>Water / Rainfall:</b> {{ rtrim(str_replace(',',', ',ltrim($product->water_rainfall,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->soil_quality)
-                                                                <p><b>Soil Quality:</b> {{ rtrim(str_replace(',',', ',ltrim($product->soil_quality,',')),", ") }}</p>
-                                                            @endif
-                                                        </div>
+                                                                @if($product->soil_quality)
+                                                                    <p><b>Soil Quality:</b> {{ rtrim(str_replace(',',', ',ltrim($product->soil_quality,',')),", ") }}</p>
+                                                                @endif
+                                                            </div>
 
-                                                        <div class="col-xl-4 col-md-6 col-sm-12">
-                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">FLOWERS AND FOLIAGE</h5>
-                                                            @if($product->bloom_season)
-                                                                <p><b>Bloom Season:</b> {{ rtrim(str_replace(',',', ',ltrim($product->bloom_season,',')),", ") }}</p>
-                                                            @endif
-                                                            @if($product->flower_color)
-                                                                <p><b>Flower Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->flower_color,',')),", ") }}</p>
-                                                            @endif
+                                                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                                                <h5 style="margin-top: 20px;margin-bottom: 10px">FLOWERS AND FOLIAGE</h5>
+                                                                @if($product->bloom_season)
+                                                                    <p><b>Bloom Season:</b> {{ rtrim(str_replace(',',', ',ltrim($product->bloom_season,',')),", ") }}</p>
+                                                                @endif
+                                                                @if($product->flower_color)
+                                                                    <p><b>Flower Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->flower_color,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->berry_fruit_color)
-                                                                <p><b>Berry / Fruit Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->berry_fruit_color,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->berry_fruit_color)
+                                                                    <p><b>Berry / Fruit Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->berry_fruit_color,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->spring_foliage_color)
-                                                                <p><b>Spring Foliage Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->spring_foliage_color,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->spring_foliage_color)
+                                                                    <p><b>Spring Foliage Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->spring_foliage_color,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->summer_foliage_color)
-                                                                <p><b>Summer Foliage Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->summer_foliage_color,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->summer_foliage_color)
+                                                                    <p><b>Summer Foliage Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->summer_foliage_color,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->fall_foliage_color)
-                                                                <p><b>Fall Foliage Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->fall_foliage_color,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->fall_foliage_color)
+                                                                    <p><b>Fall Foliage Color:</b> {{ rtrim(str_replace(',',', ',ltrim($product->fall_foliage_color,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->has_evergreen_foliage)
-                                                                <p><b>Evergreen Foliage:</b> {{ $product->has_evergreen_foliage }}</p>
-                                                            @endif
+                                                                @if($product->has_evergreen_foliage)
+                                                                    <p><b>Evergreen Foliage:</b> {{ $product->has_evergreen_foliage }}</p>
+                                                                @endif
 
-                                                            @if($product->has_winter_interest)
-                                                                <p><b>Winter Interest:</b> {{ $product->has_winter_interest }}</p>
-                                                            @endif
+                                                                @if($product->has_winter_interest)
+                                                                    <p><b>Winter Interest:</b> {{ $product->has_winter_interest }}</p>
+                                                                @endif
 
-                                                            @if($product->scented_flowers)
-                                                                <p><b>Scented Flowers:</b> {{ $product->scented_flowers }}</p>
-                                                            @endif
-                                                        </div>
-
-
-                                                        <div class="col-xl-4 col-md-6 col-sm-12">
-                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">PLANT TOLERANCES</h5>
-                                                            @if($product->drought_tolerance)
-                                                                <p><b>Drought Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->drought_tolerance,',')),", ") }}</p>
-                                                            @endif
-                                                            @if($product->wet_feet_tolerance)
-                                                                <p><b>Wet-Feet Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->wet_feet_tolerance,',')),", ") }}</p>
-                                                            @endif
-
-                                                            @if($product->humidity_tolerance)
-                                                                <p><b>Humidity Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->humidity_tolerance,',')),", ") }}</p>
-                                                            @endif
-
-                                                            @if($product->wind_tolerence)
-                                                                <p><b>Wind Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->wind_tolerence,',')),", ") }}</p>
-                                                            @endif
-
-                                                            @if($product->poor_soil_tolerance)
-                                                                <p><b>Poor Soil Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->poor_soil_tolerance,',')),", ") }}</p>
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="col-xl-4 col-md-6 col-sm-12">
-                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">GROWTH AND MAINTENANCE</h5>
-                                                            @if($product->min_height)
-                                                                <p><b>Height:</b> {{ $product->min_height."' - ".$product->max_height."'" }}</p>
-                                                            @endif
-                                                            @if($product->min_width)
-                                                                <p><b>Width:</b> {{ $product->min_width."' - ".$product->max_width."'" }}</p>
-                                                            @endif
-
-                                                            @if($product->growth_rate)
-                                                                <p><b>Growth Rate:</b> {{ rtrim(str_replace(',',', ',ltrim($product->growth_rate,',')),", ") }}</p>
-                                                            @endif
-
-                                                            @if($product->service_life)
-                                                                <p><b>Service Life:</b> {{ rtrim(str_replace(',',', ',ltrim($product->service_life,',')),", ") }}</p>
-                                                            @endif
-
-                                                            @if($product->maintenance_requirements)
-                                                                <p><b>Maintenance Need:</b> {{ rtrim(str_replace(',',', ',ltrim($product->maintenance_requirements,',')),", ") }}</p>
-                                                            @endif
-
-                                                            @if($product->spreading_potential)
-                                                                <p><b>Spreading Potential:</b> {{ rtrim(str_replace(',',', ',ltrim($product->spreading_potential,',')),", ") }}</p>
-                                                            @endif
-
-                                                            @if($product->yearly_trimming_tips)
-                                                                <p><b>Yearly Trimming Tips:</b> {{ rtrim(str_replace(',',', ',ltrim($product->yearly_trimming_tips,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->scented_flowers)
+                                                                    <p><b>Scented Flowers:</b> {{ $product->scented_flowers }}</p>
+                                                                @endif
+                                                            </div>
 
 
-                                                        </div>
+                                                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                                                <h5 style="margin-top: 20px;margin-bottom: 10px">PLANT TOLERANCES</h5>
+                                                                @if($product->drought_tolerance)
+                                                                    <p><b>Drought Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->drought_tolerance,',')),", ") }}</p>
+                                                                @endif
+                                                                @if($product->wet_feet_tolerance)
+                                                                    <p><b>Wet-Feet Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->wet_feet_tolerance,',')),", ") }}</p>
+                                                                @endif
+
+                                                                @if($product->humidity_tolerance)
+                                                                    <p><b>Humidity Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->humidity_tolerance,',')),", ") }}</p>
+                                                                @endif
+
+                                                                @if($product->wind_tolerence)
+                                                                    <p><b>Wind Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->wind_tolerence,',')),", ") }}</p>
+                                                                @endif
+
+                                                                @if($product->poor_soil_tolerance)
+                                                                    <p><b>Poor Soil Tolerance:</b> {{ rtrim(str_replace(',',', ',ltrim($product->poor_soil_tolerance,',')),", ") }}</p>
+                                                                @endif
+                                                            </div>
+
+                                                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                                                <h5 style="margin-top: 20px;margin-bottom: 10px">GROWTH AND MAINTENANCE</h5>
+                                                                @if($product->min_height)
+                                                                    <p><b>Height:</b> {{ $product->min_height."' - ".$product->max_height."'" }}</p>
+                                                                @endif
+                                                                @if($product->min_width)
+                                                                    <p><b>Width:</b> {{ $product->min_width."' - ".$product->max_width."'" }}</p>
+                                                                @endif
+
+                                                                @if($product->growth_rate)
+                                                                    <p><b>Growth Rate:</b> {{ rtrim(str_replace(',',', ',ltrim($product->growth_rate,',')),", ") }}</p>
+                                                                @endif
+
+                                                                @if($product->service_life)
+                                                                    <p><b>Service Life:</b> {{ rtrim(str_replace(',',', ',ltrim($product->service_life,',')),", ") }}</p>
+                                                                @endif
+
+                                                                @if($product->maintenance_requirements)
+                                                                    <p><b>Maintenance Need:</b> {{ rtrim(str_replace(',',', ',ltrim($product->maintenance_requirements,',')),", ") }}</p>
+                                                                @endif
+
+                                                                @if($product->spreading_potential)
+                                                                    <p><b>Spreading Potential:</b> {{ rtrim(str_replace(',',', ',ltrim($product->spreading_potential,',')),", ") }}</p>
+                                                                @endif
+
+                                                                @if($product->yearly_trimming_tips)
+                                                                    <p><b>Yearly Trimming Tips:</b> {{ rtrim(str_replace(',',', ',ltrim($product->yearly_trimming_tips,',')),", ") }}</p>
+                                                                @endif
+
+
+                                                            </div>
 
 
 
-                                                        <div class="col-xl-4 col-md-6 col-sm-12">
-                                                            <h5 style="margin-top: 20px;margin-bottom: 10px">PLANT USES AND LIMITATIONS</h5>
-                                                            @if($product->plant_grouping_size)
-                                                                <p><b>Plant Grouping Size:</b> {{ rtrim(str_replace(',',', ',ltrim($product->plant_grouping_size,',')),", ") }}</p>
-                                                            @endif
-                                                            @if($product->best_side_of_house)
-                                                                <p><b>Best Side of House:</b> {{ rtrim(str_replace(',',', ',ltrim($product->best_side_of_house,',')),", ") }}</p>
-                                                            @endif
+                                                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                                                <h5 style="margin-top: 20px;margin-bottom: 10px">PLANT USES AND LIMITATIONS</h5>
+                                                                @if($product->plant_grouping_size)
+                                                                    <p><b>Plant Grouping Size:</b> {{ rtrim(str_replace(',',', ',ltrim($product->plant_grouping_size,',')),", ") }}</p>
+                                                                @endif
+                                                                @if($product->best_side_of_house)
+                                                                    <p><b>Best Side of House:</b> {{ rtrim(str_replace(',',', ',ltrim($product->best_side_of_house,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->extreme_planting_locations)
-                                                                <p><b>Extreme Planting Locations:</b> {{ rtrim(str_replace(',',', ',ltrim($product->extreme_planting_locations,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->extreme_planting_locations)
+                                                                    <p><b>Extreme Planting Locations:</b> {{ rtrim(str_replace(',',', ',ltrim($product->extreme_planting_locations,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->ornamental_features)
-                                                                <p><b>Ornamental Features:</b> {{ rtrim(str_replace(',',', ',ltrim($product->ornamental_features,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->ornamental_features)
+                                                                    <p><b>Ornamental Features:</b> {{ rtrim(str_replace(',',', ',ltrim($product->ornamental_features,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->special_landscape_uses)
-                                                                <p><b>Special Landscape Uses:</b> {{ rtrim(str_replace(',',', ',ltrim($product->special_landscape_uses,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->special_landscape_uses)
+                                                                    <p><b>Special Landscape Uses:</b> {{ rtrim(str_replace(',',', ',ltrim($product->special_landscape_uses,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->possible_pest_problems)
-                                                                <p><b>Possible Pest Problems:</b> {{ rtrim(str_replace(',',', ',ltrim($product->possible_pest_problems,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->possible_pest_problems)
+                                                                    <p><b>Possible Pest Problems:</b> {{ rtrim(str_replace(',',', ',ltrim($product->possible_pest_problems,',')),", ") }}</p>
+                                                                @endif
 
-                                                            @if($product->plant_limitations)
-                                                                <p><b>Plant Limitations:</b> {{ rtrim(str_replace(',',', ',ltrim($product->plant_limitations,',')),", ") }}</p>
-                                                            @endif
+                                                                @if($product->plant_limitations)
+                                                                    <p><b>Plant Limitations:</b> {{ rtrim(str_replace(',',', ',ltrim($product->plant_limitations,',')),", ") }}</p>
+                                                                @endif
 
 
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                             <div class="tab-pane fade" id="tab_two">
                                                 <div class="col-xl-4 col-md-6 col-sm-12">
                                                     <h5 style="margin-top: 20px;margin-bottom: 10px">Description section</h5>
