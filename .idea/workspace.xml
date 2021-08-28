@@ -231,20 +231,7 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact/contactus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact/contactus.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/checkoutConfirmation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/checkoutConfirmation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/pickupConfirmation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/pickupConfirmation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/events/upcomingevents.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/upcomingevents.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" afterDir="false" />
@@ -565,7 +552,7 @@
       <workItem from="1628707528738" duration="268000" />
       <workItem from="1628707820972" duration="26429000" />
       <workItem from="1628962004303" duration="35180000" />
-      <workItem from="1629223205239" duration="87069000" />
+      <workItem from="1629223205239" duration="87318000" />
     </task>
     <servers />
   </component>
