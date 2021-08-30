@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\GardenTheme;
+use App\Models\PrivacySettings;
 use App\Models\Setting;
+use App\Models\SettingAdditional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -61,9 +63,13 @@ class SettingsController extends Controller
     public function edit($id)
     {
         $settings_info = Setting::find($id);
-        //dd($settings_info);
+        $settings_additional_info = $settings_info->settingAdditional;
+        $settings_privacy_info = $settings_info->privacySettings;
+        //dd($settings_additional_info);
         return view('admin.settings.editSettings',[
-            'settings_info'=>$settings_info
+            'settings_info'=>$settings_info,
+            'settings_additional_info'=>$settings_additional_info,
+            'settings_privacy_info'=>$settings_privacy_info
         ]);
     }
 
@@ -148,10 +154,22 @@ class SettingsController extends Controller
         $settings->phone = $request->phone;
         $settings->nursery_hours = $request->nursery_hours;
 
-
-
-
         $settings->save();
+
+        $setting_additional_info = SettingAdditional::find($settings->id);
+        $setting_additional_info->privacy_policy = $request->privacy_policy;
+        $setting_additional_info->terms_conditions = $request->terms_conditions;
+        $setting_additional_info->our_gurantee = $request->our_gurantee;
+
+        $setting_additional_info->save();
+
+
+
+        $setting_privacy_info = PrivacySettings::find($settings->id);
+        $setting_privacy_info->privacy_policy = $request->privacy_policy;
+
+        $setting_privacy_info->save();
+
 
         return redirect(url('admin/settings/1/edit'));
     }

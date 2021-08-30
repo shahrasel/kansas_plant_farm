@@ -203,10 +203,10 @@
                             <table id="dataTable10" width="100%" class="table table-striped table-lightfont">
                                 <thead>
                                     <tr>
-                                        <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created</th>
+                                        <th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Delete</th><th>Created</th>
                                     </tr></thead>
                                 <tfoot>
-                                    <tr><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created</th></tr>
+                                    <tr><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Delete</th><th>Created</th></tr>
                                 </tfoot>
                                 <tbody>
                                     @forelse($customer_lists as $customer_list)
@@ -215,6 +215,7 @@
                                             <td>{{ $customer_list->email }}</td>
                                             <td>{{ $customer_list->phone }}</td>
                                             <td>{{ $customer_list->address1 }} {{ $customer_list->city }} {{ $customer_list->state }} {{ $customer_list->zip }}</td>
+                                            <td><a href="{{ url('/admin/delete-user/'.$customer_list->id) }}" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a></td>
                                             <td>{{ $customer_list->created_at }}</td>
                                         </tr>
                                     @empty

@@ -69,11 +69,13 @@
                                                             </thead>
                                                             <tbody>
                                                                 @foreach($order_lists as $order_list)
-                                                                    <td>{{ $order_list->orderid }}</td>
-                                                                    <td>{{ $order_list->created_at }}</td>
-                                                                    <td>{{ $order_list->status }}</td>
-                                                                    <td>${{ number_format($order_list->total_price,2) }}</td>
-    <td><a href="{{ url('/order-details/'.$order_list->id.'/show') }}">View</a></td>
+                                                                    <tr>
+                                                                        <td>{{ $order_list->orderid }}</td>
+                                                                        <td>{{ $order_list->created_at }}</td>
+                                                                        <td>{{ $order_list->status }}</td>
+                                                                        <td>${{ number_format($order_list->total_price,2) }}</td>
+        <td><a href="{{ url('/order-details/'.$order_list->id.'/show') }}">View</a></td>
+                                                                    </tr>
                                                                 @endforeach
                                                             </tbody>
                                                         </table>
@@ -177,16 +179,16 @@
                                                                 <input type="text" name="phone" value="{{ auth()->user()->phone }}"/>
                                                             </div>
                                                             <fieldset>
-                                                                <legend>Additional Info</legend>
+                                                                <legend>Billing Address</legend>
                                                                 <div class="single-input-item">
                                                                     <label for="address1">Address 1</label>
                                                                     <input type="address1" name="address1" id="current-address1"  value="{{ auth()->user()->address1 }}"/>
                                                                 </div>
 
-                                                                <div class="single-input-item">
+<!--                                                                <div class="single-input-item">
                                                                     <label for="address2">Address 2</label>
                                                                     <input type="address2" name="address2" id="current-address2"  value="{{ auth()->user()->address2 }}"/>
-                                                                </div>
+                                                                </div>-->
 
                                                                 <div class="single-input-item">
                                                                     <label for="city">City</label>

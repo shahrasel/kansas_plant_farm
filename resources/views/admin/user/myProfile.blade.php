@@ -226,22 +226,22 @@
                                     </fieldset>
 
                                     <fieldset class="form-group">
-                                        <legend><span>ADDITIONAL INFO</span></legend>
+                                        <legend><span>BILLING ADDRESS</span></legend>
 
 
                                         <div class="form-group row">
-                                            <label class="col-form-label col-sm-4" for=""> Address 1</label>
+                                            <label class="col-form-label col-sm-4" for=""> Street Address</label>
                                             <div class="col-sm-8">
-                                                <input class="form-control" placeholder="Enter Address 1" type="text" name="address1" value="{{ auth()->user()->address1 }}">
+                                                <input class="form-control" placeholder="Enter Street Address" type="text" name="address1" value="{{ auth()->user()->address1 }}">
                                             </div>
                                         </div>
 
-                                        <div class="form-group row">
+<!--                                        <div class="form-group row">
                                             <label class="col-form-label col-sm-4" for=""> Address 2</label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" placeholder="Enter Address 2" type="text" name="address2" value="{{ auth()->user()->address2 }}">
                                             </div>
-                                        </div>
+                                        </div>-->
 
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4" for=""> City</label>

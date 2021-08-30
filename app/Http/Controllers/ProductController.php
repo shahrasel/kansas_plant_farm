@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 use Intervention\Image\Facades\Image;
 use Maatwebsite\Excel\Excel;
 
@@ -3397,6 +3399,10 @@ class ProductController extends Controller
 
     public function product_details(Product $product, Request $request) {
         //dd($product);
+
+        /*echo app('router')->getRoutes()->match(app('request')->create(url()->previous()))->getName();
+        exit;*/
+
         return view('product.frontend_product_details', [
             'product' => $product,
             //'cart_lists' => $cart_lists

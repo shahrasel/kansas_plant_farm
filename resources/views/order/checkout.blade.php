@@ -428,7 +428,7 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                 <label>Street Address<span style="color:yellow">*</span></label>
-                                                <input name="street_address" id="street_address" type="text" @if (Auth::check()) value="{{ Auth()->user()->address1 }} {{ Auth()->user()->address2 }}" @endif required>
+                                                <input name="street_address" id="street_address" type="text" @if (Auth::check()) value="{{ Auth()->user()->address1 }}" @endif required>
                                             </div>
 
                                             <div class="col-lg-6 col-md-6 col-sm-6">

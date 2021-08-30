@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\consumerRegistration;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use App\Rules\CurrentPasswordVerification;
 use Illuminate\Http\Request;
@@ -391,5 +392,13 @@ class UserController extends Controller
         }
 
         return view('admin.user.addSale');
+    }
+
+    public function adminDeleteUser($id) {
+        $user = User::find($id);
+        //dd($product);
+        $user->delete();
+
+        return redirect(url('admin/customers'));
     }
 }

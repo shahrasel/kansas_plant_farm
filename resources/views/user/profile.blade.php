@@ -4,6 +4,8 @@
     <style>
         .nice-select {
             line-height: 45px;
+            display: inline-block;
+            float: none;
         }
     </style>
 @endsection
@@ -214,9 +216,9 @@
                                                                 @enderror
                                                             </div>
                                                             <fieldset>
-                                                                <legend>Additional Info</legend>
+                                                                <legend>Billing Address</legend>
                                                                 <div class="single-input-item">
-                                                                    <label for="address1">Address 1</label>
+                                                                    <label for="address1">Street Address</label>
                                                                     <input type="address1" name="address1" id="current-address1"  value="{{ auth()->user()->address1 }}"/>
                                                                     @error('address1')
                                                                         <span class="invalid-feedback" role="alert" style="display: block">
@@ -225,7 +227,7 @@
                                                                     @enderror
                                                                 </div>
 
-                                                                <div class="single-input-item">
+<!--                                                                <div class="single-input-item">
                                                                     <label for="address2">Address 2</label>
                                                                     <input type="address2" name="address2" id="current-address2"  value="{{ auth()->user()->address2 }}"/>
                                                                     @error('address2')
@@ -233,7 +235,7 @@
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
-                                                                </div>
+                                                                </div>-->
 
                                                                 <div class="single-input-item">
                                                                     <label for="city">City</label>
@@ -247,12 +249,14 @@
 
                                                                 <div class="single-input-item">
                                                                     <label for="state">State</label>
-                                                                    <input type="state" name="state" id="current-state" name="state" value="{{ auth()->user()->state }}"/>
-                                                                    @error('city')
-                                                                    <span class="invalid-feedback" role="alert" style="display: block">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
+<!--                                                                    <input type="state" name="state" id="current-state" name="state" value="{{ auth()->user()->state }}"/>-->
+
+                                                                    <select name="state">
+                                                                        <option>-- Select State --</option>
+                                                                        @foreach(stateList() as $key=>$state)
+                                                                            <option value="{{ $key }}" {{ auth()->user()->state == $key ? 'selected' : '' }}> {{ $state }}</option>
+                                                                        @endforeach
+                                                                    </select>
                                                                 </div>
 
                                                                 <div class="single-input-item">

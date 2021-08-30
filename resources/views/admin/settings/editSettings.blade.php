@@ -502,21 +502,21 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> Privacy Policy</label>
                                             <div class="col-sm-9">
-                                                <textarea class="ckeditor form-control" name="privacy_policy" id="privacy_policy">{{ $settings_info->privacy_policy }}</textarea>
+                                                <textarea class="ckeditor form-control" name="privacy_policy" id="privacy_policy">{{ $settings_privacy_info->privacy_policy }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> Terms & Conditions</label>
                                             <div class="col-sm-9">
-                                                <textarea class="ckeditor form-control" name="terms_conditions" id="terms_conditions">{{ $settings_info->terms_conditions }}</textarea>
+                                                <textarea class="ckeditor form-control" name="terms_conditions" id="terms_conditions">{{ $settings_additional_info->terms_conditions }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> Our Guarantee</label>
                                             <div class="col-sm-9">
-                                                <textarea class="ckeditor form-control" name="our_gurantee" id="our_gurantee">{{ $settings_info->our_gurantee }}</textarea>
+                                                <textarea class="ckeditor form-control" name="our_gurantee" id="our_gurantee">{{ $settings_additional_info->our_gurantee }}</textarea>
                                             </div>
                                         </div>
                                     </fieldset>

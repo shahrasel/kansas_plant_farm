@@ -150,6 +150,7 @@ Route::get('/admin/sales/{id}/delete', [\App\Http\Controllers\UserController::cl
 
 ################## CUSTOMER ####################
 Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'adminCustomers'])->name('admin-customers')->middleware('adminauth');
+Route::get('/admin/delete-user/{id}', [\App\Http\Controllers\UserController::class, 'adminDeleteUser'])->name('delete-user')->middleware('adminauth');
 
 
 ################## ORDER ####################

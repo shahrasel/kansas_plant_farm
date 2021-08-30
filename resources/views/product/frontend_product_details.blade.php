@@ -8,7 +8,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a onClick="history.go(-1); return false;" role="button" class="btn btn-sqr" style="color: #fff" >Back to Shopping</a>
+                        <a href="{{ \Illuminate\Support\Facades\URL::previous() }}" role="button" class="btn btn-sqr" style="color: #fff" >Back to Shopping</a>
+
+
+
                         <div class="breadcrumb-wrap">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
@@ -174,7 +177,7 @@
                                                 <div class="quantity-cart-box d-flex align-items-center" id="addtocart_btn" @if(!empty($product->getProductStock($product))) @if($product->getProductStock($product)>0) style="display: block" @endif @else style="display: none !important;" @endif>
                                                     <h6 class="option-title" style="margin-right: 12px;">qty:</h6>
                                                     <div class="quantity">
-                                                        <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity" id="quantity"></div>
+                                                        <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity" id="quantity" readonly></div>
                                                     </div>
                                                     <div class="action_link">
                                                         <button class="btn btn-cart2">Add to cart</button>

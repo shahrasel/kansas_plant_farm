@@ -102,7 +102,7 @@
                                         </table>
                                     </div>
 
-                                    <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 14px; line-height: 1.5em; margin-top: 0; text-align: left;">INSTRUCTIONS: We will pull your plants and have them ready for curbside pickup within 1-2 days. You will be notified by email & text when plants are ready. Plants must be picked up by you within 5 days. Our main pick-up area is easily visible out front; please see map for large tree pickup area. </p>
+                                    <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 14px; line-height: 1.5em; margin-top: 0; text-align: left;">INSTRUCTIONS: We will pull your plants and/or products and have them ready for curbside pickup within 1-2 days. You will be notified by email & text when plants/products are ready. All plants and/or products must be picked up by you within 5 days. Our main pick-up area is easily visible out front; please see map for large tree pickup area. </p>
 
                                     <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 14px; line-height: 1.5em; margin-top: 0; text-align: left;">We are located at:</p>
 
