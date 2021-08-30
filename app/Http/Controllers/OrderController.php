@@ -56,7 +56,7 @@ class OrderController extends Controller
                 'city' => ['required'],
                 //'state' => ['required'],
                 'zip' => ['required'],
-                'pickup_date' => ['required'],
+                'pickup_date' => [],
 
                 'p_first_name' => ['required'],
                 'p_last_name' => ['required'],
@@ -75,7 +75,7 @@ class OrderController extends Controller
                 'city' => ['required'],
                 //'state' => ['required'],
                 'zip' => ['required'],
-                'pickup_date' => ['required']
+                'pickup_date' => []
             ]);
         }
 

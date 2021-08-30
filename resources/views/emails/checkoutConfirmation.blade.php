@@ -96,7 +96,8 @@
                                             <tr>
 
                                                 <td align="right" colspan="5" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #000; font-size: 14px; line-height: 18px; margin: 0; padding: 10px 0;">Total</td>
-                                                <td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #000; font-size: 14px; line-height: 18px; margin: 0; padding: 10px 0;">${{ number_format(($tax_amount+$i), 2, '.', ',') }}</td>
+                                                <td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #000; font-size: 14px; line-height: 18px; margin: 0; padding: 10px 0;">${{ number_format(($tax_amount+$i), 2, '.', ',') }} </td>
+
                                             </tr>
                                             </tbody>
                                         </table>

@@ -189,11 +189,17 @@
                         </h5>
                         <fieldset class="form-group">
                             <legend><span>Import / Export CSV</span></legend>
+                            @if(Session::has('success'))
+                                <div class="alert alert-success">
+                                    {{Session::get('success')}}
+                                </div>
+                            @endif
                             <form action="{{ route('file-import') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
                                 <div class="custom-file text-left">
-                                    <input type="file" name="file" class="custom-file-input" id="customFile" required>
+                                   <input type="file" name="file" class="custom-file-input" id="customFile" required>
+
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
                                 @if ($errors->has('file'))

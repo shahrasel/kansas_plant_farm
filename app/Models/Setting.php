@@ -13,6 +13,7 @@ class Setting extends Model
         return $this->hasOne(SettingAdditional::class);
     }
 
+
     public function privacySettings() {
         return $this->hasOne(PrivacySettings::class);
     }

@@ -121,6 +121,7 @@ class SettingsController extends Controller
 
 
         $settings->home_description = $request->home_description;
+
         $settings->home_description_video = $request->home_description_video;
         $settings->privacy_policy = $request->privacy_policy;
         $settings->terms_conditions = $request->terms_conditions;

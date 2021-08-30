@@ -499,6 +499,7 @@
 
                                     <fieldset class="form-group">
                                         <legend><span>Other Info</span></legend>
+
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> Privacy Policy</label>
                                             <div class="col-sm-9">

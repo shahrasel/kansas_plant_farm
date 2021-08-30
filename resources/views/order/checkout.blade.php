@@ -455,10 +455,6 @@
                                             </div>
                                         </div>
 
-
-
-
-
                                         <h5 class="checkout-title" style="margin-top:30px;">Who will be picking up your order?</h5>
 
                                         <div>
@@ -498,7 +494,7 @@
 
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <input name="pickup_date" id="pickup_date" type="text" placeholder="Preferred date" required>
+                                                    <input name="pickup_date" id="pickup_date" type="text" placeholder="Preferred date">
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                                     <select name="time" id="time">
@@ -613,9 +609,6 @@
                                 </form>
 
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -812,6 +805,12 @@
 
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
+                    /*
+                        for(key in details){
+                            console.log(key);//for key name in your case it will be bar
+                            console.log(details[key]);// for key value in your case it will be baz
+                        }
+                    */
                     if(details.status == 'COMPLETED') {
                         var APP_URL = {!! json_encode(url('/')) !!}
                         return fetch(APP_URL+'/payment-confirmation', {
@@ -823,7 +822,7 @@
                                 "X-CSRF-TOKEN": token
                             },
                             body: JSON.stringify({
-                                orderId : data.orderID,
+                                orderId : details.purchase_units[0].payments.captures[0].id,
                                 id : details.id,
                                 amount: details.purchase_units[0].amount.value,
                                 status: details.status,

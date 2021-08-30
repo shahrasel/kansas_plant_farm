@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Intervention\Image\Facades\Image;
@@ -3845,7 +3846,8 @@ class ProductController extends Controller
         ]);
 
         \Maatwebsite\Excel\Facades\Excel::import(new ProductsImport, $request->file('file')->store('temp'));
-        return back();
+        //return back();
+        return Redirect::to("/admin/products")->withSuccess('You have successfully uploaded the new CSV file!');
     }
 
     /**

@@ -10,6 +10,7 @@ class PrivacySettings extends Model
     use HasFactory;
 
     public function setting() {
+
         return $this->belongsTo(Setting::class);
     }
 }
