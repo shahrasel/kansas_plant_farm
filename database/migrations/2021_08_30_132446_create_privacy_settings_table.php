@@ -17,7 +17,7 @@ class CreatePrivacySettingsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('setting_id');
-            $table->text('privacy_policy')->nullable();
+            $table->longText('privacy_policy')->nullable();
 
             $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
             $table->timestamps();

@@ -47,9 +47,6 @@
                                     <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">If you have any questions, feel free to email us (kansasplantfarm@gmail.com) with your questions. We look forward in doing business with you!  Happy Plant Farming!</p>
                                     <br/>
                                     <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Ryan Domnick<br/><i>Owner/Plant Guru</i><br/><a href="mailto:kansasplantfarm@gmail.com">kansasplantfarm@gmail.com</a><br/>Visit <a href="https://kansasplantfarm.com" target="_blank">www.KansasPlantFarm.com</a> on your next order!</p>
-
-
-
                                 </td>
                             </tr>
                         </table>

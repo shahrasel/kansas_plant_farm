@@ -14,7 +14,7 @@
                 <!-- single slider item start -->
                 @foreach($billboard_image_lists as $billboard_image_list)
                     <div class="hero-single-slide">
-                    <div class="hero-slider-item bg-img" data-bg="{{ asset('img/billboard/') }}/{{ $billboard_image_list->image }}">
+                        <div class="hero-slider-item bg-img" data-bg="{{ asset('img/billboard/') }}/{{ $billboard_image_list->image }}">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">

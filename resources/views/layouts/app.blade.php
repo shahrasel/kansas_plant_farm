@@ -37,6 +37,16 @@
 
     @yield('custom_styles')
     @yield('custom_event_js')
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDRM07GHXH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-SDRM07GHXH');
+    </script>
 </head>
 <body>
 @inject('cart', 'App\Models\Cart')

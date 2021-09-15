@@ -423,9 +423,9 @@
                                             </div>
                                         </div>
 
-                                        <h5 class="checkout-title" style="margin-top: 30px;">Billing Address</h5>
+<!--                                        <h5 class="checkout-title" style="margin-top: 30px;">Billing Address</h5>-->
 
-                                        <div class="row">
+                                        <!--                                        <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                 <label>Street Address<span style="color:yellow">*</span></label>
                                                 <input name="street_address" id="street_address" type="text" @if (Auth::check()) value="{{ Auth()->user()->address1 }}" @endif required>
@@ -453,7 +453,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>-->
 
                                         <h5 class="checkout-title" style="margin-top:30px;">Who will be picking up your order?</h5>
 
@@ -620,7 +620,7 @@
 @endsection
 @section('javascript')
     <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AZdCloEQ0CboLqDpStAhWMENbkqajvH43i1T30xMTAZgCO_GqmBINSGADQZkcD6_X4w85YLR033SekTG"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID
+    <script src="https://www.paypal.com/sdk/js?client-id=AQ7wokyQGbKXrn7ygdKEqf7rH69I4GLOjJp_4CPvlvGVzLhNzsWjgzhrj7JPAHFBNglqpSH1dz-YWb4K"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID
     </script>
 
     <script>

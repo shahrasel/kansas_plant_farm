@@ -17,9 +17,9 @@ class CreateTableSettingAdditionals extends Migration
             $table->id();
             $table->unsignedBigInteger('setting_id');
 
-            $table->text('privacy_policy')->nullable();
-            $table->text('terms_conditions')->nullable();
-            $table->text('our_gurantee')->nullable();
+
+            $table->longText('terms_conditions')->nullable();
+            $table->longText('our_gurantee')->nullable();
 
             $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
             $table->timestamps();

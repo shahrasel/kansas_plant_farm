@@ -52,10 +52,10 @@ class OrderController extends Controller
                 'email_address' => ['required'],
                 'phone' => ['required'],
 
-                'street_address' => ['required'],
-                'city' => ['required'],
+                'street_address' => [],
+                'city' => [],
                 //'state' => ['required'],
-                'zip' => ['required'],
+                'zip' => [],
                 'pickup_date' => [],
 
                 'p_first_name' => ['required'],
@@ -71,10 +71,10 @@ class OrderController extends Controller
                 'email_address' => ['required'],
                 'phone' => ['required'],
 
-                'street_address' => ['required'],
-                'city' => ['required'],
+                'street_address' => [],
+                'city' => [],
                 //'state' => ['required'],
-                'zip' => ['required'],
+                'zip' => [],
                 'pickup_date' => []
             ]);
         }
@@ -172,7 +172,7 @@ class OrderController extends Controller
             $orderId = $order->id;
 
             Mail::to($request->get('payerEmail'))
-                ->send(new checkoutConfirmation($request->get('payerFname'),$cart_lists));
+                ->send(new checkoutConfirmation($request->get('payerFname'),$cart_lists, $request->get('orderId')));
             //die();
 
             if(!empty($cart_lists)) {

@@ -123,9 +123,9 @@ class SettingsController extends Controller
         $settings->home_description = $request->home_description;
 
         $settings->home_description_video = $request->home_description_video;
-        $settings->privacy_policy = $request->privacy_policy;
+        /*$settings->privacy_policy = $request->privacy_policy;
         $settings->terms_conditions = $request->terms_conditions;
-        $settings->our_gurantee = $request->our_gurantee;
+        $settings->our_gurantee = $request->our_gurantee;*/
 
         $settings->spring_plant_link = $request->spring_plant_link;
         $settings->summer_plant_link = $request->summer_plant_link;
@@ -158,7 +158,7 @@ class SettingsController extends Controller
         $settings->save();
 
         $setting_additional_info = SettingAdditional::find($settings->id);
-        $setting_additional_info->privacy_policy = $request->privacy_policy;
+        //$setting_additional_info->privacy_policy = $request->privacy_policy;
         $setting_additional_info->terms_conditions = $request->terms_conditions;
         $setting_additional_info->our_gurantee = $request->our_gurantee;
 

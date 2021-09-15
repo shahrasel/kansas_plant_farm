@@ -59,26 +59,26 @@ class HomeController extends Controller
     }
 
     public function privacyPolicy() {
-        $setting_info = Setting::select('privacy_policy')->first();
+        $setting_info = Setting::first();
 
         return view('contents.privacy_policy', [
-            'setting_info' => $setting_info
+            'setting_info' => $setting_info->privacySettings
         ]);
     }
 
     public function termsConditions() {
-        $setting_info = Setting::select('terms_conditions')->first();
+        $setting_info = Setting::first();
         //dd($imageLists);
         return view('contents.terms_conditions', [
-            'setting_info' => $setting_info
+            'setting_info' => $setting_info->settingAdditional
         ]);
     }
 
     public function ourGuarantee() {
-        $setting_info = Setting::select('our_gurantee')->first();
+        $setting_info = Setting::first();
         //dd($imageLists);
         return view('contents.our_guarantee', [
-            'setting_info' => $setting_info
+            'setting_info' => $setting_info->settingAdditional
         ]);
     }
 }

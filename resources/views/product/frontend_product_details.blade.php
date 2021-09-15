@@ -8,7 +8,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="{{ \Illuminate\Support\Facades\URL::previous() }}" role="button" class="btn btn-sqr" style="color: #fff" >Back to Shopping</a>
+<!--                        <a href="{{ \Illuminate\Support\Facades\URL::previous() }}" role="button" class="btn btn-sqr" style="color: #fff" >Back to Shopping</a>-->
+    <a href="{{ url('/plants') }}" role="button" class="btn btn-sqr" style="color: #fff" >Back to Shopping</a>
 
 
 

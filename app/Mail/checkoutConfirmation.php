@@ -10,17 +10,18 @@ use Illuminate\Queue\SerializesModels;
 class checkoutConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
-    public $cartList, $firstname;
+    public $cartList, $firstname, $orderid;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($firstname, $cartList)
+    public function __construct($firstname, $cartList, $orderid)
     {
         $this->cartList = $cartList;
         $this->firstname = $firstname;
+        $this->orderid = $orderid;
     }
 
     /**
