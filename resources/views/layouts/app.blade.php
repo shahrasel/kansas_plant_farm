@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kansas Plant Farm - Plants with over 500 varieties.</title>
+    <title>Kansas Plant Farm - Buy from over 500 varieties of plants in Lawrence, KS</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="Kansas Plant Farm offers the highest quality of plants with over 500 varieties.">
+    <meta name="description" content="Kansas Plant Farm is a private backyard family-owned nursery and display garden. Nestled on an acre of land in the central west Lawrence, the nursery was established in 2005 by Ryan Domnick. Surrounding the front and East side of the residence are display gardens with many types of plants ranging from hardy tropicals, edibles, native plants, butterfly plants, and many other unusual plants. We primarily grow plants available for on-line purchase and curbside pickup. We hold occasional Open to the Public Plant Sales, appointment sales, display garden tours, and Educational garden walks. We are open on a seasonal basis so please check our website.">
+    <meta name="keywords" content="kansas nursery, kansas nurseries, lawrence nursery, lawrence nurseries, plants for sale, kansas plant farm, nursery near me">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     @yield('custom_meta')
     <!-- Favicon -->

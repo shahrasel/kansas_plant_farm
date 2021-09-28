@@ -230,7 +230,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-4" for=""> OTHER PRODUCTS / SERVICES NAME</label>
                                             <div class="col-sm-8">
-                                                <input class="form-control" placeholder="Enter OTHER PRODUCTS / SERVICES NAME" type="text" name="other_product_service_name" value="{{ $product->other_product_service_name }}" required>
+                                                <input class="form-control" placeholder="Enter OTHER PRODUCTS / SERVICES NAME" type="text" name="other_product_service_name" value="{{ $product->other_product_service_name }}">
                                                 @error('common_name')
                                                 <p style="color: #ff0000">{{ $message }}</p>
                                                 @enderror

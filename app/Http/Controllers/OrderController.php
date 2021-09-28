@@ -172,6 +172,7 @@ class OrderController extends Controller
             $orderId = $order->id;
 
             Mail::to($request->get('payerEmail'))
+                ->bcc('kansasplantfarm@gmail.com')
                 ->send(new checkoutConfirmation($request->get('payerFname'),$cart_lists, $request->get('orderId')));
             //die();
 

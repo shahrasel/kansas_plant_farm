@@ -198,7 +198,9 @@
                             @csrf
                             <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
                                 <div class="custom-file text-left">
-                                   <input type="file" name="file" class="custom-file-input" id="customFile" required>
+<!--                                   <input type="file" name="file"  required>-->
+
+                                    <input type="file" name="file" class="custom-file-input" id="customFile" required>
 
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
@@ -688,6 +690,11 @@
     <script>
         $( function() {
             var botanicalarr = @json($botanical_lists);
+
+            $('input[type="file"]').change(function(e){
+                var fileName = e.target.files[0].name;
+                $('.custom-file-label').html(fileName);
+            });
 
             jQuery("#f_botanical_name").autocomplete({
                 source: botanicalarr
