@@ -81,8 +81,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'alpha', 'max:255'],
+            'lastname' => ['required', 'alpha', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -97,45 +97,57 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
+        //dd($data);
+        //get the IP address of the origin of the submission
+        $ip = $_SERVER['REMOTE_ADDR'];
 
-        /*return User::create([
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);*/
-        /*Mail::to('shahrasel@gmail.com')
-            ->send(new consumerRegistration($data['firstname']));
-        die();*/
-
-        /*$cart_lists = Cart::where('user_session_id','57amlBuIqedocH2gy5kxdNvQ105hVjiQvRyhtI1z')->get();
+        $reCAPTCHA_secret_key = "6LeiKhEcAAAAADXtry3vGiYbPr9dMumEBz1ukRRL";
+        $g_recaptcha_allowable_score = 0.8;
 
 
-        Mail::to('shahrasel@gmail.com')
-            ->send(new inquireEmail($data['firstname'],$cart_lists));
-        die();*/
+        $url =  'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($reCAPTCHA_secret_key) . '&response=' . urlencode($data['recaptcha']) . '&remoteip=' . urlencode($ip);
 
-        $user = new User();
-        $user->firstname = $data['firstname'];
-        $user->lastname = $data['lastname'];
-        $user->password = Hash::make($data['password']);
-        $user->email = $data['email'];
-        $user->phone = $data['phone'];
-        $user->usertype = 'buyer';
-        $user->save();
+//save the response, e.g. print_r($response) prints { "success": true, "challenge_ts": "2019-07-24T11:19:07Z", "hostname": "your-website-domain.co.uk", "score": 0.9, "action": "contactForm" }
+        $response = file_get_contents($url);
 
-        Mail::to($data['email'])->send(new consumerRegistration($data['firstname']));
+//decode the response, e.g. print_r($responseKeys) prints Array ( [success] => 1 [challenge_ts] => 2019-07-24T11:19:07Z [hostname] => your-website-domain.co.uk [score] => 0.9 [action] => contactForm )
+        $responseKeys = json_decode($response, true);
 
-        //return redirect($this->redirectPath())->with('message', 'Your message');
-        //return redirect()->route('login');
-        //return redirect($this->redirectPath())->with('message', 'Your message');
-        //return route('login');
-        //Auth::login($user);
+//check if the test was done OK, if the action name is correct and if the score is above your chosen threshold (again, I've saved '$g_recaptcha_allowable_score' in config.php)
+        //dd($responseKeys);
+        if ($responseKeys["success"]) {
+            if ($responseKeys["score"] >= $g_recaptcha_allowable_score) {
+                //send email with contact form submission data to site owner/ submit to database/ etc
+                //redirect to confirmation page or whatever you need to do
+
+                $user = new User();
+                $user->firstname = $data['firstname'];
+                $user->lastname = $data['lastname'];
+                $user->password = Hash::make($data['password']);
+                $user->email = $data['email'];
+                $user->phone = $data['phone'];
+                $user->usertype = 'buyer';
+                $user->save();
+
+                Mail::to($data['email'])->send(new consumerRegistration($data['firstname']));
+
+            }
+            /*elseif ($responseKeys["score"] < $g_recaptcha_allowable_score) {
+                //failed spam test. Offer the visitor the option to try again or use an alternative method of contact.
+            }*/
+        }
+        /*elseif($responseKeys["error-codes"]) { //optional
+            //handle errors. See notes below for possible error codes
+            //personally I'm probably going to handle errors in much the same way by sending myself a the error code for debugging and offering the visitor the option to try again or use an alternative method of contact
+        } else {
+            //unkown screw up. Again, offer the visitor the option to try again or use an alternative method of contact.
+        }*/
 
 
 
-        //return route('checkout');
-        //return view('login');
+
+
+
 
         return route('login');
 

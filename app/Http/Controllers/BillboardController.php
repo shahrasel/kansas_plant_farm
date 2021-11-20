@@ -153,9 +153,13 @@ class BillboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BillboardController $billboard)
+    public function destroy($id)
     {
+        //dd($id);
+        //$billboard->delete();
+        $billboard=Billboard::find($id);
         $billboard->delete();
+
         return redirect(url('admin/billboards'));
     }
 }

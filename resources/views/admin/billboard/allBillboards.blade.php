@@ -80,7 +80,16 @@
                                         <td>{{ $billboard->button_url }}</td>
                                         <td><img src="{{ url('img/billboard/'.$billboard->image) }}" style="width: 100px"></td>
                                         <td><a href="{{ url('/admin/billboards/'.$billboard->id.'/edit') }}">Edit</a></td>
-                                        <td><a href="{{ url('/admin/billboards/'.$billboard->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+                                        <td>
+<!--                                            <a href="{{ url('/admin/billboards/'.$billboard->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>-->
+
+                                            <form id="billboard_delete_{{ $billboard->id }}" action="{{ route('admin-billboard-delete', $billboard->id) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <a href="#" role="button" onclick="deleteBillboard('{{ $billboard->id }}')">Delete</a>
+                                            </form>
+
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
@@ -321,4 +330,16 @@
 @endsection
 @section('javascript')
     <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
+    <script>
+        function deleteBillboard(id) {
+            //return confirm('Are you sure you want to delete this item?');
+            var confirm1 = confirm('Are you sure you want to delete this item?');
+            if (confirm1) {
+                $("#billboard_delete_"+id).submit();
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 @endsection

@@ -13,7 +13,6 @@
       <change afterPath="$PROJECT_DIR$/../bEntory-30-04-21/css/default.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../bEntory-30-04-21/css/fontawesome-all.min.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../bEntory-30-04-21/css/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bEntory-30-04-21/css/slick.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../bEntory-30-04-21/css/style.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../bEntory-30-04-21/fonts/MYRIADPRO-BOLD.woff" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../bEntory-30-04-21/fonts/MYRIADPRO-BOLDCOND.woff" afterDir="false" />
@@ -138,7 +137,6 @@
       <change afterPath="$PROJECT_DIR$/../buildentory/media/floor_plans/6006f6f7dbd59_Screenshot 2021-01-05 at 12.35.31 PM.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../buildentory_symfony/.idea/buildentory_symfony.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../cars_match/.idea/cars_match.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../earlyaccess.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../earlyaccess/.editorconfig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../earlyaccess/.env.example" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../earlyaccess/.gitattributes" afterDir="false" />
@@ -1891,6 +1889,7 @@
       <change afterPath="$PROJECT_DIR$/../symfony_new_blog/.idea/symfony_new_blog.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../test_vue/main.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../xdebug_test/.idea/xdebug_test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/All_html/404.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/All_html/about-us.html" beforeDir="false" />
@@ -6810,10 +6809,12 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/css/jquery-ui.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/css/jquery.timepicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/css/jquery.timepicker.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/css/style-blessed3.css" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/css/style-blessed3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/css/style_rasel.css" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/css/style_rasel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/css/sweetalert.css" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/css/sweetalert.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/css/tokenize2.css" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/css/tokenize2.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/js/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/js/editor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/js/jquery.timepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/js/jquery.timepicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/js/jqueryui.css" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/js/jqueryui.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/assets/js/tokenize2.js" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/assets/js/tokenize2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/backup(27.09.18)/Gruntfile.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/backup(27.09.18)/aboutpage_content.php" beforeDir="false" />
@@ -6965,9 +6966,13 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/backup(27.09.18)/zip_edit.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/backup(27.09.18)/zip_requests.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/backup(27.09.18)/zips.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/billing_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/billing_details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/builder_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builder_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/builder_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builder_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/builder_office_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builder_office_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/builder_office_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builder_office_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/builder_offices.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builder_offices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/builders.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/city_add.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/claim_mls.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/claim_mls.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/combinezip.txt" beforeDir="false" />
@@ -6975,6 +6980,7 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/communities.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/communities.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/community_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/community_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/community_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/community_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/community_image_upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/community_image_upload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/company_logo_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/company_logo_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/company_logo_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/company_logo_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/company_logos.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/company_logos.php" afterDir="false" />
@@ -6990,9 +6996,13 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/floor_plan_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/floor_plan_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/floor_plan_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/floor_plan_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/floor_plans.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/floor_plans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/footer_a.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/footer_a.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/forgot_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/forgot_password.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/home_loan_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/home_loan_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/home_loan_notes.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/home_loan_notes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/home_loans.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/home_loans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/homepage_gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/homepage_gallery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/images/IBL_logo_admin.png" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/images/IBL_logo_admin.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/images/big_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/images/big_logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/index(16.12.18).php" beforeDir="false" />
@@ -7005,21 +7015,78 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/leads(29.12.19).php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/leads.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/leads.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/left_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/left_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/lender_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lender_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/lender_add_existing.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lender_add_existing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lender_current_zips.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lender_current_zips.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/lender_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lender_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/lender_zips.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lender_zips.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/lenders.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lenders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/lenderzip_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lenderzip_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lot_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lot_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lot_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lot_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/lot_image_upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lot_image_upload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lots.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lots.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/manager_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/manager_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/manager_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/manager_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/myofficea.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/myofficea.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/privacy_policy.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/privacy_policy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/profilea.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/profilea.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/properties.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/properties.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/property_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/property_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/property_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/property_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/property_image_upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/property_image_upload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/reset_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/reset_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agent_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agent_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agent_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agent_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agent_zips.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agent_zips.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agents.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agentzip_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agentzip_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/styles.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/styles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/tour_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/tour_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/tours.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/tours.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/zip_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/zip_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/zip_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/zip_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/zips.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/zips.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/buildentory_backup_all.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/bootstrap-datetimepicker.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/bootstrap-select.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/bootstrap-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/bootstrapValidator.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-bg_diagonals-thick_18_b81900_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-bg_diagonals-thick_20_666666_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-bg_glass_100_f6f6f6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-bg_glass_100_fdf5ce_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-bg_gloss-wave_35_f6a828_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-icons_228ef1_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-icons_ef8c08_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-icons_ffd27a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/jquery-ui-timepicker-addon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/jquery-ui_.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/jquery.mCustomScrollbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/main_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/owl.carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/owl.theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/prettyPhoto.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/selectize.default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/slick-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/slick.css" beforeDir="false" afterPath="$PROJECT_DIR$/../bEntory-30-04-21/css/slick.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/tokenize2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/css/vegas.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/config.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/includes/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/includes/pager.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/includes/pager.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/media/community/15/Screen Shot 20180404 at 4.45.26 AM.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/media/community/15/dallasgatedcommunities640.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/media/community/15/shutterstock124544671.jpg" beforeDir="false" />
@@ -8872,10 +8939,13 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master(15.7.20)/src/Twilio/autoload.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/editProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/editProducts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ProductsExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ProductsExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/billboard/allBillboards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/billboard/allBillboards.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" afterDir="false" />
@@ -9080,7 +9150,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.webOptions" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -9209,7 +9279,20 @@
       <workItem from="1632349072850" duration="2383000" />
       <workItem from="1632510357798" duration="995000" />
       <workItem from="1632511696235" duration="11000" />
-      <workItem from="1632846527678" duration="459000" />
+      <workItem from="1632846527678" duration="2052000" />
+      <workItem from="1634135190887" duration="2268000" />
+      <workItem from="1635197323557" duration="5640000" />
+      <workItem from="1635292642867" duration="776000" />
+      <workItem from="1635452490500" duration="562000" />
+      <workItem from="1635457480633" duration="28000" />
+      <workItem from="1635457880218" duration="579000" />
+      <workItem from="1635460111201" duration="641000" />
+      <workItem from="1635526941642" duration="685000" />
+      <workItem from="1636222506755" duration="3279000" />
+      <workItem from="1636933365761" duration="4964000" />
+      <workItem from="1637074500084" duration="637000" />
+      <workItem from="1637088031109" duration="782000" />
+      <workItem from="1637110198980" duration="948000" />
     </task>
     <servers />
   </component>

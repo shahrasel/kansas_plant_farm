@@ -184,6 +184,7 @@
 <!--                        <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">-->
 
+                        <input type="hidden" name="recaptcha" id="recaptcha">
                         <div class="col-md-6 offset-md-4" style="margin-top: 30px;">
                             <input class="btn btn-sqr" type="submit" name="submit" value="{{ __('Register') }}">
                         </div>

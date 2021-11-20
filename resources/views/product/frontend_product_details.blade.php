@@ -286,10 +286,10 @@
                                                             <div class="col-xl-4 col-md-6 col-sm-12">
                                                                 <h5 style="margin-top: 20px;margin-bottom: 10px">CULTURAL CONDITIONS</h5>
                                                                 @if($product->min_zone)
-                                                                    <p><b>Plant Min Zone:</b> {{ \App\Models\Product::zoneLists()[$product->min_zone] }}</p>
+                                                                    <p><b>Plant Min Zone:</b> {{ \App\Models\Product::zoneLists()["$product->min_zone"] }}</p>
                                                                 @endif
                                                                 @if($product->max_zone)
-                                                                    <p><b>Plant Max Zone:</b> {{ \App\Models\Product::zoneLists()[$product->max_zone] }}</p>
+                                                                    <p><b>Plant Max Zone:</b> {{ \App\Models\Product::zoneLists()["$product->max_zone"] }}</p>
                                                                 @endif
 
                                                                 @if($product->sunlight)
