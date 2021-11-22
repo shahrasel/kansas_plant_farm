@@ -83,7 +83,14 @@
                                         <td>${{ $event->price }}</td>
                                         <td><img src="{{ url('img/event/'.$event->image) }}" style="width: 100px"></td>
                                         <td><a href="{{ url('/admin/events/'.$event->id.'/edit') }}">Edit</a></td>
-                                        <td><a href="{{ url('/admin/events/'.$event->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+                                        <td>
+<!--                                            <a href="{{ url('/admin/events/'.$event->id) }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>-->
+                                            <form id="event_delete_{{ $event->id }}" action="{{ route('admin-event-delete', $event->id) }}" method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <a href="#" role="button" onclick="deleteEvent('{{ $event->id }}')">Delete</a>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
@@ -324,4 +331,16 @@
 @endsection
 @section('javascript')
     <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
+    <script>
+        function deleteEvent(id) {
+            //return confirm('Are you sure you want to delete this item?');
+            var confirm1 = confirm('Are you sure you want to delete this item?');
+            if (confirm1) {
+                $("#event_delete_"+id).submit();
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 @endsection

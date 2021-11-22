@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class GardenThemeController extends Controller
@@ -168,11 +169,6 @@ class GardenThemeController extends Controller
                     //}
                 }
             }
-            //dd($result);
-
-            //header('Content-type: text/json');
-            //header('Content-type: application/json');
-            //return json_encode($result, JSON_FORCE_OBJECT);
             return $result;
         }
 
@@ -225,9 +221,16 @@ class GardenThemeController extends Controller
 
     }
 
-    public function destroy(GardenTheme $gardenTheme)
+    public function destroy($id)
     {
+
+        //$gardenTheme->delete();
+        $gardenTheme=GardenTheme::find($id);
         $gardenTheme->delete();
+
+        File::deleteDirectory(public_path().'/img/garden_theme/large/'.$id);
+        File::deleteDirectory(public_path().'/img/garden_theme/thumb/'.$id);
+
         return redirect(url('admin/garden-themes'));
     }
 

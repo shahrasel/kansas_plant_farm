@@ -415,7 +415,14 @@
                                             <td> {{ $product_list->image_count }}</td>
                                             <td><a href="{{ url('/admin/edit-product-image/'.$product_list->id) }}">Image Upload</a></td>
                                             <td><a href="{{ url('/admin/edit-product/'.$product_list->slug) }}">Edit</a></td>
-                                            <td><a href="{{ url('/admin/delete-product/'.$product_list->id) }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+                                            <td>
+<!--                                                <a href="{{ url('/admin/delete-product/'.$product_list->id) }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>-->
+                                                <form id="product_delete_{{ $product_list->id }}" action="{{ route('admin-delete-product', $product_list->id) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a href="#" role="button" onclick="deleteProduct('{{ $product_list->id }}')">Delete</a>
+                                                </form>
+                                            </td>
 
 
                                             <td>{{ $product_list->pot_size_a }}</td>
@@ -687,6 +694,18 @@
 @endsection
 @section('javascript')
     <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
+    <script>
+        function deleteProduct(id) {
+            //return confirm('Are you sure you want to delete this item?');
+            var confirm1 = confirm('Are you sure you want to delete this item?');
+            if (confirm1) {
+                $("#product_delete_"+id).submit();
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
     <script>
         $( function() {
             var botanicalarr = @json($botanical_lists);

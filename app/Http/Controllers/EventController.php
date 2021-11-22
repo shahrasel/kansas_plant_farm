@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class EventController extends Controller
@@ -174,9 +175,14 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventController $event)
+    public function destroy($id)
     {
+
+        $event = Event::find($id);
         $event->delete();
+
+        File::delete(public_path().'/img/event/'.$event->image);
+
         return redirect(url('admin/events'));
     }
 }

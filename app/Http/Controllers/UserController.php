@@ -396,7 +396,6 @@ class UserController extends Controller
 
     public function adminDeleteUser($id) {
         $user = User::find($id);
-        //dd($product);
         $user->delete();
 
         return redirect(url('admin/customers'));

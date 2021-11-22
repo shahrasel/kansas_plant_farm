@@ -71,11 +71,18 @@
                                         <td>{{ $garden_theme_list->title }}</td>
                                         <td>{{ $garden_theme_list->created_at }}</td>
                                         <td><a href="{{ url('/admin/garden-themes/'.$garden_theme_list->id.'/edit') }}">Edit</a></td>
-                                        <td><a href="{{ url('/admin/garden-themes/'.$garden_theme_list->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+                                        <td>
+<!--                                            <a href="{{ url('/admin/garden-themes/'.$garden_theme_list->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>-->
+                                            <form id="garden_delete_{{ $garden_theme_list->id }}" action="{{ route('admin-garden-themes-delete', $garden_theme_list->id) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <a href="#" role="button" onclick="deleteGardenTheme('{{ $garden_theme_list->id }}')">Delete</a>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="16">No data found</td>
+                                        <td colspan="4">No data found</td>
                                     </tr>
                                 @endforelse
                                 </tbody>
@@ -312,4 +319,16 @@
 @endsection
 @section('javascript')
     <script src="{{ asset('js/admin/jquery-ui.min.js') }}"></script>
+    <script>
+        function deleteGardenTheme(id) {
+            //return confirm('Are you sure you want to delete this item?');
+            var confirm1 = confirm('Are you sure you want to delete this item?');
+            if (confirm1) {
+                $("#garden_delete_"+id).submit();
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 @endsection

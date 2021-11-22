@@ -3782,8 +3782,10 @@ class ProductController extends Controller
 
     public function adminDeleteProducts($id) {
         $product = Product::find($id);
-        //dd($product);
         $product->delete();
+
+        File::deleteDirectory(public_path().'/img/product/large/'.$id);
+        File::deleteDirectory(public_path().'/img/product/thumb/'.$id);
 
         return redirect(url('admin/products'));
     }

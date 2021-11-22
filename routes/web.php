@@ -128,7 +128,7 @@ Route::any('/admin/product-image-processor/{id}', [\App\Http\Controllers\Product
 Route::post('/admin/add-product', [\App\Http\Controllers\ProductController::class, 'adminAddProducts'])->name('add-product')->middleware('adminauth');
 Route::get('/admin/edit-product/{product}', [\App\Http\Controllers\ProductController::class, 'adminEditProducts'])->name('edit-product')->middleware('adminauth');
 Route::put('/admin/update-product', [\App\Http\Controllers\ProductController::class, 'adminUpdateProducts'])->name('update-product')->middleware('adminauth');
-Route::get('/admin/delete-product/{id}', [\App\Http\Controllers\ProductController::class, 'adminDeleteProducts'])->name('delete-product')->middleware('adminauth');
+Route::delete('/admin/delete-product/{id}', [\App\Http\Controllers\ProductController::class, 'adminDeleteProducts'])->name('admin-delete-product')->middleware('adminauth');
 
 
 ################## CONTRACTOR ####################
@@ -150,7 +150,7 @@ Route::get('/admin/sales/{id}/delete', [\App\Http\Controllers\UserController::cl
 
 ################## CUSTOMER ####################
 Route::get('/admin/customers', [\App\Http\Controllers\UserController::class, 'adminCustomers'])->name('admin-customers')->middleware('adminauth');
-Route::get('/admin/delete-user/{id}', [\App\Http\Controllers\UserController::class, 'adminDeleteUser'])->name('delete-user')->middleware('adminauth');
+Route::delete('/admin/delete-user/{id}', [\App\Http\Controllers\UserController::class, 'adminDeleteUser'])->name('delete-user')->middleware('adminauth');
 
 
 ################## ORDER ####################
@@ -169,7 +169,8 @@ Route::delete('/admin/garden-themes/{gardenTheme}', [\App\Http\Controllers\Garde
 Route::any('/admin/edit-garden-theme-image/{id}', [\App\Http\Controllers\GardenThemeController::class, 'adminEditGardenTheme'])->name('admin-garden-theme-image')->middleware('adminauth');
 Route::any('/admin/garden-theme-image-processor/{id}', [\App\Http\Controllers\GardenThemeController::class, 'adminGardenThemeImageProcessor'])->name('garden-theme-image-processor')->middleware('adminauth');
 
-Route::get('/admin/garden-themes/{gardenTheme}/delete', [\App\Http\Controllers\GardenThemeController::class, 'destroy'])->name('admin-garden-theme-delete')->middleware('adminauth');
+//Route::get('/admin/garden-themes/{gardenTheme}/delete', [\App\Http\Controllers\GardenThemeController::class, 'destroy'])->name('admin-garden-theme-delete')->middleware('adminauth');
+Route::delete('/admin/garden-themes/{gardenTheme}', [\App\Http\Controllers\GardenThemeController::class, 'destroy'])->name('admin-garden-themes-delete')->middleware('adminauth');
 
 
 Route::any('/admin/aboutus-image-processor/{id}', [\App\Http\Controllers\SettingsController::class, 'adminAboutusImageProcessor'])->name('aboutus-image-processor')->middleware('adminauth');
@@ -183,7 +184,7 @@ Route::get('/admin/events/{event}',[\App\Http\Controllers\EventController::class
 Route::get('/admin/events/{event}/edit',[\App\Http\Controllers\EventController::class, 'edit'])->name('admin-event-edit')->middleware('adminauth');
 Route::put('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'update'])->name('admin-event-update')->middleware('adminauth');
 /*Route::delete('/admin/events/{event}',[\App\Http\Controllers\EventController::class, 'delete'])->name('admin-event-delete')->middleware('adminauth');*/
-Route::get('/admin/events/{event}/delete', [\App\Http\Controllers\EventController::class, 'destroy'])->name('admin-event-delete')->middleware('adminauth');
+Route::delete('/admin/events/{id}', [\App\Http\Controllers\EventController::class, 'destroy'])->name('admin-event-delete')->middleware('adminauth');
 
 
 ################## Home Billboard ####################
