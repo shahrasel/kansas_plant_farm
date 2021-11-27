@@ -226,6 +226,24 @@
                                             @enderror
                                         </div>
 
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Billboard Order</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" required placeholder="Enter billboard Order" type="text" name="order" value="{{ old('order') }}" >
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Status</label>
+                                            <div class="col-sm-9">
+                                                <select name="status" class="form-control" required>
+                                                    <option value="">-- Select --</option>
+                                                    <option value="1" @if(old('status')=='1') selected @endif>Active</option>
+                                                    <option value="0" @if(old('status')=='0') selected @endif>Inactive</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
 
                                     </fieldset>
 

@@ -36,7 +36,7 @@ class HomeController extends Controller
 
         $role->givePermissionTo($permission);*/
 
-        $billboard_image_lists = Billboard::orderBy('id','desc')->get();
+        $billboard_image_lists = Billboard::where('status',1)->orderBy('order','asc')->get();
 
         $settings_info = Setting::first();
 

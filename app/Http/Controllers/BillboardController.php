@@ -64,6 +64,8 @@ class BillboardController extends Controller
         $billboard->subheading = $request->subheading;
         $billboard->button_text = $request->button_text;
         $billboard->button_url = $request->button_url;
+        $billboard->order = $request->order;
+        $billboard->status = $request->status;
 
 
         if(!empty($filename)) {
@@ -137,6 +139,8 @@ class BillboardController extends Controller
         $billboard->subheading = $request->subheading;
         $billboard->button_text = $request->button_text;
         $billboard->button_url = $request->button_url;
+        $billboard->order = $request->order;
+        $billboard->status = $request->status;
 
         if(!empty($filename)) {
             $billboard->image = $filename;

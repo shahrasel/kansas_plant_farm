@@ -1867,6 +1867,8 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kansas_plant_farm copy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_27_105843_update_billboard_add_status_order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/billboard/Screenshot 2021-11-25 at 10.26.26 PM.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/Paintbrush-Effect/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/food-delivery/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/mini-website/slide1.jpg" afterDir="false" />
@@ -8941,16 +8943,11 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master(15.7.20)/src/Twilio/autoload.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GardenThemeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GardenThemeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/event/allEvents.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/event/allEvents.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/garden_theme/allGardenThemes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/garden_theme/allGardenThemes.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/allOrders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/allOrders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/allCustomers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/allCustomers.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/billboard/addBillboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/billboard/addBillboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/billboard/allBillboards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/billboard/allBillboards.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/billboard/editBillboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/billboard/editBillboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" afterDir="false" />
@@ -9298,7 +9295,10 @@
       <workItem from="1637074500084" duration="637000" />
       <workItem from="1637088031109" duration="782000" />
       <workItem from="1637110198980" duration="948000" />
-      <workItem from="1637614245571" duration="5881000" />
+      <workItem from="1637614245571" duration="6121000" />
+      <workItem from="1637859092891" duration="9000" />
+      <workItem from="1637859119733" duration="413000" />
+      <workItem from="1638031937275" duration="1995000" />
     </task>
     <servers />
   </component>

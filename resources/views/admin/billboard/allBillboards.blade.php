@@ -49,7 +49,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="table-responsive">
+                        <div style="overflow: auto">
                             <table id="dataTable10" class="table table-striped table-lightfont">
                                 <thead>
                                 <tr>
@@ -58,6 +58,8 @@
                                     <th>Button Text</th>
                                     <th>Button URL</th>
                                     <th>Image</th>
+                                    <th>Order</th>
+                                    <th>Status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr></thead>
@@ -68,6 +70,8 @@
                                     <th>Button Text</th>
                                     <th>Button URL</th>
                                     <th>Image</th>
+                                    <th>Order</th>
+                                    <th>Status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tfoot>
@@ -79,6 +83,14 @@
                                         <td>{{ $billboard->button_text }}</td>
                                         <td>{{ $billboard->button_url }}</td>
                                         <td><img src="{{ url('img/billboard/'.$billboard->image) }}" style="width: 100px"></td>
+                                        <td>{{ $billboard->order }}</td>
+                                        <td>
+                                            @if($billboard->status==1)
+                                                Active
+                                            @else
+                                                Inactive
+                                            @endif
+                                        </td>
                                         <td><a href="{{ url('/admin/billboards/'.$billboard->id.'/edit') }}">Edit</a></td>
                                         <td>
 <!--                                            <a href="{{ url('/admin/billboards/'.$billboard->id.'/delete') }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>-->
