@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -22,16 +23,25 @@ class CartController extends Controller
             $product_info = Product::find($request->get('product_id'));
 
 
-            if(!empty($product_info->botanical_name) || !empty($product_info->common_name)) {
-                $is_exists = Cart::where('product_id', '=', $request->get('product_id'))
-                    ->where('size', '=', $request->get('size'))
-                    ->where('user_session_id', '=', session()->getId())
-                    ->first();
+            if(Auth::check()) {
+                if (Auth::user()->usertype != 'superadmin') {
+                    if (!empty($product_info->botanical_name) || !empty($product_info->common_name)) {
+                        $is_exists = Cart::where('product_id', '=', $request->get('product_id'))
+                            ->where('size', '=', $request->get('size'))
+                            ->where('user_session_id', '=', session()->getId())
+                            ->first();
+                    } else {
+                        $is_exists = Cart::where('product_id', '=', $request->get('product_id'))
+                            ->where('user_session_id', '=', session()->getId())
+                            ->first();
+                    }
+                }
+                else {
+                    $is_exists = 0;
+                }
             }
             else {
-                $is_exists = Cart::where('product_id', '=', $request->get('product_id'))
-                    ->where('user_session_id', '=', session()->getId())
-                    ->first();
+                $is_exists = 0;
             }
 
             if(empty($is_exists)) {
@@ -91,6 +101,19 @@ class CartController extends Controller
         $cart = new Cart();
         $cart_lists = $cart->getCartData();
         return view('cart.main_cart_view', [
+            'cart_lists' => $cart_lists
+        ]);
+    }
+
+    public function print() {
+        if(Auth::check()) {
+            if(Auth::user()->usertype != 'superadmin') {
+                abort(403);
+            }
+        }
+        $cart = new Cart();
+        $cart_lists = $cart->getCartData();
+        return view('cart.front_cart_print', [
             'cart_lists' => $cart_lists
         ]);
     }

@@ -617,6 +617,10 @@
     </div>
 </div>
 
+<div class="addto-cart-alert">
+    Product has been added to the cart!
+</div>
+
 
 <!-- offcanvas mini cart end -->
 @if(checkDevice() == 'phone')

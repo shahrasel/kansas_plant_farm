@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     @inject('product_model', 'App\Models\Product')
     <main>
@@ -175,7 +174,58 @@
 <!--                                        <form id="cartform" style="display:@if(!empty($product->inventory_count_a)) block @else none @endif">-->
                                         <form id="cartform" >
                                             @csrf
-                                                <div class="quantity-cart-box d-flex align-items-center" id="addtocart_btn" @if(!empty($product->getProductStock($product))) @if($product->getProductStock($product)>0) style="display: block" @endif @else style="display: none !important;" @endif>
+                                            @if (Auth::check())
+                                                @if(Auth()->user()->usertype=='superadmin')
+                                                    <div class="quantity-cart-box d-flex align-items-center" id="addtocart_btn">
+                                                        <h6 class="option-title" style="margin-right: 12px;">qty:</h6>
+                                                        <div class="quantity">
+                                                            <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity" id="quantity" readonly></div>
+                                                        </div>
+                                                        <div class="action_link">
+                                                            <button class="btn btn-cart2">Add to cart</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" id="max_item" value="10">
+                                                    @if(empty($product->other_product_service_name))
+                                                        <div class="pro-size">
+                                                            @if(!empty($product_model->getProductSize($product)))
+                                                                <h6 class="option-title">size :</h6>
+                                                                <select class="nice-select" id="size_select_box" name="size">
+                                                                    @foreach($product_model->getProductSize($product) as $size)
+                                                                        <option value="{{ $size }}">{{ $size }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            @endif
+                                                        </div>
+                                                    @endif
+                                                @else
+                                                    <div class="quantity-cart-box d-flex align-items-center" id="addtocart_btn" @if($product->getProductStock($product)>0) style="display: block"  @else style="display: none !important;" @endif>
+                                                        <h6 class="option-title" style="margin-right: 12px;">qty:</h6>
+                                                        <div class="quantity">
+                                                            <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity" id="quantity" readonly></div>
+                                                        </div>
+                                                        <div class="action_link">
+                                                            <button class="btn btn-cart2">Add to cart</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" id="max_item" value="{{ $product->getProductStock($product) }}">
+                                                    @if(empty($product->other_product_service_name))
+                                                        <div class="pro-size">
+                                                            @if(!empty($product_model->getProductSize($product)))
+                                                                <h6 class="option-title">size :</h6>
+                                                                <select class="nice-select" @if (Auth::check()) onchange="change_price('{{ $product->id }}', '{{ Auth()->user()->usertype }}')" @else onchange="change_price('{{ $product->id }}', 'none')" @endif id="size_select_box" name="size">
+                                                                    @foreach($product_model->getProductSize($product) as $size)
+                                                                        <option value="{{ $size }}">{{ $size }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            @endif
+                                                        </div>
+                                                    @endif
+                                                @endif
+                                            @else
+                                                <div class="quantity-cart-box d-flex align-items-center" id="addtocart_btn" @if($product->getProductStock($product)>0) style="display: block"  @else style="display: none !important;" @endif>
                                                     <h6 class="option-title" style="margin-right: 12px;">qty:</h6>
                                                     <div class="quantity">
                                                         <div class="pro-qty"><input style="color: #7fbc03" type="text" value="1" name="quantity" id="quantity" readonly></div>
@@ -186,19 +236,18 @@
                                                 </div>
 
                                                 <input type="hidden" id="max_item" value="{{ $product->getProductStock($product) }}">
-
-
-                                            @if(empty($product->other_product_service_name))
-                                                <div class="pro-size">
-                                                    @if(!empty($product_model->getProductSize($product)))
-                                                        <h6 class="option-title">size :</h6>
-                                                        <select class="nice-select" @if (Auth::check()) onchange="change_price('{{ $product->id }}', '{{ Auth()->user()->usertype }}')" @else onchange="change_price('{{ $product->id }}', 'none')" @endif id="size_select_box" name="size">
-                                                            @foreach($product_model->getProductSize($product) as $size)
-                                                                <option value="{{ $size }}">{{ $size }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    @endif
-                                                </div>
+                                                @if(empty($product->other_product_service_name))
+                                                    <div class="pro-size">
+                                                        @if(!empty($product_model->getProductSize($product)))
+                                                            <h6 class="option-title">size :</h6>
+                                                            <select class="nice-select" @if (Auth::check()) onchange="change_price('{{ $product->id }}', '{{ Auth()->user()->usertype }}')" @else onchange="change_price('{{ $product->id }}', 'none')" @endif id="size_select_box" name="size">
+                                                                @foreach($product_model->getProductSize($product) as $size)
+                                                                    <option value="{{ $size }}">{{ $size }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        @endif
+                                                    </div>
+                                                @endif
                                             @endif
                                             <input type="hidden" name="pot_size" id="pot_size" value="a">
                                             <input type="hidden" name="addtocart" value="1">
@@ -803,6 +852,21 @@
 
             });
 
+            if(localStorage.getItem("cart_status"))
+            {
+                if(jQuery(".addto-cart-alert")) {
+                    jQuery(".addto-cart-alert").css('top',window.scrollY+27+"px");
+                    setTimeout(function() {
+                        jQuery(".addto-cart-alert").show('slow');
+                    }, 1000);
+
+                    setTimeout(function() {
+                        jQuery(".addto-cart-alert").hide('slow');
+                    }, 5000);
+                }
+                localStorage.clear();
+            }
+
             $( '#cartform' ).on( 'submit', function(e) {
                 e.preventDefault();
                 var form = $("#cartform");
@@ -812,7 +876,7 @@
                     data: form.serialize(),
                 }).done(function( msg ) {
                     if(msg == 'Product is added to the cart successfully!') {
-                        //alert(msg);
+                        localStorage.setItem("cart_status","added");
                         location.reload();
                     }
                 });

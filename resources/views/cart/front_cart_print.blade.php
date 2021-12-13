@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.print')
 @section('custom_styles')
     <style>
         .table-responsive{
@@ -21,9 +21,6 @@
                 <div class="col-lg-9 col-sm-6 col-6">
                     <h1 class="text-lg-left text-md-left text-sm-center mb-30 float-left">Cart</h1>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-6">
-                    <a target="_blank" href="{{ url('/cart/print') }}" class="btn btn-sqr d-block w-75 float-right">Print</a>
-                </div>
             </div>
 
             <div class="section-bg-color text-center" id="cart_div">
@@ -44,7 +41,6 @@
                                             <th class="pro-price">Unit Price</th>
                                             <th class="pro-quantity">Quantity</th>
                                             <th class="pro-subtotal">Total</th>
-                                            <th class="pro-remove">Remove</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -76,41 +72,23 @@
                                                     <td class="pro-price"><span>@if(!empty($cart_list->size)){{ $cart_list->size }}@else - @endif</span></td>
                                                     <td class="pro-price"><span>${{ $cart_list->unit_price }}</span></td>
 
-                                                    {{--@php
-                                                        $product_count = $cart_list->product->getProductStockByPotSize($cart_list->product,$cart_list->pot_size);
-                                                    @endphp
-
-                                                    <input type="hidden" id="max_item_{{ $j }}" value="{{ $cart_list->product->getProductStock($cart_list->product) }}">
-
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty" id="pro-qty_{{ $j }}"><input type="text" name="quantity_{{ $cart_list->id }}" value="{{ $cart_list->quantity }}" style="color: #7FBC03"></div>
-                                                    </td>--}}
                                                     <td class="pro-quantity">
                                                         <div style="color: #7FBC03">
                                                             @if(auth()->check())
                                                                 @if(auth()->user()->isAdmin())
-                                                                    <select name="quantity_{{ $cart_list->id }}">
-                                                                        @for($k=1;$k<=20;$k++)
-                                                                            <option @if($cart_list->quantity==$k) selected @endif value="{{ $k }}">{{ $k }}</option>
-                                                                        @endfor
-                                                                    </select>
+                                                                    {{ $cart_list->quantity }}
                                                                 @endif
                                                             @else
                                                                 @php
                                                                     $j++;
                                                                     $product_count = $cart_list->product->getProductStockByPotSize($cart_list->product,$cart_list->pot_size);
                                                                 @endphp
-                                                                <select name="quantity_{{ $cart_list->id }}">
-                                                                    @for($k=1;$k<=$product_count;$k++)
-                                                                        <option @if($cart_list->quantity==$k) selected @endif value="{{ $k }}">{{ $k }}</option>
-                                                                    @endfor
-                                                                </select>
+                                                                {{ $cart_list->quantity }}
                                                             @endif
 
                                                         </div>
                                                     </td>
                                                     <td class="pro-subtotal"><span>${{ number_format(($cart_list->unit_price*$cart_list->quantity), 2, '.', ',') }}</span></td>
-                                                    <td class="pro-remove"><a href="#" onclick="deleteCartItem({{ $cart_list->id }})"><i class="fa fa-trash-o"></i></a></td>
                                                 </tr>
                                                 @php
                                                     $i += $cart_list->quantity*$cart_list->unit_price;
@@ -120,21 +98,9 @@
                                                     $cart_d .= $cart_list->id."#";
                                                 @endphp
                                             @endforeach
-                                            <tr>
-                                                <td colspan="7">
-                                                    <div class="cart-update" style="float: right;min-height: 85px;padding-top: 24px;">
-                                                        <button class="btn btn-sqr" type="submit">Update Cart</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
-<!--                                <div class="cart-update-option d-block d-md-flex justify-content-between" style="display: inline-block !important; text-align: right !important; width: 100%">
-                                    <div class="cart-update" style="float: right">
-                                        <button class="btn btn-sqr" type="submit">Update Cart</button>
-                                    </div>
-                                </div>-->
                             </div>
                         </div>
                         <div class="row">
@@ -163,7 +129,6 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <a href="{{ url('/checkout') }}" class="btn btn-sqr d-block">Proceed Checkout</a>
                                 </div>
                             </div>
                         </div>

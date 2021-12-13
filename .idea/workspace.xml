@@ -1867,8 +1867,8 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kansas_plant_farm copy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_27_105843_update_billboard_add_status_order.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/billboard/Screenshot 2021-11-25 at 10.26.26 PM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cart/front_cart_print.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/print.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/Paintbrush-Effect/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/food-delivery/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/mini-website/slide1.jpg" afterDir="false" />
@@ -7122,6 +7122,7 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/property_details copy.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/property_details(14.1.20).php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/property_details(18.12.17).php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/property_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/property_details.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search(1.6.17).php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search(19.6.17).php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/search(2.6.17).php" beforeDir="false" />
@@ -8943,11 +8944,15 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master(15.7.20)/src/Twilio/autoload.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/billboard/addBillboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/billboard/addBillboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/billboard/allBillboards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/billboard/allBillboards.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/billboard/editBillboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/billboard/editBillboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/allProducts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" afterDir="false" />
@@ -9143,7 +9148,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -9157,11 +9162,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/layouts" />
+      <recent name="$PROJECT_DIR$/resources/views/cart" />
       <recent name="$PROJECT_DIR$/resources/views/admin/user" />
       <recent name="$PROJECT_DIR$/resources/views/emails" />
       <recent name="$PROJECT_DIR$/resources/views/contents" />
-      <recent name="$PROJECT_DIR$/public/plants_images" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/order" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/img" />
@@ -9298,7 +9303,17 @@
       <workItem from="1637614245571" duration="6121000" />
       <workItem from="1637859092891" duration="9000" />
       <workItem from="1637859119733" duration="413000" />
-      <workItem from="1638031937275" duration="1995000" />
+      <workItem from="1638031937275" duration="3677000" />
+      <workItem from="1638220066266" duration="324000" />
+      <workItem from="1638297673815" duration="779000" />
+      <workItem from="1638303953228" duration="5579000" />
+      <workItem from="1638386941128" duration="4507000" />
+      <workItem from="1638473196221" duration="1000" />
+      <workItem from="1638555656858" duration="1119000" />
+      <workItem from="1638816499110" duration="671000" />
+      <workItem from="1638906783845" duration="1881000" />
+      <workItem from="1639013143401" duration="306000" />
+      <workItem from="1639400534088" duration="11947000" />
     </task>
     <servers />
   </component>

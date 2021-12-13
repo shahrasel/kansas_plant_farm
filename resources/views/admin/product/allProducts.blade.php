@@ -422,6 +422,7 @@
                                                     @method('delete')
                                                     <a href="#" role="button" onclick="deleteProduct('{{ $product_list->id }}')">Delete</a>
                                                 </form>
+
                                             </td>
 
 

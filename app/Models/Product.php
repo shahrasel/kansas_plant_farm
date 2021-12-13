@@ -388,6 +388,7 @@ class Product extends Model
                 }
             }
             else {
+
                 if(!empty($product->other_product_service_name)) {
                     $price_arr[] = number_format($product->retail_sale_price_a, 2);
                     $price_arr[] = number_format($product->retail_list_price_a, 2);
@@ -446,7 +447,7 @@ class Product extends Model
         $return_arr['available'] = $available;
         $return_arr['pot_size'] = $pot_size;
 
-        //dd($return_arr);
+
 
         return json_encode($return_arr);
 

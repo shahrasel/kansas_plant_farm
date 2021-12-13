@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -45,5 +46,32 @@ class User extends Authenticatable
 
     public function wishlist() {
         return $this->hasMany(Wishlist::class);
+    }
+
+    public function isAdmin() {
+        if(Auth::user()->usertype=='superadmin') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function isContractor() {
+        if(Auth::user()->usertype=='contractor') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function isBuyer() {
+        if(Auth::user()->usertype=='buyer') {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
