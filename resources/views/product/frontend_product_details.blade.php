@@ -858,7 +858,7 @@
                     jQuery(".addto-cart-alert").css('top',window.scrollY+27+"px");
                     setTimeout(function() {
                         jQuery(".addto-cart-alert").show('slow');
-                    }, 1000);
+                    }, 500);
 
                     setTimeout(function() {
                         jQuery(".addto-cart-alert").hide('slow');

@@ -2,12 +2,6 @@
     <ul class="pagination" style="margin: auto">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            {{--<li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>--}}
             <li class="page-item disabled"><a class="page-link" >Previous</a></li>
         @else
             {{--<li class="page-item"><a href="{{ $paginator->previousPageUrl() }}" class="page-link" rel="prev">&laquo;</a></li>--}}

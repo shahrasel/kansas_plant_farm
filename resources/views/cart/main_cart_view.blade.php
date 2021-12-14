@@ -21,9 +21,6 @@
                 <div class="col-lg-9 col-sm-6 col-6">
                     <h1 class="text-lg-left text-md-left text-sm-center mb-30 float-left">Cart</h1>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-6">
-                    <a target="_blank" href="{{ url('/cart/print') }}" class="btn btn-sqr d-block w-75 float-right">Print</a>
-                </div>
             </div>
 
             <div class="section-bg-color text-center" id="cart_div">
@@ -130,15 +127,104 @@
                                         </tbody>
                                     </table>
                                 </div>
-<!--                                <div class="cart-update-option d-block d-md-flex justify-content-between" style="display: inline-block !important; text-align: right !important; width: 100%">
-                                    <div class="cart-update" style="float: right">
-                                        <button class="btn btn-sqr" type="submit">Update Cart</button>
-                                    </div>
-                                </div>-->
                             </div>
                         </div>
+                        <input type="hidden" name="cart_d" id="cart_d" value="{{ $cart_d }}">
+                    </form>
                         <div class="row">
-                            <div class="col-lg-5 ml-auto">
+                            @if(auth()->check())
+                                @if(auth()->user()->isAdmin())
+                                    <div class="col-lg-7">
+                                        <div class="contact-message mt-30">
+                                            <form action="{{ url('/cart/print') }}" method="post">
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>First Name</label>
+                                                        <input name="first_name" id="first_name" type="text" >
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>Last Name</label>
+                                                        <input name="last_name" id="last_name" type="text">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>Email</label>
+                                                        <input name="email_address" id="email_address" type="email">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>Phone</label>
+                                                        <input name="phone" id="phone" type="text" >
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <button class="btn btn-sqr d-block w-75" type="submit">Print</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-5 ml-auto">
+                                        <!-- Cart Calculation Area -->
+                                        <div class="cart-calculator-wrapper">
+                                            <div class="cart-calculate-items">
+                                                <h6>Cart Totals</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>Sub Total</td>
+                                                            <td>${{ number_format($i, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sales Tax (9.30%)</td>
+                                                            <td>${{ number_format($tax_amount, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $i += $tax_amount;
+                                                        @endphp
+                                                        <tr class="total">
+                                                            <td>Total</td>
+                                                            <td class="total-amount">${{ number_format($i, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <a href="{{ url('/checkout') }}" class="btn btn-sqr d-block">Proceed Checkout</a>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="col-lg-5 ml-auto">
+                                        <!-- Cart Calculation Area -->
+                                        <div class="cart-calculator-wrapper">
+                                            <div class="cart-calculate-items">
+                                                <h6>Cart Totals</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>Sub Total</td>
+                                                            <td>${{ number_format($i, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sales Tax (9.30%)</td>
+                                                            <td>${{ number_format($tax_amount, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $i += $tax_amount;
+                                                        @endphp
+                                                        <tr class="total">
+                                                            <td>Total</td>
+                                                            <td class="total-amount">${{ number_format($i, 2, '.', ',') }}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <a href="{{ url('/checkout') }}" class="btn btn-sqr d-block">Proceed Checkout</a>
+                                        </div>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="col-lg-5 ml-auto">
                                 <!-- Cart Calculation Area -->
                                 <div class="cart-calculator-wrapper">
                                     <div class="cart-calculate-items">
@@ -166,9 +252,9 @@
                                     <a href="{{ url('/checkout') }}" class="btn btn-sqr d-block">Proceed Checkout</a>
                                 </div>
                             </div>
+                            @endif
                         </div>
-                        <input type="hidden" name="cart_d" id="cart_d" value="{{ $cart_d }}">
-                    </form>
+
                 @else
                     <h4 style="color: #ff0000">No product is added to the cart!</h4>
                 @endif

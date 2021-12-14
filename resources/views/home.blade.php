@@ -21,7 +21,9 @@
                                         <div class="hero-slider-content slide-1">
                                             <h2 class="slide-title">{{ $billboard_image_list->heading }}</h2>
                                             <h4 class="slide-desc">{{ $billboard_image_list->subheading }}</h4>
-                                            <a href="{{ $billboard_image_list->button_url }}" class="btn btn-hero">{{ $billboard_image_list->button_text }}</a>
+                                            @if(!empty($billboard_image_list->button_text))
+                                                <a href="{{ $billboard_image_list->button_url }}" class="btn btn-hero">{{ $billboard_image_list->button_text }}</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

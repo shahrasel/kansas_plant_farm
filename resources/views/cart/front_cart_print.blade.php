@@ -17,12 +17,33 @@
     <!-- cart main wrapper start -->
     <div class="cart-main-wrapper section-padding">
         <div class="container">
-            <div class="row pb-2">
-                <div class="col-lg-9 col-sm-6 col-6">
-                    <h1 class="text-lg-left text-md-left text-sm-center mb-30 float-left">Cart</h1>
+            <div class="row d-flex mt-5 mb-3 border-bottom border-dark">
+                <div class="col-sm-9 col-md-9 col-lg-9 mb-20">
+                    <img src="https://kansasplantfarm.com/plants_images/logo_top_white.png">
+                    <p>
+                        1210 Lakeview Ct<br>Lawrence, KS 66049
+                    </p>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3 mb-20">
+                    <p class="mb-0">Phone: (785) 218-7475</p>
+                    <p class="mb-0">kansasplantfarm@gmail.com</p>
+                    <p class="mb-0">www.KansasPlantFarm.com</p>
+                    <p class="mb-0">
+                        Sales Rep:  Ryan D.
+                    </p>
                 </div>
             </div>
-
+            <div class="row d-flex mb-5">
+                <div class="col-sm-9 col-md-9 col-lg-9">
+                    <p class="mb-0"><b>Estimate No:</b> {{ $estimate_no }}</p>
+                    <p class="mb-0"><b>Customer:</b> {{ $request->input('first_name')  }} {{ $request->input('last_name')  }}</p>
+                    <p class="mb-0"><b>Email:</b> {{ $request->input('email_address')  }}</p>
+                    <p class="mb-0"><b>Cell:</b> {{ $request->input('phone')  }}</p>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
+                    <p class="mb-0"><b>Date:</b> 09/23/21</p>
+                </div>
+            </div>
             <div class="section-bg-color text-center" id="cart_div">
                 @if(!$cart_lists->isEmpty())
                     <form action="" method="post">
@@ -108,7 +129,7 @@
                                 <!-- Cart Calculation Area -->
                                 <div class="cart-calculator-wrapper">
                                     <div class="cart-calculate-items">
-                                        <h6>Cart Totals</h6>
+                                        <h6>Totals</h6>
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <tr>

@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
@@ -105,7 +106,7 @@ class CartController extends Controller
         ]);
     }
 
-    public function print() {
+    public function print(Request $request) {
         if(Auth::check()) {
             if(Auth::user()->usertype != 'superadmin') {
                 abort(403);
@@ -114,7 +115,9 @@ class CartController extends Controller
         $cart = new Cart();
         $cart_lists = $cart->getCartData();
         return view('cart.front_cart_print', [
-            'cart_lists' => $cart_lists
+            'cart_lists' => $cart_lists,
+            'estimate_no' => random_int(1000000000, 9999999999),
+            'request' => $request
         ]);
     }
 

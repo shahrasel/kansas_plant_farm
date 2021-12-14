@@ -24,4 +24,21 @@ class Cart extends Model
 
         return $cart_lists;
     }
+
+    public function generateUniqueCode()
+
+    {
+
+        do {
+
+            $code = random_int(1000000000, 9999999999);
+
+        }
+        while (Product::where("code", "=", $code)->first());
+
+
+
+        return $code;
+
+    }
 }

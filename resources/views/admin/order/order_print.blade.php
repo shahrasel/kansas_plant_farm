@@ -30,13 +30,13 @@
                 <div class="element-wrapper">
                     <div class="element-box">
                         <div class="row d-flex mt-5 mb-3 border-bottom border-dark">
-                            <div class="col-sm-9 col-md-9 col-lg-9">
+                            <div class="col-sm-9 col-md-9 col-lg-9 mb-20">
                                 <img src="{{ asset('plants_images/logo_top_white.png') }}">
                                 <p>
                                     1210 Lakeview Ct<br/>Lawrence, KS 66049
                                 </p>
                             </div>
-                            <div class="col-sm-3 col-md-3 col-lg-3 ">
+                            <div class="col-sm-3 col-md-3 col-lg-3 mb-20">
                                 <p class="mb-0">Phone: (785) 218-7475</p>
                                 <p class="mb-0">kansasplantfarm@gmail.com</p>
                                 <p class="mb-0">www.KansasPlantFarm.com</p>

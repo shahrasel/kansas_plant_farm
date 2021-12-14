@@ -4,9 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="Kansas Plant Farm is a private backyard family-owned nursery and display garden. Nestled on an acre of land in the central west Lawrence, the nursery was established in 2005 by Ryan Domnick. Surrounding the front and East side of the residence are display gardens with many types of plants ranging from hardy tropicals, edibles, native plants, butterfly plants, and many other unusual plants. We primarily grow plants available for on-line purchase and curbside pickup. We hold occasional Open to the Public Plant Sales, appointment sales, display garden tours, and Educational garden walks. We are open on a seasonal basis so please check our website.">
-    <meta name="keywords" content="kansas nursery, kansas nurseries, lawrence nursery, lawrence nurseries, plants for sale, kansas plant farm, nursery near me">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     @yield('custom_meta')
     <!-- Favicon -->
@@ -55,57 +52,6 @@
     $cartlists = $cart->getCartData()
 @endphp
 
-<!-- Start Header Area -->
-<header class="header-area header-wide">
-    <!-- main header start -->
-    <div class="main-header d-none d-lg-block">
-        <!-- header middle area start -->
-        <div class="header-main-area sticky">
-            <div class="container">
-                <div class="row align-items-center position-relative">
-
-                    <!-- start logo area -->
-                    <div class="col-lg-2">
-                        <div class="logo">
-                            <a href="{{ url('/') }}">
-                                <img src="{{ asset('plants_images/logo_top_white.png')  }}" alt="Brand Logo">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- start logo area -->
-                </div>
-            </div>
-        </div>
-        <!-- header middle area end -->
-    </div>
-    <!-- main header start -->
-
-    <!-- mobile header start -->
-    <!-- mobile header start -->
-    <div class="mobile-header d-lg-none d-md-block sticky">
-        <!--mobile header top start -->
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <div class="mobile-main-header">
-                        <div class="mobile-logo">
-                            <a href="{{ url('/') }}">
-                                <img src="{{ asset('plants_images/logo_top.png')  }}" alt="Brand Logo">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- mobile header top start -->
-    </div>
-    <!-- mobile header end -->
-    <!-- mobile header end -->
-</header>
-<!-- end Header Area -->
-
-{{--{{ checkDevice() }}--}}
-
 @yield('content')
 
 <!-- Scroll to top start -->
@@ -118,12 +64,11 @@
 <footer class="footer-widget-area">
     <div class="footer-bottom">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="copyright-text text-center">
-                        <p>Copyright © <a href="{{ url('/') }}">Kansas Plant Farm {{ date('Y') }}</a>. All Rights Reserved.</p>
-                    </div>
-                </div>
+            <div class="row d-block" style="margin: 70px auto 70px auto">
+                <h6><b>REFUND POLICY:</b></h6>
+                <p>
+                    No refunds after on-line purchase, pickup or delivery. We may be able to replace the plant if a hidden defect caused the plant to die or break with-in 3 days after purchase. In such case, you need to bring the plant back for inspection and approval.
+                </p>
             </div>
         </div>
     </div>
