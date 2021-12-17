@@ -817,33 +817,50 @@
                 if(result['price'][1])
                     jQuery(".price-old-ajax").html('<del>$'+result['price'][1]+'</del>');
 
-                //alert(parseInt(result['available']));
-                if (isNaN(parseInt(result['available']))) {
-                    jQuery("#product_count").html('THIS SIZE NOT AVAILABLE');
-                    jQuery("#addtocart_btn").removeClass('d-flex');
-                    jQuery("#addtocart_btn").addClass('d-none');
+
+                if(user_type == 'superadmin') {
+                    if (parseInt(result['available']) >= 10)
+                        jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
+                    else
+                        jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
+
+
+                    jQuery("#addtocart_btn").removeClass('d-none');
+                    jQuery("#addtocart_btn").addClass('d-flex');
+                    jQuery("#addtocart_btn").css('display','block');
+                    jQuery("#max_item").val(1000);
+                    jQuery("#pot_size").val('a');
+                    jQuery("#quantity").val(1);
                 }
                 else {
-                    if (parseInt(result['available']) > 0) {
-
-                        if (parseInt(result['available']) >= 10)
-                            jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
-                        else
-                            jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
-
-                        //jQuery("#addtocart_btn").css('display', 'block');
-                        jQuery("#addtocart_btn").removeClass('d-none');
-                        jQuery("#addtocart_btn").addClass('d-flex');
-                        jQuery("#addtocart_btn").css('display','block');
-                        jQuery("#max_item").val(result['available']);
-                        jQuery("#pot_size").val(result['pot_size']);
-                        jQuery("#quantity").val(1);
-
-                    } else {
+                    if (isNaN(parseInt(result['available']))) {
                         jQuery("#product_count").html('THIS SIZE NOT AVAILABLE');
-
                         jQuery("#addtocart_btn").removeClass('d-flex');
                         jQuery("#addtocart_btn").addClass('d-none');
+                    }
+                    else {
+                        if (parseInt(result['available']) > 0) {
+
+                            if (parseInt(result['available']) >= 10)
+                                jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
+                            else
+                                jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
+
+                            //jQuery("#addtocart_btn").css('display', 'block');
+                            jQuery("#addtocart_btn").removeClass('d-none');
+                            jQuery("#addtocart_btn").addClass('d-flex');
+                            jQuery("#addtocart_btn").css('display','block');
+                            jQuery("#max_item").val(result['available']);
+                            jQuery("#pot_size").val(result['pot_size']);
+                            jQuery("#quantity").val(1);
+
+                        }
+                        else {
+                            jQuery("#product_count").html('THIS SIZE NOT AVAILABLE');
+
+                            jQuery("#addtocart_btn").removeClass('d-flex');
+                            jQuery("#addtocart_btn").addClass('d-none');
+                        }
                     }
                 }
             }

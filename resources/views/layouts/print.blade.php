@@ -65,9 +65,12 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row d-block" style="margin: 70px auto 70px auto">
-                <h6><b>REFUND POLICY:</b></h6>
+                <h6><b>PLEASE NOTE:</b></h6>
                 <p>
-                    No refunds after on-line purchase, pickup or delivery. We may be able to replace the plant if a hidden defect caused the plant to die or break with-in 3 days after purchase. In such case, you need to bring the plant back for inspection and approval.
+                    Estimate is good for 30 days. Prices and availability are subjected to change. Backorders may occasionally occur. All prices are for pickup at our nursery by appointment. Delivery maybe available for an extra charge. We guarantee that our plants are healthy and in prime condition at the time of acquisition.
+
+
+
                 </p>
             </div>
         </div>

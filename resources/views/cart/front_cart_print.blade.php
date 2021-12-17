@@ -9,6 +9,35 @@
             max-height: 130px;
             overflow-y: scroll;
         }
+        body{
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+        .section-padding {
+            padding-top: 20px;
+        }
+        .cart-table .table tbody tr td {
+            color: #000;
+        }
+        .cart-table .table tbody tr td a {
+            color: #000;
+        }
+        .cart-table .table tbody tr td a:hover {
+            color: #000;
+        }
+        .cart-table .table thead tr th {
+            background-color: #000;
+            border-color: #000;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #000;
+        }
+        .cart-calculator-wrapper .cart-calculate-items .table tr td {
+            color: #000;
+        }
+        .cart-calculator-wrapper .cart-calculate-items .table tr td:nth-child(2) {
+            color: #000;
+        }
     </style>
 @endsection
 @section('content')
@@ -41,7 +70,7 @@
                     <p class="mb-0"><b>Cell:</b> {{ $request->input('phone')  }}</p>
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3 ">
-                    <p class="mb-0"><b>Date:</b> 09/23/21</p>
+                    <p class="mb-0"><b>Date:</b> {{ date('m/d/y') }}</p>
                 </div>
             </div>
             <div class="section-bg-color text-center" id="cart_div">
@@ -56,7 +85,7 @@
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
-                                            <th class="pro-thumbnail">Thumbnail</th>
+                                            <th class="pro-thumbnail">Product Image</th>
                                             <th class="pro-title">Product</th>
                                             <th class="pro-title">Size</th>
                                             <th class="pro-price">Unit Price</th>
@@ -94,7 +123,7 @@
                                                     <td class="pro-price"><span>${{ $cart_list->unit_price }}</span></td>
 
                                                     <td class="pro-quantity">
-                                                        <div style="color: #7FBC03">
+                                                        <div style="color: #000">
                                                             @if(auth()->check())
                                                                 @if(auth()->user()->isAdmin())
                                                                     {{ $cart_list->quantity }}
@@ -133,18 +162,18 @@
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <tr>
-                                                    <td>Sub Total</td>
+                                                    <td style="text-align: left">Sub Total</td>
                                                     <td>${{ number_format($i, 2, '.', ',') }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Sales Tax (9.30%)</td>
+                                                    <td style="text-align: left">Sales Tax (9.30%)</td>
                                                     <td>${{ number_format($tax_amount, 2, '.', ',') }}</td>
                                                 </tr>
                                                 @php
                                                     $i += $tax_amount;
                                                 @endphp
                                                 <tr class="total">
-                                                    <td>Total</td>
+                                                    <td style="text-align: left">Total</td>
                                                     <td class="total-amount">${{ number_format($i, 2, '.', ',') }}</td>
                                                 </tr>
                                             </table>

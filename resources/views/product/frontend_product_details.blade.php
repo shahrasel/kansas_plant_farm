@@ -186,12 +186,14 @@
                                                         </div>
                                                     </div>
 
-                                                    <input type="hidden" id="max_item" value="10">
+                                                    <input type="hidden" id="max_item" value="1000">
                                                     @if(empty($product->other_product_service_name))
                                                         <div class="pro-size">
                                                             @if(!empty($product_model->getProductSize($product)))
                                                                 <h6 class="option-title">size :</h6>
-                                                                <select class="nice-select" id="size_select_box" name="size">
+<!--                                                                <select class="nice-select" id="size_select_box" name="size">-->
+
+                                                                <select class="nice-select" @if (Auth::check()) onchange="change_price('{{ $product->id }}', '{{ Auth()->user()->usertype }}')" @else onchange="change_price('{{ $product->id }}', 'none')" @endif id="size_select_box" name="size">
                                                                     @foreach($product_model->getProductSize($product) as $size)
                                                                         <option value="{{ $size }}">{{ $size }}</option>
                                                                     @endforeach
