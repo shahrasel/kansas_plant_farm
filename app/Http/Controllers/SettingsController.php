@@ -155,6 +155,11 @@ class SettingsController extends Controller
         $settings->phone = $request->phone;
         $settings->nursery_hours = $request->nursery_hours;
 
+        $settings->about_who_we_are = $request->about_who_we_are;
+        $settings->about_our_founder = $request->about_our_founder;
+        $settings->about_visiting_private_backyard = $request->about_visiting_private_backyard;
+        $settings->about_buying_plants = $request->about_buying_plants;
+
         $settings->save();
 
         $setting_additional_info = SettingAdditional::find($settings->id);

@@ -92,6 +92,7 @@ Route::post('/user-update', [\App\Http\Controllers\UserController::class, 'updat
 
 /*Route::post('/add-to-wishlist/{user_id}/{product_id}', [App\Http\Controllers\WishlistController::class, 'store'])->name('add-to-wishlist')->middleware('auth');*/
 Route::post('/add-to-wishlist', [App\Http\Controllers\WishlistController::class, 'store'])->name('add-to-wishlist')->middleware('auth');
+Route::get('/wishlist', [App\Http\Controllers\WishlistController::class, 'index'])->name('wishlist')->middleware('auth');
 
 Route::get('/garden-ideas', [App\Http\Controllers\GardenThemeController::class, 'frontGardenIdeas'])->name('front-garden-ideas');
 

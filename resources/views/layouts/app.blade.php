@@ -52,6 +52,7 @@
 <body>
 @inject('cart', 'App\Models\Cart')
 @inject('product', 'App\Models\Product')
+@inject('product_wishlist', 'App\Models\Wishlist')
 @php
     $cartlists = $cart->getCartData()
 @endphp
@@ -232,6 +233,7 @@
                                             @auth
                                                 <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                                                 <li><a href="{{ route('orders') }}">Order History</a></li>
+                                                <li><a href="{{ route('wishlist') }}">My Wishlist</a></li>
                                                 <li><a href="{{ route('my-profile') }}">My Profile</a></li>
                                                 <form action="{{ url('/logout') }}" method="post">
                                                     @csrf
@@ -247,12 +249,12 @@
 
                                         </ul>
                                     </li>
-<!--                                    <li>
-                                        <a href="wishlist.html">
+                                    <li>
+                                        <a href="{{ route('wishlist') }}">
                                             <i class="pe-7s-like"></i>
-                                            <div class="notification">0</div>
+                                            <div class="notification">{{ $product_wishlist->wishlistCount() }}</div>
                                         </a>
-                                    </li>-->
+                                    </li>
                                     <li>
                                         <a href="#" class="minicart-btn" data-turbolinks="false">
                                             <i class="pe-7s-shopbag"></i>
@@ -358,11 +360,12 @@
                                     @auth
                                         <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                                         <a class="dropdown-item" href="{{ route('orders') }}">Order History</a>
+                                        <a class="dropdown-item" href="{{ route('wishlist') }}">My Wishlist</a>
                                         <a class="dropdown-item" href="{{ route('my-profile') }}">My Profile</a>
                                         <form action="{{ url('/logout') }}" method="post">
                                             @csrf
 
-                                            <button type="submit">Logout</button>
+                                            <button class="dropdown-item" type="submit">Logout</button>
 
                                         </form>
                                     @endauth

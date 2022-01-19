@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     @inject('product_model', 'App\Models\Product')
+    @inject('product_wishlist', 'App\Models\Wishlist')
     <main>
         <!-- page main wrapper start -->
         <div class="shop-main-wrapper section-padding pb-0 pt-4">
@@ -172,6 +173,7 @@
                                         </p>
 
 <!--                                        <form id="cartform" style="display:@if(!empty($product->inventory_count_a)) block @else none @endif">-->
+                                        <div style="display: block">
                                         <form id="cartform" >
                                             @csrf
                                             @if (Auth::check())
@@ -251,6 +253,22 @@
                                                     </div>
                                                 @endif
                                             @endif
+
+                                            <div class="useful-links" id="wishdiv">
+                                                <a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Wishlist">
+                                                    @if(Auth::check())
+                                                        @if($product_wishlist->checkUsersWishlist($product))
+                                                            <i class="fa fa-heart"></i><span>Added to Wishlist</span>
+                                                        @else
+                                                            <i class="fa fa-heart-o"></i><span>Add to Wishlist</span>
+                                                        @endif
+                                                    @else
+                                                        <i class="fa fa-heart-o"></i><span>Add to Wishlist</span>
+                                                    @endif
+                                                </a>
+                                            </div>
+
+
                                             <input type="hidden" name="pot_size" id="pot_size" value="a">
                                             <input type="hidden" name="addtocart" value="1">
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -267,6 +285,14 @@
 
 
                                         </form>
+
+                                        <form action="{{ route('add-to-wishlist') }}" method="post" id="add_wishlist_form">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        </form>
+                                    </div>
+
+                                        <div class="clearfix"></div>
 
 
                                         <div class="manufacturer-name details_tag" style="margin-bottom: 13px;">
@@ -815,6 +841,27 @@
 
 
         jQuery( document ).ready( function( $ ) {
+            jQuery("#wishdiv a").click(function (e){
+                e.preventDefault();
+                //console.dir($(this));
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('add-to-wishlist') }}",
+                    data: $('#add_wishlist_form').serialize(), // serializes the form's elements.
+                    success: function(data)
+                    {
+
+                        //$(this)[0].find("i").addClass("fa-heart");
+                        if(data == 'Added to the wishlist successfully!') {
+                            $("#wishdiv a").html("<i class=\"fa fa-heart\"></i> <span>Added to Wishlist</span>");
+                        }
+                        else {
+                            $("#wishdiv a").html("<i class=\"fa fa-heart-o\"></i> <span>Add to Wishlist</span>");
+                        }
+                    }
+                });
+            });
+
             jQuery("select#size_select_box").change(function() {
                 @if (Auth::check())
                     @if(Auth()->user()->usertype=='buyer')

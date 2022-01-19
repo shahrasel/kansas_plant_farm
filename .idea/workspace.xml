@@ -1867,6 +1867,12 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kansas_plant_farm copy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_20_075354_update_settings_table_about_us_fields.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_20_090827_update_settings_table_about_us_image_field.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/wishlist.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/Paintbrush-Effect/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/food-delivery/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/mini-website/slide1.jpg" afterDir="false" />
@@ -1885,6 +1891,7 @@
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/wc-logs/geolocation-2021-06-23-5f7ac3a04e1ad66b321b1833e057ed3f.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../my_first_symfony_full/.idea/my_first_symfony_full.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../new_zend/.idea/new_zend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../self_study/app.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../stock_analysis/.idea/arp1_project.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../symfony_new_blog/.idea/symfony_new_blog.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../test_vue/main.js" afterDir="false" />
@@ -6778,6 +6785,7 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/ajax/checkCommunityUnique.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/ajax/checkCommunityUnique.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/ajax/copyProperty.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/ajax/copyProperty.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/ajax/getAllSchools copy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/ajax/getCities.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/ajax/getCities.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/ajax/store_zapier_data.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/angular/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/angular/app/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/angular/app/views/extras-inbox-read.html" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/angular/app/views/extras-inbox-read.html" afterDir="false" />
@@ -6973,7 +6981,9 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/builder_office_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builder_office_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/builder_offices.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builder_offices.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/builders.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/builders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/cities.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/cities.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/city_add.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/city_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/city_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/claim_mls.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/claim_mls.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/combinezip.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/combinezip.zip" beforeDir="false" />
@@ -7028,6 +7038,7 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/lots.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/lots.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/manager_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/manager_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/manager_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/manager_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/managers.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/managers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/myofficea.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/myofficea.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/myofficel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/myofficel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/privacy_policy.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/privacy_policy.php" afterDir="false" />
@@ -7039,6 +7050,7 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/property_image_upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/property_image_upload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/reset_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/reset_password.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agent_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agent_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agent_add_existing.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agent_add_existing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agent_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agent_edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agent_zips.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agent_zips.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/admin/sales_agents.php" beforeDir="false" afterPath="$PROJECT_DIR$/../buildentory/admin/sales_agents.php" afterDir="false" />
@@ -8942,11 +8954,33 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master(15.7.20)/src/Twilio/VersionInfo.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master(15.7.20)/src/Twilio/autoload.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Billboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Billboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/GardenTheme.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/GardenTheme.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OrderAdditional.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OrderAdditional.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Orderdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Orderdetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PrivacySettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PrivacySettings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/SettingAdditional.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SettingAdditional.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Wishlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Wishlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/cvsuploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/cvsuploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings/editSettings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings/editSettings.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/cart/front_cart_print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/front_cart_print.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/print.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/frontend_product_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" afterDir="false" />
@@ -9065,7 +9099,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
@@ -9097,7 +9130,6 @@
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
@@ -9124,6 +9156,19 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
+      <path value="$PROJECT_DIR$/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/league/config" />
+      <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
     </include_path>
   </component>
   <component name="ProjectId" id="1k8vPEGzQG01yTczfGm2glFAh8Z" />
@@ -9142,7 +9187,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/user" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -9151,16 +9196,16 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/user" />
+      <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/resources/views/cart" />
       <recent name="$PROJECT_DIR$/resources/views/admin/user" />
-      <recent name="$PROJECT_DIR$/resources/views/emails" />
-      <recent name="$PROJECT_DIR$/resources/views/contents" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/img" />
@@ -9309,7 +9354,11 @@
       <workItem from="1639013143401" duration="306000" />
       <workItem from="1639400534088" duration="19507000" />
       <workItem from="1639608464757" duration="1987000" />
-      <workItem from="1639701479324" duration="3347000" />
+      <workItem from="1639701479324" duration="3748000" />
+      <workItem from="1639865318998" duration="14000" />
+      <workItem from="1640007482993" duration="3848000" />
+      <workItem from="1642584882416" duration="10121000" />
+      <workItem from="1642611721970" duration="1867000" />
     </task>
     <servers />
   </component>

@@ -5335,7 +5335,7 @@ blockquote {
 }
 
 .product-details-des .useful-links a i {
-  font-size: 20px;
+  font-size: 35px;
   padding-right: 5px;
   vertical-align: middle;
 }
@@ -5457,6 +5457,7 @@ blockquote {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 18px;
+    max-width: 300px;float: left;padding-right: 30px
 }
 
 .product-details-des .pro-size .nice-select {

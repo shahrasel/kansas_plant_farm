@@ -14,7 +14,7 @@
             color: #000 !important;
         }
         .section-padding {
-            padding-top: 20px;
+            padding-top: 0px;
         }
         .cart-table .table tbody tr td {
             color: #000;

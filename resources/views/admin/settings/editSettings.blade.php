@@ -523,7 +523,37 @@
                                     </fieldset>
 
 
+                                    <fieldset class="form-group">
+                                        <legend><span>About Us Page Content</span></legend>
 
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> WHO WE ARE</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="ckeditor form-control" name="about_who_we_are" id="about_who_we_are">{{ $settings_info->about_who_we_are }}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> ABOUT OUR FOUNDER</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="ckeditor form-control" name="about_our_founder" id="about_our_founder">{{ $settings_info->about_our_founder }}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> VISITING OUR PRIVATE BACKYARD NURSERY</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="ckeditor form-control" name="about_visiting_private_backyard" id="about_visiting_private_backyard">{{ $settings_info->about_visiting_private_backyard }}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> BUYING PLANTS</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="ckeditor form-control" name="about_buying_plants" id="about_buying_plants">{{ $settings_info->about_buying_plants }}</textarea>
+                                            </div>
+                                        </div>
+                                    </fieldset>
 
                                     <div class="form-buttons-w">
                                         <button class="btn btn-primary" name="submit" type="submit"> Update</button>
