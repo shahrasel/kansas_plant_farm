@@ -17,21 +17,73 @@
         .contact-message form input, .contact-message form textarea{
             background-color: #fff !important;
         }
-        /*p{
-            color: #fff !important;
-        }
-        #card-fields-container {
-            background-color: #fff !important;
-        }*/
+
         .contact-message form input, .contact-message form textarea {
             margin-bottom: 15px;
+        }
+        .fodal {
+            display: none;
+            /*visibility: visible;*/
+            position: fixed;
+            z-index: 1000000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: rgba(0,0,0,0.7);
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            width: 50%;
+            min-width: 300px;
+            top:15%;
+            border: 1px solid #fff;
+            height: 325px;
+            padding: 20px 30px;
+        }
+
+        .modal-content input[type="text"] {
+            background-color: #fff;
+            color: #000;
+        }
+        .modal-content input[type="email"] {
+            background-color: #fff;
+            color: #000;
+        }
+
+
+
+        /* The Close Button */
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
         }
 
     </style>
 @endsection
 @section('content')
     <main>
-        <!-- checkout main wrapper start -->
+        <!-- checkout If plant is not available, please issue refund on that item main wrapper start -->
         <div class="checkout-page-wrapper section-padding">
             <div class="container">
 <!--                <div class="row">
@@ -396,7 +448,7 @@
 
                                 <input type="hidden" id="total_val" value="{{ str_replace(',','',number_format($i, 2, '.', ','))  }}">
 
-                                <h5 class="checkout-title" style="margin-top:30px;">CUSTOMER CONTACT INFO</h5>
+                                <h5 class="checkout-title" id="checkout-title" style="margin-top:30px;">CUSTOMER CONTACT INFO</h5>
 
                                 <div class="contact-message">
                                     <form id="contact-form" action="{{ route('checkout-store') }}" method="post" class="contact-form">
@@ -530,12 +582,16 @@
                                                         <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="issue_refund">&nbsp;If plant is not available, please issue refund on that item
                                                     </label>
 
+                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <input id="sign_up_for_newsfeed" type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="sign_up_for_newsfeed">&nbsp;Sign up to be notified of Plant Sales and Upcomming Events
+                                                    </label>
+
 
                                                 </div>
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-lg-10 col-md-10 col-sm-10">
+                                                <div class="col-lg-10 col-md-10 col-sm-10" style="display: block">
                                                     <input type="submit" class="btn btn-sqr btn-submit" value="Continue Checkout" style="max-width: 320px;background-color: #7fbc03 !important;color: #fff;border-color: #7fbc03;">
                                                 </div>
                                             </div>
@@ -616,6 +672,33 @@
             </div>
         </div>
         <!-- checkout main wrapper end -->
+        <div id="myModal" class="fodal">
+            <span class="close cursor" id="close_modal">&times;</span>
+            <div class="modal-content" id="modal_content">
+                <form id="sign_for_feed" data-url="{{ route('signup_newsfeed') }}" method="post">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="single-input-item">
+                                <label for="first-name" class="required">Name</label>
+                                <input type="text" id="name" name="name" required="">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="single-input-item">
+                                <label for="last-name" class="required">Email</label>
+                                <input type="email" id="email" name="email" required="">
+                            </div>
+                        </div>
+                        <div class="col-lg-12" style="text-align: center">
+                            <div class="single-input-item" style="display: inline-block">
+                                <button class="btn btn-sqr" type="submit">Sign up for email</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
 @endsection
 @section('javascript')
@@ -626,13 +709,60 @@
     <script>
         $(document).ready(function() {
 
+            $("#sign_for_feed").on('submit', function (e){
+                e.preventDefault();
+                var $form = $(e.currentTarget);
+
+                $.ajax({
+                    url: $form.data('url'),
+                    method: 'POST',
+                    data: $form.serialize(),
+                    success: function (data) {
+                        $form.find(".row").html("<div class=\"col-lg-12\" style='padding-top:120px;text-align: center'><h3>Thank You</h3><p>Your information is successfully inserted into our database.</p></div>");
+                        setTimeout(function () {
+                            $("#myModal").fadeOut("slow");
+                        }, 3000);
+                    },
+                    error: function (message) {
+                        var errordata = JSON.parse(message.responseText);
+                        $form.find(":input").each(function () {
+                            var fieldname = $(this).attr('name');
+                            if(errordata.errors[fieldname]) {
+                                //console.log(errordata.errors[fieldname][0]);
+                                $("#"+fieldname).parent().find(".error_block").remove();
+                                $("#"+fieldname).parent().append('<span class="error_block">'+errordata.errors[fieldname][0]+'</span>');
+                            }
+
+                        })
+                    },
+
+                })
+            });
+            // Open the Modal
+            $("#sign_up_for_newsfeed").change(function(e) {
+                e.preventDefault();
+                if(this.checked) {
+                    $("#myModal").hide();
+                    $("#myModal").fadeIn("slow");
+                }
+            });
+
+            // Close the Modal
+            $("#close_modal").on('click', function (e) {
+                e.preventDefault();
+                $("#myModal").fadeOut("slow");
+            });
+
+
             jQuery('#pickup_date').datepicker({
                 /*timeFormat: "hh:mm tt",*/
             });
 
             $(".btn-submit").click(function(e){
-
+                //console.dir(e.currentTarget);
                 e.preventDefault();
+                var $target = e.currentTarget;
+                //console.log($target);
 
                 //alert($("input[name='first_name']").val());
 
@@ -697,53 +827,31 @@
                             $(".btn-submit").css('display','none');
                             $("#paypal_plugin").css('display','block');
                         }
-                        //alert(data);
-                        /*alert(data);
-
-                        if ($.isEmptyObject(data.error)) {
-
-                            alert(data.success);
-
-                        } else {
-
-                            printErrorMsg(data.error);
-
-                        }*/
-
-
                     },
                     error: function (err) {
+
                         if (err.status == 422) {
-                            //printErrorMsg(err.errors);
-                            console.log(err.responseJSON);
-                            //$('#success_message').fadeIn().html(err.responseJSON.message);
-
-                            // you can loop through the errors object and show it to the user
-                            console.warn(err.responseJSON.errors);
-                            // display errors on each form field
-
-                            //var thisClass = $(this).attr("error");
                             $('span.error').remove();
 
                             $.each(err.responseJSON.errors, function (i, error) {
-                                var el = $(document).find('[name="'+i+'"]');
-                                if(error[0]=='The p first name field is required.')
+                                var el = $(document).find('[name="' + i + '"]');
+                                if (error[0] == 'The p first name field is required.')
                                     error[0] = 'The first name field is required';
-                                if(error[0]=='The p last name field is required.')
+                                if (error[0] == 'The p last name field is required.')
                                     error[0] = 'The last name field is required';
-                                if(error[0]=='The p email address field is required.')
+                                if (error[0] == 'The p email address field is required.')
                                     error[0] = 'The email field is required';
-                                if(error[0]=='The p phone field is required.')
+                                if (error[0] == 'The p phone field is required.')
                                     error[0] = 'The phone field is required';
 
-                                el.after($('<span style="color: red;" class="error">'+error[0]+'</span>'));
+                                el.after($('<span style="color: red;" class="error">' + error[0] + '</span>'));
                             });
+
+                            $('html, body').animate({
+                                scrollTop: $("#checkout-title").offset().top
+                            }, 500);
                         }
                     }
-
-
-
-
                 });
 
 

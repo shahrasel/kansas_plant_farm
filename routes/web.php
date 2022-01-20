@@ -80,6 +80,8 @@ Route::post('/cart', [App\Http\Controllers\CartController::class, 'store'])->nam
 Route::post('/checkout/store', [App\Http\Controllers\OrderController::class, 'store'])->name('checkout-store');
 Route::get('/checkout', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');
 
+Route::post('/signup-newsfeed', [\App\Http\Controllers\NewsfeedUserController::class, 'store'])->name('signup_newsfeed');
+
 Route::get('/pay-success', [App\Http\Controllers\OrderController::class, 'paySuccess'])->name('pay-success');
 Route::get('/pay-failed', [App\Http\Controllers\OrderController::class, 'payFailed'])->name('pay-failed');
 
