@@ -79,7 +79,7 @@ class CartController extends Controller
     public function delete_cart_item(Request $request) {
         if ($request->has('id')) {
 
-            $cart_info = Cart::find($request->get('id'));
+            $cart_info = Cart::find($request->post('id'));
             $cart_info->delete();
 
             if($request->has('main_cart')) {

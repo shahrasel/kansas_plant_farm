@@ -653,10 +653,8 @@
             });
 
             $(".btn-submit").click(function(e){
-                //console.dir(e.currentTarget);
                 e.preventDefault();
                 var $target = e.currentTarget;
-                //console.log($target);
 
                 //alert($("input[name='first_name']").val());
 

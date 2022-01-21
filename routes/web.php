@@ -72,7 +72,7 @@ Route::get('/get-product-price', [App\Http\Controllers\ProductController::class,
 
 
 Route::post('/add-to-cart', [App\Http\Controllers\CartController::class, 'add'])->name('add-to-cart');
-Route::get('/delete-cart-item', [App\Http\Controllers\CartController::class, 'delete_cart_item'])->name('delete-cart-item');
+Route::post('/delete-cart-item', [App\Http\Controllers\CartController::class, 'delete_cart_item'])->name('delete-cart-item');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'show'])->name('cart');
 Route::post('/cart/print', [App\Http\Controllers\CartController::class, 'print'])->name('cart_print')->middleware('auth');
 Route::post('/cart', [App\Http\Controllers\CartController::class, 'store'])->name('store-cart');

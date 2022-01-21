@@ -2269,7 +2269,6 @@
 @section('javascript')
     <script>
         function submitForm(val) {
-            //jQuery("#cat_form").attr('action',"{{ url('/plants/category') }}/"+val);
             jQuery("#cat_form").submit();
         }
 
@@ -2288,7 +2287,6 @@
         }
 
         jQuery(document).ready(function($){
-            //you can now use $ as your jQuery object.
             $('html, body').css({
                 overflow: 'auto',
                 height: 'auto'
@@ -2297,7 +2295,6 @@
             jQuery(".sidebar-title").click(function() {
                 jQuery(this).toggleClass('open');
                 jQuery(this).parent().addClass('active').find('.sidebar-body:first').slideToggle('fast');
-                //jQuery(".sidebar-body").not(this).parent().removeClass('active').find('.panel-body').slideUp('fast');
             });
         });
     </script>

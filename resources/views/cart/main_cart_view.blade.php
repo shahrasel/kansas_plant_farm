@@ -107,7 +107,9 @@
                                                         </div>
                                                     </td>
                                                     <td class="pro-subtotal"><span>${{ number_format(($cart_list->unit_price*$cart_list->quantity), 2, '.', ',') }}</span></td>
-                                                    <td class="pro-remove"><a href="#" onclick="deleteCartItem({{ $cart_list->id }})"><i class="fa fa-trash-o"></i></a></td>
+                                                    <td class="pro-remove delete_btn">
+                                                        <a data-ref="{{ $cart_list->id }}" href="#"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
                                                 </tr>
                                                 @php
                                                     $i += $cart_list->quantity*$cart_list->unit_price;
@@ -131,6 +133,12 @@
                         </div>
                         <input type="hidden" name="cart_d" id="cart_d" value="{{ $cart_d }}">
                     </form>
+                    @foreach($cart_lists as $cart_list)
+                        <form class="main_cart_form_{{ $cart_list->id }}" method="post" data-url="{{ url('/delete-cart-item') }}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $cart_list->id }}">
+                        </form>
+                    @endforeach
                         <div class="row">
                             @if(auth()->check())
                                 @if(auth()->user()->isAdmin())
@@ -267,11 +275,10 @@
 @section('javascript')
     <script>
 
-        function deleteCartItem(id) {
-            //alert(id);
+        /*function deleteCartItem(id) {
             $.ajax({url: "{{ url('/delete-cart-item') }}?id="+id+"&main_cart=1", success: function(result){
                 $("#cart_div").html(result);
             }});
-        }
+        }*/
     </script>
 @endsection
