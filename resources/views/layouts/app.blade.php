@@ -624,6 +624,34 @@
     Product has been added to the cart!
 </div>
 
+<div id="myModal" class="fodal">
+    <span class="close cursor" id="close_modal">&times;</span>
+    <div class="modal-content" id="modal_content">
+        <form id="sign_for_feed" data-url="{{ route('signup_newsfeed') }}" method="post">
+            @csrf
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="single-input-item">
+                        <label for="first-name" class="required">Name</label>
+                        <input type="text" id="name" name="name" required="">
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="single-input-item">
+                        <label for="last-name" class="required">Email</label>
+                        <input type="email" id="email" name="email" required="">
+                    </div>
+                </div>
+                <div class="col-lg-12" style="text-align: center">
+                    <div class="single-input-item" style="display: inline-block">
+                        <button class="btn btn-sqr" type="submit">Sign up for email</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 
 <!-- offcanvas mini cart end -->
 @if(checkDevice() == 'phone')
@@ -699,6 +727,59 @@
 </script>
 <script>
     jQuery( function() {
+        var ifModalClosed = 0;
+        if($( "#shop_by_color" )) {
+            $(window).scroll(function () {
+                if(ifModalClosed != 1) {
+                    let indicatorPosition = $('#shop_by_color').offset().top;
+                    var totalScroll = $(window).scrollTop();
+                    console.log(totalScroll, indicatorPosition);
+                    if (totalScroll > indicatorPosition) {
+                        if ($("#myModal").css('display') != 'block')
+                            $("#myModal").fadeIn("slow");
+                    }
+                }
+            });
+        }
+
+        // Close the Modal
+        $("#close_modal").on('click', function (e) {
+            e.preventDefault();
+            ifModalClosed = 1;
+            $("#myModal").fadeOut("slow");
+        });
+
+        $("#sign_for_feed").on('submit', function (e){
+            e.preventDefault();
+            var $form = $(e.currentTarget);
+
+            $.ajax({
+                url: $form.data('url'),
+                method: 'POST',
+                data: $form.serialize(),
+                success: function (data) {
+                    $form.find(".row").html("<div class=\"col-lg-12\" style='padding-top:120px;text-align: center'><h3>Thank You</h3><p>Your information is successfully inserted into our database.</p></div>");
+                    setTimeout(function () {
+                        $("#myModal").fadeOut("slow");
+                        ifModalClosed = 1;
+                    }, 3000);
+                },
+                error: function (message) {
+                    var errordata = JSON.parse(message.responseText);
+                    $form.find(":input").each(function () {
+                        var fieldname = $(this).attr('name');
+                        if(errordata.errors[fieldname]) {
+                            //console.log(errordata.errors[fieldname][0]);
+                            $("#"+fieldname).parent().find(".error_block").remove();
+                            $("#"+fieldname).parent().append('<span class="error_block">'+errordata.errors[fieldname][0]+'</span>');
+                        }
+
+                    })
+                },
+
+            })
+        });
+
         jQuery.widget( "custom.catcomplete", jQuery.ui.autocomplete, {
             _create: function() {
                 this._super();

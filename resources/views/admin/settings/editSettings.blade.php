@@ -501,6 +501,13 @@
                                         <legend><span>Other Info</span></legend>
 
                                         <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Minimum Price to overcome Processing fee</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="min_price_order"  value="{{ $settings_info->min_price_order }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> Privacy Policy</label>
                                             <div class="col-sm-9">
                                                 <textarea class="ckeditor form-control" name="privacy_policy" id="privacy_policy">{{ $settings_privacy_info->privacy_policy }}</textarea>

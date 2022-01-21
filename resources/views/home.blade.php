@@ -275,7 +275,7 @@
                     <div class="col-12">
                         <!-- section title start -->
                         <div class="section-title text-center">
-                            <h2 style="color: #fff">Shop by Color</h2>
+                            <h2 style="color: #fff" id="shop_by_color">Shop by Color</h2>
                         </div>
                         <!-- section title start -->
                     </div>

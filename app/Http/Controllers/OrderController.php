@@ -142,17 +142,27 @@ class OrderController extends Controller
         //dd($cart_lists);
 
         $total_amount = 0;
+        $total_val = 0;
         if(!empty($cart_lists)) {
             foreach ($cart_lists as $cart_list) {
-                if($cart_list->product->tax_free != 'YES') {
-                    //echo $cart_list->quantity.'!!'.$cart_list->unit_price;
+                /*if($cart_list->product->tax_free != 'YES') {
                     $total_val = ($cart_list->quantity*$cart_list->unit_price)+(9.30/100*($cart_list->quantity*$cart_list->unit_price));
 
                 }
                 else {
                     $total_val = $cart_list->quantity*$cart_list->unit_price;
                 }
-                $total_amount += $total_val;
+                $total_amount += $total_val;*/
+                $total_amount += ($cart_list->quantity*$cart_list->unit_price);
+            }
+            $total_val = $total_amount;
+
+            if($cart_list->product->tax_free != 'YES') {
+                $total_amount = $total_amount*0.093;
+            }
+
+            if($total_val < 25) {
+                $total_amount += 10;
             }
         }
         /*echo number_format($total_amount, 2, '.', ',').'####'.$request->get('amount');

@@ -35,10 +35,6 @@ class NewsfeedUserController extends Controller
         $newsfeedUser->email = $request->post('email');
 
         $is_inserted = $newsfeedUser->save();
-
-        if($is_inserted) {
-
-        }
     }
 
     /**
