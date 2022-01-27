@@ -40,7 +40,7 @@ jQuery( function() {
             if(ifModalClosed != 1) {
                 let indicatorPosition = $('#shop_by_color').offset().top;
                 var totalScroll = $(window).scrollTop();
-                console.log(totalScroll, indicatorPosition);
+                //console.log(totalScroll, indicatorPosition);
                 if (totalScroll > indicatorPosition) {
                     if ($("#myModal").css('display') != 'block')
                     $("#myModal").fadeIn("slow");
@@ -258,12 +258,6 @@ function change_price(id, user_type) {
             }
         }});
 }
-
-/*function deleteCartItem(id) {
-    $.ajax({url: "{{ url('/delete-cart-item') }}?id="+id, success: function(result){
-            $("#cart_div").html(result);
-        }});
-}*/
 
 /*function wishlist_form_submit(formid) {
     //alert(formid);

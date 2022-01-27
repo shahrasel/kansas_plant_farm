@@ -273,12 +273,4 @@
 </main>
 @endsection
 @section('javascript')
-    <script>
-
-        /*function deleteCartItem(id) {
-            $.ajax({url: "{{ url('/delete-cart-item') }}?id="+id+"&main_cart=1", success: function(result){
-                $("#cart_div").html(result);
-            }});
-        }*/
-    </script>
 @endsection

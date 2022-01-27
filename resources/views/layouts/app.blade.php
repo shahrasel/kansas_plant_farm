@@ -510,7 +510,7 @@
     Product has been added to the cart!
 </div>
 
-<div id="myModal" class="fodal">
+<div id="myModal" class="fodal fade">
     <span class="close cursor" id="close_modal">&times;</span>
     <div class="modal-content" id="modal_content">
         <form id="sign_for_feed" data-url="{{ route('signup_newsfeed') }}" method="post">
@@ -533,6 +533,7 @@
                         <button class="btn btn-sqr" type="submit">Sign up for email</button>
                     </div>
                 </div>
+
             </div>
         </form>
     </div>

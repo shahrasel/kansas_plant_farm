@@ -212,6 +212,10 @@ Route::get('/admin/settings/{setting}/edit', [\App\Http\Controllers\SettingsCont
 Route::put('/admin/settings/{setting}',[\App\Http\Controllers\SettingsController::class, 'update'])->name('admin-settings-update')->middleware('adminauth');
 
 
+Route::get('/admin/appointment-settings/edit', [\App\Http\Controllers\AppointmentCalendarController::class, 'edit'])->name('admin-appointment-edit')->middleware('adminauth');
+Route::put('/admin/appointment-settings/update',[\App\Http\Controllers\AppointmentCalendarController::class, 'update'])->name('admin-appointment-update')->middleware('adminauth');
+
+
 ############################ ADMIN PANEL ############################
 
 
