@@ -869,6 +869,14 @@
                         <span>Settings</span></a>
 
                 </li>
+                <li class="selected">
+                    <a href="{{ url('/admin/appointment-settings/edit') }}">
+                        <div class="icon-w">
+                            <div class="os-icon os-icon-layout"></div>
+                        </div>
+                        <span>Schedule Calendar</span></a>
+
+                </li>
 <!--                <li class="selected has-sub-menu">
                     <a href="index.html">
                         <div class="icon-w">

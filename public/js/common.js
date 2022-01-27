@@ -34,13 +34,13 @@ jQuery( function() {
     })
 
 
-    var ifModalClosed = 0;
+    //var ifModalClosed = 0;
     if($( "#shop_by_color" ).length) {
         $(window).scroll(function () {
+            console.log(ifModalClosed);
             if(ifModalClosed != 1) {
                 let indicatorPosition = $('#shop_by_color').offset().top;
                 var totalScroll = $(window).scrollTop();
-                //console.log(totalScroll, indicatorPosition);
                 if (totalScroll > indicatorPosition) {
                     if ($("#myModal").css('display') != 'block')
                     $("#myModal").fadeIn("slow");

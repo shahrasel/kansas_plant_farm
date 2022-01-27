@@ -53,6 +53,7 @@
 @inject('cart', 'App\Models\Cart')
 @inject('product', 'App\Models\Product')
 @inject('product_wishlist', 'App\Models\Wishlist')
+@inject('news_feed_user', 'App\Models\NewsfeedUser')
 @php
     $cartlists = $cart->getCartData()
 @endphp
@@ -612,6 +613,16 @@
         });
     });
 </script>
+
+@if(\Illuminate\Support\Facades\Auth::check())
+    @if($news_feed_user->checkIfexistsinNewsTable())
+        <script type="text/javascript">var ifModalClosed = 1;</script>
+    @else
+        <script type="text/javascript">var ifModalClosed = 0;</script>
+    @endif
+@else
+    <script type="text/javascript">var ifModalClosed = 0;</script>
+@endif
 
 <script type="text/javascript">var data = @json($product->getAllProductsNames());</script>
 <script src="{{ asset('js/common.js') }}"></script>

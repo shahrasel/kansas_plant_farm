@@ -1867,10 +1867,6 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kansas_plant_farm copy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentCalendarController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/AppointmentCalendar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2022_01_25_132845_create_appointment_calendars_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/appointment_calendar/edit.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/Paintbrush-Effect/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/food-delivery/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/mini-website/slide1.jpg" afterDir="false" />
@@ -8951,15 +8947,13 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master(15.7.20)/src/Twilio/VersionInfo.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master(15.7.20)/src/Twilio/autoload.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kansas_plant_farm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/NewsfeedUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/NewsfeedUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_25_132845_create_appointment_calendars_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_25_132845_create_appointment_calendars_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/front_cart_print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/front_cart_print.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/print.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" afterDir="false" />
@@ -9340,7 +9334,7 @@
       <workItem from="1642584882416" duration="10121000" />
       <workItem from="1642611721970" duration="16129000" />
       <workItem from="1642710885193" duration="18000000" />
-      <workItem from="1643138356862" duration="18537000" />
+      <workItem from="1643138356862" duration="21552000" />
     </task>
     <servers />
   </component>

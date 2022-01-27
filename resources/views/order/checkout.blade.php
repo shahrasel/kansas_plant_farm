@@ -537,7 +537,7 @@
                                                     </label>
 
                                                     <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input id="sign_up_for_newsfeed" type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="sign_up_for_newsfeed">&nbsp;Sign up to be notified of Plant Sales and Upcomming Events
+                                                        <input id="sign_up_for_newsfeed" type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="sign_up_for_newsfeed">&nbsp;Sign up to be notified of Plant Sales and Upcoming Events
                                                     </label>
 
 
