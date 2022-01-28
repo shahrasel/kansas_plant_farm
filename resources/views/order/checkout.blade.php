@@ -368,6 +368,9 @@
                                             <div class="cart-calculate-items">
                                                 <div class="table-responsive">
                                                     <table class="table">
+                                                        @php
+                                                            $sub_total = $i;
+                                                        @endphp
                                                         <tr>
                                                             <td>Sub Total</td>
                                                             <td>${{ number_format($i, 2, '.', ',') }}</td>
@@ -516,6 +519,13 @@
                                             <div class="row">
                                                 <div class="col-lg-10 col-md-10 col-sm-10">
                                                     <h6 style="margin-bottom:10px;margin-top:10px;">Please check all that apply:</h6>
+
+                                                    @if($sub_total >=100)
+                                                        <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                            <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="hand_pick">&nbsp;Hand pick out plants at the nursery
+                                                        </label>
+                                                    @endif
+
                                                     <label style="width: 100%;cursor: pointer;height: 30px;">
                                                         <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="substitute_plant_size">&nbsp;If plant is not available, I’m ok to substitute plant size. (equal or better value)
                                                     </label>

@@ -52,9 +52,12 @@ class HomeController extends Controller
 
     public function aboutUs() {
         $imageLists = Setting::firstOrFail();
+
+        $settings_info = Setting::find(1);
         //dd($imageLists);
         return view('aboutus.aboutUs', [
-            'imageLists' => $imageLists
+            'imageLists' => $imageLists,
+            'settings_info'=>$settings_info,
         ]);
     }
 

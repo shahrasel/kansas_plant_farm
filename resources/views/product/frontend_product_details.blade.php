@@ -255,17 +255,20 @@
                                             @endif
 
                                             <div class="useful-links" id="wishdiv">
-                                                <a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Wishlist">
+
                                                     @if(Auth::check())
+                                                        <a href="#" id="wisha" data-bs-toggle="tooltip" title="" data-bs-original-title="Wishlist">
                                                         @if($product_wishlist->checkUsersWishlist($product))
-                                                            <i class="fa fa-heart"></i><span>Added to Wishlist</span>
-                                                        @else
-                                                            <i class="fa fa-heart-o"></i><span>Add to Wishlist</span>
-                                                        @endif
+                                                                <i class="fa fa-heart"></i><span>Added to Wishlist</span>
+                                                            @else
+                                                                <i class="fa fa-heart-o"></i><span>Add to Wishlist</span>
+                                                            @endif
+                                                        </a>
                                                     @else
-                                                        <i class="fa fa-heart-o"></i><span>Add to Wishlist</span>
+                                                        <a href="{{ url('login') }}">
+                                                            <i class="fa fa-heart-o"></i><span>Add to Wishlist</span>
+                                                        </a>
                                                     @endif
-                                                </a>
                                             </div>
 
 
@@ -841,7 +844,7 @@
 
 
         jQuery( document ).ready( function( $ ) {
-            jQuery("#wishdiv a").click(function (e){
+            jQuery("#wishdiv a#wisha").click(function (e){
                 e.preventDefault();
                 //console.dir($(this));
                 $.ajax({

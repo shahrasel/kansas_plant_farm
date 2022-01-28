@@ -437,7 +437,9 @@
                                     <ul>
                                     @foreach($options as $option)
                                         <li style="list-style: disc">
-                                            @if($option=='substitute_plant_size')
+                                            @if($option=='hand_pick')
+                                                Hand pick out plants at the nursery
+                                            @elseif($option=='substitute_plant_size')
                                                 If plant is not available, I’m ok to substitute plant size. (equal or better value)
                                             @elseif($option=='substitute_plant_variety')
                                                 If plant is not available, I’m ok to substitute plant variety. (equal or better value)
