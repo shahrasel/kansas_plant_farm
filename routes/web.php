@@ -64,6 +64,10 @@ Auth::routes();
 Route::get('/add_image_count', [App\Http\Controllers\ProductController::class, 'add_image_count'])->name('add_image_count');
 
 Route::get('/about-us', [App\Http\Controllers\HomeController::class, 'aboutUs'])->name('about-us');
+Route::get('/schedule-calendar', [App\Http\Controllers\AppointmentCalendarController::class, 'showCalendar'])->name('schedule-calendar');
+Route::post('/get-available-timing', [App\Http\Controllers\AppointmentCalendarController::class, 'getAvailableTiming'])->name('get_available_timing');
+Route::post('/appointment', [App\Http\Controllers\AppointmentCalendarController::class, 'appointment'])->name('appointment');
+Route::post('/send-appointment', [App\Http\Controllers\AppointmentController::class, 'store'])->name('send_appointment');
 
 Route::post('/plants', [App\Http\Controllers\ProductController::class, 'products'])->name('products_post');
 Route::get('/plants/{product}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');

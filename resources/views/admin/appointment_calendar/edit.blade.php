@@ -258,165 +258,165 @@
                                 <div id="all_checkbox_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}">
                                     <div class="row mb-3">
                                         <div class="col-12">
-                                            <input id="all_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" onclick="checkAll('{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}')" name="all_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" value="1" @if($calendar_info->$b == 1) checked @endif>
+                                            <input id="all_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" onclick="checkAll('{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}')" name="all_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" value="1" @if($calendar_info->$b == 1) checked @endif>
                                             <label for="all_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">Select All</label>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
 
-                                                <input id="7am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="7.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("7.00 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="7am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="7.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("7.00 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="7am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">7:00 AM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="730am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="7.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("7.30 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="730am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="7.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("7.30 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="730am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">7:30 AM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="8am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="8.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("8.00 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="8am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="8.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("8.00 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="8am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">8:00 AM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="830am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="8.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("8.30 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="830am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="8.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("8.30 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="830am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">8:30 AM</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="9am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="9.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("9.00 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="9am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="9.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("9.00 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="9am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">9:00 AM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="930am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="9.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("9.30 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="930am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="9.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("9.30 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="930am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">9:30 AM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="10am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="10.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("10.00 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="10am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="10.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("10.00 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="10am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">10:00 AM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="1030am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="10.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("10.30 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="1030am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="10.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("10.30 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="1030am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">10:30 AM</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="11am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="11.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("11.00 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="11am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="11.00 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("11.00 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="11am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">11:00 AM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="1130am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="11.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("11.30 AM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="1130am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="11.30 AM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("11.30 AM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="1130am_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">11:30 AM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="12pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="12.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("12.00 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="12pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="12.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("12.00 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="12pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">12:00 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="1230pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="12.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("12.30 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="1230pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="12.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("12.30 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="1230pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">12:30 PM</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="1pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="1.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("1.00 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="1pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="1.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("1.00 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="1pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">1:00 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="130pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="1.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("1.30 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="130pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="1.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("1.30 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="130pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">1:30 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="2pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="2.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("2.00 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="2pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="2.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("2.00 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="2pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">2:00 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="230pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="2.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("2.30 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="230pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="2.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("2.30 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="230pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">2:30 PM</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="3pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="3.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("3.00 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="3pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="3.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("3.00 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="3pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">3:00 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="330pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="3.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("3.30 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="330pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="3.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("3.30 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="330pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">3:30 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="4pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="4.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("4.00 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="4pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="4.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("4.00 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="4pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">4:00 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="430pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="4.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("4.30 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="430pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="4.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("4.30 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="430pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">4:30 PM</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="5pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="5.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("5.00 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="5pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="5.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("5.00 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="5pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">5:00 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="530pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="5.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("5.30 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="530pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="5.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("5.30 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="530pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">5:30 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="6pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="6.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("6.00 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="6pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="6.00 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("6.00 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="6pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">6:00 PM</label>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-3 text-left">
                                             <div class="form-group">
-                                                <input id="630pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-input" type="checkbox" value="6.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("6.30 PM", json_decode($calendar_info->$a))) checked @endif>
+                                                <input id="630pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" type="checkbox" value="6.30 PM" name="{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}[]" @if(in_array("6.30 PM", json_decode($calendar_info->$a))) checked @endif>
                                                 <label for="630pm_{{ strtolower(date('l', $i)).(($j<=7)?'_1':'_2') }}" class="form-check-label">6:30 PM</label>
                                             </div>
                                         </div>
@@ -492,16 +492,7 @@
         $(function(){
             $(".schedule_check").on('click', function (e) {
                e.preventDefault();
-               //console.log(e.currentTarget.id);
             });
-            /*$("#all").change(function(e) {
-                if(this.checked) {
-                    $("#all_checkbox").find(":checkbox").attr('checked', true);
-                }
-                else {
-                    $("#all_checkbox").find(":checkbox").attr('checked', false);
-                }
-            });*/
         });
 
         function checkAll(x) {

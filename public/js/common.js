@@ -75,12 +75,12 @@ jQuery( function() {
                 var errordata = JSON.parse(message.responseText);
                 $form.find(":input").each(function () {
                     var fieldname = $(this).attr('name');
-                    if(errordata.errors[fieldname]) {
-                        //console.log(errordata.errors[fieldname][0]);
-                        $("#"+fieldname).parent().find(".error_block").remove();
-                        $("#"+fieldname).parent().append('<span class="error_block">'+errordata.errors[fieldname][0]+'</span>');
+                    $("#"+fieldname).parent().find(".error_block").remove();
+                    if(errordata.errors !== undefined) {
+                        if (errordata.errors[fieldname]) {
+                            $("#" + fieldname).parent().append('<span class="error_block">' + errordata.errors[fieldname][0] + '</span>');
+                        }
                     }
-
                 })
             },
 
