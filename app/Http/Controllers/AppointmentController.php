@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AppointmentCancellationAdmin;
+use App\Mail\AppointmentCancellationCustomer;
+use App\Mail\AppointmentConfirmationAdmin;
+use App\Mail\AppointmentConfirmationCustomer;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 class AppointmentController extends Controller
 {
@@ -28,5 +34,35 @@ class AppointmentController extends Controller
         $appointment->message = $request->message;
 
         $appointment->save();
+
+        $cancellationURL = URL::signedRoute('cancellation', ['appointment' => $appointment->id]);
+
+        Mail::to('shahrasel@gmail.com')
+            ->send(new AppointmentConfirmationCustomer($request->firstname, $request->date, $request->time, $cancellationURL));
+
+        foreach (['kansasplantfarm@gmail.com'] as $recipient) {
+            Mail::to($recipient)
+                ->send(new AppointmentConfirmationAdmin($appointment));
+        }
+    }
+
+    public function cancellation(Request $request, Appointment $appointment)
+    {
+        if (! $request->hasValidSignature()) {
+            abort(401);
+        }
+        $appointment->delete();
+
+        Mail::to($appointment->email)
+            ->send(new AppointmentCancellationCustomer($appointment));
+
+        foreach (['kansasplantfarm@gmail.com'] as $recipient) {
+            Mail::to($recipient)
+                ->send(new AppointmentCancellationAdmin($appointment));
+        }
+
+        return view('calendar.appointment_cancel',[
+            'appointment' => $appointment
+        ]);
     }
 }

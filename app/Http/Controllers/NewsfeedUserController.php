@@ -73,7 +73,6 @@ class NewsfeedUserController extends Controller
 
     private function validation(Request $request) {
         $rules = [
-            'name'=>'required|max:50',
             'email'=>'required|unique:newsfeed_users|email|max:100'
         ];
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,14 @@ Route::get('/schedule-calendar', [App\Http\Controllers\AppointmentCalendarContro
 Route::post('/get-available-timing', [App\Http\Controllers\AppointmentCalendarController::class, 'getAvailableTiming'])->name('get_available_timing');
 Route::post('/appointment', [App\Http\Controllers\AppointmentCalendarController::class, 'appointment'])->name('appointment');
 Route::post('/send-appointment', [App\Http\Controllers\AppointmentController::class, 'store'])->name('send_appointment');
+
+/*Route::get('/cancellation/{appointment}', function (Request $request) {
+    if (! $request->hasValidSignature()) {
+        abort(401);
+    }
+
+})->name('cancellation');*/
+Route::get('/cancellation/{appointment}', [App\Http\Controllers\AppointmentController::class, 'cancellation'])->name('cancellation');
 
 Route::post('/plants', [App\Http\Controllers\ProductController::class, 'products'])->name('products_post');
 Route::get('/plants/{product}', [App\Http\Controllers\ProductController::class, 'product_details'])->name('product_details');

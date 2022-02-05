@@ -412,6 +412,10 @@
 </footer>
 <!-- footer area end -->
 
+<div class="position-fixed schedule verticaltext px-3 py-2 text-dark font-weight-bold rounded-bottom" style="background-color: #7fbc03">
+    <a href="{{ url('/') }}/schedule-calendar" class="text-dark">Schedule an Appointment</a>
+</div>
+
 {{--{{ dd($cart->getCartData()) }}--}}
 <!-- offcanvas mini cart start -->
 <div class="offcanvas-minicart-wrapper">
@@ -507,33 +511,37 @@
     </div>
 </div>
 
+
+
 <div class="addto-cart-alert">
     Product has been added to the cart!
 </div>
 
 <div id="myModal" class="fodal fade">
-    <span class="close cursor" id="close_modal">&times;</span>
+
     <div class="modal-content" id="modal_content">
+        <span class="close cursor" id="close_modal" style="color: #0a0b0b;z-index: 10">&times;</span>
         <form id="sign_for_feed" data-url="{{ route('signup_newsfeed') }}" method="post">
             @csrf
-            <div class="row">
+            <div class="row position-relative" style="z-index: 1">
                 <div class="col-lg-12">
-                    <div class="single-input-item">
-                        <label for="first-name" class="required">Name</label>
-                        <input type="text" id="name" name="name" required="">
-                    </div>
+                    <h4 class="text-center pt-2">GET NOTIFIED OF PLANT SALES & UPCOMING EVENTS!</h4>
+                    <p class="text-center mt-2">Join Kansas Plant Farm's email list today!</p>
                 </div>
                 <div class="col-lg-12">
-                    <div class="single-input-item">
+                    <div class="single-input-item mt-2">
                         <label for="last-name" class="required">Email</label>
                         <input type="email" id="email" name="email" required="">
                     </div>
                 </div>
-                <div class="col-lg-12" style="text-align: center">
+                <div class="col-lg-12  mt-0" style="text-align: center">
                     <div class="single-input-item" style="display: inline-block">
-                        <button class="btn btn-sqr" type="submit">Sign up for email</button>
+                        <button class="btn btn-sqr" type="submit">Sign Up</button>
                     </div>
                 </div>
+                <p class="mt-3">
+                    Kansas Plant Farm respects your online time and privacy. We only send emails to those who have signed up to receive them, and we do not provide your email address to any third party.
+                </p>
 
             </div>
         </form>
@@ -566,6 +574,8 @@
         </div>
     @endif
 @endif
+
+
 
 
 

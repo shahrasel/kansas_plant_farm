@@ -649,9 +649,11 @@
 
             // Open the Modal
             $("#sign_up_for_newsfeed").change(function(e) {
+                console.log('sdf');
                 e.preventDefault();
                 if(this.checked) {
                     $("#myModal").fadeIn("slow");
+                    $("body").css('overflow', 'hidden');
                 }
             });
 

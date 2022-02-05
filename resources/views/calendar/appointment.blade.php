@@ -19,12 +19,15 @@
         .btn-sqr{
             padding: 12px 10px;
         }
+        .checkout-page-wrapper {
+            max-width: 800px;
+        }
         </style>
 @endsection
 @section('content')
     <main>
         <!-- checkout main wrapper start -->
-        <div class="checkout-page-wrapper section-padding pt-4">
+        <div class="checkout-page-wrapper container section-padding pt-4">
             <div class="container">
                 <h1 class="text-lg-left text-md-left text-sm-center mb-30">Appointment</h1>
             </div>
@@ -69,9 +72,9 @@
                                             <p style="margin-bottom: 10px"><span style="color:yellow;">*</span> All Fields are Required</p>
                                         </div>
 
-                                        <div class="col-12">
+                                        <div class="col-12 mt-2">
                                             <div class="contact-btn">
-                                                <button class="btn btn-sqr btn-submit" type="submit">Send Message</button>
+                                                <button class="btn btn-sqr btn-submit" type="submit">Confirm Appointment</button>
                                             </div>
                                         </div>
                                     </div>
@@ -91,41 +94,41 @@
 @endsection
 @section('javascript')
 
-    <script>
+<script>
 
-        $(document).ready(function() {
+    $(document).ready(function() {
 
-            $(".btn-submit").click(function(e){
-                e.preventDefault();
-                $form = $("#appointment_form");
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('send_appointment')  }}",
-                    data: $("#appointment_form").serialize(),
-                    success: function (data) {
-                        $form.find(".row").html("<div class=\"col-lg-12\" style='padding-top:120px;text-align: center'><h3>Thank You</h3><p>Your information is successfully inserted into our database.</p></div>");
-                        setTimeout(function () {
-                            $("#myModal").fadeOut("slow");
-                            ifModalClosed = 1;
-                        }, 3000);
-                    },
-                    error: function (message) {
-                        var errordata = JSON.parse(message.responseText);
-                        $form.find(":input").each(function () {
-                            var fieldname = $(this).attr('name');
-                            $("#"+fieldname).parent().find(".error_block").remove();
-                            if(errordata.errors !== undefined) {
-                                if (errordata.errors[fieldname]) {
+        $(".btn-submit").click(function(e){
+            e.preventDefault();
+            $form = $("#appointment_form");
+            $.ajax({
+                type: "POST",
+                url: "{{ route('send_appointment')  }}",
+                data: $("#appointment_form").serialize(),
+                success: function (data) {
+                    $form.find(".row").html("<div class=\"col-lg-12\" style='padding-top:120px;text-align: center'><h3>Thank You</h3><p>Your information is successfully inserted into our database.</p></div>");
+                    setTimeout(function () {
+                        $("#myModal").fadeOut("slow");
+                        ifModalClosed = 1;
+                    }, 3000);
+                },
+                error: function (message) {
+                    var errordata = JSON.parse(message.responseText);
+                    $form.find(":input").each(function () {
+                        var fieldname = $(this).attr('name');
+                        $("#"+fieldname).parent().find(".error_block").remove();
+                        if(errordata.errors !== undefined) {
+                            if (errordata.errors[fieldname]) {
 
-                                    $("#" + fieldname).parent().append('<span class="error_block">' + errordata.errors[fieldname][0] + '</span>');
-                                }
+                                $("#" + fieldname).parent().append('<span class="error_block">' + errordata.errors[fieldname][0] + '</span>');
                             }
-                        })
-                    },
-                });
+                        }
+                    })
+                },
             });
         });
-    </script>
+    });
+</script>
 
 
 @endsection

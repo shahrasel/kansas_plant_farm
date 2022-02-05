@@ -1,4 +1,17 @@
 jQuery( function() {
+    $("#myModal").on('click', function (e){
+        console.log(e.target);
+        var container = $("#modal_content");
+        if (!container.is(e.target) && container.has(e.target).length === 0)
+        {
+            ifModalClosed = 1;
+            $("#myModal").fadeOut("slow");
+            $("body").css('overflow', 'auto');
+        }
+    });
+
+
+
     $(".minicart-remove").on('click', function (e){
         e.preventDefault();
         var $form = $(this).parent();
@@ -37,13 +50,14 @@ jQuery( function() {
     //var ifModalClosed = 0;
     if($( "#shop_by_color" ).length) {
         $(window).scroll(function () {
-            console.log(ifModalClosed);
+            //console.log(ifModalClosed);
             if(ifModalClosed != 1) {
                 let indicatorPosition = $('#shop_by_color').offset().top;
                 var totalScroll = $(window).scrollTop();
                 if (totalScroll > indicatorPosition) {
                     if ($("#myModal").css('display') != 'block')
                     $("#myModal").fadeIn("slow");
+                    $("body").css('overflow', 'hidden');
                 }
             }
         });
@@ -51,9 +65,12 @@ jQuery( function() {
 
     // Close the Modal
     $("#close_modal").on('click', function (e) {
+        //console.log('123');
+        console.log("132"+event.currentTarget.id);
         e.preventDefault();
         ifModalClosed = 1;
         $("#myModal").fadeOut("slow");
+        $("body").css('overflow', 'auto');
     });
 
     $("#sign_for_feed").on('submit', function (e){
