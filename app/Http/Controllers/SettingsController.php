@@ -156,10 +156,14 @@ class SettingsController extends Controller
         $settings->phone = $request->phone;
         $settings->nursery_hours = $request->nursery_hours;
 
-        $settings->about_who_we_are = $request->about_who_we_are;
-        $settings->about_our_founder = $request->about_our_founder;
-        $settings->about_visiting_private_backyard = $request->about_visiting_private_backyard;
-        $settings->about_buying_plants = $request->about_buying_plants;
+
+
+        $settings->check_label_1 = $request->check_label_1;
+        $settings->check_label_2 = $request->check_label_2;
+        $settings->check_label_3 = $request->check_label_3;
+        $settings->check_label_4 = $request->check_label_4;
+        $settings->check_label_5 = $request->check_label_5;
+        $settings->check_label_6 = $request->check_label_6;
 
         $settings->save();
 
@@ -167,6 +171,12 @@ class SettingsController extends Controller
         //$setting_additional_info->privacy_policy = $request->privacy_policy;
         $setting_additional_info->terms_conditions = $request->terms_conditions;
         $setting_additional_info->our_gurantee = $request->our_gurantee;
+
+
+        $setting_additional_info->about_who_we_are = $request->about_who_we_are;
+        $setting_additional_info->about_our_founder = $request->about_our_founder;
+        $setting_additional_info->about_visiting_private_backyard = $request->about_visiting_private_backyard;
+        $setting_additional_info->about_buying_plants = $request->about_buying_plants;
 
         $setting_additional_info->save();
 

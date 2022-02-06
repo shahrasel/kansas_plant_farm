@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function showContact() {
 
-        $settings_info = Setting::select('address','email','phone','nursery_hours','pricing_sheet_link','order_form_link','nursery_link')->first();
+        $settings_info = Setting::select('address','email','phone','nursery_hours','pricing_sheet_link','order_form_link','nursery_link','check_label_1','check_label_2','check_label_3','check_label_4','check_label_5','check_label_6',)->first();
 
         //return view('contact.contactus');
         return view('contact.contactus', [

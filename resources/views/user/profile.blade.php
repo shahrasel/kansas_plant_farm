@@ -27,6 +27,8 @@
                                                 Dashboard</a>
                                             <a href="{{ route('orders') }}" ><i class="fa fa-cart-arrow-down"></i>
                                                 Order History</a>
+                                            <a href="{{ route('wishlist') }}" ><i class="fa fa-cart-arrow-down"></i>
+                                                My Wishlist</a>
                                             <a href="#account-info" class="active"><i class="fa fa-user"></i> My Profile</a>
                                             <form action="{{ url('/logout') }}" method="post">
                                                 @csrf

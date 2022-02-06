@@ -99,16 +99,26 @@
                         </div>-->
 
 
-
-                        <div class="col-md-6" style="margin-top: 30px;padding-left: 0px;">
-                            <input class="btn btn-sqr" type="submit" name="submit" value="{{ __('Login') }}">
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6" style="margin-top: 30px;padding-left: 0px;">
+                                    <input class="btn btn-sqr" type="submit" name="submit" value="{{ __('Login') }}">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    @endif
+                                </div>
+                                <div class="col-md-6" style="margin-top: 38px;padding-left: 0px;">
+                                    <p>If you don't have an account <a href="{{ url('/') }}/register" class="text-white font-weight-bold">Register</a></p>
+                                </div>
+                            </div>
                         </div>
+
+<!--                        <div class="col-md-12" style="margin-top: 20px;padding-left: 0px;">
+                            <p>If you don't have an account <a href="{{ url('/') }}/register" class="text-white font-weight-bold">Register</a></p>
+                        </div>-->
 
 
                     </form>

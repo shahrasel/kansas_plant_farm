@@ -9,6 +9,12 @@
             max-height: 130px;
             overflow-y: scroll;
         }
+        .pdf_form .nice-select{
+            width: 100% !important;
+            height: 45px;
+            border-radius: 0px;
+            line-height: 41px;
+        }
     </style>
 @endsection
 @section('content')
@@ -162,6 +168,38 @@
                                                     <div class="col-lg-6 col-md-6 col-sm-6 text-left">
                                                         <label>Phone</label>
                                                         <input name="phone" id="phone" type="text" >
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>Alt Phone</label>
+                                                        <input name="alt_phone" id="alt_phone" type="text" >
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>Address 1</label>
+                                                        <input name="address1" id="address1" type="text" >
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>Address 2</label>
+                                                        <input name="address2" id="address2" type="text" >
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>City</label>
+                                                        <input name="city" id="city" type="text" >
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left pdf_form">
+                                                        <label class="d-block">State</label>
+                                                        <select name="state" style="width: 100%">
+                                                            <option value="">Select State</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>Zip Code</label>
+                                                        <input name="zip" id="zip" type="text" >
                                                     </div>
 
                                                     <div class="col-lg-6 col-md-6 col-sm-6 text-left">

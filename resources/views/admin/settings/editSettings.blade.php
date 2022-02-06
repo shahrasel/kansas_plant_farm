@@ -495,6 +495,48 @@
                                                 </p>
                                             </div>
                                         </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Checkbox label 1</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="check_label_1"  value="{{ $settings_info->check_label_1 }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Checkbox label 2</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="check_label_2"  value="{{ $settings_info->check_label_2 }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Checkbox label 3</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="check_label_3"  value="{{ $settings_info->check_label_3 }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Checkbox label 4</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="check_label_4"  value="{{ $settings_info->check_label_4 }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Checkbox label 5</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="check_label_5"  value="{{ $settings_info->check_label_5 }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-3" for=""> Checkbox label 6</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" name="check_label_6"  value="{{ $settings_info->check_label_6 }}">
+                                            </div>
+                                        </div>
                                     </fieldset>
 
                                     <fieldset class="form-group">
@@ -536,28 +578,28 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> WHO WE ARE</label>
                                             <div class="col-sm-9">
-                                                <textarea class="ckeditor form-control" name="about_who_we_are" id="about_who_we_are">{{ $settings_info->about_who_we_are }}</textarea>
+                                                <textarea class="ckeditor form-control" name="about_who_we_are" id="about_who_we_are">{{ $settings_additional_info->about_who_we_are }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> ABOUT OUR FOUNDER</label>
                                             <div class="col-sm-9">
-                                                <textarea class="ckeditor form-control" name="about_our_founder" id="about_our_founder">{{ $settings_info->about_our_founder }}</textarea>
+                                                <textarea class="ckeditor form-control" name="about_our_founder" id="about_our_founder">{{ $settings_additional_info->about_our_founder }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> VISITING OUR PRIVATE BACKYARD NURSERY</label>
                                             <div class="col-sm-9">
-                                                <textarea class="ckeditor form-control" name="about_visiting_private_backyard" id="about_visiting_private_backyard">{{ $settings_info->about_visiting_private_backyard }}</textarea>
+                                                <textarea class="ckeditor form-control" name="about_visiting_private_backyard" id="about_visiting_private_backyard">{{ $settings_additional_info->about_visiting_private_backyard }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-form-label col-sm-3" for=""> BUYING PLANTS</label>
                                             <div class="col-sm-9">
-                                                <textarea class="ckeditor form-control" name="about_buying_plants" id="about_buying_plants">{{ $settings_info->about_buying_plants }}</textarea>
+                                                <textarea class="ckeditor form-control" name="about_buying_plants" id="about_buying_plants">{{ $settings_additional_info->about_buying_plants }}</textarea>
                                             </div>
                                         </div>
                                     </fieldset>

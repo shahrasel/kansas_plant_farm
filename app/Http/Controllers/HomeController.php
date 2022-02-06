@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Billboard;
 use App\Models\Product;
 use App\Models\Setting;
+use App\Models\SettingAdditional;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -54,10 +55,12 @@ class HomeController extends Controller
         $imageLists = Setting::firstOrFail();
 
         $settings_info = Setting::find(1);
+        $settings_additional_info = SettingAdditional::find(1);
         //dd($imageLists);
         return view('aboutus.aboutUs', [
             'imageLists' => $imageLists,
             'settings_info'=>$settings_info,
+            'settings_additional_info'=>$settings_additional_info,
         ]);
     }
 

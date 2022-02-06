@@ -97,22 +97,22 @@
                                             <div class="col-lg-12 col-md-12 col-sm-12">
                                                 <h6 style="margin-bottom:10px;margin-top:10px;">Please check all that apply:</h6>
                                                 <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="schedule_shopping_appointment">&nbsp;Schedule shopping appointment ($100 minimum for new customers)
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="schedule_shopping_appointment">&nbsp;{{ $settings_info->check_label_1 }}
                                                 </label>
                                                 <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="add_email_to_notify">&nbsp;Add my email to notify of upcoming events, plant sales, and tours
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="add_email_to_notify">&nbsp;{{ $settings_info->check_label_2 }}
                                                 </label>
                                                 <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="request_to_buy_plants">&nbsp;Request to buy Plants noted above
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="request_to_buy_plants">&nbsp;{{ $settings_info->check_label_3 }}
                                                 </label>
                                                 <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="wish_to_shoot_portraits">&nbsp;We wish to shoot portraits at your location ($100 fee)
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="wish_to_shoot_portraits">&nbsp;{{ $settings_info->check_label_4 }}
                                                 </label>
                                                 <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="req_a_private_garden">&nbsp;Requesting a Private Garden Tour ($75 upto 1 hour)
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="req_a_private_garden">&nbsp;{{ $settings_info->check_label_5 }}
                                                 </label>
                                                 <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="req_a_gift_cert">&nbsp;Request a gift certificate
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="req_a_gift_cert">&nbsp;{{ $settings_info->check_label_6 }}
                                                 </label>
                                             </div>
 
