@@ -107,6 +107,7 @@ class CartController extends Controller
     }
 
     public function print(Request $request) {
+        //dd($request);
         if(Auth::check()) {
             if(Auth::user()->usertype != 'superadmin') {
                 abort(403);

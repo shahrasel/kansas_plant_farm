@@ -215,6 +215,9 @@ Route::get('/admin/billboards/{billboard}/edit',[\App\Http\Controllers\Billboard
 Route::put('/admin/billboards/{billboard}',[\App\Http\Controllers\BillboardController::class, 'update'])->name('admin-billboard-update')->middleware('adminauth');
 /*Route::delete('/admin/billboards/{billboard}',[\App\Http\Controllers\BillboardController::class, 'delete'])->name('admin-billboard-delete')->middleware('adminauth');*/
 
+Route::get('/admin/appointments',[\App\Http\Controllers\AppointmentController::class, 'index'])->name('admin-appointments-index')->middleware('adminauth');
+Route::delete('/admin/appointments/{id}', [\App\Http\Controllers\AppointmentController::class, 'destroy'])->name('admin-appointment-delete')->middleware('adminauth');
+
 
 //Route::delete('/admin/billboards/{billboard}/delete','UserController@destroy');
 

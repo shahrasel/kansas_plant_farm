@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\URL;
 
 class AppointmentController extends Controller
 {
+    public function index() {
+        $appointments = Appointment::orderby('id','Desc')->paginate(20);
+        return view('admin.appointment.index', [
+            'appointments' => $appointments
+        ]);
+    }
+
+    public function destroy($id) {
+        $appointment = Appointment::find($id);
+        $appointment->delete($id);
+
+        return redirect(url('admin/appointments'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -37,7 +51,7 @@ class AppointmentController extends Controller
 
         $cancellationURL = URL::signedRoute('cancellation', ['appointment' => $appointment->id]);
 
-        Mail::to('shahrasel@gmail.com')
+        Mail::to($request->email)
             ->send(new AppointmentConfirmationCustomer($request->firstname, $request->date, $request->time, $cancellationURL));
 
         foreach (['kansasplantfarm@gmail.com'] as $recipient) {

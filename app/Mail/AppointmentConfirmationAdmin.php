@@ -29,6 +29,6 @@ class AppointmentConfirmationAdmin extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.appointmentCancelAdmin')->subject('KANSAS PLANT FARM APPOINTMENT CANCELLATION ALERT!');
+        return $this->view('emails.appointmentConfirmationAdmin')->subject('KANSAS PLANT FARM NEW APPOINTMENT!');
     }
 }

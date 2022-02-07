@@ -26,8 +26,9 @@
             color: #000;
         }
         .cart-table .table thead tr th {
-            background-color: #000;
-            border-color: #000;
+            background-color: #fff;
+            border-color: #ccc;
+            color: #9b9999;
         }
         h1, h2, h3, h4, h5, h6 {
             color: #000;
@@ -37,6 +38,9 @@
         }
         .cart-calculator-wrapper .cart-calculate-items .table tr td:nth-child(2) {
             color: #000;
+        }
+        .cart-calculator-wrapper {
+            background-color: #fff;
         }
     </style>
 @endsection
@@ -48,29 +52,42 @@
         <div class="container">
             <div class="row d-flex mt-5 mb-3 border-bottom border-dark">
                 <div class="col-sm-9 col-md-9 col-lg-9 mb-20">
-                    <img src="https://kansasplantfarm.com/plants_images/logo_top_white.png">
-                    <p>
+                    <img src="{{ asset('plants_images/print_logo.png') }}" style="max-width: 600px;width: 100%;">
+<!--                    <p>
                         1210 Lakeview Ct<br>Lawrence, KS 66049
-                    </p>
+                    </p>-->
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3 mb-20">
-                    <p class="mb-0">Phone: (785) 218-7475</p>
-                    <p class="mb-0">kansasplantfarm@gmail.com</p>
+                    <p class="mb-0"><b>Office:</b> (785) 218-7475</p>
+                    <p class="mb-0"><b>Office Email:</b> kansasplantfarm@gmail.com</p>
                     <p class="mb-0">www.KansasPlantFarm.com</p>
                     <p class="mb-0">
-                        Sales Rep:  Ryan D.
+                        <b>KPF Nursery Address:</b><br/>
+                        1210 Lakeview Ct<br/>
+                        Lawrence, KS 66049
                     </p>
                 </div>
             </div>
             <div class="row d-flex mb-5">
                 <div class="col-sm-9 col-md-9 col-lg-9">
-                    <p class="mb-0"><b>Estimate No:</b> {{ $estimate_no }}</p>
+<!--                    <p class="mb-0"><b>Estimate No:</b> {{ $estimate_no }}</p>
+                    <p class="mb-0"><b>Customer:</b> {{ $request->input('first_name')  }} {{ $request->input('last_name')  }}</p>
+                    <p class="mb-0"><b>Email:</b> {{ $request->input('email_address')  }}</p>
+                    <p class="mb-0"><b>Cell:</b> {{ $request->input('phone')  }}</p>-->
                     <p class="mb-0"><b>Customer:</b> {{ $request->input('first_name')  }} {{ $request->input('last_name')  }}</p>
                     <p class="mb-0"><b>Email:</b> {{ $request->input('email_address')  }}</p>
                     <p class="mb-0"><b>Cell:</b> {{ $request->input('phone')  }}</p>
+                    <p class="mb-0"><b>Alt Phone:</b> {{ $request->input('alt_phone')  }}</p>
+                    <p class="mb-0"><b>Customer Address:</b> {{ $request->input('address1')  }} {{ $request->input('address2')  }}<br/>{{ $request->input('city')  }}, {{ $request->input('state')  }} {{ $request->input('zip')  }}</p>
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3 ">
-                    <p class="mb-0"><b>Date:</b> {{ date('m/d/y') }}</p>
+                    <p class="mb-0"><b>Estimate No:</b> {{ $estimate_no }}</p>
+                    <p class="mb-0"><b>Date of Estimate:</b> {{ date('m/d/y') }}</p>
+                    <p class="mb-0"><b>Sale Rep:</b> {{ $request->input('sales_rep_name') }}</p>
+                    <p class="mb-0"><b>Direct:</b> {{ $request->input('sales_rep_phone') }}</p>
+                    <p class="mb-0"><b>Email:</b> {{ $request->input('sales_rep_email') }}</p>
+                    <p class="mb-0"><b>Pickup/Delivery Date:</b> {{ $request->input('pickup_del_date') }}</p>
+                    <p class="mb-0"><b>Pickup/Delivery Notes:<br/></b> {{ $request->input('pickup_del_note') }}</p>
                 </div>
             </div>
             <div class="section-bg-color text-center" id="cart_div">
@@ -156,9 +173,9 @@
                         <div class="row">
                             <div class="col-lg-5 ml-auto">
                                 <!-- Cart Calculation Area -->
-                                <div class="cart-calculator-wrapper">
+                                <div class="cart-calculator-wrapper" style="margin-top: 60px">
                                     <div class="cart-calculate-items">
-                                        <h6>Totals</h6>
+
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <tr>

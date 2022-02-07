@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\AppointmentCalendar;
 use Illuminate\Http\Request;
 
@@ -55,7 +56,33 @@ class AppointmentCalendarController extends Controller
             }
         }
         //dd(json_decode($time_slots));
-        echo $time_slots;
+
+        if($time_slots != 'null') {
+            $total_slots = json_decode($time_slots);
+        }
+        else {
+            $total_slots = array();
+        }
+
+        //dd($total_slots);
+
+        $appointment_lists = Appointment::where('date',$request->date1)->pluck('time')->toArray();
+        /*dd($appointment_lists);
+        print_r($appointment_lists);
+        exit;*/
+
+        $final_time_slots = array();
+        if(!empty($total_slots)) {
+            foreach($total_slots as $time_slot) {
+                if(!in_array($time_slot, $appointment_lists)) {
+                    $final_time_slots[] = $time_slot;
+                }
+            }
+        }
+
+
+
+        echo json_encode($final_time_slots);
         exit;
     }
 

@@ -131,7 +131,7 @@
                                 }
                             }
                             $html_str += '</div>';
-                            $html_str += '<div class="row"><div class="col-12 text-center"><button type="submit" class="btn-primary rounded font-weight-bold" style="min-width: 150px;height: 50px;">NEXT</button></div></div></div>';
+                            $html_str += '<div class="row"><div class="col-12 text-center"><button type="submit" class="rounded font-weight-bold" style="min-width: 150px;height: 50px;background-color:#7fbc03;color:#fff">NEXT</button></div></div></div>';
                         }
                         else {
                             $html_str = '<div><div class="row">';

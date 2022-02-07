@@ -15,6 +15,12 @@
             border-radius: 0px;
             line-height: 41px;
         }
+        .pdf_form .nice-select ul.list{
+            max-height: 400px;
+        }
+        .ui-widget-header .ui-icon {
+            background-image: url("{{ url('/') }}/css/admin/css/images/ui-icons_444444_256x240.png") !important;
+        }
     </style>
 @endsection
 @section('content')
@@ -194,12 +200,49 @@
                                                         <label class="d-block">State</label>
                                                         <select name="state" style="width: 100%">
                                                             <option value="">Select State</option>
+                                                            @foreach($global_state_lists as $key=>$val)
+                                                                <option value="{{ $key }}">{{ $val }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
 
                                                     <div class="col-lg-6 col-md-6 col-sm-6 text-left">
                                                         <label>Zip Code</label>
                                                         <input name="zip" id="zip" type="text" >
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                        <label>Pickup/Delivery Date</label>
+                                                        <input name="pickup_del_date" id="pickup_del_date" type="text" >
+                                                    </div>
+
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 text-left">
+                                                                <label>Pickup/Delivery Notes</label>
+                                                                <textarea name="pickup_del_note" style="height: 100px"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="container">
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                                <label>Sales Rep Name</label>
+                                                                <input name="sales_rep_name" id="sales_rep_name" type="text" >
+                                                            </div>
+
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                                <label>Sales Rep Direct Phone</label>
+                                                                <input name="sales_rep_phone" id="sales_rep_phone" type="text" >
+                                                            </div>
+
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                                                                <label>Sales Rep Email</label>
+                                                                <input name="sales_rep_email" id="sales_rep_email" type="text" >
+                                                            </div>
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-lg-6 col-md-6 col-sm-6 text-left">
@@ -311,4 +354,10 @@
 </main>
 @endsection
 @section('javascript')
+    <script>
+        $(function(){
+            $("#pickup_del_date").datepicker();
+        });
+
+    </script>
 @endsection
