@@ -1867,9 +1867,6 @@
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../html5_test/js/bootstrap.min.js.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kansas_plant_farm copy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/css/images/ui-icons_444444_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/plants_images/print_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/appointment/index.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/Paintbrush-Effect/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/food-delivery/slide1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../low_maintenance_landscape/wp-content/uploads/revslider/templates/mini-website/slide1.jpg" afterDir="false" />
@@ -8951,18 +8948,10 @@
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master(15.7.20)/src/Twilio/autoload.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../buildentory/twilio-php-master.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentCalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentCalendarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/AppointmentConfirmationAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/AppointmentConfirmationAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin/css/jqueryui.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin/css/jqueryui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/appointment_calendar/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/appointment_calendar/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/calendar/calendar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/calendar/calendar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/front_cart_print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/front_cart_print.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/main_cart_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/print.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/order_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/checkoutConfirmation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/checkoutConfirmation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_analysis_symfony/.idea/stock_analysis_symfony.iml" afterDir="false" />
@@ -9170,7 +9159,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/appointment" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -9349,7 +9338,9 @@
       <workItem from="1643749999439" duration="272000" />
       <workItem from="1643831823192" duration="2100000" />
       <workItem from="1643997365913" duration="15410000" />
-      <workItem from="1644067252065" duration="30086000" />
+      <workItem from="1644067252065" duration="30313000" />
+      <workItem from="1644341974415" duration="2000" />
+      <workItem from="1644608349876" duration="4707000" />
     </task>
     <servers />
   </component>

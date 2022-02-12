@@ -386,12 +386,10 @@
                                                         @if($p <25)
                                                             <tr class="total">
                                                                 <td>Processing Fee</td>
-                                                                <td class="total-amount">$10.00</td>
+                                                                <td class="total-amount">$5.00</td>
                                                             </tr>
+                                                            {{ $i += 5 }}
                                                         @endif
-                                                        @php
-                                                            $i += 10;
-                                                        @endphp
                                                         <tr class="total">
                                                             <td>Total</td>
                                                             <td class="total-amount">${{ number_format($i, 2, '.', ',') }}</td>

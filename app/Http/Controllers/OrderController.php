@@ -157,12 +157,13 @@ class OrderController extends Controller
             }
             $total_val = $total_amount;
 
+
             if($cart_list->product->tax_free != 'YES') {
-                $total_amount = $total_amount*0.093;
+                $total_amount += $total_amount*0.093;
             }
 
             if($total_val < 25) {
-                $total_amount += 10;
+                $total_amount += 5;
             }
         }
         /*echo number_format($total_amount, 2, '.', ',').'####'.$request->get('amount');

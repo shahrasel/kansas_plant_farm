@@ -79,10 +79,6 @@
                                             @endforeach
 
 
-
-
-
-
                                             <tr>
 
                                                 <td align="right" colspan="5" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #000; font-size: 14px; line-height: 18px; margin: 0; padding: 10px 0;border-top: 1px solid #edeff2;">Subtotal</td>
@@ -93,6 +89,19 @@
                                                 <td align="right" colspan="5" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #000; font-size: 14px; line-height: 18px; margin: 0; padding: 10px 0;border-bottom: 1px solid #edeff2;">Sales Tax (9.30%)</td>
                                                 <td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #000; font-size: 14px; line-height: 18px; margin: 0; padding: 10px 0;border-bottom: 1px solid #edeff2;">${{ number_format($tax_amount, 2, '.', ',') }}</td>
                                             </tr>
+
+                                            @php
+                                                $p = $i;
+                                                $i += $tax_amount;
+                                            @endphp
+                                            @if($p <25)
+                                                <tr class="total">
+                                                    <td>Processing Fee</td>
+                                                    <td class="total-amount">$5.00</td>
+                                                </tr>
+                                                {{ $i += 5 }}
+                                            @endif
+
                                             <tr>
 
                                                 <td align="right" colspan="5" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #000; font-size: 14px; line-height: 18px; margin: 0; padding: 10px 0;">Total</td>

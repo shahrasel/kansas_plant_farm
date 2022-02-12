@@ -307,9 +307,17 @@
                                                     <td>${{ number_format($tax_amount, 2, '.', ',') }}</td>
                                                 </tr>
                                                 @php
-                                                    //$i += 9.30/100*$i;
-                                                      $i += $tax_amount;
+                                                    $p = $i;
+                                                    $i += $tax_amount;
                                                 @endphp
+                                                @if($p <25)
+                                                    <tr class="total">
+                                                        <td>Processing Fee</td>
+                                                        <td class="total-amount">$5.00</td>
+                                                    </tr>
+                                                    {{ $i += 5 }}
+                                                @endif
+
                                                 <tr class="total">
                                                     <td>Total</td>
                                                     <td class="total-amount">${{ number_format($i, 2, '.', ',') }}</td>
