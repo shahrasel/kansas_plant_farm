@@ -218,6 +218,8 @@ Route::put('/admin/billboards/{billboard}',[\App\Http\Controllers\BillboardContr
 Route::get('/admin/appointments',[\App\Http\Controllers\AppointmentController::class, 'index'])->name('admin-appointments-index')->middleware('adminauth');
 Route::delete('/admin/appointments/{id}', [\App\Http\Controllers\AppointmentController::class, 'destroy'])->name('admin-appointment-delete')->middleware('adminauth');
 
+Route::get('/admin/newsfeed-users',[\App\Http\Controllers\NewsfeedUserController::class, 'index'])->name('admin-newsfeed-users')->middleware('adminauth');
+
 
 //Route::delete('/admin/billboards/{billboard}/delete','UserController@destroy');
 

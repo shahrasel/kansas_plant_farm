@@ -14,7 +14,9 @@ class NewsfeedUserController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.newsfeed_users.index',[
+           'users_email_lists' => NewsfeedUser::orderByDesc('id','desc')->paginate(100)
+        ]);
     }
 
     /**
