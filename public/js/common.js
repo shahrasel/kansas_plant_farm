@@ -1,6 +1,6 @@
 jQuery( function() {
     $("#myModal").on('click', function (e){
-        console.log(e.target);
+        //console.log(e.target);
         var container = $("#modal_content");
         if (!container.is(e.target) && container.has(e.target).length === 0)
         {
@@ -66,7 +66,7 @@ jQuery( function() {
     // Close the Modal
     $("#close_modal").on('click', function (e) {
         //console.log('123');
-        console.log("132"+event.currentTarget.id);
+        //console.log("132"+event.currentTarget.id);
         e.preventDefault();
         ifModalClosed = 1;
         $("#myModal").fadeOut("slow");
@@ -86,6 +86,7 @@ jQuery( function() {
                 setTimeout(function () {
                     $("#myModal").fadeOut("slow");
                     ifModalClosed = 1;
+                    $("body").css('overflow', 'auto');
                 }, 3000);
             },
             error: function (message) {
