@@ -6,7 +6,7 @@
                 <div class="element-wrapper">
                     <div class="element-box">
                         <h5 class="form-header">
-                            Newsfeed User List
+                            Newsfeed User List &nbsp;&nbsp;&nbsp;&nbsp; <span data-href="{{ url('/') }}/admin/newsfeed-users/export" id="export" class="btn btn-success btn-sm" onclick="exportTasks(event.target);">Export CSV</span>
                         </h5>
 
                         <div class="mx-auto">
@@ -58,7 +58,7 @@
                                     <tr>
                                         <td>{{ $users_email_list->email }}</td>
                                         <td>
-                                            <form id="appointment_delete_{{ $users_email_list->id }}" action="{{ route('admin-appointment-delete', $users_email_list->id) }}" method="post">
+                                            <form id="appointment_delete_{{ $users_email_list->id }}" action="{{ route('admin-newsfeed-users-delete', $users_email_list->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
                                                 <a href="#" role="button" onclick="deleteAppointment('{{ $users_email_list->id }}')">Delete</a>
@@ -314,6 +314,12 @@
             } else {
                 return false;
             }
+        }
+    </script>
+    <script>
+        function exportTasks(_this) {
+            let _url = $(_this).data('href');
+            window.location.href = _url;
         }
     </script>
 @endsection

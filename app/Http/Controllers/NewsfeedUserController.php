@@ -68,9 +68,11 @@ class NewsfeedUserController extends Controller
      * @param  \App\Models\NewsfeedUser  $newsfeedUser
      * @return \Illuminate\Http\Responseequest->valida
      */
-    public function destroy(NewsfeedUser $newsfeedUser)
+    public function destroy($id)
     {
-        //
+        NewsfeedUser::destroy($id);
+
+        return redirect(url('admin/newsfeed-users'));
     }
 
     private function validation(Request $request) {
@@ -85,6 +87,38 @@ class NewsfeedUserController extends Controller
         return $this->validate($request, $rules, $customMessages);
 
 
+    }
+
+    public function exportcsv(Request $request)
+    {
+        //dd($request);
+        $fileName = 'newsfeed_users_'.date('m_d_Y').'.csv';
+        $tasks = NewsfeedUser::select('email')->orderByDesc('id')->get();
+
+        $headers = array(
+            "Content-type"        => "text/csv",
+            "Content-Disposition" => "attachment; filename=$fileName",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
+
+        $columns = array('email');
+
+        $callback = function() use($tasks, $columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+
+            foreach ($tasks as $task) {
+                $row['email']  = $task->email;
+
+                fputcsv($file, array($row['email']));
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
     }
 
 }

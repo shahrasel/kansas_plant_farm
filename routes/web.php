@@ -219,6 +219,9 @@ Route::get('/admin/appointments',[\App\Http\Controllers\AppointmentController::c
 Route::delete('/admin/appointments/{id}', [\App\Http\Controllers\AppointmentController::class, 'destroy'])->name('admin-appointment-delete')->middleware('adminauth');
 
 Route::get('/admin/newsfeed-users',[\App\Http\Controllers\NewsfeedUserController::class, 'index'])->name('admin-newsfeed-users')->middleware('adminauth');
+Route::delete('/admin/newsfeed-users/{id}', [\App\Http\Controllers\NewsfeedUserController::class, 'destroy'])->name('admin-newsfeed-users-delete')->middleware('adminauth');
+Route::get('/admin/newsfeed-users/export',[\App\Http\Controllers\NewsfeedUserController::class, 'exportcsv'])->name('admin-newsfeed-users-export')->middleware('adminauth');
+
 
 
 //Route::delete('/admin/billboards/{billboard}/delete','UserController@destroy');
