@@ -52,9 +52,8 @@
                                     Appointment Time: {{ $time }}<br/><br/>
 
 
-                                    If you need to cancel, follow this cancellation link:<br/>
+                                        If you need to cancel, <a href="{{ $cancellationURL }}" target="_blank">Click Here to Cancel</a>.
 
-                                        <a href="{{ $cancellationURL }}" target="_blank">Cancellation Link</a>
                                     </p>
 
 
