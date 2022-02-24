@@ -167,7 +167,7 @@
         <!--mobile header top start -->
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-12">
+                <div class="col-12 mb-2">
                     <div class="mobile-main-header">
                         <div class="mobile-logo">
                             <a href="{{ url('/') }}">
@@ -175,6 +175,17 @@
                             </a>
                         </div>
                         <div class="mobile-menu-toggler">
+                            <div class="mini-cart-wrap mr-3">
+                                <a href="{{ route('my-profile') }}">
+                                    <i class="pe-7s-user"></i>
+                                </a>
+                            </div>
+                            <div class="mini-cart-wrap mr-3">
+                                <a href="{{ route('wishlist') }}">
+                                    <i class="pe-7s-like"></i>
+                                    <div class="notification">{{ $product_wishlist->wishlistCount() }}</div>
+                                </a>
+                            </div>
                             <div class="mini-cart-wrap">
                                 <a href="{{ url('/cart') }}">
                                     <i class="pe-7s-shopbag"></i>
@@ -188,6 +199,15 @@
                             </button>
                         </div>
                     </div>
+                </div>
+                <div class="col-12">
+<!--                    <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox" id="search_store_form3">
+                        <input id="search_store" type="text" class="header-search-field ui-autocomplete-input" placeholder="Search by Plant Name">
+                    </form>-->
+                    <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox" id="search_store_form3" data-url="{{ url('/plants') }}">
+                        <input type="search" placeholder="Search by Plant Name" class="header-search-field" id="search_store3">
+                        <button class="header-search-btn" type="submit"><i class="pe-7s-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -412,8 +432,8 @@
 </footer>
 <!-- footer area end -->
 
-<div class="position-fixed schedule verticaltext px-3 py-2 text-dark font-weight-bold rounded-bottom" style="background-color: #7fbc03">
-    <a href="{{ url('/') }}/schedule-calendar" class="text-dark">Schedule an Appointment</a>
+<div class="position-fixed schedule verticaltext px-3 py-2 text-dark font-weight-bold rounded-bottom" style="background-color: yellow">
+    <a href="{{ url('/') }}/schedule-calendar" class="text-dark text-uppercase">Schedule an Appointment</a>
 </div>
 
 {{--{{ dd($cart->getCartData()) }}--}}

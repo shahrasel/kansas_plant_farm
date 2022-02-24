@@ -82,7 +82,7 @@ jQuery( function() {
             method: 'POST',
             data: $form.serialize(),
             success: function (data) {
-                $form.find(".row").html("<div class=\"col-lg-12\" style='padding-top:120px;text-align: center'><h3>Thank You</h3><p>Your information is successfully inserted into our database.</p></div>");
+                $form.find(".row").html("<div class=\"col-lg-12\" style='padding-top:120px;text-align: center'><p>Thank you for signing up! We will be sending out email notifications on our upcoming events and plant sales soon. We look forward in meeting your in person soon!</p></div>");
                 setTimeout(function () {
                     $("#myModal").fadeOut("slow");
                     ifModalClosed = 1;
@@ -151,6 +151,20 @@ jQuery( function() {
 
             //jQuery("#search_store_form2").attr('action',"{{ url('/plants') }}/"+ui.item.slug);
             jQuery("#search_store_form2").attr('action',$("#search_store_form").data('url')+"/"+ui.item.slug);
+            jQuery("#search_store_form2").submit();
+        }
+    });
+
+    jQuery( "#search_store3" ).catcomplete({
+        delay: 0,
+        source: data,
+        select: function (event, ui) {
+            var label = ui.item.label;
+            var value = ui.item.value;
+            //alert(ui.item.slug);
+
+            //jQuery("#search_store_form2").attr('action',"{{ url('/plants') }}/"+ui.item.slug);
+            jQuery("#search_store_form2").attr('action',$("#search_store_form3").data('url')+"/"+ui.item.slug);
             jQuery("#search_store_form2").submit();
         }
     });
