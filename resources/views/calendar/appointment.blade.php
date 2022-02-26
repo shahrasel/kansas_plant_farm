@@ -28,8 +28,9 @@
     <main>
         <!-- checkout main wrapper start -->
         <div class="checkout-page-wrapper container section-padding pt-4">
-            <div class="container">
+            <div class="container" id="container">
                 <h1 class="text-lg-left text-md-left text-sm-center mb-30">Appointment</h1>
+                <h4 class="contact-title mb-3">On {{ request()->date }} at {{ request()->time }}</h4>
             </div>
                 <!-- google map end -->
 
@@ -39,7 +40,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="contact-message">
-                                <h4 class="contact-title">On {{ request()->date }} at {{ request()->time }}</h4>
+
                                 <form id="appointment_form"  class="contact-form" >
                                     @csrf
                                     <div class="row">
@@ -106,7 +107,8 @@
                 url: "{{ route('send_appointment')  }}",
                 data: $("#appointment_form").serialize(),
                 success: function (data) {
-                    $form.find(".row").html("<div class=\"col-lg-12\" style='padding-top:120px;text-align: center'><h3>Thank You</h3><p>Your information is successfully inserted into our database.</p></div>");
+                    $("#container").css('display','none');
+                    $form.find(".row").html("<div class=\"col-lg-12\" style='padding-top:120px;text-align: center'><p>"+data+"</p></div>");
                     setTimeout(function () {
                         $("#myModal").fadeOut("slow");
                         ifModalClosed = 1;
