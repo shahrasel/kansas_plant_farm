@@ -13,7 +13,8 @@
             <!-- checkout main wrapper start -->
             <div class="checkout-page-wrapper section-padding pt-4" >
                 <div class="container">
-                    <h1 class="text-lg-left text-md-left text-sm-center mb-30">SELECT A DATE</h1>
+                    <h2 class="text-lg-left text-md-left text-sm-center mb-30">SCHEDULE AN APPOINTMENT</h2>
+                    <p class="mb-4">Please select a day you would like to come visit the nursery.</p>
                     <div style="margin-bottom: 30px;">
                         <section class="py-3">
                             <div class="form-group row">
@@ -94,7 +95,8 @@
                         var parsedJSON = JSON.parse(data);
 
                         if(parsedJSON.length >0) {
-                            $html_str ='<h4 class="onboarding-title pb-4 text-center">Please select time for '+$("#date").val()+'.</h4>';
+                            /*$html_str ='<h4 class="onboarding-title pb-4 text-center">Please select time for '+$("#date").val()+'.</h4>';*/
+                            $html_str ='<h4 class="onboarding-title pb-4 text-center">Please select a time.</h4>';
                             $html_str += '<div><div class="row">';
                             for (var i=0;i<parsedJSON.length;i+=4) {
                                 if(parsedJSON[i].length >0) {
@@ -135,7 +137,7 @@
                         }
                         else {
                             $html_str = '<div><div class="row">';
-                                $html_str += '<div class="col-12">No time slot found!!</div>';
+                                $html_str += '<div class="col-12">Sorry for the inconvenience. No time slot is available for this day. Please select another day.</div>';
                             $html_str += '</div></div>';
                         }
 
