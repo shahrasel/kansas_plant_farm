@@ -58,6 +58,9 @@ class AppointmentController extends Controller
             Mail::to($recipient)
                 ->send(new AppointmentConfirmationAdmin($appointment));
         }
+
+        echo 'Thank you! We have confirmed your appointment for '.date('l, F d',strtotime($request->date)).' at '.$request->time;
+        exit;
     }
 
     public function cancellation(Request $request, Appointment $appointment)
