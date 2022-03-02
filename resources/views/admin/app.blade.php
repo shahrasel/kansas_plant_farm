@@ -885,6 +885,14 @@
                         <span>Appointments</span></a>
 
                 </li>
+                <li class="selected">
+                    <a href="{{ url('/admin/newsfeed-users') }}">
+                        <div class="icon-w">
+                            <div class="os-icon os-icon-layout"></div>
+                        </div>
+                        <span>Newsfeed Users</span></a>
+
+                </li>
 <!--                <li class="selected has-sub-menu">
                     <a href="index.html">
                         <div class="icon-w">
