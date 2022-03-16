@@ -50,7 +50,7 @@
 <!--                                <p>Kansas Plant Farm is a private backyard family-owned nursery and display garden. Nestled on an acre of land in the central west Lawrence, the nursery was established in 2005 by Ryan Domnick. Surrounding the front and East side of the residence are display gardens with many types of plants ranging from hardy tropicals, edibles, native plants, butterfly plants, and many other unusual plants. We primarily grow plants available for on-line purchase and curbside pickup. We have occasional "Open to the Public" days, Special Plant Sales, Shopping appointments, Display garden tours, and Educational garden walks. We are open on a seasonal basis so please check our website.</p>-->
                                 {{--{!! str_replace($healthy, $yummy, $settings_info->about_who_we_are) !!}--}}
 
-                                {{ str_replace($healthy, $yummy, $settings_additional_info->about_who_we_are) }}
+                                {!! str_replace($healthy, $yummy, $settings_additional_info->about_who_we_are) !!}
                             </section>
 
                             <section class="py-3">

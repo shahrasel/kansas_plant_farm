@@ -388,7 +388,9 @@
                                                                 <td>Processing Fee</td>
                                                                 <td class="total-amount">$5.00</td>
                                                             </tr>
-                                                            {{ $i += 5 }}
+                                                            @php
+                                                              $i += 5
+                                                            @endphp
                                                         @endif
                                                         <tr class="total">
                                                             <td>Total</td>
@@ -519,33 +521,33 @@
                                                     <h6 style="margin-bottom:10px;margin-top:10px;">Please check all that apply:</h6>
 
                                                     @if($sub_total >=100)
-                                                        <label style="width: 100%;cursor: pointer;height: 30px;">
+                                                        <label style="width: 100%;cursor: pointer;">
                                                             <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="hand_pick">&nbsp;Hand pick out plants at the nursery
                                                         </label>
                                                     @endif
 
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="substitute_plant_size">&nbsp;If plant is not available, I’m ok to substitute plant size. (equal or better value)
+                                                    <label style="width: 100%;cursor: pointer;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%;margin-bottom:0px" class="ids" value="substitute_plant_size">&nbsp;If plant is not available, I’m ok to substitute plant size. (equal or better value)
                                                     </label>
 
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="substitute_plant_variety">&nbsp;If plant is not available, I’m ok to substitute plant variety. (equal or better value)
+                                                    <label style="width: 100%;cursor: pointer;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%;margin-bottom:0px" class="ids" value="substitute_plant_variety">&nbsp;If plant is not available, I’m ok to substitute plant variety. (equal or better value)
                                                     </label>
 
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="back_order_1_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 1 month)
+                                                    <label style="width: 100%;cursor: pointer;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%;margin-bottom:0px" class="ids" value="back_order_1_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 1 month)
                                                     </label>
 
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="back_order_3_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 3 months)
+                                                    <label style="width: 100%;cursor: pointer;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%;margin-bottom:0px" class="ids" value="back_order_3_month">&nbsp;If plant is not available, I’m ok to back-order. (Up to 3 months)
                                                     </label>
 
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="issue_refund">&nbsp;If plant is not available, please issue refund on that item
+                                                    <label style="width: 100%;cursor: pointer;">
+                                                        <input type="checkbox" name="preferred_pick_optinos[]" style="width: 5%;margin-bottom:0px" class="ids" value="issue_refund">&nbsp;If plant is not available, please issue refund on that item
                                                     </label>
 
-                                                    <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                        <input id="sign_up_for_newsfeed" type="checkbox" name="preferred_pick_optinos[]" style="width: 5%" class="ids" value="sign_up_for_newsfeed">&nbsp;Sign up to be notified of Plant Sales and Upcoming Events
+                                                    <label style="width: 100%;cursor: pointer;">
+                                                        <input id="sign_up_for_newsfeed" type="checkbox" name="preferred_pick_optinos[]" style="width: 5%;margin-bottom:0px" class="ids" value="sign_up_for_newsfeed">&nbsp;Sign up to be notified of Plant Sales and Upcoming Events
                                                     </label>
 
 
