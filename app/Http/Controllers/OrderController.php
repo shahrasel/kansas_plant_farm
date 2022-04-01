@@ -182,9 +182,7 @@ class OrderController extends Controller
 
             $orderId = $order->id;
 
-            Mail::to($request->get('payerEmail'))
-                ->bcc('kansasplantfarm@gmail.com')
-                ->send(new checkoutConfirmation($request->get('payerFname'),$cart_lists, $request->get('orderId')));
+
             //die();
 
             if(!empty($cart_lists)) {
@@ -218,6 +216,11 @@ class OrderController extends Controller
                     $cart_info->delete();
                 }
             }
+
+            Mail::to($request->get('payerEmail'))
+                ->bcc('kansasplantfarm@gmail.com')
+                ->send(new checkoutConfirmation($request->get('payerFname'),$cart_lists, $request->get('orderId')));
+            
             echo 'done successfully';
             exit;
         }
@@ -326,7 +329,7 @@ class OrderController extends Controller
             $oderInfo->save();
         }
 
-        //dd($oderInfo);
+        //dd($orderdetails_lists);
 
         $order_additional_info = OrderAdditional::where('id',$oderInfo->order_additional_id)->first();
 
