@@ -400,7 +400,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-2 text-center">Note: Shipping and Delivery are not available at this time. All prices are for pickup at nursery.</div>
+            <div class="p-2 text-center">Note: Shipping and Delivery are not available at this time. All prices are for pickup at nursery. $5 processing fee will be applied for all orders $25.00 or below.</div>
             <div class="d-flex justify-content-center my-3">
                 <div class="p-2"><a href="{{ route('terms-conditions') }}" style="color: #7fbc03">Terms & Conditions</a></div>
                 <div class="p-2">|</div>
@@ -518,7 +518,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="p-2 pb-4 text-center">Note: Shipping and Delivery are not available at this time. All prices are for pickup at nursery.</div>
+                    <div class="p-2 pb-4 text-center">Note: Shipping and Delivery are not available at this time. All prices are for pickup at nursery. $5 processing fee will be applied for all orders $25.00 or below.</div>
                 <div class="minicart-button">
                     <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> View Cart</a>
                     <a href="{{ url('/checkout') }}"><i class="fa fa-share"></i> Checkout</a>
