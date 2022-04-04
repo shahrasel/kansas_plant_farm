@@ -516,10 +516,10 @@
                                                 </div>
                                             @endif
                                             <div class="tab-pane fade" id="tab_two">
-                                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                                    <h5 style="margin-top: 20px;margin-bottom: 10px">Description section</h5>
-                                                    @if($product->how_to_grow_in_kansas)
-                                                        <p><b>How to Grow in Kansas:</b> {{ rtrim(str_replace(',',', ',ltrim($product->how_to_grow_in_kansas,',')),", ") }}</p>
+                                                <div class="col-xl-12 col-md-12 col-sm-12">
+                                                    <h5 style="margin-top: 20px;margin-bottom: 10px">Description</h5>
+                                                    @if($product->description)
+                                                        <p><b>How to Grow in Kansas:</b> {{ $product->description }}</p>
                                                     @endif
                                                 </div>
                                             </div>
