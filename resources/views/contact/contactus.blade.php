@@ -17,6 +17,9 @@
         .btn-sqr{
             padding: 12px 10px;
         }
+        label {
+            margin-bottom: .75rem;
+        }
         </style>
 @endsection
 @section('content')
@@ -96,23 +99,23 @@
 
                                             <div class="col-lg-12 col-md-12 col-sm-12">
                                                 <h6 style="margin-bottom:10px;margin-top:10px;">Please check all that apply:</h6>
-                                                <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="schedule_shopping_appointment">&nbsp;{{ $settings_info->check_label_1 }}
+                                                <label style="width: 100%;cursor: pointer;">
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%;margin-bottom:0px" class="ids" value="schedule_shopping_appointment">&nbsp;{{ $settings_info->check_label_1 }}
                                                 </label>
-                                                <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="add_email_to_notify">&nbsp;{{ $settings_info->check_label_2 }}
+                                                <label style="width: 100%;cursor: pointer;">
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%;margin-bottom:0px" class="ids" value="add_email_to_notify">&nbsp;{{ $settings_info->check_label_2 }}
                                                 </label>
-                                                <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="request_to_buy_plants">&nbsp;{{ $settings_info->check_label_3 }}
+                                                <label style="width: 100%;cursor: pointer;">
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%;margin-bottom:0px" class="ids" value="request_to_buy_plants">&nbsp;{{ $settings_info->check_label_3 }}
                                                 </label>
-                                                <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="wish_to_shoot_portraits">&nbsp;{{ $settings_info->check_label_4 }}
+                                                <label style="width: 100%;cursor: pointer;">
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%;margin-bottom:0px" class="ids" value="wish_to_shoot_portraits">&nbsp;{{ $settings_info->check_label_4 }}
                                                 </label>
-                                                <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="req_a_private_garden">&nbsp;{{ $settings_info->check_label_5 }}
+                                                <label style="width: 100%;cursor: pointer;">
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%;margin-bottom:0px" class="ids" value="req_a_private_garden">&nbsp;{{ $settings_info->check_label_5 }}
                                                 </label>
-                                                <label style="width: 100%;cursor: pointer;height: 30px;">
-                                                    <input type="checkbox" name="checklist[]" style="width: 5%" class="ids" value="req_a_gift_cert">&nbsp;{{ $settings_info->check_label_6 }}
+                                                <label style="width: 100%;cursor: pointer;">
+                                                    <input type="checkbox" name="checklist[]" style="width: 5%;margin-bottom:0px" class="ids" value="req_a_gift_cert">&nbsp;{{ $settings_info->check_label_6 }}
                                                 </label>
                                             </div>
 
