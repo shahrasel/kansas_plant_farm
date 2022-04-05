@@ -377,7 +377,7 @@ class ProductController extends Controller
                             })
                             ->orWhere(function ($query) use ($service_life_sel_arr) {
                                 for ($i = 0; $i < count($service_life_sel_arr); $i++) {
-                                    $query->orWhere('service_life', '=', $service_life_sel_arr [$i]);
+                                    $query->orWhere('service_life', '=', ','.$service_life_sel_arr [$i]);
                                 }
                             })
                             ->orWhere(function ($query) use ($maintenance_requirements_sel_arr) {
@@ -1170,7 +1170,7 @@ class ProductController extends Controller
                         })
                         ->Where(function ($query) use($service_life_sel_arr) {
                             for ($i = 0; $i < count($service_life_sel_arr); $i++){
-                                $query->where('service_life', '=',  $service_life_sel_arr [$i] );
+                                $query->where('service_life', '=',  ','.$service_life_sel_arr [$i] );
                             }
                         })
                         ->Where(function ($query) use($maintenance_requirements_sel_arr) {
@@ -1716,6 +1716,8 @@ class ProductController extends Controller
 
         $where_query= array();
 
+        //dd($request);
+
         if($request->get('search_type') == 'partial') {
 
             if(!empty($request->get('category'))) {
@@ -1866,6 +1868,7 @@ class ProductController extends Controller
             if($request->has('service_life')) {
                 $service_life_sel_arr = $request->get('service_life');
             }
+            //dd($service_life_sel_arr);
             if($request->has('maintenance_requirements')) {
                 $maintenance_requirements_sel_arr = $request->get('maintenance_requirements');
             }
@@ -1966,6 +1969,7 @@ class ProductController extends Controller
                     })
 
                     ->Where(function ($query) use($gardencat_sel_arr,$sunlight_sel_arr,$water_rainfall_sel_arr,$soil_quality_sel_arr,$bloom_season_sel_arr,$flower_color_sel_arr,$berry_fruit_color_sel_arr,$spring_foliage_color_sel_arr,$summer_foliage_color_sel_arr,$fall_foliage_color_sel_arr,$has_evergreen_foliage_sel_arr,$has_winter_interest_sel_arr,$scented_flowers_sel_arr,$drought_tolerance_sel_arr,$wet_feet_tolerance_sel_arr,$humidity_tolerance_sel_arr,$wind_tolerence_sel_arr,$poor_soil_tolerance_sel_arr,$growth_rate_sel_arr,$service_life_sel_arr,$maintenance_requirements_sel_arr,$spreading_potential_sel_arr,$yearly_trimming_tips_sel_arr,$plant_grouping_size_sel_arr,$best_side_of_house_sel_arr,$extreme_planting_locations_sel_arr,$ornamental_features_sel_arr,$special_landscape_uses_sel_arr,$possible_pest_problems_sel_arr,$plant_limitations_sel_arr) {
+
                         $query->orWhere(function ($query) use ($gardencat_sel_arr) {
                             for ($i = 0; $i < count($gardencat_sel_arr); $i++) {
                                 $query->orWhere($gardencat_sel_arr [$i], '=', 'YES');
@@ -2056,16 +2060,20 @@ class ProductController extends Controller
                                     $query->orWhere('poor_soil_tolerance', 'like', '%,' . $poor_soil_tolerance_sel_arr [$i] . ',%');
                                 }
                             })
+
                             ->orWhere(function ($query) use ($growth_rate_sel_arr) {
                                 for ($i = 0; $i < count($growth_rate_sel_arr); $i++) {
                                     $query->orWhere('growth_rate', 'like', '%,' . $growth_rate_sel_arr [$i] . ',%');
                                 }
                             })
+
                             ->orWhere(function ($query) use ($service_life_sel_arr) {
                                 for ($i = 0; $i < count($service_life_sel_arr); $i++) {
-                                    $query->orWhere('service_life', '=', $service_life_sel_arr [$i]);
+                                    //$query->orWhere('service_life', 'like', '%,' . $service_life_sel_arr [$i] . ',%');
+                                    $query->orWhere('service_life', '=', ','.$service_life_sel_arr [$i]);
                                 }
                             })
+
                             ->orWhere(function ($query) use ($maintenance_requirements_sel_arr) {
                                 for ($i = 0; $i < count($maintenance_requirements_sel_arr); $i++) {
                                     //$query->where('sunlight', 'like',  '%' . $sunlight_fin_arr [$i] .',%');
@@ -2121,8 +2129,6 @@ class ProductController extends Controller
                             });
                     })->orderBy($sortby,$sort)
                     ->paginate(50);
-
-
             }
             else {
                 $product_lists = DB::table('products')
@@ -2144,7 +2150,7 @@ class ProductController extends Controller
                 //->where('status','ACTIVE')
                 ->count();
 
-
+            $sel_products = array();
             $sel_products = DB::table('products')
                 ->select('sunlight', 'water_rainfall', 'soil_quality', 'bloom_season', 'flower_color', 'berry_fruit_color', 'spring_foliage_color', 'summer_foliage_color', 'fall_foliage_color', 'has_evergreen_foliage', 'has_winter_interest', 'scented_flowers', 'drought_tolerance', 'wet_feet_tolerance', 'humidity_tolerance', 'wind_tolerence', 'poor_soil_tolerance', 'growth_rate', 'service_life', 'maintenance_requirements', 'spreading_potential', 'yearly_trimming_tips','plant_grouping_size','best_side_of_house','extreme_planting_locations','ornamental_features','special_landscape_uses','possible_pest_problems','plant_limitations')->orderBy('botanical_name','ASC')
                 ->get();
@@ -2541,6 +2547,7 @@ class ProductController extends Controller
 
         }
         else {
+
             if(!empty($request->get('category'))) {
                 if($request->get('category') == 'best-sellers') {
                     $where_query['best_sellers'] = 'YES';
@@ -2678,6 +2685,7 @@ class ProductController extends Controller
             if($request->has('growth_rate')) {
                 $growth_rate_sel_arr = $request->get('growth_rate');
             }
+
             if($request->has('service_life')) {
                 $service_life_sel_arr = $request->get('service_life');
             }
@@ -2870,8 +2878,9 @@ class ProductController extends Controller
                         }
                     })
                     ->Where(function ($query) use($service_life_sel_arr) {
+                        //dd(count($service_life_sel_arr));
                         for ($i = 0; $i < count($service_life_sel_arr); $i++){
-                            $query->where('service_life', '=',  $service_life_sel_arr [$i] );
+                            $query->where('service_life', '=',  ','.$service_life_sel_arr [$i] );
                         }
                     })
                     ->Where(function ($query) use($maintenance_requirements_sel_arr) {
