@@ -363,7 +363,10 @@
 
 
                                 <div class="row">
-                                    <div class="col-lg-5 ml-auto">
+                                    <div class="col-lg-7" style="margin-top: 70px;">
+                                        <p>Note: Shipping and Delivery are not available at this time. All prices are for pickup at nursery. $5 processing fee will be applied for all orders $25.00 or below.</p>
+                                    </div>
+                                    <div class="col-lg-5">
                                         <div class="cart-calculator-wrapper">
                                             <div class="cart-calculate-items">
                                                 <div class="table-responsive">
@@ -855,7 +858,8 @@
                                 // redirect to failed page if internal error occurs
                                 window.location.href = APP_URL+'/pay-failed?reason=internalFailure';
                             });
-                    } else{
+                    }
+                    else{
                         window.location.href = APP_URL+'/pay-failed?reason=failedToCapture';
                     }
                 });
