@@ -686,6 +686,8 @@ class Product extends Model
         $return_arr['price'] = $price_arr;
         $return_arr['available'] = $available;
         $return_arr['pot_size'] = $pot_size;
+        $return_arr['product_id_number'] = $product->plant_id_number;
+
 
 
 
