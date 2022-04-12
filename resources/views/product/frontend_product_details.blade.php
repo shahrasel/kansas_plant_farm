@@ -149,23 +149,35 @@
                                                 <a>Large Tree</a>
                                             @endif
                                         </div>
-                                        <div class="availability">
-                                            <i class="fa fa-check-circle"></i>
-                                            <span style="margin-right: 40px" id="product_count">
-                                                @if(!empty($product->getProductStock($product)))
-                                                    @if($product->getProductStock($product)>0)
+                                        <div class="availability" id="product_count">
+                                            @if(!empty($product->getProductStock($product)))
+                                                @if($product->getProductStock($product)>0)
+                                                    <i class="fa fa-check-circle"></i>
+                                                    <span style="margin-right: 40px">
                                                         @if($product->getProductStock($product) >= 10)
                                                             This size {{ $product->getProductStock($product) }} in stock
                                                         @else
                                                             This size {{ $product->getProductStock($product) }} in stock
                                                         @endif
-                                                    @else
-                                                        THIS SIZE NOT AVAILABLE
-                                                    @endif
+                                                    </span>
                                                 @else
-                                                    THIS SIZE NOT AVAILABLE
+                                                    <span style="margin-right: 40px;color: red" >
+                                                        THIS SIZE NOT AVAILABLE. PLEASE CHECK ANOTHER SIZE.
+                                                    </span>
                                                 @endif
-                                            </span>
+                                            @else
+                                                <span style="margin-right: 40px;color: red" >
+                                                    THIS SIZE NOT AVAILABLE. PLEASE CHECK ANOTHER SIZE.
+                                                </span>
+                                            @endif
+
+
+
+
+
+
+
+
                                             <span>Product ID: {{ $product->plant_id_number }}</span>
                                         </div>
                                         <p class="pro-desc">
