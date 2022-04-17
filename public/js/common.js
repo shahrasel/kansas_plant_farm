@@ -221,9 +221,9 @@ function change_price(id, user_type) {
 
                     if(parseInt(result['available'])>0) {
                         if(parseInt(result['available']) >= 10)
-                            jQuery("#product_count").html('Currently '+parseInt(result['available'])+' in stock');
+                            jQuery("#product_count").html('<i class="fa fa-check-circle"></i><span style="margin-right: 40px">Currently '+parseInt(result['available'])+' in stock</span><span>Product ID: '+result['product_id_number']+'</span>');
                         else
-                            jQuery("#product_count").html('Only '+parseInt(result['available'])+' in stock');
+                            jQuery("#product_count").html('<i class="fa fa-check-circle"></i><span style="margin-right: 40px">Only '+parseInt(result['available'])+' in stock</span><span>Product ID: '+result['product_id_number']+'</span>');
 
                         jQuery("#max_item").val(result['available']);
                         jQuery("#pot_size").val(result['pot_size']);
@@ -245,9 +245,9 @@ function change_price(id, user_type) {
 
                 if(user_type == 'superadmin') {
                     if (parseInt(result['available']) >= 10)
-                        jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
+                        jQuery("#product_count").html('<i class="fa fa-check-circle"></i><span style="margin-right: 40px">This size ' + parseInt(result['available']) + ' in stock</span><span>Product ID: '+result['product_id_number']+'</span>');
                     else
-                        jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
+                        jQuery("#product_count").html('<i class="fa fa-check-circle"></i><span style="margin-right: 40px">This size ' + parseInt(result['available']) + ' in stock</span><span>Product ID: '+result['product_id_number']+'</span>');
 
 
                     jQuery("#addtocart_btn").removeClass('d-none');
@@ -259,7 +259,7 @@ function change_price(id, user_type) {
                 }
                 else {
                     if (isNaN(parseInt(result['available']))) {
-                        jQuery("#product_count").html('THIS SIZE NOT AVAILABLE');
+                        jQuery("#product_count").html('<span style="margin-right: 40px;color: red">THIS SIZE NOT AVAILABLE. PLEASE CHECK ANOTHER SIZE.</span><span>Product ID: '+result['product_id_number']+'</span>');
                         jQuery("#addtocart_btn").removeClass('d-flex');
                         jQuery("#addtocart_btn").addClass('d-none');
                     }
@@ -267,9 +267,9 @@ function change_price(id, user_type) {
                         if (parseInt(result['available']) > 0) {
 
                             if (parseInt(result['available']) >= 10)
-                                jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
+                                jQuery("#product_count").html('<i class="fa fa-check-circle"></i><span style="margin-right: 40px">This size ' + parseInt(result['available']) + ' in stock</span><span>Product ID: '+result['product_id_number']+'</span>');
                             else
-                                jQuery("#product_count").html('This size ' + parseInt(result['available']) + ' in stock');
+                                jQuery("#product_count").html('<i class="fa fa-check-circle"></i><span style="margin-right: 40px">This size ' + parseInt(result['available']) + ' in stock</span><span>Product ID: '+result['product_id_number']+'</span>');
 
                             //jQuery("#addtocart_btn").css('display', 'block');
                             jQuery("#addtocart_btn").removeClass('d-none');
@@ -281,7 +281,7 @@ function change_price(id, user_type) {
 
                         }
                         else {
-                            jQuery("#product_count").html('THIS SIZE NOT AVAILABLE');
+                            jQuery("#product_count").html('<span style="margin-right: 40px;color: red">THIS SIZE NOT AVAILABLE. PLEASE CHECK ANOTHER SIZE.</span><span>Product ID: '+result['product_id_number']+'</span>');
 
                             jQuery("#addtocart_btn").removeClass('d-flex');
                             jQuery("#addtocart_btn").addClass('d-none');
