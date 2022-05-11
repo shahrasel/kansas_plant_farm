@@ -3754,7 +3754,7 @@ class ProductController extends Controller
 
         $product = new Product();
 
-        $this->store($product);
+        $this->store($request, $product);
 
     }
 
@@ -3800,8 +3800,12 @@ class ProductController extends Controller
     }
 
     protected function store($request, $product) {
+        //dd($request);
+        $request->validate([
+            'plant_id_number' => 'required'
+        ]);
 
-        //$product->plant_id_number = $request->plant_id_number;
+        $product->plant_id_number = $request->plant_id_number;
         $product->botanical_name = $request->botanical_name;
         $product->common_name = $request->common_name;
         $product->other_product_service_name = $request->other_product_service_name;
