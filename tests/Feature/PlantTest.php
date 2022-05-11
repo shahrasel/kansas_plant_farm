@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -17,8 +18,16 @@ class PlantTest extends TestCase
     public function plant_can_be_added() {
         $this->withoutExceptionHandling();
 
+        $response = $this->post('/admin', [
+            'email' => 'admin@kansasplantfarm.com',
+            'password' => 'admin123',
+            'remember' => 'on',
+        ]);
+
+        $this->assertAuthenticatedAs(\Auth::user());
+
         $response = $this->post('/admin/add-product',[
-            'plant_id_number'=>'555555',
+            'plant_id_number'=>'551555',
             'botanical_name'=> 'test botanical name plant 1',
             'common_name'=> 'test common name plant 1'
         ]);
@@ -27,13 +36,21 @@ class PlantTest extends TestCase
 
         //$response->assertSessionHasErrors('plant_id_number');
 
-        $this->assertCount(1306, Product::all());
+        $this->assertCount(1332, Product::all());
 
     }
 
     /** @test */
     public function plant_id_is_required() {
         //$this->withoutExceptionHandling();
+
+        $response = $this->post('/admin', [
+            'email' => 'admin@kansasplantfarm.com',
+            'password' => 'admin123',
+            'remember' => 'on',
+        ]);
+
+        $this->assertAuthenticatedAs(\Auth::user());
 
         $response = $this->post('/admin/add-product',[
             'plant_id_number'=>'',
@@ -45,13 +62,19 @@ class PlantTest extends TestCase
 
         $response->assertSessionHasErrors('plant_id_number');
 
-        //$this->assertCount(1304, Product::all());
-
     }
 
     /** @test */
     public function plant_can_be_updated() {
         $this->withoutExceptionHandling();
+
+        $response = $this->post('/admin', [
+            'email' => 'admin@kansasplantfarm.com',
+            'password' => 'admin123',
+            'remember' => 'on',
+        ]);
+
+        $this->assertAuthenticatedAs(\Auth::user());
 
         $plant = $this->post('/admin/add-product',[
             'plant_id_number'=>'555555',
@@ -63,7 +86,13 @@ class PlantTest extends TestCase
 
         $product_info = Product::orderBy('id', 'desc')->first();
 
-        $this->patch('/admin/edit-product/'.$product_info->id,[
+        /*$this->put('/admin/update-product/'.$product_info->id,[
+            'plant_id_number'=>'555556',
+            'botanical_name'=> 'test botanical name plant 2',
+            'common_name'=> 'test common name plant 2'
+        ]);*/
+        $this->put('/admin/update-product',[
+            'id'=> $product_info->id,
             'plant_id_number'=>'555556',
             'botanical_name'=> 'test botanical name plant 2',
             'common_name'=> 'test common name plant 2'
